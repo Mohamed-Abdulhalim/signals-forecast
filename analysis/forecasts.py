@@ -29,7 +29,7 @@ class ForecastEngine:
         floors = {
             'Natural Gas': 1.0,
             'Brent Oil':   20.0,
-            'Gold':        800.0,
+            'Gold':        1000.0,
             'USD Index':   85.0,
             'Wheat':       200.0,
             'Corn':        200.0,
@@ -37,14 +37,10 @@ class ForecastEngine:
         }
         return floors.get(asset_name, 0.01)
 
-    def max_change_pct(self, days_ahead):
-        """
-        Cap how far a forecast can move from current price.
-        30 days  → max ±35%
-        90 days  → max ±60%
-        Prevents runaway linear extrapolation.
-        """
-        return 0.35 + (days_ahead - 30) / 90 * 0.25
+    def price_ceiling(self, asset_name, current_price, days_ahead):
+        """Cap how far forecast can move from current price"""
+        max_pct = 0.35 + (days_ahead - 30) / 90 * 0.25
+        return current_price * (1 + max_pct)
 
     def linear_forecast(self, prices, days_ahead, asset_name=''):
         if len(prices) < 10:
@@ -56,24 +52,27 @@ class ForecastEngine:
         slope, intercept, r_value, p_value, std_err = stats.linregress(x, recent)
 
         future_x   = len(recent) + days_ahead
-        prediction = intercept + slope * future_x
+        raw_pred   = intercept + slope * future_x
 
-        residuals    = np.array(recent) - (intercept + slope * x)
-        std_residual = np.std(residuals)
+        residuals      = np.array(recent) - (intercept + slope * x)
+        std_residual   = np.std(residuals)
         horizon_factor = np.sqrt(days_ahead / 30)
-        margin = 1.96 * std_residual * horizon_factor
+        margin         = 1.96 * std_residual * horizon_factor
 
         current_price = prices[-1]
         floor         = self.price_floor(asset_name)
-        max_chg       = self.max_change_pct(days_ahead)
+        ceiling       = self.price_ceiling(asset_name, current_price, days_ahead)
 
-        # Cap prediction within ±max_change of current price
-        max_price = current_price * (1 + max_chg)
-        min_price = max(current_price * (1 - max_chg), floor)
-        prediction = max(min(prediction, max_price), min_price)
+        # Clamp prediction within floor/ceiling
+        prediction  = max(min(raw_pred, ceiling), floor)
 
+        # Bounds: always lower < prediction < upper
         lower_bound = max(prediction - margin, floor)
-        upper_bound = min(prediction + margin, max_price * 1.1)
+        upper_bound = min(prediction + margin, ceiling * 1.05)
+
+        # Guarantee lower <= upper (safety check)
+        if lower_bound > upper_bound:
+            lower_bound, upper_bound = upper_bound, lower_bound
 
         return {
             'prediction':  round(prediction,  2),
@@ -95,16 +94,16 @@ class ForecastEngine:
         momentum   = (recent_avg - older_avg) / older_avg if older_avg != 0 else 0
 
         return {
-            'asset':            asset_name,
-            'category':         category,
-            'current_price':    current_price,
-            'forecast_30_days': forecast_30,
-            'forecast_90_days': forecast_90,
-            'momentum':         round(momentum, 4),
-            'trend':            'up' if momentum > 0.02 else 'down' if momentum < -0.02 else 'neutral',
-            'methodology':      'Linear regression with volatility bands',
-            'timestamp':        datetime.now().isoformat(),
-            'forecast_date':    (datetime.now() + timedelta(days=30)).strftime('%Y-%m-%d')
+            'asset':             asset_name,
+            'category':          category,
+            'current_price':     current_price,
+            'forecast_30_days':  forecast_30,
+            'forecast_90_days':  forecast_90,
+            'momentum':          round(momentum, 4),
+            'trend':             'up' if momentum > 0.02 else 'down' if momentum < -0.02 else 'neutral',
+            'methodology':       'Linear regression with volatility bands',
+            'timestamp':         datetime.now().isoformat(),
+            'forecast_date':     (datetime.now() + timedelta(days=30)).strftime('%Y-%m-%d')
         }
 
     def generate_all_forecasts(self):
