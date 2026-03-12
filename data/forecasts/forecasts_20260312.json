@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-12T18:33:11.846775",
+  "timestamp": "2026-03-12T18:37:22.929202",
   "forecasts": [
     {
       "asset": "Brent Oil",
@@ -20,7 +20,7 @@
       "momentum": 0.2436,
       "trend": "up",
       "methodology": "Linear regression with volatility bands",
-      "timestamp": "2026-03-12T18:33:11.849630",
+      "timestamp": "2026-03-12T18:37:22.931550",
       "forecast_date": "2026-04-11"
     },
     {
@@ -28,43 +28,43 @@
       "category": "energy",
       "current_price": 3.25,
       "forecast_30_days": {
-        "prediction": 1.0,
-        "lower_bound": 1.0,
-        "upper_bound": 3.42,
-        "confidence": "medium"
+        "prediction": 2.87,
+        "lower_bound": 2.61,
+        "upper_bound": 3.13,
+        "confidence": "low"
       },
       "forecast_90_days": {
-        "prediction": 1.0,
-        "lower_bound": 1.0,
-        "upper_bound": 5.18,
-        "confidence": "medium"
+        "prediction": 2.52,
+        "lower_bound": 2.07,
+        "upper_bound": 2.97,
+        "confidence": "low"
       },
       "momentum": 0.024,
       "trend": "up",
       "methodology": "Linear regression with volatility bands",
-      "timestamp": "2026-03-12T18:33:11.851692",
+      "timestamp": "2026-03-12T18:37:22.933382",
       "forecast_date": "2026-04-11"
     },
     {
       "asset": "Gold",
       "category": "safe_haven",
-      "current_price": 5142.01,
+      "current_price": 2980.0,
       "forecast_30_days": {
-        "prediction": 5610.84,
-        "lower_bound": 5421.11,
-        "upper_bound": 5800.57,
+        "prediction": 3251.71,
+        "lower_bound": 3141.75,
+        "upper_bound": 3361.66,
         "confidence": "medium"
       },
       "forecast_90_days": {
-        "prediction": 6396.41,
-        "lower_bound": 6067.79,
-        "upper_bound": 6725.04,
+        "prediction": 3706.98,
+        "lower_bound": 3516.53,
+        "upper_bound": 3897.43,
         "confidence": "medium"
       },
       "momentum": -0.0103,
       "trend": "neutral",
       "methodology": "Linear regression with volatility bands",
-      "timestamp": "2026-03-12T18:33:11.853935",
+      "timestamp": "2026-03-12T18:37:22.935269",
       "forecast_date": "2026-04-11"
     },
     {
@@ -86,7 +86,7 @@
       "momentum": 0.0128,
       "trend": "neutral",
       "methodology": "Linear regression with volatility bands",
-      "timestamp": "2026-03-12T18:33:11.856156",
+      "timestamp": "2026-03-12T18:37:22.937189",
       "forecast_date": "2026-04-11"
     },
     {
@@ -108,7 +108,7 @@
       "momentum": 0.0205,
       "trend": "up",
       "methodology": "Linear regression with volatility bands",
-      "timestamp": "2026-03-12T18:33:11.861295",
+      "timestamp": "2026-03-12T18:37:22.941737",
       "forecast_date": "2026-04-11"
     }
   ]
