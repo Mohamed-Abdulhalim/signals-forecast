@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-12T18:06:26.616562",
+  "timestamp": "2026-03-12T18:12:11.420752",
   "signals": [
     {
       "asset": "Brent Oil",
@@ -8,7 +8,7 @@
       "momentum": 1,
       "volatility": "High",
       "current_price": 94.35,
-      "timestamp": "2026-03-12T18:06:26.618184",
+      "timestamp": "2026-03-12T18:12:11.422396",
       "category": "energy"
     },
     {
@@ -18,7 +18,7 @@
       "momentum": 0.62,
       "volatility": "Moderate",
       "current_price": 3.25,
-      "timestamp": "2026-03-12T18:06:26.618284",
+      "timestamp": "2026-03-12T18:12:11.422538",
       "category": "energy"
     }
   ]

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-12T18:06:27.390965",
+  "timestamp": "2026-03-12T18:12:11.938296",
   "forecasts": [
     {
       "asset": "Brent Oil",
@@ -13,14 +13,14 @@
       },
       "forecast_90_days": {
         "prediction": 167.13,
-        "lower_bound": 156.52,
-        "upper_bound": 177.73,
+        "lower_bound": 148.75,
+        "upper_bound": 185.5,
         "confidence": "medium"
       },
       "momentum": 0.2436,
       "trend": "up",
       "methodology": "Linear regression with volatility bands",
-      "timestamp": "2026-03-12T18:06:27.393656",
+      "timestamp": "2026-03-12T18:12:11.940869",
       "forecast_date": "2026-04-11"
     },
     {
@@ -28,21 +28,21 @@
       "category": "energy",
       "current_price": 3.25,
       "forecast_30_days": {
-        "prediction": -1.53,
-        "lower_bound": -3.96,
-        "upper_bound": 0.89,
+        "prediction": 1.0,
+        "lower_bound": 1.0,
+        "upper_bound": 3.42,
         "confidence": "medium"
       },
       "forecast_90_days": {
-        "prediction": -8.57,
-        "lower_bound": -10.99,
-        "upper_bound": -6.15,
+        "prediction": 1.0,
+        "lower_bound": 1.0,
+        "upper_bound": 5.2,
         "confidence": "medium"
       },
       "momentum": 0.024,
       "trend": "up",
       "methodology": "Linear regression with volatility bands",
-      "timestamp": "2026-03-12T18:06:27.395811",
+      "timestamp": "2026-03-12T18:12:11.942857",
       "forecast_date": "2026-04-11"
     }
   ]
