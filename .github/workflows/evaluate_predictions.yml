@@ -28,7 +28,7 @@ jobs:
       - name: Run evaluation script
         env:
           ALPHA_VANTAGE_KEY: ${{ secrets.ALPHA_VANTAGE_KEY }}
-        run: python evaluate_predictions.py
+        run: python analysis/evaluate_predictions.py
 
       - name: Commit results if updated
         run: |
