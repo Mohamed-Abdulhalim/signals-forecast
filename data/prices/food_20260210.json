@@ -1,0 +1,13 @@
+{
+  "category": "food",
+  "timestamp": "2026-02-10T18:21:30.687772",
+  "assets": [
+    {
+      "asset": "Rice",
+      "symbol": "RICE",
+      "price": 34.3,
+      "date": "2026-02-10",
+      "timestamp": "2026-02-10T18:21:30.687772"
+    }
+  ]
+}
