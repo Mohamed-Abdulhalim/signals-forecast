@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forecasts - Signals & Forecasts</title>
+    <title>Price Forecasts — EdgePulse</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
     <nav>
         <div class="container">
-            <h1 class="logo">Signals & Forecasts</h1>
+            <a href="/" class="logo">EdgePulse</a>
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/signals">Signals</a></li>
@@ -33,7 +33,7 @@
             <div class="current-status">
                 <div class="status-item">
                     <span class="label">Current Price</span>
-                    <span class="value large">${{ forecast.current_price }}</span>
+                    <span class="value large">${{ "{:,.2f}".format(forecast.current_price) }}</span>
                 </div>
                 <div class="status-item">
                     <span class="label">Trend</span>
@@ -56,19 +56,17 @@
                     <div class="forecast-data">
                         <div class="forecast-main">
                             <span class="forecast-label">Expected Price</span>
-                            <span class="forecast-value">${{ forecast.forecast_30_days.prediction }}</span>
+                            <span class="forecast-value">${{ "{:,.2f}".format(forecast.forecast_30_days.prediction) }}</span>
                         </div>
                         <div class="forecast-range">
                             <span class="range-label">Confidence Range</span>
                             <div class="range-bar">
-                                <span class="range-low">${{ forecast.forecast_30_days.lower_bound }}</span>
-                                <span class="range-high">${{ forecast.forecast_30_days.upper_bound }}</span>
+                                <span class="range-low">${{ "{:,.2f}".format(forecast.forecast_30_days.lower_bound) }}</span>
+                                <span class="range-high">${{ "{:,.2f}".format(forecast.forecast_30_days.upper_bound) }}</span>
                             </div>
                         </div>
                         <div class="confidence-indicator">
-                            <span class="confidence-level {{ forecast.forecast_30_days.confidence }}">
-                                {{ forecast.forecast_30_days.confidence }} confidence
-                            </span>
+                            <span class="tooltip-wrap confidence-level {{ forecast.forecast_30_days.confidence }}">{{ forecast.forecast_30_days.confidence }} confidence<span class="tooltip-icon">?</span><span class="tooltip-box">High = R² above 0.7, clear trend. Medium = moderate R², some noise. Low = high variance, treat as directional only.</span></span>
                         </div>
                     </div>
                     {% else %}
@@ -82,19 +80,17 @@
                     <div class="forecast-data">
                         <div class="forecast-main">
                             <span class="forecast-label">Expected Price</span>
-                            <span class="forecast-value">${{ forecast.forecast_90_days.prediction }}</span>
+                            <span class="forecast-value">${{ "{:,.2f}".format(forecast.forecast_90_days.prediction) }}</span>
                         </div>
                         <div class="forecast-range">
                             <span class="range-label">Confidence Range</span>
                             <div class="range-bar">
-                                <span class="range-low">${{ forecast.forecast_90_days.lower_bound }}</span>
-                                <span class="range-high">${{ forecast.forecast_90_days.upper_bound }}</span>
+                                <span class="range-low">${{ "{:,.2f}".format(forecast.forecast_90_days.lower_bound) }}</span>
+                                <span class="range-high">${{ "{:,.2f}".format(forecast.forecast_90_days.upper_bound) }}</span>
                             </div>
                         </div>
                         <div class="confidence-indicator">
-                            <span class="confidence-level {{ forecast.forecast_90_days.confidence }}">
-                                {{ forecast.forecast_90_days.confidence }} confidence
-                            </span>
+                            <span class="tooltip-wrap confidence-level {{ forecast.forecast_90_days.confidence }}">{{ forecast.forecast_90_days.confidence }} confidence<span class="tooltip-icon">?</span><span class="tooltip-box">90-day forecasts carry higher uncertainty. Confidence bands widen significantly. Use for directional awareness, not precise targets.</span></span>
                         </div>
                     </div>
                     {% else %}
@@ -116,9 +112,10 @@
         {% endfor %}
     </main>
 
+    <div class="container" style="padding-bottom:2rem"><p class="data-source">Prices via Yahoo Finance · metals.live · Alpha Vantage</p></div>
     <footer>
         <div class="container">
-            <p>&copy; 2026 Signals & Forecasts. Independent market intelligence.</p>
+            <p>&copy; 2026 EdgePulse. Independent market intelligence.</p>
         </div>
     </footer>
 </body>
