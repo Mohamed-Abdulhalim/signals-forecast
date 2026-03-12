@@ -1,0 +1,60 @@
+name: Fix Gold Prices (Run Once)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix-gold:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Fix Gold prices
+      run: python fix_gold_prices.py
+
+    - name: Regenerate signals
+      run: python analysis/signals.py
+
+    - name: Regenerate forecasts
+      run: python analysis/forecasts.py
+
+    - name: Show updated Gold signal
+      run: |
+        echo "Gold signal after fix:"
+        python -c "
+import json, os
+f = sorted([x for x in os.listdir('data/signals') if x.endswith('.json') and x != 'json.json'])[-1]
+d = json.load(open(f'data/signals/{f}'))
+for s in d['signals']:
+    if s['asset'] == 'Gold':
+        print(json.dumps(s, indent=2))
+"
+
+    - name: Commit and push
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add data/
+        if ! git diff --staged --quiet; then
+          git commit -m "Fix: Correct Gold prices to real spot scale"
+          git push
+        else
+          echo "Nothing to commit"
+        fi
