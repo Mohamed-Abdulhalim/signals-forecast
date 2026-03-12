@@ -1,0 +1,76 @@
+name: Seed Historical Data (Run Once)
+
+on:
+  workflow_dispatch: # Manual trigger only — run this once from GitHub Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  seed-and-initialize:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Create data directories
+      run: |
+        mkdir -p data/prices
+        mkdir -p data/signals
+        mkdir -p data/forecasts
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Seed 6 months of historical data
+      env:
+        ALPHA_VANTAGE_KEY: ${{ secrets.ALPHA_VANTAGE_KEY }}
+      run: |
+        echo "Running historical data seeder..."
+        python seed_historical_data.py
+
+    - name: Check seeded data
+      run: |
+        echo "Files created in data/prices/:"
+        ls -la data/prices/ | tail -20
+        echo "Total files:"
+        ls data/prices/ | wc -l
+
+    - name: Generate signals from seeded data
+      run: |
+        echo "Generating signals..."
+        python analysis/signals.py || echo "Signal generation failed, check logs"
+
+    - name: Generate forecasts from seeded data
+      run: |
+        echo "Generating forecasts..."
+        python analysis/forecasts.py || echo "Forecast generation failed, check logs"
+
+    - name: Check generated analysis
+      run: |
+        echo "Signals:"
+        ls -la data/signals/ || echo "No signals generated"
+        echo "Forecasts:"
+        ls -la data/forecasts/ || echo "No forecasts generated"
+
+    - name: Commit and push all data to repo
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add data/
+        if ! git diff --staged --quiet; then
+          git commit -m "Seed: 6 months historical data + initial signals & forecasts"
+          git push
+        else
+          echo "Nothing to commit — data may already be present"
+        fi
