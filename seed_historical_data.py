@@ -1,197 +1,156 @@
 """
-seed_historical_data.py
+seed_historical_data.py v2
 
-Run this ONCE to backfill 6 months of historical price data for all 7 assets.
-This creates daily JSON files in data/prices/ in the exact format the system expects,
-so signals.py and forecasts.py work immediately without any changes.
+Run ONCE via GitHub Actions to backfill 6 months of historical price data.
+Uses Alpha Vantage for ALL assets — reliable from GitHub Actions servers.
+Free tier uses 7 API calls total — well within the 25/day limit.
 
-Usage:
-    python seed_historical_data.py
-
-Requirements:
-    pip install yfinance requests python-dotenv
+Assets:
+  Energy:     Brent Oil, Natural Gas      (AV commodity endpoints)
+  Safe Haven: Gold (GLD ETF), USD Index (UUP ETF)
+  Food:       Wheat, Corn, Rice           (AV commodity endpoints)
 """
 
 import json
 import os
 import time
 from datetime import datetime, timedelta
-import yfinance as yf
-from dotenv import load_dotenv
 import requests
+from dotenv import load_dotenv
 
 load_dotenv()
 
+API_KEY  = os.getenv('ALPHA_VANTAGE_KEY')
 DATA_DIR = 'data/prices'
+DAYS_BACK = 180
+
 os.makedirs(DATA_DIR, exist_ok=True)
 
-DAYS_BACK = 180  # 6 months
+# ── Asset definitions ────────────────────────────────────────
+# type 'commodity' → AV BRENT/NATURAL_GAS/WHEAT/CORN/RICE endpoint
+# type 'etf'       → AV TIME_SERIES_DAILY on a proxy ETF
 
-# ─────────────────────────────────────────────
-# Asset definitions
-# ─────────────────────────────────────────────
+ASSETS = [
+    {'category': 'energy',     'asset': 'Brent Oil',   'symbol': 'BRENT',  'av_fn': 'BRENT',        'type': 'commodity'},
+    {'category': 'energy',     'asset': 'Natural Gas',  'symbol': 'NATGAS', 'av_fn': 'NATURAL_GAS',  'type': 'commodity'},
+    {'category': 'safe_haven', 'asset': 'Gold',         'symbol': 'XAU',    'av_fn': 'GLD',          'type': 'etf'},
+    {'category': 'safe_haven', 'asset': 'USD Index',    'symbol': 'DXY',    'av_fn': 'UUP',          'type': 'etf'},
+    {'category': 'food',       'asset': 'Wheat',        'symbol': 'WHEAT',  'av_fn': 'WHEAT',        'type': 'commodity'},
+    {'category': 'food',       'asset': 'Corn',         'symbol': 'CORN',   'av_fn': 'CORN',         'type': 'commodity'},
+    {'category': 'food',       'asset': 'Rice',         'symbol': 'RICE',   'av_fn': 'RICE',         'type': 'commodity'},
+]
 
-YFINANCE_ASSETS = {
-    'safe_haven': [
-        {'ticker': 'GC=F',    'asset': 'Gold',      'symbol': 'XAU'},
-        {'ticker': 'DX-Y.NYB','asset': 'USD Index',  'symbol': 'DXY'},
-    ],
-    'food': [
-        {'ticker': 'ZW=F', 'asset': 'Wheat', 'symbol': 'ZW'},
-        {'ticker': 'ZC=F', 'asset': 'Corn',  'symbol': 'ZC'},
-        {'ticker': 'ZR=F', 'asset': 'Rice',  'symbol': 'ZR'},
-    ],
-    'energy': [
-        {'ticker': 'NG=F', 'asset': 'Natural Gas', 'symbol': 'NATGAS'},
-    ],
-}
+# ── Fetchers ─────────────────────────────────────────────────
 
-# ─────────────────────────────────────────────
-# Helpers
-# ─────────────────────────────────────────────
-
-def date_range(days_back):
-    """Return list of (datetime, str) tuples from oldest to today."""
-    today = datetime.now()
-    return [(today - timedelta(days=i), (today - timedelta(days=i)).strftime('%Y%m%d'))
-            for i in range(days_back, -1, -1)]
-
-
-def load_existing(filepath):
-    """Load an existing daily file or return a blank template."""
-    if os.path.exists(filepath):
-        with open(filepath, 'r') as f:
-            return json.load(f)
-    return None
-
-
-def save_file(filepath, data):
-    with open(filepath, 'w') as f:
-        json.dump(data, f, indent=2)
-
-
-def asset_already_exists(day_data, asset_name):
-    return any(a['asset'] == asset_name for a in day_data.get('assets', []))
-
-
-# ─────────────────────────────────────────────
-# yfinance bulk fetch
-# ─────────────────────────────────────────────
-
-def fetch_yfinance_history(ticker_symbol, days_back):
-    """
-    Returns a dict of {date_str: close_price} for the past N days.
-    date_str format: 'YYYY-MM-DD'
-    """
-    try:
-        ticker = yf.Ticker(ticker_symbol)
-        hist = ticker.history(period=f'{days_back}d')
-        if hist.empty:
-            print(f"  [WARN] No yfinance data for {ticker_symbol}")
-            return {}
-        result = {}
-        for idx, row in hist.iterrows():
-            date_str = idx.strftime('%Y-%m-%d')
-            result[date_str] = round(float(row['Close']), 4)
-        return result
-    except Exception as e:
-        print(f"  [ERROR] yfinance {ticker_symbol}: {e}")
-        return {}
-
-
-# ─────────────────────────────────────────────
-# Alpha Vantage Brent Oil fetch
-# ─────────────────────────────────────────────
-
-def fetch_brent_history():
-    """
-    Fetches full Brent Oil daily series from Alpha Vantage.
-    Returns dict of {date_str: price}.
-    """
-    api_key = os.getenv('ALPHA_VANTAGE_KEY')
-    if not api_key:
-        print("  [WARN] No ALPHA_VANTAGE_KEY found — skipping Brent Oil history.")
-        return {}
-
+def fetch_commodity(function_name):
+    """Alpha Vantage commodity endpoint → {date: price}"""
     url = 'https://www.alphavantage.co/query'
-    params = {
-        'function': 'BRENT',
-        'interval': 'daily',
-        'apikey': api_key
-    }
-
+    params = {'function': function_name, 'interval': 'daily', 'apikey': API_KEY}
     try:
-        response = requests.get(url, params=params, timeout=15)
-        data = response.json()
-
+        r = requests.get(url, params=params, timeout=20)
+        data = r.json()
         if 'data' not in data:
-            print(f"  [WARN] Alpha Vantage Brent response unexpected: {list(data.keys())}")
+            msg = data.get('Note') or data.get('Information') or str(list(data.keys()))
+            print(f"    [WARN] {function_name}: {msg[:120]}")
             return {}
-
         result = {}
         for entry in data['data']:
             try:
-                val = float(entry['value'])
-                result[entry['date']] = round(val, 4)
+                val = entry['value']
+                if val in ('.', None, ''):
+                    continue
+                result[entry['date']] = round(float(val), 4)
             except (ValueError, KeyError):
                 continue
-
-        print(f"  [OK] Brent Oil: {len(result)} data points from Alpha Vantage")
+        print(f"    [OK] {function_name}: {len(result)} points")
         return result
-
     except Exception as e:
-        print(f"  [ERROR] Brent Oil Alpha Vantage: {e}")
+        print(f"    [ERROR] {function_name}: {e}")
         return {}
 
 
-# ─────────────────────────────────────────────
-# Write data into daily files
-# ─────────────────────────────────────────────
+def fetch_etf(symbol):
+    """Alpha Vantage TIME_SERIES_DAILY → {date: close_price}"""
+    url = 'https://www.alphavantage.co/query'
+    params = {'function': 'TIME_SERIES_DAILY', 'symbol': symbol,
+              'outputsize': 'full', 'apikey': API_KEY}
+    try:
+        r = requests.get(url, params=params, timeout=20)
+        data = r.json()
+        key = 'Time Series (Daily)'
+        if key not in data:
+            msg = data.get('Note') or data.get('Information') or str(list(data.keys()))
+            print(f"    [WARN] {symbol}: {msg[:120]}")
+            return {}
+        result = {}
+        for date_str, vals in data[key].items():
+            try:
+                result[date_str] = round(float(vals['4. close']), 4)
+            except (ValueError, KeyError):
+                continue
+        print(f"    [OK] {symbol} ETF: {len(result)} points")
+        return result
+    except Exception as e:
+        print(f"    [ERROR] ETF {symbol}: {e}")
+        return {}
 
-def write_asset_to_daily_files(category, asset_def, price_history, dates):
-    """
-    For each date in `dates`, if price_history has a price for that date,
-    write/update the daily category JSON file.
-    """
-    asset_name = asset_def['asset']
-    symbol = asset_def['symbol']
+# ── File helpers ─────────────────────────────────────────────
+
+def load_file(path):
+    if os.path.exists(path):
+        with open(path) as f:
+            return json.load(f)
+    return None
+
+def save_file(path, data):
+    with open(path, 'w') as f:
+        json.dump(data, f, indent=2)
+
+def already_has(day_data, asset_name):
+    return any(a['asset'] == asset_name for a in day_data.get('assets', []))
+
+def date_range(days_back):
+    today = datetime.now()
+    return [(today - timedelta(days=i),
+             (today - timedelta(days=i)).strftime('%Y%m%d'))
+            for i in range(days_back, -1, -1)]
+
+# ── Writer ───────────────────────────────────────────────────
+
+def write_to_daily_files(category, asset_name, symbol, history, dates):
     written = 0
+    cutoff  = (datetime.now() - timedelta(days=DAYS_BACK)).strftime('%Y-%m-%d')
 
-    for dt_obj, file_date_str in dates:
-        calendar_date = dt_obj.strftime('%Y-%m-%d')
-
-        # Skip weekends — markets closed, no data expected
-        if dt_obj.weekday() >= 5:
+    for dt_obj, file_date in dates:
+        if dt_obj.weekday() >= 5:       # skip weekends
+            continue
+        cal_date = dt_obj.strftime('%Y-%m-%d')
+        if cal_date < cutoff:
             continue
 
-        price = price_history.get(calendar_date)
-        if price is None:
-            # Try adjacent days (sometimes data is lagged by 1 day)
-            for delta in [-1, 1, -2]:
-                alt_date = (dt_obj + timedelta(days=delta)).strftime('%Y-%m-%d')
-                price = price_history.get(alt_date)
+        price = history.get(cal_date)
+        if price is None:               # try adjacent days for holidays
+            for d in [-1, 1, -2, 2]:
+                alt = (dt_obj + timedelta(days=d)).strftime('%Y-%m-%d')
+                price = history.get(alt)
                 if price:
                     break
-
         if price is None:
             continue
 
-        filepath = os.path.join(DATA_DIR, f"{category}_{file_date_str}.json")
-        existing = load_existing(filepath)
+        filepath = os.path.join(DATA_DIR, f"{category}_{file_date}.json")
+        existing = load_file(filepath) or {
+            'category': category,
+            'timestamp': dt_obj.isoformat(),
+            'assets': []
+        }
 
-        if existing is None:
-            existing = {
-                'category': category,
-                'timestamp': dt_obj.isoformat(),
-                'assets': []
-            }
-
-        if not asset_already_exists(existing, asset_name):
+        if not already_has(existing, asset_name):
             existing['assets'].append({
-                'asset': asset_name,
-                'symbol': symbol,
-                'price': price,
-                'date': calendar_date,
+                'asset':     asset_name,
+                'symbol':    symbol,
+                'price':     price,
+                'date':      cal_date,
                 'timestamp': dt_obj.isoformat()
             })
             save_file(filepath, existing)
@@ -199,56 +158,47 @@ def write_asset_to_daily_files(category, asset_def, price_history, dates):
 
     return written
 
-
-# ─────────────────────────────────────────────
-# Main
-# ─────────────────────────────────────────────
+# ── Main ─────────────────────────────────────────────────────
 
 def main():
+    if not API_KEY:
+        print("[FATAL] ALPHA_VANTAGE_KEY not set.")
+        return
+
     print("=" * 55)
-    print("  Signals & Forecasts — Historical Data Seeder")
-    print(f"  Seeding {DAYS_BACK} days back from today")
+    print("  Signals & Forecasts — Historical Seeder v2")
+    print(f"  {DAYS_BACK} days back | All via Alpha Vantage")
     print("=" * 55)
 
-    dates = date_range(DAYS_BACK)
+    dates         = date_range(DAYS_BACK)
     total_written = 0
 
-    # ── 1. yfinance assets ──────────────────────────────
-    for category, assets in YFINANCE_ASSETS.items():
-        for asset_def in assets:
-            ticker = asset_def['ticker']
-            name = asset_def['asset']
-            print(f"\n[{category.upper()}] Fetching {name} ({ticker})...")
-            history = fetch_yfinance_history(ticker, DAYS_BACK + 10)
+    for a in ASSETS:
+        print(f"\n[{a['category'].upper()}] {a['asset']} ...")
 
-            if not history:
-                print(f"  Skipped — no data returned.")
-                continue
+        history = (fetch_commodity(a['av_fn'])
+                   if a['type'] == 'commodity'
+                   else fetch_etf(a['av_fn']))
 
-            written = write_asset_to_daily_files(category, asset_def, history, dates)
-            total_written += written
-            print(f"  Written to {written} daily files.")
-            time.sleep(0.5)  # polite delay
+        if not history:
+            print("    No data — skipped.")
+            time.sleep(13)
+            continue
 
-    # ── 2. Brent Oil via Alpha Vantage ──────────────────
-    print(f"\n[ENERGY] Fetching Brent Oil (Alpha Vantage)...")
-    brent_history = fetch_brent_history()
-    if brent_history:
-        brent_def = {'asset': 'Brent Oil', 'symbol': 'BRENT'}
-        written = write_asset_to_daily_files('energy', brent_def, brent_history, dates)
+        written        = write_to_daily_files(
+            a['category'], a['asset'], a['symbol'], history, dates)
         total_written += written
-        print(f"  Written to {written} daily files.")
+        print(f"    Written to {written} daily files.")
 
-    # ── 3. Summary ──────────────────────────────────────
+        # Free tier: 25 req/day, ~5 req/min → wait 13s between calls
+        time.sleep(13)
+
     print("\n" + "=" * 55)
     print(f"  Done. {total_written} asset-day records written.")
-    print(f"  Files saved to: {os.path.abspath(DATA_DIR)}")
+    print(f"  {os.path.abspath(DATA_DIR)}")
     print("=" * 55)
-    print("\nNext steps:")
-    print("  python analysis/signals.py")
-    print("  python analysis/forecasts.py")
-    print("  python web/app.py")
-
+    print("\nNext:  python analysis/signals.py")
+    print("       python analysis/forecasts.py")
 
 if __name__ == '__main__':
     main()
