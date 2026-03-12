@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Record - Signals & Forecasts</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <h1 class="logo">Signals & Forecasts</h1>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/signals">Signals</a></li>
+                <li><a href="/forecasts">Forecasts</a></li>
+                <li><a href="/track-record" class="active">Track Record</a></li>
+                <li><a href="/methodology">Methodology</a></li>
+                <li><a href="/work-with-me">Work With Me</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>Track Record</h1>
+        <p class="page-intro">Transparent performance history - hits and misses</p>
+
+        <section class="track-intro">
+            <p>
+                This page will document all predictions with actual outcomes once sufficient data accumulates.
+                Every forecast made on the <a href="/forecasts">Forecasts</a> page is automatically logged 
+                and will be evaluated here when the prediction window closes.
+            </p>
+            <p class="honesty-note">
+                <strong>Note:</strong> Both successful and failed predictions will be shown. 
+                Accuracy matters, but so does learning from what doesn't work.
+            </p>
+        </section>
+
+        <section class="sample-records">
+            <h2>Example Format (Demo)</h2>
+            <p class="demo-note">Once live forecasts have matured, actual results will appear here:</p>
+
+            <div class="prediction-record hit">
+                <div class="record-header">
+                    <h3>Brent Oil - 30 Day Forecast</h3>
+                    <span class="outcome-badge success">Hit</span>
+                </div>
+                <div class="record-details">
+                    <div class="prediction-made">
+                        <span class="detail-label">Prediction Made:</span>
+                        <span class="detail-value">Feb 1, 2026</span>
+                    </div>
+                    <div class="prediction-text">
+                        <p>Expected price to rise to $85 within 45 days (range: $82-$88)</p>
+                    </div>
+                    <div class="outcome-data">
+                        <span class="detail-label">Actual Outcome (Mar 17):</span>
+                        <span class="detail-value">$84.60</span>
+                    </div>
+                    <div class="accuracy">
+                        <span class="detail-label">Accuracy:</span>
+                        <span class="detail-value">99.5% (within confidence range)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="prediction-record miss">
+                <div class="record-header">
+                    <h3>Gold - 90 Day Forecast</h3>
+                    <span class="outcome-badge failure">Miss</span>
+                </div>
+                <div class="record-details">
+                    <div class="prediction-made">
+                        <span class="detail-label">Prediction Made:</span>
+                        <span class="detail-value">Jan 15, 2026</span>
+                    </div>
+                    <div class="prediction-text">
+                        <p>Expected price to decline to $2,280 within 90 days (range: $2,240-$2,320)</p>
+                    </div>
+                    <div class="outcome-data">
+                        <span class="detail-label">Actual Outcome (Apr 15):</span>
+                        <span class="detail-value">$2,405</span>
+                    </div>
+                    <div class="accuracy">
+                        <span class="detail-label">Error:</span>
+                        <span class="detail-value">+$125 (5.5% miss, outside confidence range)</span>
+                    </div>
+                    <div class="lesson-learned">
+                        <span class="detail-label">What Went Wrong:</span>
+                        <p>Underestimated safe haven demand amid escalating Middle East tensions. Model did not factor geopolitical risk premium adequately.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="coming-soon">
+            <h2>Live Track Record</h2>
+            <p>
+                As forecasts are published weekly starting in Week 6, this section will populate automatically
+                with actual performance data. Check back in 30-90 days for the first completed predictions.
+            </p>
+            <div class="stats-preview">
+                <div class="stat-box">
+                    <span class="stat-label">Total Predictions</span>
+                    <span class="stat-value">0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Hits (within range)</span>
+                    <span class="stat-value">-</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Misses (outside range)</span>
+                    <span class="stat-value">-</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Average Accuracy</span>
+                    <span class="stat-value">-</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Signals & Forecasts. Independent market intelligence.</p>
+        </div>
+    </footer>
+</body>
+</html>
