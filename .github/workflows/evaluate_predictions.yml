@@ -2,27 +2,38 @@ name: Evaluate Predictions
 
 on:
   schedule:
+    # Runs daily at 10AM UTC — checks if any predictions are due
     - cron: '0 10 * * *'
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   evaluate:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
           python-version: '3.11'
+
       - name: Install dependencies
-        run: pip install yfinance requests
-      - name: Run outcome evaluator
+        run: pip install yfinance requests --break-system-packages
+
+      - name: Run evaluation script
         env:
           ALPHA_VANTAGE_KEY: ${{ secrets.ALPHA_VANTAGE_KEY }}
-        run: python analysis/evaluate_predictions.py
-      - name: Commit results
+        run: python evaluate_predictions.py
+
+      - name: Commit results if updated
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Actions"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add data/track_record.json
-          git diff --staged --quiet || git commit -m "Auto: evaluate prediction outcomes $(date +%Y-%m-%d)"
+          git diff --staged --quiet || git commit -m "Auto: evaluate matured predictions $(date +%Y-%m-%d)"
           git push
