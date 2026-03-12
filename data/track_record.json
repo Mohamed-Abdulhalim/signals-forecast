@@ -1,0 +1,116 @@
+{
+  "predictions": [
+    {
+      "id": "brent-oil-20260313",
+      "asset": "Brent Oil",
+      "category": "energy",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "prediction_date": "2026-03-13",
+      "current_price": 94.35,
+      "forecast_30_days": {
+        "target": 115.56,
+        "lower_bound": 104.96,
+        "upper_bound": 126.17,
+        "confidence": "medium"
+      },
+      "outcome_date": "2026-04-12",
+      "status": "pending",
+      "actual_price": null,
+      "result": null,
+      "error_pct": null,
+      "notes": null
+    },
+    {
+      "id": "natural-gas-20260313",
+      "asset": "Natural Gas",
+      "category": "energy",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "prediction_date": "2026-03-13",
+      "current_price": 3.25,
+      "forecast_30_days": {
+        "target": 2.87,
+        "lower_bound": 2.61,
+        "upper_bound": 3.13,
+        "confidence": "low"
+      },
+      "outcome_date": "2026-04-12",
+      "status": "pending",
+      "actual_price": null,
+      "result": null,
+      "error_pct": null,
+      "notes": null
+    },
+    {
+      "id": "gold-20260313",
+      "asset": "Gold",
+      "category": "safe_haven",
+      "signal": "neutral",
+      "signal_confidence": "medium",
+      "prediction_date": "2026-03-13",
+      "current_price": 2980.00,
+      "forecast_30_days": {
+        "target": 3251.71,
+        "lower_bound": 3141.75,
+        "upper_bound": 3361.66,
+        "confidence": "medium"
+      },
+      "outcome_date": "2026-04-12",
+      "status": "pending",
+      "actual_price": null,
+      "result": null,
+      "error_pct": null,
+      "notes": null
+    },
+    {
+      "id": "usd-index-20260313",
+      "asset": "USD Index",
+      "category": "safe_haven",
+      "signal": "neutral",
+      "signal_confidence": "medium",
+      "prediction_date": "2026-03-13",
+      "current_price": 96.84,
+      "forecast_30_days": {
+        "target": 98.86,
+        "lower_bound": 97.92,
+        "upper_bound": 99.80,
+        "confidence": "medium"
+      },
+      "outcome_date": "2026-04-12",
+      "status": "pending",
+      "actual_price": null,
+      "result": null,
+      "error_pct": null,
+      "notes": null
+    },
+    {
+      "id": "rice-20260313",
+      "asset": "Rice",
+      "category": "food",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "prediction_date": "2026-03-13",
+      "current_price": 35.63,
+      "forecast_30_days": {
+        "target": 36.82,
+        "lower_bound": 36.40,
+        "upper_bound": 37.24,
+        "confidence": "high"
+      },
+      "outcome_date": "2026-04-12",
+      "status": "pending",
+      "actual_price": null,
+      "result": null,
+      "error_pct": null,
+      "notes": null
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "pending": 5,
+    "hits": 0,
+    "misses": 0,
+    "average_accuracy": null
+  }
+}
