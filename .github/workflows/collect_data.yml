@@ -6,46 +6,60 @@ on:
     - cron: '0 8 * * *'
   workflow_dispatch: # Allows manual trigger
 
+permissions:
+  contents: write
+
 jobs:
   collect-data:
     runs-on: ubuntu-latest
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
     
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.11'
-    
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
     
     - name: Create data directories
       run: |
         mkdir -p data/prices
         mkdir -p data/signals
         mkdir -p data/forecasts
+        ls -la data/
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
     
     - name: Collect Energy Data
       env:
         ALPHA_VANTAGE_KEY: ${{ secrets.ALPHA_VANTAGE_KEY }}
-      run: python collectors/energy.py
+      run: python collectors/energy.py || echo "Energy collection failed, continuing..."
     
     - name: Collect Safe Haven Data
-      run: python collectors/safe_haven.py
+      run: python collectors/safe_haven.py || echo "Safe haven collection failed, continuing..."
     
     - name: Collect Food Data
-      run: python collectors/food.py
+      run: python collectors/food.py || echo "Food collection failed, continuing..."
+    
+    - name: Check collected data
+      run: |
+        echo "Data files created:"
+        ls -la data/prices/ || echo "No price data yet"
     
     - name: Commit and push data
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add data/
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Auto: Daily data collection $(date +%Y-%m-%d)" && git push)
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add data/ || true
+        if ! git diff --quiet || ! git diff --staged --quiet; then
+          git commit -m "Auto: Daily data collection $(date +%Y-%m-%d)"
+          git push
+        else
+          echo "No changes to commit"
+        fi
