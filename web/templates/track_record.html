@@ -5,11 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Track Record - EdgePulse</title>
     <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .tr-intro { max-width: 680px; margin-bottom: 3rem; }
+        .tr-intro p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem; }
+        .honesty-note { border-left: 2px solid var(--gold-dim); padding: 0.75rem 1rem; background: rgba(201,168,76,0.04); color: var(--text-muted) !important; font-size: 0.85rem !important; }
+
+        .tr-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border-subtle); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 3rem; }
+        .tr-stat { background: var(--surface-card); padding: 1.5rem; text-align: center; }
+        .tr-stat-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 0.75rem; }
+        .tr-stat-value { font-family: 'DM Mono', monospace; font-size: 1.8rem; color: var(--gold); font-weight: 400; display: block; }
+        .tr-stat-value.neutral { color: var(--text-secondary); }
+
+        .pending-banner { background: rgba(201,168,76,0.05); border: 1px solid var(--gold-dim); border-radius: var(--radius-md); padding: 1.25rem 1.5rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; }
+        .pending-banner .pb-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); animation: pulse-dot 2s ease-in-out infinite; flex-shrink: 0; }
+        .pending-banner p { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--gold-dim); letter-spacing: 0.06em; margin: 0; }
+
+        .predictions-grid { display: flex; flex-direction: column; gap: 1px; background: var(--border-subtle); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 3rem; }
+        .prediction-card { background: var(--surface-card); padding: 1.75rem 2rem; transition: background var(--transition); }
+        .prediction-card:hover { background: var(--surface-hover); }
+
+        .pc-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; }
+        .pc-asset { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; color: var(--text-muted); text-transform: uppercase; }
+        .pc-asset span { color: var(--gold-dim); margin-right: 0.5rem; }
+        .pc-status { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.75rem; border-radius: 2px; border: 1px solid; }
+        .pc-status.pending { color: var(--gold-dim); border-color: var(--gold-dim); background: rgba(201,168,76,0.06); }
+        .pc-status.hit { color: var(--bullish); border-color: var(--bullish); background: rgba(74,157,101,0.08); }
+        .pc-status.miss { color: #c0392b; border-color: #c0392b; background: rgba(192,57,43,0.08); }
+
+        .pc-body { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        .pc-field label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 0.4rem; }
+        .pc-field .val { font-family: 'DM Mono', monospace; font-size: 0.9rem; color: var(--text-primary); }
+        .pc-field .val.gold { color: var(--gold); }
+        .pc-field .range { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem; }
+        .pc-signal { display: inline-flex; align-items: center; gap: 5px; font-family: 'DM Mono', monospace; font-size: 0.8rem; }
+        .pc-signal.bullish { color: var(--bullish); }
+        .pc-signal.neutral { color: var(--text-secondary); }
+        .pc-signal.bearish { color: var(--bearish); }
+
+        .pc-outcome { grid-column: 1 / -1; border-top: 1px solid var(--border-subtle); padding-top: 1rem; margin-top: 0.5rem; }
+        .pc-outcome p { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.06em; }
+        .pc-notes { grid-column: 1 / -1; border-top: 1px solid var(--border-subtle); padding-top: 1rem; margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+
+        .tr-section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem; }
+        .tr-section-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--text-primary); }
+        .tr-section-header .count { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.1em; }
+
+        @media (max-width: 768px) {
+            .tr-summary { grid-template-columns: repeat(2, 1fr); }
+            .pc-body { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
 </head>
 <body>
+    <div class="scanline"></div>
+
     <nav>
-        <div class="container">
-            <a href="/" class="logo">EdgePulse</a>
+        <div class="container nav-inner">
+            <a href="/" class="logo"><span class="logo-dot"></span>EdgePulse</a>
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/signals">Signals</a></li>
@@ -22,103 +74,54 @@
     </nav>
 
     <main class="container">
-        <h1>Track Record</h1>
-        <p class="page-intro">Transparent performance history - hits and misses</p>
+        <div class="page-header">
+            <h1>Track Record</h1>
+            <div class="page-meta"><span>LIVE PREDICTIONS · UPDATED WEEKLY</span></div>
+        </div>
 
-        <section class="track-intro">
-            <p>
-                This page will document all predictions with actual outcomes once sufficient data accumulates.
-                Every forecast made on the <a href="/forecasts">Forecasts</a> page is automatically logged 
-                and will be evaluated here when the prediction window closes.
-            </p>
-            <p class="honesty-note">
-                <strong>Note:</strong> Both successful and failed predictions will be shown. 
-                Accuracy matters, but so does learning from what doesn't work.
-            </p>
-        </section>
+        <div class="tr-intro">
+            <p>Every forecast published on EdgePulse is logged here on the day it is made. When the 30-day window closes, actual prices are recorded and the prediction is marked as a hit or a miss — automatically, without editorial revision.</p>
+            <p class="honesty-note">Both hits and misses are shown in full. A model that only publishes its wins is not a model worth trusting.</p>
+        </div>
 
-        <section class="sample-records">
-            <h2>Example Format (Demo)</h2>
-            <p class="demo-note">Once live forecasts have matured, actual results will appear here:</p>
-
-            <div class="prediction-record hit">
-                <div class="record-header">
-                    <h3>Brent Oil - 30 Day Forecast</h3>
-                    <span class="outcome-badge success">Hit</span>
-                </div>
-                <div class="record-details">
-                    <div class="prediction-made">
-                        <span class="detail-label">Prediction Made:</span>
-                        <span class="detail-value">Feb 1, 2026</span>
-                    </div>
-                    <div class="prediction-text">
-                        <p>Expected price to rise to $85 within 45 days (range: $82-$88)</p>
-                    </div>
-                    <div class="outcome-data">
-                        <span class="detail-label">Actual Outcome (Mar 17):</span>
-                        <span class="detail-value">$84.60</span>
-                    </div>
-                    <div class="accuracy">
-                        <span class="detail-label">Accuracy:</span>
-                        <span class="detail-value">99.5% (within confidence range)</span>
-                    </div>
-                </div>
+        <div class="tr-summary">
+            <div class="tr-stat">
+                <span class="tr-stat-label">Total Predictions</span>
+                <span class="tr-stat-value" id="stat-total">—</span>
             </div>
-
-            <div class="prediction-record miss">
-                <div class="record-header">
-                    <h3>Gold - 90 Day Forecast</h3>
-                    <span class="outcome-badge failure">Miss</span>
-                </div>
-                <div class="record-details">
-                    <div class="prediction-made">
-                        <span class="detail-label">Prediction Made:</span>
-                        <span class="detail-value">Jan 15, 2026</span>
-                    </div>
-                    <div class="prediction-text">
-                        <p>Expected price to decline to $2,280 within 90 days (range: $2,240-$2,320)</p>
-                    </div>
-                    <div class="outcome-data">
-                        <span class="detail-label">Actual Outcome (Apr 15):</span>
-                        <span class="detail-value">$2,405</span>
-                    </div>
-                    <div class="accuracy">
-                        <span class="detail-label">Error:</span>
-                        <span class="detail-value">+$125 (5.5% miss, outside confidence range)</span>
-                    </div>
-                    <div class="lesson-learned">
-                        <span class="detail-label">What Went Wrong:</span>
-                        <p>Underestimated safe haven demand amid escalating Middle East tensions. Model did not factor geopolitical risk premium adequately.</p>
-                    </div>
-                </div>
+            <div class="tr-stat">
+                <span class="tr-stat-label">Pending</span>
+                <span class="tr-stat-value neutral" id="stat-pending">—</span>
             </div>
-        </section>
-
-        <section class="coming-soon">
-            <h2>Live Track Record</h2>
-            <p>
-                As forecasts are published weekly starting in Week 6, this section will populate automatically
-                with actual performance data. Check back in 30-90 days for the first completed predictions.
-            </p>
-            <div class="stats-preview">
-                <div class="stat-box">
-                    <span class="stat-label">Total Predictions</span>
-                    <span class="stat-value">0</span>
-                </div>
-                <div class="stat-box">
-                    <span class="stat-label">Hits (within range)</span>
-                    <span class="stat-value">-</span>
-                </div>
-                <div class="stat-box">
-                    <span class="stat-label">Misses (outside range)</span>
-                    <span class="stat-value">-</span>
-                </div>
-                <div class="stat-box">
-                    <span class="stat-label">Average Accuracy</span>
-                    <span class="stat-value">-</span>
-                </div>
+            <div class="tr-stat">
+                <span class="tr-stat-label">Hits</span>
+                <span class="tr-stat-value" id="stat-hits">—</span>
             </div>
-        </section>
+            <div class="tr-stat">
+                <span class="tr-stat-label">Misses</span>
+                <span class="tr-stat-value neutral" id="stat-misses">—</span>
+            </div>
+        </div>
+
+        <div id="pending-section">
+            <div class="tr-section-header">
+                <h2>Active Predictions</h2>
+                <span class="count" id="pending-count"></span>
+            </div>
+            <div class="pending-banner">
+                <div class="pb-dot"></div>
+                <p>These predictions are live. Outcome windows close on Apr 12, 2026 — prices will be fetched automatically and results logged.</p>
+            </div>
+            <div class="predictions-grid" id="pending-grid"></div>
+        </div>
+
+        <div id="completed-section" style="display:none;">
+            <div class="tr-section-header">
+                <h2>Completed Predictions</h2>
+                <span class="count" id="completed-count"></span>
+            </div>
+            <div class="predictions-grid" id="completed-grid"></div>
+        </div>
     </main>
 
     <footer>
@@ -126,5 +129,82 @@
             <p>&copy; 2026 EdgePulse. Independent market intelligence.</p>
         </div>
     </footer>
+
+    <script src="/static/tooltips.js"></script>
+    <script>
+    const ARROW = { bullish: '↑', neutral: '→', bearish: '↓' };
+
+    function fmt(n) {
+        if (n === null || n === undefined) return '—';
+        return '$' + Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+    function buildCard(p) {
+        const f = p.forecast_30_days;
+        const isPending = p.status === 'pending';
+        const statusLabel = isPending ? 'Pending' : (p.result === 'hit' ? 'Hit ✓' : 'Miss ✗');
+        return `
+        <div class="prediction-card">
+            <div class="pc-header">
+                <span class="pc-asset"><span>·</span>${p.asset.toUpperCase()}</span>
+                <span class="pc-status ${isPending ? 'pending' : p.result}">${statusLabel}</span>
+            </div>
+            <div class="pc-body">
+                <div class="pc-field"><label>Prediction Date</label><div class="val">${p.prediction_date}</div></div>
+                <div class="pc-field"><label>Price at Signal</label><div class="val">${fmt(p.current_price)}</div></div>
+                <div class="pc-field">
+                    <label>Signal</label>
+                    <div class="val"><span class="pc-signal ${p.signal}">${ARROW[p.signal] || '→'} ${cap(p.signal)}</span>
+                    <div class="range">${p.signal_confidence} confidence</div></div>
+                </div>
+                <div class="pc-field"><label>Outcome Date</label><div class="val">${p.outcome_date}</div></div>
+                <div class="pc-field">
+                    <label>30-Day Target</label>
+                    <div class="val gold">${fmt(f.target)}</div>
+                    <div class="range">${fmt(f.lower_bound)} – ${fmt(f.upper_bound)}</div>
+                </div>
+                <div class="pc-field"><label>Forecast Confidence</label><div class="val">${cap(f.confidence)}</div></div>
+                ${!isPending ? `
+                <div class="pc-field"><label>Actual Price</label><div class="val ${p.result === 'hit' ? 'gold' : ''}">${fmt(p.actual_price)}</div></div>
+                <div class="pc-field"><label>Error</label><div class="val">${p.error_pct !== null ? p.error_pct.toFixed(1) + '%' : '—'}</div></div>
+                ` : ''}
+                <div class="pc-outcome"><p>· Outcome will be recorded automatically on ${p.outcome_date}</p></div>
+                ${p.notes ? `<div class="pc-notes">${p.notes}</div>` : ''}
+            </div>
+        </div>`;
+    }
+
+    fetch('/api/track-record')
+        .then(r => r.json())
+        .then(data => {
+            const pending   = data.predictions.filter(p => p.status === 'pending');
+            const completed = data.predictions.filter(p => p.status !== 'pending');
+            const s = data.summary;
+
+            document.getElementById('stat-total').textContent   = s.total   ?? '—';
+            document.getElementById('stat-pending').textContent = s.pending  ?? '—';
+            document.getElementById('stat-hits').textContent    = s.hits     ?? '—';
+            document.getElementById('stat-misses').textContent  = s.misses   ?? '—';
+
+            if (pending.length) {
+                document.getElementById('pending-count').textContent = pending.length + ' active';
+                document.getElementById('pending-grid').innerHTML = pending.map(buildCard).join('');
+            } else {
+                document.getElementById('pending-section').style.display = 'none';
+            }
+
+            if (completed.length) {
+                document.getElementById('completed-section').style.display = 'block';
+                document.getElementById('completed-count').textContent = completed.length + ' resolved';
+                document.getElementById('completed-grid').innerHTML = completed.map(buildCard).join('');
+            }
+        })
+        .catch(() => {
+            document.getElementById('pending-grid').innerHTML =
+                '<div class="prediction-card"><p style="color:var(--text-muted);padding:1rem">Unable to load predictions.</p></div>';
+        });
+    </script>
 </body>
 </html>
