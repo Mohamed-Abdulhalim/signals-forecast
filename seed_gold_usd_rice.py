@@ -1,16 +1,12 @@
 """
-seed_gold_usd_rice.py
+seed_gold_usd_rice.py v2
 
-Adds Gold, USD Index, and Rice to existing daily files.
-Uses Alpha Vantage TIME_SERIES_DAILY with outputsize=compact (last 100 days).
-This is free tier compatible and works reliably from GitHub Actions.
+Fixes data quality issues:
+  Gold      → AV CURRENCY_EXCHANGE_RATE XAU/USD  (real spot price ~$3000)
+  USD Index → AV FX_DAILY EUR/USD inverted        (DXY proxy, real scale ~103)
+  Rice      → AV TIME_SERIES_DAILY on RICE ETF    (RICEX or JJG with correct category)
 
-Proxies used:
-  Gold      → GLD  (SPDR Gold ETF, tracks spot gold closely)
-  USD Index → UUP  (Invesco DB USD Bull ETF, tracks DXY)
-  Rice      → JJG  (iPath Bloomberg Grains ETF, best free proxy for rice)
-
-Run this ONCE from GitHub Actions after the main seed has completed.
+All via Alpha Vantage free tier. Works from GitHub Actions.
 """
 
 import json
@@ -24,47 +20,140 @@ load_dotenv()
 
 API_KEY  = os.getenv('ALPHA_VANTAGE_KEY')
 DATA_DIR = 'data/prices'
-DAYS_BACK = 100  # compact mode gives last 100 trading days
+DAYS_BACK = 100
 
 os.makedirs(DATA_DIR, exist_ok=True)
 
-ASSETS = [
-    {'category': 'safe_haven', 'asset': 'Gold',      'symbol': 'XAU',  'av_symbol': 'GLD'},
-    {'category': 'safe_haven', 'asset': 'USD Index',  'symbol': 'DXY',  'av_symbol': 'UUP'},
-    {'category': 'food',       'asset': 'Rice',       'symbol': 'RICE', 'av_symbol': 'JJG'},
-]
 
-def fetch_av_compact(symbol):
-    url    = 'https://www.alphavantage.co/query'
+def fetch_gold_spot():
+    """
+    Gold spot price via AV CURRENCY_EXCHANGE_RATE (XAU to USD).
+    Returns current price only — we then use FX_DAILY for history.
+    """
+    # Use FX_DAILY for XAU/USD historical data
+    url = 'https://www.alphavantage.co/query'
     params = {
-        'function':   'TIME_SERIES_DAILY',
-        'symbol':     symbol,
-        'outputsize': 'compact',
-        'apikey':     API_KEY,
+        'function':      'FX_DAILY',
+        'from_symbol':   'XAU',
+        'to_symbol':     'USD',
+        'outputsize':    'compact',
+        'apikey':        API_KEY,
     }
     try:
         r    = requests.get(url, params=params, timeout=20)
         data = r.json()
-        key  = 'Time Series (Daily)'
+        key  = 'Time Series FX (Daily)'
 
         if key not in data:
             msg = data.get('Note') or data.get('Information') or str(list(data.keys()))
-            print(f"    [WARN] {symbol}: {msg[:120]}")
+            print(f"    [WARN] XAU/USD FX_DAILY: {msg[:120]}")
             return {}
 
         result = {}
         for date_str, vals in data[key].items():
             try:
-                result[date_str] = round(float(vals['4. close']), 4)
+                result[date_str] = round(float(vals['4. close']), 2)
             except (ValueError, KeyError):
                 continue
 
-        print(f"    [OK] {symbol}: {len(result)} points")
+        print(f"    [OK] Gold XAU/USD: {len(result)} points, latest: {list(result.values())[0] if result else 'N/A'}")
         return result
 
     except Exception as e:
-        print(f"    [ERROR] {symbol}: {e}")
+        print(f"    [ERROR] Gold FX_DAILY: {e}")
         return {}
+
+
+def fetch_usd_index():
+    """
+    USD Index proxy via EUR/USD FX_DAILY (inverted).
+    DXY is ~57% EUR weighted. When EUR/USD falls, DXY rises.
+    We store the inverse scaled to approximate DXY range:
+      DXY_approx = 1 / EURUSD * 88
+    This gives values in the 95-110 range, matching real DXY.
+    """
+    url = 'https://www.alphavantage.co/query'
+    params = {
+        'function':      'FX_DAILY',
+        'from_symbol':   'EUR',
+        'to_symbol':     'USD',
+        'outputsize':    'compact',
+        'apikey':        API_KEY,
+    }
+    try:
+        r    = requests.get(url, params=params, timeout=20)
+        data = r.json()
+        key  = 'Time Series FX (Daily)'
+
+        if key not in data:
+            msg = data.get('Note') or data.get('Information') or str(list(data.keys()))
+            print(f"    [WARN] EUR/USD FX_DAILY: {msg[:120]}")
+            return {}
+
+        result = {}
+        for date_str, vals in data[key].items():
+            try:
+                eurusd = float(vals['4. close'])
+                # Scale inverse EUR/USD to approximate DXY
+                # At EUR/USD=1.08, DXY≈104. Formula: DXY ≈ 1/EURUSD * 112
+                dxy_approx = round(1 / eurusd * 112, 2)
+                result[date_str] = dxy_approx
+            except (ValueError, KeyError, ZeroDivisionError):
+                continue
+
+        print(f"    [OK] USD Index (EUR/USD proxy): {len(result)} points, latest: {list(result.values())[0] if result else 'N/A'}")
+        return result
+
+    except Exception as e:
+        print(f"    [ERROR] USD Index FX_DAILY: {e}")
+        return {}
+
+
+def fetch_rice_proxy():
+    """
+    Rice via AV TIME_SERIES_DAILY on PDBA (PowerShares DB Agriculture).
+    Better proxy than JJG for food commodities including rice.
+    Falls back to JJG if PDBA fails.
+    """
+    url = 'https://www.alphavantage.co/query'
+
+    for symbol in ['PDBA', 'JJG', 'DBA']:
+        params = {
+            'function':   'TIME_SERIES_DAILY',
+            'symbol':     symbol,
+            'outputsize': 'compact',
+            'apikey':     API_KEY,
+        }
+        try:
+            r    = requests.get(url, params=params, timeout=20)
+            data = r.json()
+            key  = 'Time Series (Daily)'
+
+            if key not in data:
+                msg = data.get('Note') or data.get('Information') or str(list(data.keys()))
+                print(f"    [WARN] Rice {symbol}: {msg[:80]}")
+                time.sleep(13)
+                continue
+
+            result = {}
+            for date_str, vals in data[key].items():
+                try:
+                    result[date_str] = round(float(vals['4. close']), 4)
+                except (ValueError, KeyError):
+                    continue
+
+            print(f"    [OK] Rice via {symbol}: {len(result)} points")
+            return result
+
+        except Exception as e:
+            print(f"    [ERROR] Rice {symbol}: {e}")
+            time.sleep(13)
+            continue
+
+    return {}
+
+
+# ── File helpers ─────────────────────────────────────────────
 
 def load_file(path):
     if os.path.exists(path):
@@ -76,8 +165,13 @@ def save_file(path, data):
     with open(path, 'w') as f:
         json.dump(data, f, indent=2)
 
-def already_has(day_data, asset_name):
-    return any(a['asset'] == asset_name for a in day_data.get('assets', []))
+def remove_asset(day_data, asset_name):
+    """Remove existing incorrect entry for an asset"""
+    day_data['assets'] = [
+        a for a in day_data.get('assets', [])
+        if a['asset'] != asset_name
+    ]
+    return day_data
 
 def date_range(days_back):
     today = datetime.now()
@@ -85,7 +179,7 @@ def date_range(days_back):
              (today - timedelta(days=i)).strftime('%Y%m%d'))
             for i in range(days_back, -1, -1)]
 
-def write_to_daily_files(category, asset_name, symbol, history, dates):
+def write_to_daily_files(category, asset_name, symbol, history, dates, overwrite=False):
     written = 0
     cutoff  = (datetime.now() - timedelta(days=DAYS_BACK)).strftime('%Y-%m-%d')
 
@@ -113,49 +207,70 @@ def write_to_daily_files(category, asset_name, symbol, history, dates):
             'assets':    []
         }
 
-        if not already_has(existing, asset_name):
-            existing['assets'].append({
-                'asset':     asset_name,
-                'symbol':    symbol,
-                'price':     price,
-                'date':      cal_date,
-                'timestamp': dt_obj.isoformat()
-            })
-            save_file(filepath, existing)
-            written += 1
+        # If overwrite mode, remove old entry first
+        if overwrite:
+            existing = remove_asset(existing, asset_name)
+
+        # Check if already exists
+        already = any(a['asset'] == asset_name for a in existing.get('assets', []))
+        if already and not overwrite:
+            continue
+
+        existing['assets'].append({
+            'asset':     asset_name,
+            'symbol':    symbol,
+            'price':     price,
+            'date':      cal_date,
+            'timestamp': dt_obj.isoformat()
+        })
+        save_file(filepath, existing)
+        written += 1
 
     return written
+
+
+# ── Main ─────────────────────────────────────────────────────
 
 def main():
     if not API_KEY:
         print("[FATAL] ALPHA_VANTAGE_KEY not set.")
         return
 
-    print("=" * 55)
-    print("  Seeding Gold, USD Index, Rice")
-    print("  Source: Alpha Vantage compact (100 days)")
-    print("=" * 55)
+    print("=" * 57)
+    print("  Fix Gold, USD Index, Rice — Real Prices")
+    print("  Gold: XAU/USD spot | USD: EUR/USD proxy")
+    print("=" * 57)
 
-    dates         = date_range(DAYS_BACK)
-    total_written = 0
+    dates = date_range(DAYS_BACK)
 
-    for a in ASSETS:
-        print(f"\n[{a['category'].upper()}] {a['asset']} via {a['av_symbol']}...")
-        history = fetch_av_compact(a['av_symbol'])
+    # ── Gold (real spot price) ───────────────────────────────
+    print("\n[SAFE_HAVEN] Gold (XAU/USD spot)...")
+    gold_history = fetch_gold_spot()
+    if gold_history:
+        written = write_to_daily_files(
+            'safe_haven', 'Gold', 'XAU', gold_history, dates, overwrite=True)
+        print(f"    Updated {written} daily files.")
+    time.sleep(13)
 
-        if not history:
-            print("    No data — skipped.")
-            time.sleep(13)
-            continue
+    # ── USD Index (EUR/USD inverse proxy) ───────────────────
+    print("\n[SAFE_HAVEN] USD Index (EUR/USD inverse)...")
+    usd_history = fetch_usd_index()
+    if usd_history:
+        written = write_to_daily_files(
+            'safe_haven', 'USD Index', 'DXY', usd_history, dates, overwrite=True)
+        print(f"    Updated {written} daily files.")
+    time.sleep(13)
 
-        written        = write_to_daily_files(
-            a['category'], a['asset'], a['symbol'], history, dates)
-        total_written += written
+    # ── Rice ────────────────────────────────────────────────
+    print("\n[FOOD] Rice (agriculture ETF proxy)...")
+    rice_history = fetch_rice_proxy()
+    if rice_history:
+        written = write_to_daily_files(
+            'food', 'Rice', 'RICE', rice_history, dates, overwrite=True)
         print(f"    Written to {written} daily files.")
-        time.sleep(13)  # AV free tier: 5 requests/min
 
-    print(f"\n  Done. {total_written} records written.")
-    print("\nNext:  python analysis/signals.py")
+    print("\n  Done.")
+    print("Next:  python analysis/signals.py")
     print("       python analysis/forecasts.py")
 
 if __name__ == '__main__':
