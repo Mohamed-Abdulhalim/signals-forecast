@@ -91,6 +91,13 @@ def work_with_me():
     return render_template('work_with_me.html')
 
 # API endpoints
+@app.route('/sitemap.xml')
+def sitemap():
+    """Serve sitemap for search engines"""
+    with open('sitemap.xml', 'r') as f:
+        content = f.read()
+    return content, 200, {'Content-Type': 'application/xml'}
+
 @app.route('/api/signals')
 def api_signals():
     """API endpoint for signals data"""
