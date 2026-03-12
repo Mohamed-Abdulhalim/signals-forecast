@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Methodology - Signals & Forecasts</title>
+    <title>Methodology — EdgePulse</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
     <nav>
         <div class="container">
-            <h1 class="logo">Signals & Forecasts</h1>
+            <a href="/" class="logo">EdgePulse</a>
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/signals">Signals</a></li>
@@ -120,11 +120,64 @@
                 <a href="/track-record">Track Record</a> page, including misses and lessons learned.
             </p>
         </section>
+
+        <!-- Glossary anchor — linked from tooltip "What do these terms mean?" -->
+        <section class="method-section" id="glossary">
+            <h2>Signal Glossary</h2>
+            <p>Plain-language definitions for every term used across the dashboard.</p>
+
+            <div class="confidence-explainer">
+                <h4>Signal Type</h4>
+                <ul>
+                    <li><strong>Bullish</strong> — Momentum and trend indicators both point upward. Price likely to rise in the near term.</li>
+                    <li><strong>Bearish</strong> — Momentum and trend point downward. Price likely to fall.</li>
+                    <li><strong>Neutral</strong> — Indicators are mixed or consolidating. No clear directional edge.</li>
+                </ul>
+            </div>
+
+            <div class="confidence-explainer" style="margin-top:1.5rem">
+                <h4>Confidence Level</h4>
+                <ul>
+                    <li><strong>High</strong> — Momentum above 0.7 or below 0.3, with aligned trend and low noise. Strong directional signal.</li>
+                    <li><strong>Medium</strong> — Moderate momentum (0.4–0.6) or mixed indicators. Direction is probable but not certain.</li>
+                    <li><strong>Low</strong> — Insufficient historical data or conflicting indicators. Treat as directional awareness only.</li>
+                </ul>
+            </div>
+
+            <div class="confidence-explainer" style="margin-top:1.5rem">
+                <h4>Momentum Score</h4>
+                <p style="color:var(--text-secondary);font-size:0.9rem;font-weight:300;padding-top:0.5rem">
+                    The ratio of the recent 7-day average price to the prior 7-day average. A score of 1.0 means no change.
+                    Above 0.6 signals bullish pressure building. Below 0.4 signals bearish pressure.
+                    The 0.4–0.6 range is the neutral consolidation zone.
+                </p>
+            </div>
+
+            <div class="confidence-explainer" style="margin-top:1.5rem">
+                <h4>Volatility</h4>
+                <p style="color:var(--text-secondary);font-size:0.9rem;font-weight:300;padding-top:0.5rem">
+                    Coefficient of variation over 30 days — standard deviation divided by the mean price.
+                    <strong>High</strong> means price swings are large relative to the current price level.
+                    <strong>Low</strong> means the market is stable and consolidating.
+                    High volatility widens forecast confidence bands.
+                </p>
+            </div>
+
+            <div class="confidence-explainer" style="margin-top:1.5rem">
+                <h4>Forecast Range</h4>
+                <p style="color:var(--text-secondary);font-size:0.9rem;font-weight:300;padding-top:0.5rem">
+                    The 95% statistical confidence interval around the forecast. There is a 95% probability
+                    the actual price will land within this range, based on historical residual error patterns.
+                    Ranges widen for 90-day forecasts to reflect greater uncertainty over longer horizons.
+                </p>
+            </div>
+        </section>
+
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Signals & Forecasts. Independent market intelligence.</p>
+            <p>&copy; 2026 EdgePulse. Independent market intelligence.</p>
         </div>
     </footer>
 </body>
