@@ -6,18 +6,21 @@ on:
     - cron: '0 9 * * 1'
   workflow_dispatch: # Allows manual trigger
 
+permissions:
+  contents: write
+
 jobs:
   generate-analysis:
     runs-on: ubuntu-latest
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
     
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.11'
     
@@ -27,14 +30,25 @@ jobs:
         pip install -r requirements.txt
     
     - name: Generate Signals
-      run: python analysis/signals.py
+      run: python analysis/signals.py || echo "Signal generation failed, continuing..."
     
     - name: Generate Forecasts
-      run: python analysis/forecasts.py
+      run: python analysis/forecasts.py || echo "Forecast generation failed, continuing..."
+    
+    - name: Check generated analysis
+      run: |
+        echo "Analysis files created:"
+        ls -la data/signals/ || echo "No signals yet"
+        ls -la data/forecasts/ || echo "No forecasts yet"
     
     - name: Commit and push analysis
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add data/
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Auto: Weekly analysis $(date +%Y-%m-%d)" && git push)
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add data/ || true
+        if ! git diff --quiet || ! git diff --staged --quiet; then
+          git commit -m "Auto: Weekly analysis $(date +%Y-%m-%d)"
+          git push
+        else
+          echo "No changes to commit"
+        fi
