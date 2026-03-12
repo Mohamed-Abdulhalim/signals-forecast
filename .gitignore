@@ -11,10 +11,37 @@ __pycache__/
 *.so
 .Python
 
-# Data (don't commit actual data)
-data/
-*.json
-*.csv
+# Environment
+.env
+venv/
+env/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Distribution
+build/
+dist/
+*.egg-info/
 
 # IDE
 .vscode/
