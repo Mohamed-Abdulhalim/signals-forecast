@@ -80,10 +80,22 @@ def methodology():
     """Methodology explanation page"""
     return render_template('methodology.html')
 
+def load_track_record():
+    """Load track record predictions and summary"""
+    try:
+        with open('data/track_record.json', 'r') as f:
+            return json.load(f)
+    except:
+        return {"predictions": [], "summary": {"total": 0, "open": 0, "hits": 0, "misses": 0, "average_accuracy": None}}
+
 @app.route('/track-record')
 def track_record():
     """Track record page"""
-    return render_template('track_record.html')
+    record = load_track_record()
+    return render_template('track_record.html', 
+                           predictions=record.get('predictions', []),
+                           summary=record.get('summary', {}))
+
 
 @app.route('/work-with-me')
 def work_with_me():
@@ -122,3 +134,12 @@ def api_prices():
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
+
+@app.route('/api/track-record')
+def api_track_record():
+    """API endpoint for track record data"""
+    try:
+        with open('data/track_record.json', 'r') as f:
+            return jsonify(json.load(f))
+    except FileNotFoundError:
+        return jsonify({'predictions': [], 'summary': {'total': 0, 'pending': 0, 'hits': 0, 'misses': 0}})
