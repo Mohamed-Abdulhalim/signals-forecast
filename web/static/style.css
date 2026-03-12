@@ -1371,32 +1371,7 @@ footer p {
 }
 
 .tooltip-box {
-  position: fixed;
-  background: #1c1c1c;
-  border: 1px solid var(--border-mid);
-  border-radius: var(--radius-md);
-  padding: 0.75rem 1rem;
-  width: 220px;
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 300;
-  color: var(--text-secondary);
-  line-height: 1.5;
-  pointer-events: none;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.15s ease;
-  z-index: 9999;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.7);
-  white-space: normal;
-  /* Position is set by JS — just needs to exist in fixed space */
-  top: 0;
-  left: 0;
-}
-
-.tooltip-wrap:hover .tooltip-box {
-  opacity: 1;
-  visibility: visible;
+  display: none; /* Content only — JS reads text and shows shared box */
 }
 
 /* Glossary link */
