@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methodology - Signals & Forecasts</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <h1 class="logo">Signals & Forecasts</h1>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/signals">Signals</a></li>
+                <li><a href="/forecasts">Forecasts</a></li>
+                <li><a href="/track-record">Track Record</a></li>
+                <li><a href="/methodology" class="active">Methodology</a></li>
+                <li><a href="/work-with-me">Work With Me</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>Methodology</h1>
+        <p class="page-intro">Transparent approach to signals and forecasting</p>
+
+        <section class="method-section">
+            <h2>Data Sources</h2>
+            <p>All forecasts are built on verified, public data sources:</p>
+            <ul>
+                <li><strong>Energy & Commodities:</strong> Alpha Vantage, EIA (Energy Information Administration), FRED (Federal Reserve)</li>
+                <li><strong>Food Commodities:</strong> Trading Economics, World Bank, FAO (Food and Agriculture Organization)</li>
+                <li><strong>Safe Haven Assets:</strong> Yahoo Finance, central bank data feeds</li>
+                <li><strong>Market Indicators:</strong> Public APIs with daily updates</li>
+            </ul>
+            <p class="data-note">Data is collected daily and stored with full version history for audit purposes.</p>
+        </section>
+
+        <section class="method-section">
+            <h2>Signal Generation</h2>
+            <p>Signals (bullish/neutral/bearish) are derived from multiple technical indicators:</p>
+            
+            <h3>Momentum Analysis</h3>
+            <p>
+                Compares recent price movement (7-day average) against the previous period (7-14 days back).
+                Momentum scores above 0.6 indicate bullish conditions; below 0.4 indicates bearish.
+            </p>
+
+            <h3>Trend Detection</h3>
+            <p>
+                Uses moving average crossovers: when short-term averages (7 days) cross above long-term averages (14 days),
+                it signals upward momentum. The reverse indicates downward pressure.
+            </p>
+
+            <h3>Volatility Assessment</h3>
+            <p>
+                Measures price standard deviation relative to mean (coefficient of variation).
+                High volatility indicates unstable conditions; low volatility suggests consolidation.
+            </p>
+
+            <div class="confidence-explainer">
+                <h4>Confidence Levels</h4>
+                <ul>
+                    <li><strong>High:</strong> Clear directional momentum (>0.7 or <0.3) with aligned trend indicators</li>
+                    <li><strong>Medium:</strong> Moderate momentum (0.4-0.6) or mixed signals</li>
+                    <li><strong>Low:</strong> Insufficient historical data or conflicting indicators</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="method-section">
+            <h2>Forecast Models</h2>
+            <p>Price forecasts combine statistical methods with volatility adjustment:</p>
+
+            <h3>Linear Regression Trend</h3>
+            <p>
+                Uses the past 30 days to establish a baseline trend line.
+                Extends the trend forward to generate point predictions for 30 and 90 days ahead.
+            </p>
+
+            <h3>Volatility Bands</h3>
+            <p>
+                Calculates standard deviation of recent prices to establish confidence ranges.
+                Bands widen for longer-term forecasts to reflect increased uncertainty.
+            </p>
+
+            <h3>Confidence Intervals</h3>
+            <p>
+                95% statistical intervals based on historical residual error.
+                If recent predictions consistently fall within these ranges, confidence increases.
+            </p>
+        </section>
+
+        <section class="method-section">
+            <h2>What This Approach Does NOT Do</h2>
+            <ul class="limitations-list">
+                <li>It does not predict black swan events (wars, natural disasters, sudden policy shifts)</li>
+                <li>It does not incorporate sentiment analysis or news feeds (yet)</li>
+                <li>It is not trained on machine learning models with thousands of variables</li>
+                <li>It is not optimized for high-frequency trading signals</li>
+            </ul>
+            <p>
+                This system is designed for <strong>medium-term visibility</strong> (30-90 days) 
+                in markets sensitive to global instability. It prioritizes transparency over complexity.
+            </p>
+        </section>
+
+        <section class="method-section">
+            <h2>Updates & Maintenance</h2>
+            <p><strong>Daily:</strong> Price and indicator updates</p>
+            <p><strong>Weekly:</strong> Signal generation and forecast refresh</p>
+            <p><strong>Monthly:</strong> Track record evaluation and methodology refinement</p>
+        </section>
+
+        <section class="method-section">
+            <h2>Open Questions</h2>
+            <p>
+                Forecasting is inherently uncertain. I track what works and what doesn't on the 
+                <a href="/track-record">Track Record</a> page, including misses and lessons learned.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Signals & Forecasts. Independent market intelligence.</p>
+        </div>
+    </footer>
+</body>
+</html>
