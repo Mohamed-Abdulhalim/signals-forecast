@@ -8,6 +8,13 @@
       "price": 63.78,
       "date": "2025-11-19",
       "timestamp": "2025-11-19T17:58:00.323068"
+    },
+    {
+      "asset": "Natural Gas",
+      "symbol": "NATGAS",
+      "price": 3.94,
+      "date": "2025-11-19",
+      "timestamp": "2025-11-19T18:04:54.546770"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-12T17:58:03.990178",
+  "timestamp": "2026-03-12T18:06:26.616562",
   "signals": [
     {
       "asset": "Brent Oil",
@@ -8,7 +8,17 @@
       "momentum": 1,
       "volatility": "High",
       "current_price": 94.35,
-      "timestamp": "2026-03-12T17:58:03.991888",
+      "timestamp": "2026-03-12T18:06:26.618184",
+      "category": "energy"
+    },
+    {
+      "asset": "Natural Gas",
+      "signal": "bullish",
+      "confidence": "medium",
+      "momentum": 0.62,
+      "volatility": "Moderate",
+      "current_price": 3.25,
+      "timestamp": "2026-03-12T18:06:26.618284",
       "category": "energy"
     }
   ]

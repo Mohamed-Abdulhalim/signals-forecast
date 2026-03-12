@@ -8,6 +8,13 @@
       "price": 72.25,
       "date": "2026-01-30",
       "timestamp": "2026-01-30T17:58:00.323068"
+    },
+    {
+      "asset": "Natural Gas",
+      "symbol": "NATGAS",
+      "price": 7.18,
+      "date": "2026-01-30",
+      "timestamp": "2026-01-30T18:04:54.546770"
     }
   ]
 }
