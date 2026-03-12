@@ -37,15 +37,8 @@ jobs:
 
     - name: Show updated Gold signal
       run: |
-        echo "Gold signal after fix:"
-        python -c "
-import json, os
-f = sorted([x for x in os.listdir('data/signals') if x.endswith('.json') and x != 'json.json'])[-1]
-d = json.load(open(f'data/signals/{f}'))
-for s in d['signals']:
-    if s['asset'] == 'Gold':
-        print(json.dumps(s, indent=2))
-"
+        echo "Signals regenerated. Check data/signals/ for updated Gold price."
+        ls -la data/signals/
 
     - name: Commit and push
       run: |
