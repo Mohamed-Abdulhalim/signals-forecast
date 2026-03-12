@@ -2082,3 +2082,122 @@ h1 {
 @media (max-width: 600px) {
   .wwm-client-grid { grid-template-columns: 1fr; }
 }
+
+/* ── Charts ─────────────────────────────────────────────────── */
+
+/* Sparklines on signals page */
+.sparkline-wrap {
+  width: 100%;
+  height: 60px;
+  margin: 0.75rem 0;
+  opacity: 0.85;
+}
+
+/* Forecast chart */
+.forecast-chart-wrap {
+  width: 100%;
+  height: 180px;
+  margin: 1.25rem 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Forecast page redesign */
+.forecast-asset-header {
+  margin-bottom: 0.5rem;
+}
+
+.forecast-asset-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.forecast-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.forecast-current {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.forecast-current strong {
+  color: var(--text-secondary);
+}
+
+.forecast-arrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+}
+
+.forecast-arrow.up   { color: #4a9a6a; }
+.forecast-arrow.down { color: #9a4a4a; }
+
+.forecast-numbers {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.forecast-period-block {
+  background: var(--bg-card);
+  padding: 1.25rem 1.5rem;
+}
+
+.forecast-period-block.secondary {
+  background: var(--bg-elevated);
+}
+
+.forecast-period-block h3 {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.forecast-stat-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.forecast-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.forecast-stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.forecast-stat-value {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.forecast-stat-value.gold { color: var(--gold); }
