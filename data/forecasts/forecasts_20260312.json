@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-12T18:28:42.574426",
+  "timestamp": "2026-03-12T18:33:11.846775",
   "forecasts": [
     {
       "asset": "Brent Oil",
@@ -20,7 +20,7 @@
       "momentum": 0.2436,
       "trend": "up",
       "methodology": "Linear regression with volatility bands",
-      "timestamp": "2026-03-12T18:28:42.577126",
+      "timestamp": "2026-03-12T18:33:11.849630",
       "forecast_date": "2026-04-11"
     },
     {
@@ -42,29 +42,29 @@
       "momentum": 0.024,
       "trend": "up",
       "methodology": "Linear regression with volatility bands",
-      "timestamp": "2026-03-12T18:28:42.579122",
+      "timestamp": "2026-03-12T18:33:11.851692",
       "forecast_date": "2026-04-11"
     },
     {
       "asset": "Gold",
       "category": "safe_haven",
-      "current_price": 476.24,
+      "current_price": 5142.01,
       "forecast_30_days": {
-        "prediction": 1000.0,
-        "lower_bound": 675.07,
-        "upper_bound": 1000.0,
+        "prediction": 5610.84,
+        "lower_bound": 5421.11,
+        "upper_bound": 5800.57,
         "confidence": "medium"
       },
       "forecast_90_days": {
-        "prediction": 1000.0,
-        "lower_bound": 758.41,
-        "upper_bound": 1000.0,
+        "prediction": 6396.41,
+        "lower_bound": 6067.79,
+        "upper_bound": 6725.04,
         "confidence": "medium"
       },
       "momentum": -0.0103,
       "trend": "neutral",
       "methodology": "Linear regression with volatility bands",
-      "timestamp": "2026-03-12T18:28:42.581285",
+      "timestamp": "2026-03-12T18:33:11.853935",
       "forecast_date": "2026-04-11"
     },
     {
@@ -86,7 +86,7 @@
       "momentum": 0.0128,
       "trend": "neutral",
       "methodology": "Linear regression with volatility bands",
-      "timestamp": "2026-03-12T18:28:42.583385",
+      "timestamp": "2026-03-12T18:33:11.856156",
       "forecast_date": "2026-04-11"
     },
     {
@@ -108,7 +108,7 @@
       "momentum": 0.0205,
       "trend": "up",
       "methodology": "Linear regression with volatility bands",
-      "timestamp": "2026-03-12T18:28:42.588413",
+      "timestamp": "2026-03-12T18:33:11.861295",
       "forecast_date": "2026-04-11"
     }
   ]

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-12T18:28:41.999072",
+  "timestamp": "2026-03-12T18:33:10.974392",
   "signals": [
     {
       "asset": "Brent Oil",
@@ -8,7 +8,7 @@
       "momentum": 1,
       "volatility": "High",
       "current_price": 94.35,
-      "timestamp": "2026-03-12T18:28:42.000430",
+      "timestamp": "2026-03-12T18:33:10.975729",
       "category": "energy"
     },
     {
@@ -18,7 +18,7 @@
       "momentum": 0.62,
       "volatility": "Moderate",
       "current_price": 3.25,
-      "timestamp": "2026-03-12T18:28:42.000530",
+      "timestamp": "2026-03-12T18:33:10.975866",
       "category": "energy"
     },
     {
@@ -27,8 +27,8 @@
       "confidence": "medium",
       "momentum": 0.45,
       "volatility": "Low",
-      "current_price": 476.24,
-      "timestamp": "2026-03-12T18:28:42.001778",
+      "current_price": 5142.01,
+      "timestamp": "2026-03-12T18:33:10.977109",
       "category": "safe_haven"
     },
     {
@@ -38,7 +38,7 @@
       "momentum": 0.56,
       "volatility": "Low",
       "current_price": 96.84,
-      "timestamp": "2026-03-12T18:28:42.001864",
+      "timestamp": "2026-03-12T18:33:10.977197",
       "category": "safe_haven"
     },
     {
@@ -48,7 +48,7 @@
       "momentum": 0.6,
       "volatility": "Low",
       "current_price": 35.63,
-      "timestamp": "2026-03-12T18:28:42.002919",
+      "timestamp": "2026-03-12T18:33:10.978260",
       "category": "food"
     }
   ]
