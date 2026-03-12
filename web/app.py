@@ -91,6 +91,13 @@ def work_with_me():
     return render_template('work_with_me.html')
 
 # API endpoints
+@app.route('/robots.txt')
+def robots():
+    """Serve robots.txt for search engines"""
+    with open('robots.txt', 'r') as f:
+        content = f.read()
+    return content, 200, {'Content-Type': 'text/plain'}
+
 @app.route('/sitemap.xml')
 def sitemap():
     """Serve sitemap for search engines"""
