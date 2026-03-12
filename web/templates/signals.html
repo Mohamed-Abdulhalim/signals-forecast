@@ -8,93 +8,112 @@
 </head>
 <body>
 
-  <nav>
-    <div class="container">
-      <a href="/" class="logo">EdgePulse</a>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/signals" class="active">Signals</a></li>
-        <li><a href="/forecasts">Forecasts</a></li>
-        <li><a href="/track-record">Track Record</a></li>
-        <li><a href="/methodology">Methodology</a></li>
-        <li><a href="/work-with-me">Work With Me</a></li>
-      </ul>
-    </div>
-  </nav>
+<div class="scanlines"></div>
 
-  {% macro signal_card(signal) %}
-  <div class="detailed-signal-card">
-    <div class="signal-header">
-      <h3>{{ signal.asset }}</h3>
-      <span class="signal-badge {{ signal.signal }}">
-        {% if signal.signal == 'bullish' %}↑ Bullish
-        {% elif signal.signal == 'bearish' %}↓ Bearish
-        {% else %}→ Neutral{% endif %}
-      </span>
+<nav>
+  <div class="container nav-inner">
+    <a href="/" class="logo"><span class="logo-dot"></span>EdgePulse</a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/signals" class="active">Signals</a></li>
+      <li><a href="/forecasts">Forecasts</a></li>
+      <li><a href="/track-record">Track Record</a></li>
+      <li><a href="/methodology">Methodology</a></li>
+      <li><a href="/work-with-me">Work With Me</a></li>
+    </ul>
+  </div>
+</nav>
+
+{% macro signal_card(signal) %}
+<div class="detailed-signal-card">
+  <div class="signal-header">
+    <h3>{{ signal.asset }}</h3>
+    <span class="signal-badge {{ signal.signal }}">
+      {% if signal.signal == 'bullish' %}↑ Bullish
+      {% elif signal.signal == 'bearish' %}↓ Bearish
+      {% else %}→ Neutral{% endif %}
+    </span>
+  </div>
+
+  <!-- Sparkline -->
+  <div class="sparkline-wrap" data-sparkline="{{ signal.asset }}" data-signal="{{ signal.signal }}"></div>
+
+  <div class="signal-metrics">
+    <div class="metric">
+      <span class="metric-label">Price</span>
+      <span class="metric-value">${{ "{:,.2f}".format(signal.current_price) }}</span>
     </div>
-    <div class="signal-metrics">
-      <div class="metric">
-        <span class="metric-label">Price</span>
-        <span class="metric-value">${{ "{:,.2f}".format(signal.current_price) }}</span>
-      </div>
-      <div class="metric">
-        <span class="metric-label tooltip-wrap">Trend<span class="tooltip-icon">?</span><span class="tooltip-box">Direction based on 7-day vs 14-day moving average crossover. Up = short-term average above long-term. Flat = converging averages.</span></span>
-        <span class="metric-value">{% if signal.momentum > 0.6 %}Up{% elif signal.momentum < 0.4 %}Down{% else %}Flat{% endif %}</span>
-      </div>
-      <div class="metric">
-        <span class="metric-label tooltip-wrap">Momentum<span class="tooltip-icon">?</span><span class="tooltip-box">Ratio of the recent 7-day average to the prior 7-day average. Above 0.6 = bullish pressure building. Below 0.4 = bearish. 0.4–0.6 = neutral consolidation zone.</span></span>
-        <span class="metric-value">{{ signal.momentum }}</span>
-      </div>
-      <div class="metric">
-        <span class="metric-label tooltip-wrap">Volatility<span class="tooltip-icon">?</span><span class="tooltip-box">Coefficient of variation over 30 days (std deviation ÷ mean). High = large price swings relative to current price. Low = stable, consolidating market.</span></span>
-        <span class="metric-value">{{ signal.volatility }}</span>
-      </div>
+    <div class="metric">
+      <span class="metric-label tooltip-wrap">Trend<span class="tooltip-icon">?</span><span class="tooltip-box">Direction based on 7-day vs 14-day moving average crossover. Up = short-term average above long-term. Flat = converging averages.</span></span>
+      <span class="metric-value">{% if signal.momentum > 0.6 %}Up{% elif signal.momentum < 0.4 %}Down{% else %}Flat{% endif %}</span>
+    </div>
+    <div class="metric">
+      <span class="metric-label tooltip-wrap">Momentum<span class="tooltip-icon">?</span><span class="tooltip-box">Ratio of the recent 7-day average to the prior 7-day average. Above 0.6 = bullish pressure. Below 0.4 = bearish. Between = consolidation.</span></span>
+      <span class="metric-value">{{ signal.momentum }}</span>
+    </div>
+    <div class="metric">
+      <span class="metric-label tooltip-wrap">Volatility<span class="tooltip-icon">?</span><span class="tooltip-box">Coefficient of variation over 30 days. High = large price swings relative to current price. Low = stable market.</span></span>
+      <span class="metric-value">{{ signal.volatility }}</span>
     </div>
   </div>
-  {% endmacro %}
+</div>
+{% endmacro %}
 
-  <main class="container">
-    <h1>Live Market Signals</h1>
-    <p class="page-intro">Real-time indicators across energy, safe haven, and food supply chains</p>
+<main class="container">
 
-    <section class="asset-category reveal">
-      <div class="section-header"><h2>Energy</h2><span class="section-meta">Brent · Natural Gas</span></div>
-      <div class="detailed-signals">
-        {% for signal in signals %}{% if signal.category == 'energy' %}{{ signal_card(signal) }}{% endif %}{% endfor %}
-      </div>
-    </section>
-
-    <section class="asset-category reveal">
-      <div class="section-header"><h2>Safe Haven</h2><span class="section-meta">Gold · USD Index</span></div>
-      <div class="detailed-signals">
-        {% for signal in signals %}{% if signal.category == 'safe_haven' %}{{ signal_card(signal) }}{% endif %}{% endfor %}
-      </div>
-    </section>
-
-    <section class="asset-category reveal">
-      <div class="section-header"><h2>Food & Supply</h2><span class="section-meta">Wheat · Corn · Rice</span></div>
-      <div class="detailed-signals">
-        {% for signal in signals %}{% if signal.category == 'food' %}{{ signal_card(signal) }}{% endif %}{% endfor %}
-      </div>
-    </section>
-
-    <a href="/methodology#glossary" class="glossary-link"> Full glossary of signal terms</a>
-    <p class="data-source">Prices via Yahoo Finance · metals.live · Alpha Vantage</p>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 EdgePulse. Independent market intelligence.</p>
+  <header class="page-header">
+    <div class="page-header-left">
+      <h1>Live Market Signals</h1>
+      <p class="page-subtitle">Real-time indicators across energy, safe haven, and food supply chains</p>
     </div>
-  </footer>
+    <div class="page-header-right">
+      <span class="update-badge">UPDATED DAILY</span>
+    </div>
+  </header>
 
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-    }, { threshold: 0.08 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    document.querySelectorAll('.detailed-signal-card').forEach((card, i) => { card.style.animationDelay = `${i * 0.08}s`; });
-  </script>
-  <script src="/static/tooltips.js"></script>
+  <div class="divider"></div>
+
+  <section class="asset-category reveal">
+    <div class="section-header"><h2>Energy</h2><span class="section-meta">Brent · Natural Gas</span></div>
+    <div class="detailed-signals">
+      {% for signal in signals %}{% if signal.category == 'energy' %}{{ signal_card(signal) }}{% endif %}{% endfor %}
+    </div>
+  </section>
+
+  <section class="asset-category reveal">
+    <div class="section-header"><h2>Safe Haven</h2><span class="section-meta">Gold · USD Index</span></div>
+    <div class="detailed-signals">
+      {% for signal in signals %}{% if signal.category == 'safe_haven' %}{{ signal_card(signal) }}{% endif %}{% endfor %}
+    </div>
+  </section>
+
+  <section class="asset-category reveal">
+    <div class="section-header"><h2>Food &amp; Supply</h2><span class="section-meta">Wheat · Corn · Rice</span></div>
+    <div class="detailed-signals">
+      {% for signal in signals %}{% if signal.category == 'food' %}{{ signal_card(signal) }}{% endif %}{% endfor %}
+    </div>
+  </section>
+
+  <a href="/methodology#glossary" class="glossary-link">Full glossary of signal terms</a>
+  <p class="data-source">Prices via Yahoo Finance · metals.live · Alpha Vantage</p>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span class="footer-brand">© 2026 EdgePulse. Independent market intelligence.</span>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  document.querySelectorAll('.detailed-signal-card').forEach((card, i) => { card.style.animationDelay = `${i * 0.08}s`; });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="/static/tooltips.js"></script>
+<script src="/static/charts.js"></script>
 </body>
 </html>
