@@ -1,164 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Signals - Signals & Forecasts</title>
-    <link rel="stylesheet" href="/static/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Signals — Signals & Forecasts</title>
+  <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <nav>
-        <div class="container">
-            <h1 class="logo">Signals & Forecasts</h1>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/signals" class="active">Signals</a></li>
-                <li><a href="/forecasts">Forecasts</a></li>
-                <li><a href="/track-record">Track Record</a></li>
-                <li><a href="/methodology">Methodology</a></li>
-                <li><a href="/work-with-me">Work With Me</a></li>
-            </ul>
+
+  <nav>
+    <div class="container">
+      <a href="/" class="logo">Signals & Forecasts</a>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/signals" class="active">Signals</a></li>
+        <li><a href="/forecasts">Forecasts</a></li>
+        <li><a href="/track-record">Track Record</a></li>
+        <li><a href="/methodology">Methodology</a></li>
+        <li><a href="/work-with-me">Work With Me</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <h1>Live Market Signals</h1>
+    <p class="page-intro">Real-time indicators across energy, safe haven, and food supply chains</p>
+
+    <!-- Energy -->
+    <section class="asset-category reveal">
+      <div class="section-header">
+        <h2>Energy</h2>
+        <span class="section-meta">Brent · Natural Gas</span>
+      </div>
+      <div class="detailed-signals">
+        {% for signal in signals %}{% if signal.category == 'energy' %}
+        <div class="detailed-signal-card">
+          <div class="signal-header">
+            <h3>{{ signal.asset }}</h3>
+            <span class="signal-badge {{ signal.signal }}">
+              {% if signal.signal == 'bullish' %}↑ Bullish
+              {% elif signal.signal == 'bearish' %}↓ Bearish
+              {% else %}→ Neutral{% endif %}
+            </span>
+          </div>
+          <div class="signal-metrics">
+            <div class="metric">
+              <span class="metric-label">Price</span>
+              <span class="metric-value">${{ "{:,.2f}".format(signal.current_price) }}</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Trend</span>
+              <span class="metric-value">
+                {% if signal.momentum > 0.6 %}Up{% elif signal.momentum < 0.4 %}Down{% else %}Flat{% endif %}
+              </span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Momentum</span>
+              <span class="metric-value">{{ signal.momentum }}</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Volatility</span>
+              <span class="metric-value">{{ signal.volatility }}</span>
+            </div>
+          </div>
         </div>
-    </nav>
+        {% endif %}{% endfor %}
+      </div>
+    </section>
 
-    <main class="container">
-        <h1>Live Market Signals</h1>
-        <p class="page-intro">Real-time indicators for instability-sensitive assets</p>
-
-        <!-- Energy Assets -->
-        <section class="asset-category">
-            <h2>Energy</h2>
-            <div class="detailed-signals">
-                {% for signal in signals %}
-                {% if signal.category == 'energy' %}
-                <div class="detailed-signal-card">
-                    <div class="signal-header">
-                        <h3>{{ signal.asset }}</h3>
-                        <span class="signal-badge {{ signal.signal }}">
-                            {% if signal.signal == 'bullish' %}↑ Bullish
-                            {% elif signal.signal == 'bearish' %}↓ Bearish
-                            {% else %}→ Neutral{% endif %}
-                        </span>
-                    </div>
-                    <div class="signal-metrics">
-                        <div class="metric">
-                            <span class="metric-label">Price</span>
-                            <span class="metric-value">${{ signal.current_price }}</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-label">Trend</span>
-                            <span class="metric-value">
-                                {% if signal.momentum > 0.6 %}Up
-                                {% elif signal.momentum < 0.4 %}Down
-                                {% else %}Flat{% endif %}
-                            </span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-label">Momentum</span>
-                            <span class="metric-value">{{ signal.momentum }}</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-label">Volatility</span>
-                            <span class="metric-value">{{ signal.volatility }}</span>
-                        </div>
-                    </div>
-                </div>
-                {% endif %}
-                {% endfor %}
+    <!-- Safe Haven -->
+    <section class="asset-category reveal">
+      <div class="section-header">
+        <h2>Safe Haven</h2>
+        <span class="section-meta">Gold · USD Index</span>
+      </div>
+      <div class="detailed-signals">
+        {% for signal in signals %}{% if signal.category == 'safe_haven' %}
+        <div class="detailed-signal-card">
+          <div class="signal-header">
+            <h3>{{ signal.asset }}</h3>
+            <span class="signal-badge {{ signal.signal }}">
+              {% if signal.signal == 'bullish' %}↑ Bullish
+              {% elif signal.signal == 'bearish' %}↓ Bearish
+              {% else %}→ Neutral{% endif %}
+            </span>
+          </div>
+          <div class="signal-metrics">
+            <div class="metric">
+              <span class="metric-label">Price</span>
+              <span class="metric-value">${{ "{:,.2f}".format(signal.current_price) }}</span>
             </div>
-        </section>
-
-        <!-- Safe Haven Assets -->
-        <section class="asset-category">
-            <h2>Safe Haven</h2>
-            <div class="detailed-signals">
-                {% for signal in signals %}
-                {% if signal.category == 'safe_haven' %}
-                <div class="detailed-signal-card">
-                    <div class="signal-header">
-                        <h3>{{ signal.asset }}</h3>
-                        <span class="signal-badge {{ signal.signal }}">
-                            {% if signal.signal == 'bullish' %}↑ Bullish
-                            {% elif signal.signal == 'bearish' %}↓ Bearish
-                            {% else %}→ Neutral{% endif %}
-                        </span>
-                    </div>
-                    <div class="signal-metrics">
-                        <div class="metric">
-                            <span class="metric-label">Price</span>
-                            <span class="metric-value">${{ signal.current_price }}</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-label">Trend</span>
-                            <span class="metric-value">
-                                {% if signal.momentum > 0.6 %}Up
-                                {% elif signal.momentum < 0.4 %}Down
-                                {% else %}Flat{% endif %}
-                            </span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-label">Momentum</span>
-                            <span class="metric-value">{{ signal.momentum }}</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-label">Volatility</span>
-                            <span class="metric-value">{{ signal.volatility }}</span>
-                        </div>
-                    </div>
-                </div>
-                {% endif %}
-                {% endfor %}
+            <div class="metric">
+              <span class="metric-label">Trend</span>
+              <span class="metric-value">
+                {% if signal.momentum > 0.6 %}Up{% elif signal.momentum < 0.4 %}Down{% else %}Flat{% endif %}
+              </span>
             </div>
-        </section>
-
-        <!-- Food & Supply -->
-        <section class="asset-category">
-            <h2>Food & Supply</h2>
-            <div class="detailed-signals">
-                {% for signal in signals %}
-                {% if signal.category == 'food' %}
-                <div class="detailed-signal-card">
-                    <div class="signal-header">
-                        <h3>{{ signal.asset }}</h3>
-                        <span class="signal-badge {{ signal.signal }}">
-                            {% if signal.signal == 'bullish' %}↑ Bullish
-                            {% elif signal.signal == 'bearish' %}↓ Bearish
-                            {% else %}→ Neutral{% endif %}
-                        </span>
-                    </div>
-                    <div class="signal-metrics">
-                        <div class="metric">
-                            <span class="metric-label">Price</span>
-                            <span class="metric-value">${{ signal.current_price }}</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-label">Trend</span>
-                            <span class="metric-value">
-                                {% if signal.momentum > 0.6 %}Up
-                                {% elif signal.momentum < 0.4 %}Down
-                                {% else %}Flat{% endif %}
-                            </span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-label">Momentum</span>
-                            <span class="metric-value">{{ signal.momentum }}</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-label">Volatility</span>
-                            <span class="metric-value">{{ signal.volatility }}</span>
-                        </div>
-                    </div>
-                </div>
-                {% endif %}
-                {% endfor %}
+            <div class="metric">
+              <span class="metric-label">Momentum</span>
+              <span class="metric-value">{{ signal.momentum }}</span>
             </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Signals & Forecasts. Independent market intelligence.</p>
+            <div class="metric">
+              <span class="metric-label">Volatility</span>
+              <span class="metric-value">{{ signal.volatility }}</span>
+            </div>
+          </div>
         </div>
-    </footer>
+        {% endif %}{% endfor %}
+      </div>
+    </section>
+
+    <!-- Food & Supply -->
+    <section class="asset-category reveal">
+      <div class="section-header">
+        <h2>Food & Supply</h2>
+        <span class="section-meta">Wheat · Corn · Rice</span>
+      </div>
+      <div class="detailed-signals">
+        {% for signal in signals %}{% if signal.category == 'food' %}
+        <div class="detailed-signal-card">
+          <div class="signal-header">
+            <h3>{{ signal.asset }}</h3>
+            <span class="signal-badge {{ signal.signal }}">
+              {% if signal.signal == 'bullish' %}↑ Bullish
+              {% elif signal.signal == 'bearish' %}↓ Bearish
+              {% else %}→ Neutral{% endif %}
+            </span>
+          </div>
+          <div class="signal-metrics">
+            <div class="metric">
+              <span class="metric-label">Price</span>
+              <span class="metric-value">${{ "{:,.2f}".format(signal.current_price) }}</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Trend</span>
+              <span class="metric-value">
+                {% if signal.momentum > 0.6 %}Up{% elif signal.momentum < 0.4 %}Down{% else %}Flat{% endif %}
+              </span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Momentum</span>
+              <span class="metric-value">{{ signal.momentum }}</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Volatility</span>
+              <span class="metric-value">{{ signal.volatility }}</span>
+            </div>
+          </div>
+        </div>
+        {% endif %}{% endfor %}
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Signals & Forecasts. Independent market intelligence.</p>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Stagger signal card animations
+    document.querySelectorAll('.detailed-signal-card').forEach((card, i) => {
+      card.style.animationDelay = `${i * 0.08}s`;
+    });
+  </script>
+
 </body>
 </html>
