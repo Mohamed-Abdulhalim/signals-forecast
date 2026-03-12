@@ -27,9 +27,9 @@ class ForecastEngine:
 
     def price_floor(self, asset_name):
         floors = {
-            'Natural Gas': 1.0,
+            'Natural Gas': 1.5,
             'Brent Oil':   20.0,
-            'Gold':        1000.0,
+            'Gold':        1500.0,
             'USD Index':   85.0,
             'Wheat':       200.0,
             'Corn':        200.0,
@@ -37,16 +37,25 @@ class ForecastEngine:
         }
         return floors.get(asset_name, 0.01)
 
-    def price_ceiling(self, asset_name, current_price, days_ahead):
-        """Cap how far forecast can move from current price"""
-        max_pct = 0.35 + (days_ahead - 30) / 90 * 0.25
-        return current_price * (1 + max_pct)
+    def regression_window(self, asset_name):
+        """
+        Use shorter lookback for assets with long downtrends in historical data.
+        Natural Gas had a multi-month decline — use 21 days to capture
+        recent stabilization rather than the full declining trend.
+        """
+        windows = {
+            'Natural Gas': 21,
+            'Wheat':       21,
+            'Corn':        21,
+        }
+        return windows.get(asset_name, 30)
 
     def linear_forecast(self, prices, days_ahead, asset_name=''):
         if len(prices) < 10:
             return None
 
-        recent = prices[-30:]
+        window = self.regression_window(asset_name)
+        recent = prices[-window:] if len(prices) >= window else prices
         x      = np.arange(len(recent))
 
         slope, intercept, r_value, p_value, std_err = stats.linregress(x, recent)
@@ -61,16 +70,17 @@ class ForecastEngine:
 
         current_price = prices[-1]
         floor         = self.price_floor(asset_name)
-        ceiling       = self.price_ceiling(asset_name, current_price, days_ahead)
 
-        # Clamp prediction within floor/ceiling
-        prediction  = max(min(raw_pred, ceiling), floor)
+        # Cap at ±35% for 30d, ±60% for 90d
+        max_pct    = 0.35 + (days_ahead - 30) / 90 * 0.25
+        ceiling    = current_price * (1 + max_pct)
+        min_price  = max(current_price * (1 - max_pct), floor)
 
-        # Bounds: always lower < prediction < upper
+        prediction  = max(min(raw_pred, ceiling), min_price)
         lower_bound = max(prediction - margin, floor)
         upper_bound = min(prediction + margin, ceiling * 1.05)
 
-        # Guarantee lower <= upper (safety check)
+        # Guarantee lower <= upper
         if lower_bound > upper_bound:
             lower_bound, upper_bound = upper_bound, lower_bound
 
