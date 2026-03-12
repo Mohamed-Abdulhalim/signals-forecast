@@ -1,117 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signals & Forecasts - Instability Market Intelligence</title>
-    <link rel="stylesheet" href="/static/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signals & Forecasts — Instability Market Intelligence</title>
+  <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <nav>
-        <div class="container">
-            <h1 class="logo">Signals & Forecasts</h1>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/signals">Signals</a></li>
-                <li><a href="/forecasts">Forecasts</a></li>
-                <li><a href="/track-record">Track Record</a></li>
-                <li><a href="/methodology">Methodology</a></li>
-                <li><a href="/work-with-me">Work With Me</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <header class="hero">
-        <div class="container">
-            <h1>Signals that matter when the world gets messy</h1>
-            <p>Real-time intelligence on instability-sensitive assets</p>
-        </div>
-    </header>
+  <nav>
+    <div class="container">
+      <a href="/" class="logo">Signals & Forecasts</a>
+      <ul>
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/signals">Signals</a></li>
+        <li><a href="/forecasts">Forecasts</a></li>
+        <li><a href="/track-record">Track Record</a></li>
+        <li><a href="/methodology">Methodology</a></li>
+        <li><a href="/work-with-me">Work With Me</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <main class="container">
-        <!-- Current Signals -->
-        <section class="signals-overview">
-            <h2>Current Signals</h2>
-            <div class="signal-grid">
-                {% for signal in signals %}
-                <div class="signal-card {{ signal.signal }}">
-                    <h3>{{ signal.asset }}</h3>
-                    <div class="signal-indicator">
-                        {% if signal.signal == 'bullish' %}
-                            <span class="arrow">↑</span> Bullish
-                        {% elif signal.signal == 'bearish' %}
-                            <span class="arrow">↓</span> Bearish
-                        {% else %}
-                            <span class="arrow">→</span> Neutral
-                        {% endif %}
-                    </div>
-                    <div class="signal-meta">
-                        <span class="confidence">{{ signal.confidence }} confidence</span>
-                        <span class="momentum">Momentum: {{ signal.momentum }}</span>
-                    </div>
-                </div>
-                {% endfor %}
+  <header class="hero">
+    <div class="container">
+      <p class="hero-eyebrow">Market Intelligence System</p>
+      <h1>Signals that matter when<br>the world gets <em>messy</em></h1>
+      <p>Automated intelligence on instability-sensitive assets — energy, safe haven, and food supply.</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Current Signals -->
+    <section class="signals-overview reveal">
+      <div class="section-header">
+        <h2>Current Signals</h2>
+        <span class="section-meta">Updated daily · {{ signals[0].timestamp[:10] if signals else '—' }}</span>
+      </div>
+      <div class="signal-grid">
+        {% for signal in signals %}
+        <div class="signal-card {{ signal.signal }}">
+          <h3>{{ signal.asset }}</h3>
+          <div class="signal-indicator">
+            {% if signal.signal == 'bullish' %}↑ Bullish
+            {% elif signal.signal == 'bearish' %}↓ Bearish
+            {% else %}→ Neutral{% endif %}
+          </div>
+          <div class="signal-meta">
+            <span>{{ signal.confidence }} confidence</span>
+            <span>Momentum {{ signal.momentum }}</span>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- 30-Day Forecasts -->
+    <section class="forecast-preview reveal">
+      <div class="section-header">
+        <h2>30-Day Forecasts</h2>
+        <span class="section-meta">Linear regression · volatility-adjusted</span>
+      </div>
+      <div class="forecast-grid">
+        {% for forecast in forecasts %}
+        {% if forecast.forecast_30_days %}
+        <div class="forecast-card">
+          <h3>{{ forecast.asset }}</h3>
+          <div class="forecast-data">
+            <div class="current">
+              <span class="label">Current</span>
+              <span class="value">${{ "{:,.2f}".format(forecast.current_price) }}</span>
             </div>
-        </section>
-
-        <!-- Short Forecasts -->
-        <section class="forecast-preview">
-            <h2>30-Day Forecasts</h2>
-            <div class="forecast-grid">
-                {% for forecast in forecasts %}
-                {% if forecast.forecast_30_days %}
-                <div class="forecast-card">
-                    <h3>{{ forecast.asset }}</h3>
-                    <div class="forecast-data">
-                        <div class="current">
-                            <span class="label">Current</span>
-                            <span class="value">${{ forecast.current_price }}</span>
-                        </div>
-                        <div class="predicted">
-                            <span class="label">Forecast</span>
-                            <span class="value">${{ forecast.forecast_30_days.prediction }}</span>
-                        </div>
-                        <div class="range">
-                            <span class="label">Range</span>
-                            <span class="value">
-                                ${{ forecast.forecast_30_days.lower_bound }} - 
-                                ${{ forecast.forecast_30_days.upper_bound }}
-                            </span>
-                        </div>
-                    </div>
-                    <div class="confidence-badge">
-                        {{ forecast.forecast_30_days.confidence }} confidence
-                    </div>
-                </div>
-                {% endif %}
-                {% endfor %}
+            <div class="predicted">
+              <span class="label">Forecast</span>
+              <span class="value">${{ "{:,.2f}".format(forecast.forecast_30_days.prediction) }}</span>
             </div>
-        </section>
-
-        <!-- What Changed This Week -->
-        <section class="weekly-changes">
-            <h2>What Changed This Week</h2>
-            <ul class="changes-list">
-                <li>Energy markets responding to Middle East tensions</li>
-                <li>USD strengthening amid Federal Reserve policy signals</li>
-                <li>Food commodity volatility increasing due to weather patterns</li>
-            </ul>
-            <p class="update-note">Last updated: {{ signals[0].timestamp[:10] if signals else 'N/A' }}</p>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="cta-section">
-            <h2>Need custom forecasting for your industry?</h2>
-            <p>I build pricing and forecasting systems for companies that depend on volatile markets.</p>
-            <a href="/work-with-me" class="cta-button">Get in touch</a>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Signals & Forecasts. Independent market intelligence.</p>
-            <p class="disclaimer">Not investment advice. For informational purposes only.</p>
+            <div class="range">
+              <span class="label">Range</span>
+              <span class="value">${{ "{:,.2f}".format(forecast.forecast_30_days.lower_bound) }} – ${{ "{:,.2f}".format(forecast.forecast_30_days.upper_bound) }}</span>
+            </div>
+          </div>
+          <div class="confidence-badge">{{ forecast.forecast_30_days.confidence }} confidence</div>
         </div>
-    </footer>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- What Changed -->
+    <section class="weekly-changes reveal">
+      <h2>Market Context</h2>
+      <ul class="changes-list">
+        <li>Energy markets responding to geopolitical supply pressures and OPEC+ output decisions</li>
+        <li>USD Index tracking Federal Reserve rate path signals and inflation data</li>
+        <li>Food commodity volatility elevated — agricultural supply chain disruptions ongoing</li>
+      </ul>
+      <p class="update-note">System timestamp · {{ signals[0].timestamp[:19].replace('T', ' ') if signals else '—' }} UTC</p>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section reveal">
+      <h2>Need custom market intelligence?</h2>
+      <p>I build pricing and forecasting pipelines for companies operating in volatile commodity environments.</p>
+      <a href="/work-with-me" class="cta-button">Get in touch</a>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Signals & Forecasts. Independent market intelligence.</p>
+      <p class="disclaimer">Not investment advice. For informational purposes only.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll-reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Price counter animation — implies live data feed
+    function animateCount(el, target, decimals = 2, prefix = '$') {
+      const duration = 1200;
+      const start = performance.now();
+      const from = 0;
+
+      function step(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+        const current = from + (target - from) * eased;
+        el.textContent = prefix + current.toLocaleString('en-US', {
+          minimumFractionDigits: decimals,
+          maximumFractionDigits: decimals
+        });
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    // Animate forecast values on page load
+    document.querySelectorAll('.forecast-data .value').forEach(el => {
+      const raw = el.textContent.replace(/[$,]/g, '').trim();
+      const num = parseFloat(raw);
+      if (!isNaN(num) && num > 0) {
+        const decimals = num > 100 ? 2 : 2;
+        setTimeout(() => animateCount(el, num, decimals, '$'), 400);
+      }
+    });
+  </script>
+
 </body>
 </html>
