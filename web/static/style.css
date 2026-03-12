@@ -1336,9 +1336,7 @@ footer p {
   color: #3a3835;
 }
 
-/* ── Tooltips ───────────────────────────────────────────────────
-   Uses JS positioning (see tooltip script) to escape
-   overflow:hidden parents. CSS handles styling only.          */
+/* ── Tooltips ───────────────────────────────────────────────── */
 .tooltip-wrap {
   position: relative;
   display: inline-flex;
@@ -1372,25 +1370,8 @@ footer p {
   border-color: var(--gold-dim);
 }
 
-/* The tooltip box is rendered in a fixed portal div — not inside the card */
 .tooltip-box {
-  display: none; /* hidden in DOM — content read by JS */
-}
-
-/* Portal tooltip — appended to body, never clipped */
-#tooltip-portal {
   position: fixed;
-  z-index: 9000;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.15s ease;
-}
-
-#tooltip-portal.visible {
-  opacity: 1;
-}
-
-#tooltip-portal .tooltip-inner {
   background: #1c1c1c;
   border: 1px solid var(--border-mid);
   border-radius: var(--radius-md);
@@ -1401,18 +1382,21 @@ footer p {
   font-weight: 300;
   color: var(--text-secondary);
   line-height: 1.5;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease;
+  z-index: 9999;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.7);
   white-space: normal;
+  /* Position is set by JS — just needs to exist in fixed space */
+  top: 0;
+  left: 0;
 }
 
-#tooltip-portal .tooltip-inner::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 5px solid transparent;
-  border-top-color: var(--border-mid);
+.tooltip-wrap:hover .tooltip-box {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* Glossary link */
