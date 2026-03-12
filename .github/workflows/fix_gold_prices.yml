@@ -35,18 +35,18 @@ jobs:
     - name: Regenerate forecasts
       run: python analysis/forecasts.py
 
-    - name: Show updated Gold signal
+    - name: Show results
       run: |
-        echo "Signals regenerated. Check data/signals/ for updated Gold price."
-        ls -la data/signals/
+        echo "=== Latest signals ==="
+        cat data/signals/signals_$(date +%Y%m%d).json
 
     - name: Commit and push
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git add data/
+        git add data/ analysis/
         if ! git diff --staged --quiet; then
-          git commit -m "Fix: Correct Gold prices to real spot scale"
+          git commit -m "Fix: Correct Gold to real spot price + Natural Gas forecast"
           git push
         else
           echo "Nothing to commit"
