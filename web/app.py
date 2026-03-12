@@ -107,6 +107,11 @@ def work_with_me():
 
 # ── API endpoints ──────────────────────────────────────────────
 
+@app.route('/api/track-record')
+def api_track_record():
+    """API endpoint for track record data"""
+    return jsonify(load_track_record())
+
 @app.route('/api/signals')
 def api_signals():
     return jsonify(load_latest_signals())
