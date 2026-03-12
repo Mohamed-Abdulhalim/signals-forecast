@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-12T18:12:11.938296",
+  "timestamp": "2026-03-12T18:17:15.864577",
   "forecasts": [
     {
       "asset": "Brent Oil",
@@ -20,7 +20,7 @@
       "momentum": 0.2436,
       "trend": "up",
       "methodology": "Linear regression with volatility bands",
-      "timestamp": "2026-03-12T18:12:11.940869",
+      "timestamp": "2026-03-12T18:17:15.867163",
       "forecast_date": "2026-04-11"
     },
     {
@@ -42,7 +42,51 @@
       "momentum": 0.024,
       "trend": "up",
       "methodology": "Linear regression with volatility bands",
-      "timestamp": "2026-03-12T18:12:11.942857",
+      "timestamp": "2026-03-12T18:17:15.869228",
+      "forecast_date": "2026-04-11"
+    },
+    {
+      "asset": "Gold",
+      "category": "safe_haven",
+      "current_price": 476.24,
+      "forecast_30_days": {
+        "prediction": 519.66,
+        "lower_bound": 502.09,
+        "upper_bound": 537.23,
+        "confidence": "medium"
+      },
+      "forecast_90_days": {
+        "prediction": 592.42,
+        "lower_bound": 561.98,
+        "upper_bound": 622.86,
+        "confidence": "medium"
+      },
+      "momentum": -0.0103,
+      "trend": "neutral",
+      "methodology": "Linear regression with volatility bands",
+      "timestamp": "2026-03-12T18:17:15.871395",
+      "forecast_date": "2026-04-11"
+    },
+    {
+      "asset": "USD Index",
+      "category": "safe_haven",
+      "current_price": 27.55,
+      "forecast_30_days": {
+        "prediction": 70.0,
+        "lower_bound": 70.0,
+        "upper_bound": 70.24,
+        "confidence": "high"
+      },
+      "forecast_90_days": {
+        "prediction": 70.0,
+        "lower_bound": 70.0,
+        "upper_bound": 70.42,
+        "confidence": "high"
+      },
+      "momentum": 0.0111,
+      "trend": "neutral",
+      "methodology": "Linear regression with volatility bands",
+      "timestamp": "2026-03-12T18:17:15.873491",
       "forecast_date": "2026-04-11"
     }
   ]

@@ -1,0 +1,20 @@
+{
+  "category": "safe_haven",
+  "timestamp": "2025-12-26T18:16:35.099117",
+  "assets": [
+    {
+      "asset": "Gold",
+      "symbol": "XAU",
+      "price": 416.74,
+      "date": "2025-12-26",
+      "timestamp": "2025-12-26T18:16:35.099117"
+    },
+    {
+      "asset": "USD Index",
+      "symbol": "DXY",
+      "price": 26.97,
+      "date": "2025-12-26",
+      "timestamp": "2025-12-26T18:16:35.099117"
+    }
+  ]
+}
