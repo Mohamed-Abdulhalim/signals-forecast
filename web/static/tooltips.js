@@ -1,77 +1,45 @@
 /**
- * tooltips.js
- * Portal-based tooltip system.
- * Renders tooltip into a fixed div on <body> so it is never
- * clipped by overflow:hidden parents (signal grid, metric grid, etc.)
- *
- * Usage in HTML:
- *   <span class="tooltip-wrap">
- *     Label text
- *     <span class="tooltip-icon">?</span>
- *     <span class="tooltip-box">Explanation text here.</span>
- *   </span>
+ * tooltips.js — position: fixed tooltip positioner
+ * The .tooltip-box is already position:fixed in CSS.
+ * This script just sets the correct top/left on mouseenter
+ * so it appears above the hovered icon, viewport-relative.
  */
-
-(function () {
-  // Create the portal element once
-  const portal = document.createElement('div');
-  portal.id = 'tooltip-portal';
-  portal.innerHTML = '<div class="tooltip-inner"></div>';
-  document.body.appendChild(portal);
-
-  const inner = portal.querySelector('.tooltip-inner');
-  let hideTimer = null;
-
-  function showTooltip(icon) {
-    const box = icon.closest('.tooltip-wrap')?.querySelector('.tooltip-box');
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.tooltip-wrap').forEach(function (wrap) {
+    var box = wrap.querySelector('.tooltip-box');
     if (!box) return;
 
-    clearTimeout(hideTimer);
+    wrap.addEventListener('mouseenter', function () {
+      var icon = wrap.querySelector('.tooltip-icon') || wrap;
+      var r = icon.getBoundingClientRect();
 
-    inner.textContent = box.textContent.trim();
+      // Position above the icon, centred horizontally
+      var tipW = 220;
+      var left = r.left + r.width / 2 - tipW / 2;
 
-    // Position: above the icon, centred
-    const rect = icon.getBoundingClientRect();
-    const tipW = 220;
-    const tipH = 80; // approximate, will adjust after render
+      // Clamp to viewport
+      left = Math.max(8, Math.min(left, window.innerWidth - tipW - 8));
 
-    let left = rect.left + rect.width / 2 - tipW / 2;
-    let top  = rect.top - tipH - 10 + window.scrollY;
+      box.style.left = left + 'px';
+      box.style.width = tipW + 'px';
 
-    // Keep within viewport horizontally
-    left = Math.max(8, Math.min(left, window.innerWidth - tipW - 8));
+      // Temporarily show off-screen to measure height
+      box.style.visibility = 'hidden';
+      box.style.opacity = '0';
+      box.style.top = '0px';
 
-    portal.style.left   = left + 'px';
-    portal.style.top    = (rect.top + window.scrollY - 10) + 'px'; // initial, adjusted below
-    portal.style.width  = tipW + 'px';
-    portal.classList.add('visible');
+      // Use rAF so browser has painted and we can measure
+      requestAnimationFrame(function () {
+        var h = box.offsetHeight;
+        var top = r.top - h - 8;
 
-    // After render, adjust vertical position properly
-    requestAnimationFrame(() => {
-      const h = portal.offsetHeight;
-      portal.style.top = (rect.top + window.scrollY - h - 8) + 'px';
+        // If it would go above viewport, show below instead
+        if (top < 8) top = r.bottom + 8;
+
+        box.style.top = top + 'px';
+        box.style.visibility = 'visible';
+        box.style.opacity = '1';
+      });
     });
-  }
-
-  function hideTooltip() {
-    hideTimer = setTimeout(() => {
-      portal.classList.remove('visible');
-    }, 80);
-  }
-
-  // Attach events to all tooltip icons
-  function init() {
-    document.querySelectorAll('.tooltip-icon').forEach(icon => {
-      icon.addEventListener('mouseenter', () => showTooltip(icon));
-      icon.addEventListener('mouseleave', hideTooltip);
-      icon.addEventListener('focus',      () => showTooltip(icon));
-      icon.addEventListener('blur',       hideTooltip);
-    });
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
+  });
+});
