@@ -6,226 +6,323 @@
     <title>Track Record - EdgePulse</title>
     <link rel="stylesheet" href="/static/style.css">
     <style>
-        /* ── Stats bar ─────────────────────────────── */
-        .stats-bar {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        .stat-card {
-            background: var(--card-bg, #1a1a2e);
-            border: 1px solid var(--border, #2a2a4a);
-            border-radius: 8px;
-            padding: 1.25rem 1.5rem;
-            text-align: center;
-        }
-        .stat-card .stat-value {
-            display: block;
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            color: var(--accent, #f0b429);
-            line-height: 1;
-            margin-bottom: 0.35rem;
-        }
-        .stat-card .stat-label {
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-muted, #888);
-        }
-        .stat-card.highlight { border-color: var(--accent, #f0b429); }
-
-        /* ── Filters ───────────────────────────────── */
-        .filter-bar {
+        /* ── Filter bar ─────────────────────────────── */
+        .tr-filter-bar {
             display: flex;
             gap: 0.5rem;
             flex-wrap: wrap;
             align-items: center;
-            margin: 1.5rem 0;
+            margin: 1.75rem 0 1.25rem;
         }
-        .filter-bar label {
-            font-size: 0.75rem;
+        .tr-filter-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            letter-spacing: 0.07em;
-            color: var(--text-muted, #888);
+            color: var(--text-muted);
             margin-right: 0.25rem;
         }
-        .filter-btn {
-            padding: 0.35rem 0.85rem;
-            border-radius: 20px;
-            border: 1px solid var(--border, #2a2a4a);
+        .tr-filter-btn {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.8rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-subtle);
             background: transparent;
-            color: var(--text-muted, #aaa);
-            font-size: 0.78rem;
+            color: var(--text-muted);
             cursor: pointer;
-            transition: all 0.15s;
+            transition: all var(--transition);
         }
-        .filter-btn:hover, .filter-btn.active {
-            background: var(--accent, #f0b429);
-            color: #000;
-            border-color: var(--accent, #f0b429);
-            font-weight: 600;
+        .tr-filter-btn:hover {
+            border-color: var(--border-mid);
+            color: var(--text-secondary);
         }
-        .filter-sep {
-            width: 1px; height: 20px;
-            background: var(--border, #2a2a4a);
+        .tr-filter-btn.active {
+            background: var(--gold-glow);
+            border-color: var(--gold-dim);
+            color: var(--gold);
+        }
+        .tr-filter-sep {
+            width: 1px;
+            height: 18px;
+            background: var(--border-subtle);
             margin: 0 0.25rem;
         }
+        .tr-asset-select {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
+            background: var(--bg-inset);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-muted);
+            padding: 0.3rem 0.7rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            outline: none;
+        }
+        .tr-asset-select:focus {
+            border-color: var(--gold-dim);
+        }
+        .tr-asset-select option {
+            background: #111;
+        }
 
-        /* ── Sort & count row ──────────────────────── */
-        .table-meta {
+        /* ── Table meta row ─────────────────────────── */
+        .tr-meta-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 0.75rem;
-            font-size: 0.8rem;
-            color: var(--text-muted, #888);
+            margin-bottom: 1rem;
         }
-        .table-meta select {
-            background: var(--card-bg, #1a1a2e);
-            border: 1px solid var(--border, #2a2a4a);
-            color: var(--text, #e0e0e0);
-            padding: 0.3rem 0.6rem;
-            border-radius: 5px;
-            font-size: 0.78rem;
-            cursor: pointer;
+        .tr-count {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
         }
-
-        /* ── Prediction cards ──────────────────────── */
-        #predictions-list { display: flex; flex-direction: column; gap: 0.6rem; }
-
-        .pred-card {
-            background: var(--card-bg, #1a1a2e);
-            border: 1px solid var(--border, #2a2a4a);
-            border-radius: 8px;
-            padding: 0.9rem 1.25rem;
-            display: grid;
-            grid-template-columns: 80px 140px 1fr 1fr 1fr 100px 90px;
-            gap: 0.75rem;
+        .tr-sort-wrap {
+            display: flex;
             align-items: center;
-            font-size: 0.82rem;
-            transition: border-color 0.15s;
+            gap: 0.6rem;
         }
-        .pred-card:hover { border-color: var(--border-hover, #444); }
-        .pred-card.result-hit     { border-left: 3px solid #2ecc71; }
-        .pred-card.result-miss    { border-left: 3px solid #e74c3c; }
-        .pred-card.result-pending { border-left: 3px solid #f0b429; }
-
-        .pred-cell { display: flex; flex-direction: column; gap: 0.1rem; }
-        .pred-cell .cell-label {
+        .tr-sort-wrap label {
+            font-family: 'DM Mono', monospace;
             font-size: 0.65rem;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: var(--text-muted, #777);
         }
-        .pred-cell .cell-value { font-weight: 600; color: var(--text, #e0e0e0); }
-        .pred-cell .cell-sub   { font-size: 0.72rem; color: var(--text-muted, #888); }
-
-        .type-badge {
-            font-size: 0.58rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            padding: 0.2rem 0.45rem;
-            border-radius: 3px;
-            white-space: nowrap;
-            display: inline-block;
+        .tr-sort-select {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.65rem;
+            background: var(--bg-inset);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            padding: 0.28rem 0.6rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            outline: none;
         }
-        .type-badge.live     { background: rgba(240,180,41,0.18); color: #f0b429; border: 1px solid #f0b429; }
-        .type-badge.backtest { background: rgba(100,149,237,0.15); color: #6495ed; border: 1px solid #6495ed; }
 
-        .signal-pill {
-            display: inline-block;
-            padding: 0.2rem 0.55rem;
-            border-radius: 12px;
-            font-size: 0.72rem;
-            font-weight: 600;
-            text-transform: capitalize;
+        /* ── Prediction rows ────────────────────────── */
+        #predictions-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            background: var(--border-subtle);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            overflow: hidden;
         }
-        .signal-pill.bullish { background: rgba(46,204,113,0.15); color: #2ecc71; }
-        .signal-pill.bearish { background: rgba(231,76,60,0.15);  color: #e74c3c; }
-        .signal-pill.neutral { background: rgba(180,180,180,0.1); color: #aaa; }
 
-        .result-badge {
-            display: inline-flex;
+        .pred-row {
+            background: var(--bg-card);
+            padding: 1.25rem 1.75rem;
+            display: grid;
+            grid-template-columns: 72px 160px 130px 1fr 1fr 110px 90px;
+            gap: 1rem;
             align-items: center;
-            gap: 0.3rem;
-            padding: 0.25rem 0.65rem;
-            border-radius: 12px;
-            font-size: 0.72rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            transition: background var(--transition);
+            border-left: 2px solid transparent;
         }
-        .result-badge.hit     { background: rgba(46,204,113,0.15); color: #2ecc71; }
-        .result-badge.miss    { background: rgba(231,76,60,0.15);  color: #e74c3c; }
-        .result-badge.pending { background: rgba(240,180,41,0.12); color: #f0b429; }
+        .pred-row:hover { background: var(--bg-card-hover); }
+        .pred-row.result-hit     { border-left-color: var(--bullish); }
+        .pred-row.result-miss    { border-left-color: var(--bearish); }
+        .pred-row.result-pending { border-left-color: var(--gold-dim); }
 
-        .dir-dot {
+        .pred-cell {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+        .pred-cell-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+        .pred-cell-value {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.82rem;
+            color: var(--text-primary);
+            font-weight: 400;
+        }
+        .pred-cell-sub {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--text-muted);
+        }
+
+        /* Type badge */
+        .type-badge {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.58rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.2rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+        .type-badge.live {
+            background: rgba(201,168,76,0.1);
+            color: var(--gold);
+            border: 1px solid var(--gold-dim);
+        }
+        .type-badge.backtest {
+            background: rgba(100,149,237,0.1);
+            color: #6495ed;
+            border: 1px solid rgba(100,149,237,0.3);
+        }
+
+        /* Signal badge — uses existing .signal-badge styles + inline */
+        .signal-pill {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.6rem;
+            border-radius: var(--radius-sm);
             display: inline-block;
-            width: 8px; height: 8px;
+        }
+        .signal-pill.bullish {
+            background: var(--bullish-dim);
+            color: var(--bullish-text);
+            border: 1px solid rgba(61,122,86,0.3);
+        }
+        .signal-pill.bearish {
+            background: var(--bearish-dim);
+            color: var(--bearish-text);
+            border: 1px solid rgba(122,61,61,0.3);
+        }
+        .signal-pill.neutral {
+            background: var(--neutral-dim);
+            color: var(--neutral-text);
+            border: 1px solid var(--border-subtle);
+        }
+
+        /* Result badge — uses .outcome-badge pattern */
+        .result-pill {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.62rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.28rem 0.65rem;
+            border-radius: var(--radius-sm);
+            display: inline-block;
+        }
+        .result-pill.hit {
+            background: rgba(61,122,86,0.15);
+            color: var(--bullish-text);
+            border: 1px solid rgba(61,122,86,0.3);
+        }
+        .result-pill.miss {
+            background: var(--bearish-dim);
+            color: var(--bearish-text);
+            border: 1px solid rgba(122,61,61,0.3);
+        }
+        .result-pill.pending {
+            background: rgba(201,168,76,0.08);
+            color: var(--gold-dim);
+            border: 1px solid rgba(201,168,76,0.2);
+        }
+
+        /* Direction indicator */
+        .dir-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.72rem;
+        }
+        .dir-dot {
+            width: 6px; height: 6px;
             border-radius: 50%;
-            margin-right: 4px;
             flex-shrink: 0;
         }
-        .dir-dot.correct   { background: #2ecc71; }
-        .dir-dot.incorrect { background: #e74c3c; }
-        .dir-dot.na        { background: #666; }
+        .dir-dot.correct   { background: var(--bullish-text); }
+        .dir-dot.incorrect { background: var(--bearish-text); }
+        .dir-dot.pending   { background: var(--text-muted); }
 
-        /* ── Pagination ─────────────────────────────── */
-        .pagination {
+        /* ── Pagination ──────────────────────────────── */
+        .tr-pagination {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 0.5rem;
-            margin: 2rem 0;
+            gap: 0.4rem;
+            margin: 2.5rem 0;
         }
         .page-btn {
-            padding: 0.35rem 0.75rem;
-            border-radius: 5px;
-            border: 1px solid var(--border, #2a2a4a);
+            font-family: 'DM Mono', monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.06em;
+            padding: 0.35rem 0.7rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-subtle);
             background: transparent;
-            color: var(--text-muted, #aaa);
-            font-size: 0.8rem;
+            color: var(--text-muted);
             cursor: pointer;
-            transition: all 0.15s;
+            transition: all var(--transition);
         }
         .page-btn:hover, .page-btn.active {
-            background: var(--accent, #f0b429);
-            color: #000;
-            border-color: var(--accent, #f0b429);
-            font-weight: 600;
+            background: var(--gold-glow);
+            border-color: var(--gold-dim);
+            color: var(--gold);
         }
-        .page-btn:disabled { opacity: 0.3; cursor: default; }
+        .page-btn:disabled { opacity: 0.25; cursor: default; }
+        .page-ellipsis {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            padding: 0 0.2rem;
+        }
 
-        /* ── Intro note ────────────────────────────── */
-        .track-intro-note {
-            background: rgba(100,149,237,0.08);
-            border: 1px solid rgba(100,149,237,0.25);
-            border-radius: 8px;
-            padding: 1rem 1.25rem;
-            margin-bottom: 1.5rem;
+        /* ── Intro note ─────────────────────────────── */
+        .tr-methodology-note {
+            margin-bottom: 2rem;
+            padding: 1.25rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-left: 2px solid var(--gold-dim);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+        .tr-methodology-note p {
             font-size: 0.85rem;
-            color: var(--text-muted, #aaa);
-            line-height: 1.7;
+            color: var(--text-secondary);
+            font-weight: 300;
+            line-height: 1.75;
+            margin-bottom: 0.5rem;
         }
-        .track-intro-note strong { color: #6495ed; }
+        .tr-methodology-note p:last-child { margin-bottom: 0; }
+        .tr-methodology-note strong { color: var(--text-primary); font-weight: 500; }
+        .tr-methodology-note .mono {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.78rem;
+            color: var(--gold-dim);
+        }
 
-        .loading-state, .empty-state {
-            text-align: center;
+        /* Loading/empty */
+        .tr-loading, .tr-empty-msg {
+            background: var(--bg-card);
             padding: 3rem;
-            color: var(--text-muted, #888);
+            text-align: center;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
         }
 
-        @media (max-width: 960px) {
-            .stats-bar { grid-template-columns: repeat(2, 1fr); }
-            .pred-card { grid-template-columns: 1fr 1fr 1fr; }
+        @media (max-width: 1000px) {
+            .pred-row { grid-template-columns: 72px 1fr 1fr 1fr; }
+            .pred-row .pred-cell:nth-child(5),
+            .pred-row .pred-cell:nth-child(6) { display: none; }
         }
-        @media (max-width: 600px) {
-            .stats-bar { grid-template-columns: 1fr 1fr; }
-            .pred-card { grid-template-columns: 1fr; }
+        @media (max-width: 640px) {
+            .tr-stat-grid { grid-template-columns: 1fr 1fr; }
+            .pred-row { grid-template-columns: 1fr 1fr; padding: 1rem; }
+            .pred-row .pred-cell:nth-child(n+4) { display: none; }
         }
     </style>
 </head>
@@ -248,46 +345,49 @@
         <h1>Track Record</h1>
         <p class="page-intro">Transparent performance — every prediction, every outcome, no cherry-picking.</p>
 
-        <div class="stats-bar">
-            <div class="stat-card">
-                <span class="stat-value" id="stat-total">—</span>
-                <span class="stat-label">Completed Cycles</span>
+        <!-- Stats — uses existing .tr-stat-grid from style.css -->
+        <div class="tr-stat-grid" id="stats-grid">
+            <div class="tr-stat">
+                <span class="tr-stat-label">Completed Cycles</span>
+                <span class="tr-stat-value gold" id="stat-total">—</span>
             </div>
-            <div class="stat-card highlight">
-                <span class="stat-value" id="stat-directional">—</span>
-                <span class="stat-label">Directional Accuracy</span>
+            <div class="tr-stat">
+                <span class="tr-stat-label">Directional Accuracy</span>
+                <span class="tr-stat-value gold" id="stat-directional">—</span>
             </div>
-            <div class="stat-card">
-                <span class="stat-value" id="stat-hitrate">—</span>
-                <span class="stat-label">Band Hit Rate</span>
+            <div class="tr-stat">
+                <span class="tr-stat-label">Band Hit Rate</span>
+                <span class="tr-stat-value" id="stat-hitrate">—</span>
             </div>
-            <div class="stat-card">
-                <span class="stat-value" id="stat-pending">—</span>
-                <span class="stat-label">Live Pending</span>
+            <div class="tr-stat">
+                <span class="tr-stat-label">Live Pending</span>
+                <span class="tr-stat-value" id="stat-pending">—</span>
             </div>
         </div>
 
-        <div class="track-intro-note">
-            <strong>Two accuracy metrics explained.</strong>
-            <strong>Directional accuracy</strong> — did price move in the predicted direction (up for bullish, down for bearish)? This is the metric that matters for hedging and positioning decisions.
-            <strong>Band hit rate</strong> — did the price land within the 30-day forecast range? A stricter, more demanding test with a ~5% band.
-            Entries labeled <strong>Backtest</strong> use the same signal logic applied to historical prices already in the dataset — not invented, not retrofitted. Both hits and misses are shown.
+        <!-- Methodology note -->
+        <div class="tr-methodology-note">
+            <p><strong>Two accuracy metrics are tracked independently.</strong></p>
+            <p><strong>Directional accuracy</strong> — did price move in the predicted direction? Bullish signals expect an upward move; bearish expect a decline. This is the metric that matters most for hedging and positioning decisions.</p>
+            <p><strong>Band hit rate</strong> — did the final price land within the 30-day forecast range? A stricter test using a ~5% confidence band around the projected target.</p>
+            <p>Entries labeled <span class="mono">BACKTEST</span> apply the same signal logic to historical prices already in the dataset — not invented, not retrofitted after the fact. Both hits and misses are shown.</p>
         </div>
 
-        <div class="filter-bar">
-            <label>Type:</label>
-            <button class="filter-btn active" data-filter-type="all">All</button>
-            <button class="filter-btn" data-filter-type="live">Live</button>
-            <button class="filter-btn" data-filter-type="backtest">Backtest</button>
-            <div class="filter-sep"></div>
-            <label>Result:</label>
-            <button class="filter-btn active" data-filter-result="all">All</button>
-            <button class="filter-btn" data-filter-result="hit">Hits</button>
-            <button class="filter-btn" data-filter-result="miss">Misses</button>
-            <button class="filter-btn" data-filter-result="pending">Pending</button>
-            <div class="filter-sep"></div>
-            <label>Asset:</label>
-            <select id="asset-filter">
+        <!-- Filter bar -->
+        <div class="tr-filter-bar">
+            <span class="tr-filter-label">Type</span>
+            <button class="tr-filter-btn active" data-filter-type="all">All</button>
+            <button class="tr-filter-btn" data-filter-type="live">Live</button>
+            <button class="tr-filter-btn" data-filter-type="backtest">Backtest</button>
+            <div class="tr-filter-sep"></div>
+            <span class="tr-filter-label">Result</span>
+            <button class="tr-filter-btn active" data-filter-result="all">All</button>
+            <button class="tr-filter-btn" data-filter-result="hit">Hits</button>
+            <button class="tr-filter-btn" data-filter-result="miss">Misses</button>
+            <button class="tr-filter-btn" data-filter-result="pending">Pending</button>
+            <div class="tr-filter-sep"></div>
+            <span class="tr-filter-label">Asset</span>
+            <select class="tr-asset-select" id="asset-filter">
                 <option value="all">All Assets</option>
                 <option value="Brent Oil">Brent Oil</option>
                 <option value="Natural Gas">Natural Gas</option>
@@ -299,11 +399,12 @@
             </select>
         </div>
 
-        <div class="table-meta">
-            <span id="result-count">Loading…</span>
-            <div style="display:flex;align-items:center;gap:0.5rem;">
-                <label for="sort-select" style="color:var(--text-muted,#888);font-size:0.78rem;">Sort:</label>
-                <select id="sort-select">
+        <!-- Meta row -->
+        <div class="tr-meta-row">
+            <span class="tr-count" id="result-count">Loading…</span>
+            <div class="tr-sort-wrap">
+                <label for="sort-select">Sort</label>
+                <select class="tr-sort-select" id="sort-select">
                     <option value="date-desc">Newest first</option>
                     <option value="date-asc">Oldest first</option>
                     <option value="asset">Asset A–Z</option>
@@ -313,40 +414,38 @@
             </div>
         </div>
 
+        <!-- List -->
         <div id="predictions-list">
-            <div class="loading-state">Loading predictions…</div>
+            <div class="tr-loading">Fetching track record…</div>
         </div>
 
-        <div class="pagination" id="pagination"></div>
+        <!-- Pagination -->
+        <div class="tr-pagination" id="pagination"></div>
     </main>
 
     <footer>
         <div class="container">
             <p>&copy; 2026 EdgePulse. Independent market intelligence.</p>
+            <p class="disclaimer">All data for informational purposes only. Not financial advice.</p>
         </div>
     </footer>
 
     <script>
     (() => {
         const PER_PAGE = 25;
-        let allPredictions = [];
-        let filtered       = [];
-        let currentPage    = 1;
-        let activeType     = 'all';
-        let activeResult   = 'all';
-        let activeAsset    = 'all';
-        let activeSort     = 'date-desc';
+        let all = [], filtered = [], page = 1;
+        let fType = 'all', fResult = 'all', fAsset = 'all', fSort = 'date-desc';
 
-        async function fetchData() {
+        async function load() {
             try {
-                const res  = await fetch('/api/track-record');
-                const json = await res.json();
-                allPredictions = json.predictions || [];
-                renderStats(json.summary || {});
-                applyFilters();
-            } catch (e) {
+                const r = await fetch('/api/track-record');
+                const j = await r.json();
+                all = j.predictions || [];
+                renderStats(j.summary || {});
+                apply();
+            } catch(e) {
                 document.getElementById('predictions-list').innerHTML =
-                    '<div class="empty-state">Could not load track record. Please try again.</div>';
+                    '<div class="tr-empty-msg">Could not load track record — please refresh.</div>';
             }
         }
 
@@ -358,48 +457,43 @@
         }
         function set(id, v) { const e = document.getElementById(id); if(e) e.textContent = v; }
 
-        function applyFilters() {
-            filtered = allPredictions.filter(p => {
+        function apply() {
+            filtered = all.filter(p => {
                 const t = p.type || 'live';
-                if (activeType !== 'all' && t !== activeType) return false;
-                if (activeResult !== 'all') {
-                    if (activeResult === 'pending' && p.status !== 'pending') return false;
-                    if (activeResult !== 'pending' && p.result !== activeResult) return false;
+                if (fType !== 'all' && t !== fType) return false;
+                if (fResult !== 'all') {
+                    if (fResult === 'pending' && p.status !== 'pending') return false;
+                    if (fResult !== 'pending' && p.result !== fResult) return false;
                 }
-                if (activeAsset !== 'all' && p.asset !== activeAsset) return false;
+                if (fAsset !== 'all' && p.asset !== fAsset) return false;
                 return true;
             });
-
             filtered.sort((a, b) => {
-                if (activeSort === 'date-desc') return b.prediction_date.localeCompare(a.prediction_date);
-                if (activeSort === 'date-asc')  return a.prediction_date.localeCompare(b.prediction_date);
-                if (activeSort === 'asset')     return a.asset.localeCompare(b.asset);
-                if (activeSort === 'error-asc') return (a.error_pct ?? 999) - (b.error_pct ?? 999);
-                if (activeSort === 'error-desc')return (b.error_pct ?? 0)   - (a.error_pct ?? 0);
+                if (fSort === 'date-desc') return b.prediction_date.localeCompare(a.prediction_date);
+                if (fSort === 'date-asc')  return a.prediction_date.localeCompare(b.prediction_date);
+                if (fSort === 'asset')     return a.asset.localeCompare(b.asset);
+                if (fSort === 'error-asc') return (a.error_pct ?? 999) - (b.error_pct ?? 999);
+                if (fSort === 'error-desc')return (b.error_pct ?? 0)   - (a.error_pct ?? 0);
                 return 0;
             });
-
-            currentPage = 1;
+            page = 1;
             document.getElementById('result-count').textContent =
                 filtered.length + ' prediction' + (filtered.length !== 1 ? 's' : '');
             renderPage();
         }
 
         function renderPage() {
-            const start = (currentPage - 1) * PER_PAGE;
-            const slice = filtered.slice(start, start + PER_PAGE);
+            const slice = filtered.slice((page-1)*PER_PAGE, page*PER_PAGE);
             const list  = document.getElementById('predictions-list');
-
             if (!slice.length) {
-                list.innerHTML = '<div class="empty-state">No predictions match the current filters.</div>';
-                renderPagination();
-                return;
+                list.innerHTML = '<div class="tr-empty-msg">No predictions match the current filters.</div>';
+            } else {
+                list.innerHTML = slice.map(row).join('');
             }
-            list.innerHTML = slice.map(buildCard).join('');
             renderPagination();
         }
 
-        function buildCard(p) {
+        function row(p) {
             const isLive    = !p.type || p.type === 'live';
             const isPending = p.status === 'pending';
             const f         = p.forecast_30_days || {};
@@ -408,59 +502,60 @@
                 ? '<span class="type-badge live">Live</span>'
                 : '<span class="type-badge backtest">Backtest</span>';
 
-            const signalPill = `<span class="signal-pill ${p.signal||'neutral'}">${cap(p.signal)}</span>`;
+            const sig = (p.signal || 'neutral').toLowerCase();
+            const signalPill = `<span class="signal-pill ${sig}">${cap(p.signal)}</span>`;
 
-            const resultBadge = isPending
-                ? '<span class="result-badge pending">Pending</span>'
+            const resPill = isPending
+                ? '<span class="result-pill pending">Pending</span>'
                 : p.result === 'hit'
-                    ? '<span class="result-badge hit">✓ Hit</span>'
-                    : '<span class="result-badge miss">✗ Miss</span>';
+                    ? '<span class="result-pill hit">✓ Hit</span>'
+                    : '<span class="result-pill miss">✗ Miss</span>';
 
             let dirHtml;
             if (isPending) {
-                dirHtml = '<span class="dir-dot na"></span><span style="color:#888">Pending</span>';
+                dirHtml = '<span class="dir-dot pending"></span><span style="color:var(--text-muted)">—</span>';
             } else if (p.direction_correct === true) {
-                dirHtml = '<span class="dir-dot correct"></span><span style="color:#2ecc71">Correct</span>';
+                dirHtml = `<span class="dir-dot correct"></span><span style="color:var(--bullish-text);font-size:0.72rem;font-family:'DM Mono',monospace">Correct</span>`;
             } else if (p.direction_correct === false) {
-                dirHtml = '<span class="dir-dot incorrect"></span><span style="color:#e74c3c">Wrong</span>';
+                dirHtml = `<span class="dir-dot incorrect"></span><span style="color:var(--bearish-text);font-size:0.72rem;font-family:'DM Mono',monospace">Wrong</span>`;
             } else {
-                dirHtml = '<span class="dir-dot na"></span><span style="color:#888">—</span>';
+                dirHtml = '<span class="dir-dot pending"></span><span style="color:var(--text-muted)">—</span>';
             }
 
-            const bandFmt = (f.lower_bound && f.upper_bound)
-                ? fmt(f.lower_bound) + '–' + fmt(f.upper_bound) : '—';
+            const band = (f.lower_bound && f.upper_bound)
+                ? money(f.lower_bound) + '–' + money(f.upper_bound) : '—';
 
-            const resultClass = isPending ? 'result-pending' : 'result-' + p.result;
+            const cls = isPending ? 'result-pending' : 'result-' + p.result;
 
-            return `<div class="pred-card ${resultClass}">
+            return `<div class="pred-row ${cls}">
                 <div class="pred-cell">${typeBadge}</div>
                 <div class="pred-cell">
-                    <span class="cell-label">Asset</span>
-                    <span class="cell-value">${p.asset}</span>
-                    <span class="cell-sub">${p.prediction_date}</span>
+                    <span class="pred-cell-label">Asset</span>
+                    <span class="pred-cell-value">${p.asset}</span>
+                    <span class="pred-cell-sub">${p.prediction_date}</span>
                 </div>
                 <div class="pred-cell">
-                    <span class="cell-label">Signal</span>
+                    <span class="pred-cell-label">Signal</span>
                     ${signalPill}
-                    <span class="cell-sub">${cap(p.signal_confidence)} conf.</span>
+                    <span class="pred-cell-sub">${cap(p.signal_confidence)} conf.</span>
                 </div>
                 <div class="pred-cell">
-                    <span class="cell-label">Entry → Target</span>
-                    <span class="cell-value">${fmt(p.current_price)} → ${f.target ? fmt(f.target) : '—'}</span>
-                    <span class="cell-sub">Band: ${bandFmt}</span>
+                    <span class="pred-cell-label">Entry → Target</span>
+                    <span class="pred-cell-value">${money(p.current_price)} → ${f.target ? money(f.target) : '—'}</span>
+                    <span class="pred-cell-sub">Band: ${band}</span>
                 </div>
                 <div class="pred-cell">
-                    <span class="cell-label">Actual / Error</span>
-                    <span class="cell-value">${isPending ? '—' : fmt(p.actual_price)}</span>
-                    <span class="cell-sub">Error: ${isPending ? '—' : (p.error_pct != null ? p.error_pct + '%' : '—')}</span>
+                    <span class="pred-cell-label">Actual / Error</span>
+                    <span class="pred-cell-value">${isPending ? '—' : money(p.actual_price)}</span>
+                    <span class="pred-cell-sub">Error: ${isPending ? '—' : (p.error_pct != null ? p.error_pct + '%' : '—')}</span>
                 </div>
                 <div class="pred-cell">
-                    <span class="cell-label">Direction</span>
-                    <span class="cell-value" style="display:flex;align-items:center;gap:0">${dirHtml}</span>
+                    <span class="pred-cell-label">Direction</span>
+                    <div class="dir-indicator">${dirHtml}</div>
                 </div>
                 <div class="pred-cell">
-                    <span class="cell-label">Result</span>
-                    ${resultBadge}
+                    <span class="pred-cell-label">Result</span>
+                    ${resPill}
                 </div>
             </div>`;
         }
@@ -470,14 +565,14 @@
             const pag   = document.getElementById('pagination');
             if (total <= 1) { pag.innerHTML = ''; return; }
 
-            let html = `<button class="page-btn" onclick="goPage(${currentPage-1})" ${currentPage===1?'disabled':''}>‹ Prev</button>`;
-            pageRange(currentPage, total).forEach(p => {
-                html += p === '…'
-                    ? `<span style="padding:0 0.25rem;color:#888">…</span>`
-                    : `<button class="page-btn ${p===currentPage?'active':''}" onclick="goPage(${p})">${p}</button>`;
+            let h = `<button class="page-btn" onclick="goPage(${page-1})" ${page===1?'disabled':''}>← Prev</button>`;
+            pageRange(page, total).forEach(n => {
+                h += n === '…'
+                    ? `<span class="page-ellipsis">…</span>`
+                    : `<button class="page-btn ${n===page?'active':''}" onclick="goPage(${n})">${n}</button>`;
             });
-            html += `<button class="page-btn" onclick="goPage(${currentPage+1})" ${currentPage===total?'disabled':''}>Next ›</button>`;
-            pag.innerHTML = html;
+            h += `<button class="page-btn" onclick="goPage(${page+1})" ${page===total?'disabled':''}>Next →</button>`;
+            pag.innerHTML = h;
         }
 
         function pageRange(cur, total) {
@@ -487,49 +582,32 @@
             return [1,'…',cur-1,cur,cur+1,'…',total];
         }
 
-        window.goPage = function(p) {
+        window.goPage = function(n) {
             const total = Math.ceil(filtered.length / PER_PAGE);
-            if (p < 1 || p > total) return;
-            currentPage = p;
+            if (n < 1 || n > total) return;
+            page = n;
             renderPage();
             window.scrollTo({top:0, behavior:'smooth'});
         };
 
-        document.querySelectorAll('[data-filter-type]').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('[data-filter-type]').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                activeType = btn.dataset.filterType;
-                applyFilters();
-            });
-        });
-
-        document.querySelectorAll('[data-filter-result]').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('[data-filter-result]').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                activeResult = btn.dataset.filterResult;
-                applyFilters();
-            });
-        });
-
-        document.getElementById('asset-filter').addEventListener('change', e => {
-            activeAsset = e.target.value;
-            applyFilters();
-        });
-
-        document.getElementById('sort-select').addEventListener('change', e => {
-            activeSort = e.target.value;
-            applyFilters();
-        });
+        document.querySelectorAll('[data-filter-type]').forEach(b => b.addEventListener('click', () => {
+            document.querySelectorAll('[data-filter-type]').forEach(x => x.classList.remove('active'));
+            b.classList.add('active'); fType = b.dataset.filterType; apply();
+        }));
+        document.querySelectorAll('[data-filter-result]').forEach(b => b.addEventListener('click', () => {
+            document.querySelectorAll('[data-filter-result]').forEach(x => x.classList.remove('active'));
+            b.classList.add('active'); fResult = b.dataset.filterResult; apply();
+        }));
+        document.getElementById('asset-filter').addEventListener('change', e => { fAsset = e.target.value; apply(); });
+        document.getElementById('sort-select').addEventListener('change', e => { fSort = e.target.value; apply(); });
 
         function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : '—'; }
-        function fmt(n) {
+        function money(n) {
             if (n == null) return '—';
             return '$' + Number(n).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
         }
 
-        fetchData();
+        load();
     })();
     </script>
 </body>
