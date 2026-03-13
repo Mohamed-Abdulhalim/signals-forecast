@@ -147,13 +147,21 @@ def derive_forecast(entry_price, prices_30d, signal):
 
     trend_pct = (recent_avg - older_avg) / older_avg if older_avg else 0
 
+    # Clamp trend to ±30% to prevent runaway projections on sharp moves
+    trend_pct = max(-0.30, min(0.30, trend_pct))
+
     # Project 30 days forward
-    target    = round(entry_price * (1 + trend_pct * 2), 2)
+    target = round(entry_price * (1 + trend_pct * 2), 2)
+
+    # Floor: target can never go below 10% of entry price
+    # (negative commodity prices are not meaningful for this use case)
+    floor  = round(entry_price * 0.10, 2)
+    target = max(target, floor)
 
     # Confidence band: ~5% of entry price
-    band      = entry_price * 0.05
-    lower     = round(target - band, 2)
-    upper     = round(target + band, 2)
+    band  = entry_price * 0.05
+    lower = round(max(target - band, floor), 2)
+    upper = round(target + band, 2)
 
     # Ensure correct order
     if lower > upper:
