@@ -18,9 +18,10 @@
       "actual_price": 65.01,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 6.38,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $65.01 landed below the confidence range ($65.99\u2013$72.89)."
+      "notes": "Actual $65.01 landed below the band ($65.99\u2013$72.89). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20250929",
@@ -40,9 +41,10 @@
       "actual_price": 3.36,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 16.67,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.36 landed above the confidence range ($2.73\u2013$3.03)."
+      "notes": "Actual $3.36 landed above the band ($2.73\u2013$3.03). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20250930",
@@ -62,9 +64,10 @@
       "actual_price": 65.11,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 8.0,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $65.11 landed below the confidence range ($67.34\u2013$74.20)."
+      "notes": "Actual $65.11 landed below the band ($67.34\u2013$74.20). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20250930",
@@ -84,9 +87,10 @@
       "actual_price": 3.46,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 28.15,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.46 landed above the confidence range ($2.54\u2013$2.86)."
+      "notes": "Actual $3.46 landed above the band ($2.54\u2013$2.86). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251001",
@@ -106,9 +110,10 @@
       "actual_price": 65.44,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 10.17,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $65.44 landed below the confidence range ($69.52\u2013$76.18)."
+      "notes": "Actual $65.44 landed below the band ($69.52\u2013$76.18). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251001",
@@ -128,9 +133,10 @@
       "actual_price": 3.57,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 33.21,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.57 landed above the confidence range ($2.52\u2013$2.84)."
+      "notes": "Actual $3.57 landed above the band ($2.52\u2013$2.84). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251002",
@@ -150,9 +156,10 @@
       "actual_price": 65.79,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 9.74,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $65.79 landed below the confidence range ($69.62\u2013$76.16)."
+      "notes": "Actual $65.79 landed below the band ($69.62\u2013$76.16). \u2713 direction correct."
     },
     {
       "id": "backtest-natural-gas-20251002",
@@ -172,9 +179,10 @@
       "actual_price": 3.37,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 22.55,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.37 landed above the confidence range ($2.58\u2013$2.92)."
+      "notes": "Actual $3.37 landed above the band ($2.58\u2013$2.92). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20251003",
@@ -194,9 +202,10 @@
       "actual_price": 65.79,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 6.26,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $65.79 landed below the confidence range ($66.87\u2013$73.49)."
+      "notes": "Actual $65.79 landed below the band ($66.87\u2013$73.49). \u2713 direction correct."
     },
     {
       "id": "backtest-natural-gas-20251003",
@@ -216,9 +225,10 @@
       "actual_price": 3.37,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 11.96,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.37 landed above the confidence range ($2.85\u2013$3.17)."
+      "notes": "Actual $3.37 landed above the band ($2.85\u2013$3.17). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20251006",
@@ -238,6 +248,7 @@
       "actual_price": 63.54,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 0.61,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -260,9 +271,10 @@
       "actual_price": 3.51,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 5.9,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.51 landed below the confidence range ($3.56\u2013$3.90)."
+      "notes": "Actual $3.51 landed below the band ($3.56\u2013$3.90). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20251007",
@@ -282,6 +294,7 @@
       "actual_price": 63.41,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 0.68,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -304,9 +317,10 @@
       "actual_price": 3.71,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 5.36,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.71 landed below the confidence range ($3.75\u2013$4.09)."
+      "notes": "Actual $3.71 landed below the band ($3.75\u2013$4.09). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20251008",
@@ -326,6 +340,7 @@
       "actual_price": 63.72,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 1.24,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -348,9 +363,10 @@
       "actual_price": 3.76,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 6.7,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.76 landed below the confidence range ($3.86\u2013$4.20)."
+      "notes": "Actual $3.76 landed below the band ($3.86\u2013$4.20). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20251009",
@@ -370,6 +386,7 @@
       "actual_price": 63.01,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 0.83,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -392,6 +409,7 @@
       "actual_price": 3.8,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 3.8,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -414,6 +432,7 @@
       "actual_price": 63.01,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 1.65,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -436,9 +455,10 @@
       "actual_price": 3.8,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 10.14,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.80 landed above the confidence range ($3.31\u2013$3.60)."
+      "notes": "Actual $3.80 landed above the band ($3.31\u2013$3.60). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20251013",
@@ -458,6 +478,7 @@
       "actual_price": 61.88,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 1.01,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -480,9 +501,10 @@
       "actual_price": 3.6,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 10.09,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.60 landed above the confidence range ($3.12\u2013$3.42)."
+      "notes": "Actual $3.60 landed above the band ($3.12\u2013$3.42). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20251014",
@@ -502,6 +524,7 @@
       "actual_price": 62.14,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 5.25,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -524,9 +547,10 @@
       "actual_price": 3.6,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 21.62,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.60 landed above the confidence range ($2.82\u2013$3.10)."
+      "notes": "Actual $3.60 landed above the band ($2.82\u2013$3.10). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20251015",
@@ -546,9 +570,10 @@
       "actual_price": 63.45,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 11.2,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $63.45 landed above the confidence range ($53.94\u2013$60.18)."
+      "notes": "Actual $63.45 landed above the band ($53.94\u2013$60.18). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251015",
@@ -568,9 +593,10 @@
       "actual_price": 3.49,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 31.2,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.49 landed above the confidence range ($2.52\u2013$2.80)."
+      "notes": "Actual $3.49 landed above the band ($2.52\u2013$2.80). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251016",
@@ -590,9 +616,10 @@
       "actual_price": 63.16,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 15.95,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $63.16 landed above the confidence range ($51.42\u2013$57.52)."
+      "notes": "Actual $63.16 landed above the band ($51.42\u2013$57.52). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251016",
@@ -612,9 +639,10 @@
       "actual_price": 3.71,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 53.94,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.71 landed above the confidence range ($2.27\u2013$2.55)."
+      "notes": "Actual $3.71 landed above the band ($2.27\u2013$2.55). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251017",
@@ -634,9 +662,10 @@
       "actual_price": 63.16,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 19.33,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $63.16 landed above the confidence range ($49.87\u2013$55.99)."
+      "notes": "Actual $63.16 landed above the band ($49.87\u2013$55.99). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251017",
@@ -656,9 +685,10 @@
       "actual_price": 3.71,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 78.37,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.71 landed above the confidence range ($1.95\u2013$2.21)."
+      "notes": "Actual $3.71 landed above the band ($1.95\u2013$2.21). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251020",
@@ -678,9 +708,10 @@
       "actual_price": 63.78,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 21.58,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $63.78 landed above the confidence range ($49.42\u2013$55.50)."
+      "notes": "Actual $63.78 landed above the band ($49.42\u2013$55.50). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251020",
@@ -700,9 +731,10 @@
       "actual_price": 3.94,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 75.11,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.94 landed above the confidence range ($2.10\u2013$2.40)."
+      "notes": "Actual $3.94 landed above the band ($2.10\u2013$2.40). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251021",
@@ -722,9 +754,10 @@
       "actual_price": 63.64,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 21.73,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $63.64 landed above the confidence range ($49.23\u2013$55.33)."
+      "notes": "Actual $63.64 landed above the band ($49.23\u2013$55.33). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251021",
@@ -744,9 +777,10 @@
       "actual_price": 3.97,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 58.17,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.97 landed above the confidence range ($2.35\u2013$2.67)."
+      "notes": "Actual $3.97 landed above the band ($2.35\u2013$2.67). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251022",
@@ -766,9 +800,10 @@
       "actual_price": 62.78,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 17.15,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $62.78 landed above the confidence range ($50.48\u2013$56.70)."
+      "notes": "Actual $62.78 landed above the band ($50.48\u2013$56.70). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251022",
@@ -788,9 +823,10 @@
       "actual_price": 4.13,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 42.91,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $4.13 landed above the confidence range ($2.72\u2013$3.06)."
+      "notes": "Actual $4.13 landed above the band ($2.72\u2013$3.06). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251023",
@@ -810,9 +846,10 @@
       "actual_price": 64.83,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 12.03,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $64.83 landed above the confidence range ($54.55\u2013$61.19)."
+      "notes": "Actual $64.83 landed above the band ($54.55\u2013$61.19). \u2713 direction correct."
     },
     {
       "id": "backtest-natural-gas-20251023",
@@ -832,9 +869,10 @@
       "actual_price": 4.15,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 30.91,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $4.15 landed above the confidence range ($3.00\u2013$3.34)."
+      "notes": "Actual $4.15 landed above the band ($3.00\u2013$3.34). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251024",
@@ -854,9 +892,10 @@
       "actual_price": 64.83,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 7.41,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $64.83 landed above the confidence range ($57.07\u2013$63.65)."
+      "notes": "Actual $64.83 landed above the band ($57.07\u2013$63.65). \u2713 direction correct."
     },
     {
       "id": "backtest-natural-gas-20251024",
@@ -876,9 +915,10 @@
       "actual_price": 4.15,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 23.15,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $4.15 landed above the confidence range ($3.21\u2013$3.53)."
+      "notes": "Actual $4.15 landed above the band ($3.21\u2013$3.53). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20251027",
@@ -898,6 +938,7 @@
       "actual_price": 64.81,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 3.0,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -920,9 +961,10 @@
       "actual_price": 4.59,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 19.84,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $4.59 landed above the confidence range ($3.67\u2013$4.00)."
+      "notes": "Actual $4.59 landed above the band ($3.67\u2013$4.00). \u2713 direction correct."
     },
     {
       "id": "backtest-natural-gas-20251028",
@@ -942,9 +984,10 @@
       "actual_price": 4.59,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 8.77,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $4.59 landed above the confidence range ($4.05\u2013$4.39)."
+      "notes": "Actual $4.59 landed above the band ($4.05\u2013$4.39). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20251029",
@@ -964,9 +1007,10 @@
       "actual_price": 64.07,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 6.0,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $64.07 landed below the confidence range ($64.91\u2013$71.41)."
+      "notes": "Actual $64.07 landed below the band ($64.91\u2013$71.41). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251029",
@@ -986,9 +1030,10 @@
       "actual_price": 4.59,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 9.29,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $4.59 landed above the confidence range ($4.03\u2013$4.37)."
+      "notes": "Actual $4.59 landed above the band ($4.03\u2013$4.37). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20251030",
@@ -1008,9 +1053,10 @@
       "actual_price": 64.22,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 8.89,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $64.22 landed below the confidence range ($67.23\u2013$73.75)."
+      "notes": "Actual $64.22 landed below the band ($67.23\u2013$73.75). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251030",
@@ -1030,9 +1076,10 @@
       "actual_price": 5.08,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 19.25,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $5.08 landed above the confidence range ($4.09\u2013$4.43)."
+      "notes": "Actual $5.08 landed above the band ($4.09\u2013$4.43). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20251031",
@@ -1052,9 +1099,10 @@
       "actual_price": 64.22,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 8.96,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $64.22 landed below the confidence range ($67.27\u2013$73.81)."
+      "notes": "Actual $64.22 landed below the band ($67.27\u2013$73.81). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251031",
@@ -1074,9 +1122,10 @@
       "actual_price": 5.08,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 14.67,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $5.08 landed above the confidence range ($4.25\u2013$4.61)."
+      "notes": "Actual $5.08 landed above the band ($4.25\u2013$4.61). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20251103",
@@ -1096,9 +1145,10 @@
       "actual_price": 63.75,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 9.54,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $63.75 landed below the confidence range ($67.18\u2013$73.76)."
+      "notes": "Actual $63.75 landed below the band ($67.18\u2013$73.76). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251103",
@@ -1118,9 +1168,10 @@
       "actual_price": 4.86,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 14.08,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $4.86 landed above the confidence range ($4.09\u2013$4.43)."
+      "notes": "Actual $4.86 landed above the band ($4.09\u2013$4.43). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20251104",
@@ -1140,9 +1191,10 @@
       "actual_price": 64.15,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 7.67,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $64.15 landed below the confidence range ($66.23\u2013$72.73)."
+      "notes": "Actual $64.15 landed below the band ($66.23\u2013$72.73). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251104",
@@ -1162,9 +1214,10 @@
       "actual_price": 4.89,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 17.27,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $4.89 landed above the confidence range ($4.00\u2013$4.34)."
+      "notes": "Actual $4.89 landed above the band ($4.00\u2013$4.34). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20251105",
@@ -1184,9 +1237,10 @@
       "actual_price": 64.42,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 5.36,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $64.42 landed below the confidence range ($64.89\u2013$71.25)."
+      "notes": "Actual $64.42 landed below the band ($64.89\u2013$71.25). \u2713 direction correct."
     },
     {
       "id": "backtest-natural-gas-20251105",
@@ -1206,9 +1260,10 @@
       "actual_price": 5.19,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 24.46,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $5.19 landed above the confidence range ($3.99\u2013$4.35)."
+      "notes": "Actual $5.19 landed above the band ($3.99\u2013$4.35). \u2713 direction correct."
     },
     {
       "id": "backtest-natural-gas-20251106",
@@ -1228,9 +1283,10 @@
       "actual_price": 5.19,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 19.86,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $5.19 landed above the confidence range ($4.14\u2013$4.52)."
+      "notes": "Actual $5.19 landed above the band ($4.14\u2013$4.52). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20251107",
@@ -1250,6 +1306,7 @@
       "actual_price": 63.3,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 3.52,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -1272,9 +1329,10 @@
       "actual_price": 5.19,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 19.31,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $5.19 landed above the confidence range ($4.16\u2013$4.54)."
+      "notes": "Actual $5.19 landed above the band ($4.16\u2013$4.54). \u2713 direction correct."
     },
     {
       "id": "backtest-natural-gas-20251110",
@@ -1294,9 +1352,10 @@
       "actual_price": 4.62,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 8.45,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $4.62 landed above the confidence range ($4.07\u2013$4.45)."
+      "notes": "Actual $4.62 landed above the band ($4.07\u2013$4.45). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20251111",
@@ -1316,6 +1375,7 @@
       "actual_price": 61.87,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 0.39,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -1338,6 +1398,7 @@
       "actual_price": 4.35,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 0.23,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -1360,9 +1421,10 @@
       "actual_price": 4.07,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 5.35,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $4.07 landed below the confidence range ($4.12\u2013$4.48)."
+      "notes": "Actual $4.07 landed below the band ($4.12\u2013$4.48). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20251113",
@@ -1382,9 +1444,10 @@
       "actual_price": 61.55,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 5.47,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $61.55 landed above the confidence range ($55.25\u2013$61.47)."
+      "notes": "Actual $61.55 landed above the band ($55.25\u2013$61.47). \u2713 direction correct."
     },
     {
       "id": "backtest-natural-gas-20251113",
@@ -1404,9 +1467,10 @@
       "actual_price": 3.9,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 9.93,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.90 landed below the confidence range ($4.15\u2013$4.51)."
+      "notes": "Actual $3.90 landed below the band ($4.15\u2013$4.51). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20251114",
@@ -1426,6 +1490,7 @@
       "actual_price": 61.55,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 3.2,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -1448,6 +1513,7 @@
       "actual_price": 3.9,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 4.18,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -1470,6 +1536,7 @@
       "actual_price": 60.61,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 1.59,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -1492,9 +1559,10 @@
       "actual_price": 3.66,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 10.29,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.66 landed below the confidence range ($3.89\u2013$4.27)."
+      "notes": "Actual $3.66 landed below the band ($3.89\u2013$4.27). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251118",
@@ -1514,6 +1582,7 @@
       "actual_price": 60.69,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 1.81,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -1536,6 +1605,7 @@
       "actual_price": 3.87,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 1.28,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -1558,6 +1628,7 @@
       "actual_price": 61.35,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 0.23,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -1580,9 +1651,10 @@
       "actual_price": 3.58,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 11.6,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.58 landed below the confidence range ($3.85\u2013$4.25)."
+      "notes": "Actual $3.58 landed below the band ($3.85\u2013$4.25). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251120",
@@ -1602,6 +1674,7 @@
       "actual_price": 62.22,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 0.35,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -1624,9 +1697,10 @@
       "actual_price": 3.67,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 12.2,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.67 landed below the confidence range ($3.98\u2013$4.38)."
+      "notes": "Actual $3.67 landed below the band ($3.98\u2013$4.38). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251121",
@@ -1646,6 +1720,7 @@
       "actual_price": 62.22,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 0.88,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -1668,9 +1743,10 @@
       "actual_price": 3.67,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 18.08,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.67 landed below the confidence range ($4.27\u2013$4.69)."
+      "notes": "Actual $3.67 landed below the band ($4.27\u2013$4.69). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251124",
@@ -1690,6 +1766,7 @@
       "actual_price": 63.7,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 1.92,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -1712,9 +1789,10 @@
       "actual_price": 3.31,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 31.33,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.31 landed below the confidence range ($4.61\u2013$5.03)."
+      "notes": "Actual $3.31 landed below the band ($4.61\u2013$5.03). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251125",
@@ -1734,9 +1812,10 @@
       "actual_price": 3.31,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 32.45,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.31 landed below the confidence range ($4.69\u2013$5.11)."
+      "notes": "Actual $3.31 landed below the band ($4.69\u2013$5.11). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251126",
@@ -1756,6 +1835,7 @@
       "actual_price": 63.7,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 3.25,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -1778,9 +1858,10 @@
       "actual_price": 3.31,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 40.68,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.31 landed below the confidence range ($5.35\u2013$5.81)."
+      "notes": "Actual $3.31 landed below the band ($5.35\u2013$5.81). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251127",
@@ -1800,6 +1881,7 @@
       "actual_price": 63.1,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 3.75,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -1822,9 +1904,10 @@
       "actual_price": 4.35,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 24.74,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $4.35 landed below the confidence range ($5.55\u2013$6.01)."
+      "notes": "Actual $4.35 landed below the band ($5.55\u2013$6.01). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251128",
@@ -1844,6 +1927,7 @@
       "actual_price": 63.1,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 3.84,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -1866,9 +1950,10 @@
       "actual_price": 4.35,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 27.62,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $4.35 landed below the confidence range ($5.78\u2013$6.24)."
+      "notes": "Actual $4.35 landed below the band ($5.78\u2013$6.24). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251201",
@@ -1888,9 +1973,10 @@
       "actual_price": 61.35,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 7.73,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $61.35 landed below the confidence range ($63.28\u2013$69.70)."
+      "notes": "Actual $61.35 landed below the band ($63.28\u2013$69.70). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251201",
@@ -1910,9 +1996,10 @@
       "actual_price": 4.0,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 41.09,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $4.00 landed below the confidence range ($6.54\u2013$7.04)."
+      "notes": "Actual $4.00 landed below the band ($6.54\u2013$7.04). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251202",
@@ -1932,9 +2019,10 @@
       "actual_price": 61.35,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 5.62,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $61.35 landed below the confidence range ($61.83\u2013$68.17)."
+      "notes": "Actual $61.35 landed below the band ($61.83\u2013$68.17). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251202",
@@ -1954,9 +2042,10 @@
       "actual_price": 4.0,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 41.35,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $4.00 landed below the confidence range ($6.58\u2013$7.06)."
+      "notes": "Actual $4.00 landed below the band ($6.58\u2013$7.06). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251203",
@@ -1976,6 +2065,7 @@
       "actual_price": 61.98,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 4.81,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -1998,9 +2088,10 @@
       "actual_price": 4.0,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 43.82,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $4.00 landed below the confidence range ($6.88\u2013$7.36)."
+      "notes": "Actual $4.00 landed below the band ($6.88\u2013$7.36). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251204",
@@ -2020,6 +2111,7 @@
       "actual_price": 63.0,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 2.33,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -2042,9 +2134,10 @@
       "actual_price": 2.82,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 59.71,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2.82 landed below the confidence range ($6.76\u2013$7.24)."
+      "notes": "Actual $2.82 landed below the band ($6.76\u2013$7.24). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251205",
@@ -2064,6 +2157,7 @@
       "actual_price": 63.0,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 2.1,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -2086,9 +2180,10 @@
       "actual_price": 2.82,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 61.21,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2.82 landed below the confidence range ($7.01\u2013$7.53)."
+      "notes": "Actual $2.82 landed below the band ($7.01\u2013$7.53). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251208",
@@ -2108,6 +2203,7 @@
       "actual_price": 61.08,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 3.42,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -2130,9 +2226,10 @@
       "actual_price": 3.1,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 57.18,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.10 landed below the confidence range ($6.98\u2013$7.50)."
+      "notes": "Actual $3.10 landed below the band ($6.98\u2013$7.50). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251209",
@@ -2152,6 +2249,7 @@
       "actual_price": 63.34,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 2.16,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -2174,9 +2272,10 @@
       "actual_price": 2.92,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 53.87,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2.92 landed below the confidence range ($6.09\u2013$6.57)."
+      "notes": "Actual $2.92 landed below the band ($6.09\u2013$6.57). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251210",
@@ -2196,6 +2295,7 @@
       "actual_price": 65.11,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 4.19,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -2218,9 +2318,10 @@
       "actual_price": 2.87,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 50.86,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2.87 landed below the confidence range ($5.61\u2013$6.07)."
+      "notes": "Actual $2.87 landed below the band ($5.61\u2013$6.07). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251211",
@@ -2240,9 +2341,10 @@
       "actual_price": 65.4,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 7.2,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $65.40 landed above the confidence range ($57.92\u2013$64.10)."
+      "notes": "Actual $65.40 landed above the band ($57.92\u2013$64.10). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251211",
@@ -2262,9 +2364,10 @@
       "actual_price": 2.9,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 44.23,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2.90 landed below the confidence range ($4.98\u2013$5.42)."
+      "notes": "Actual $2.90 landed below the band ($4.98\u2013$5.42). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251212",
@@ -2284,9 +2387,10 @@
       "actual_price": 65.4,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 8.51,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $65.40 landed above the confidence range ($57.16\u2013$63.38)."
+      "notes": "Actual $65.40 landed above the band ($57.16\u2013$63.38). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251212",
@@ -2306,9 +2410,10 @@
       "actual_price": 2.9,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 35.41,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2.90 landed below the confidence range ($4.29\u2013$4.69)."
+      "notes": "Actual $2.90 landed below the band ($4.29\u2013$4.69). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251215",
@@ -2328,9 +2433,10 @@
       "actual_price": 68.87,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 17.67,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $68.87 landed above the confidence range ($55.45\u2013$61.61)."
+      "notes": "Actual $68.87 landed above the band ($55.45\u2013$61.61). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251215",
@@ -2350,9 +2456,10 @@
       "actual_price": 3.13,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 16.53,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.13 landed below the confidence range ($3.56\u2013$3.94)."
+      "notes": "Actual $3.13 landed below the band ($3.56\u2013$3.94). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20251216",
@@ -2372,9 +2479,10 @@
       "actual_price": 66.16,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 16.87,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $66.16 landed above the confidence range ($53.61\u2013$59.61)."
+      "notes": "Actual $66.16 landed above the band ($53.61\u2013$59.61). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251216",
@@ -2394,6 +2502,7 @@
       "actual_price": 2.92,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 0.69,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -2416,9 +2525,10 @@
       "actual_price": 2648.93,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 8.97,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2,648.93 landed above the confidence range ($2,307.01\u2013$2,554.73)."
+      "notes": "Actual $2,648.93 landed above the band ($2,307.01\u2013$2,554.73). \u2713 direction correct."
     },
     {
       "id": "backtest-usd-index-20251216",
@@ -2438,6 +2548,7 @@
       "actual_price": 96.5,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 0.57,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -2460,6 +2571,7 @@
       "actual_price": 34.0652,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 4.2,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -2482,9 +2594,10 @@
       "actual_price": 66.97,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 18.55,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $66.97 landed above the confidence range ($53.46\u2013$59.52)."
+      "notes": "Actual $66.97 landed above the band ($53.46\u2013$59.52). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251217",
@@ -2504,9 +2617,10 @@
       "actual_price": 3.06,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 20.95,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.06 landed above the confidence range ($2.35\u2013$2.71)."
+      "notes": "Actual $3.06 landed above the band ($2.35\u2013$2.71). \u2713 direction correct."
     },
     {
       "id": "backtest-gold-20251217",
@@ -2526,9 +2640,10 @@
       "actual_price": 2636.16,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 8.45,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2,636.16 landed above the confidence range ($2,305.91\u2013$2,555.77)."
+      "notes": "Actual $2,636.16 landed above the band ($2,305.91\u2013$2,555.77). \u2713 direction correct."
     },
     {
       "id": "backtest-usd-index-20251217",
@@ -2548,6 +2663,7 @@
       "actual_price": 96.58,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 1.14,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -2570,6 +2686,7 @@
       "actual_price": 34.0801,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 4.16,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -2592,9 +2709,10 @@
       "actual_price": 66.91,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 19.65,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $66.91 landed above the confidence range ($52.89\u2013$58.95)."
+      "notes": "Actual $66.91 landed above the band ($52.89\u2013$58.95). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251218",
@@ -2614,9 +2732,10 @@
       "actual_price": 4.0,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 69.49,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $4.00 landed above the confidence range ($2.17\u2013$2.55)."
+      "notes": "Actual $4.00 landed above the band ($2.17\u2013$2.55). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20251218",
@@ -2636,9 +2755,10 @@
       "actual_price": 2735.9,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 11.17,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2,735.90 landed above the confidence range ($2,336.28\u2013$2,585.68)."
+      "notes": "Actual $2,735.90 landed above the band ($2,336.28\u2013$2,585.68). \u2713 direction correct."
     },
     {
       "id": "backtest-usd-index-20251218",
@@ -2658,6 +2778,7 @@
       "actual_price": 96.18,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 1.03,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -2680,6 +2801,7 @@
       "actual_price": 33.99,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 4.04,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -2702,9 +2824,10 @@
       "actual_price": 66.91,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 18.42,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $66.91 landed above the confidence range ($53.43\u2013$59.57)."
+      "notes": "Actual $66.91 landed above the band ($53.43\u2013$59.57). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251219",
@@ -2724,9 +2847,10 @@
       "actual_price": 4.0,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 93.24,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $4.00 landed above the confidence range ($1.89\u2013$2.25)."
+      "notes": "Actual $4.00 landed above the band ($1.89\u2013$2.25). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20251219",
@@ -2746,9 +2870,10 @@
       "actual_price": 2735.9,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 10.7,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2,735.90 landed above the confidence range ($2,346.66\u2013$2,596.34)."
+      "notes": "Actual $2,735.90 landed above the band ($2,346.66\u2013$2,596.34). \u2713 direction correct."
     },
     {
       "id": "backtest-usd-index-20251219",
@@ -2768,6 +2893,7 @@
       "actual_price": 96.18,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 1.09,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -2790,6 +2916,7 @@
       "actual_price": 33.99,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 3.0,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -2812,9 +2939,10 @@
       "actual_price": 66.72,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 16.3,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $66.72 landed above the confidence range ($54.26\u2013$60.48)."
+      "notes": "Actual $66.72 landed above the band ($54.26\u2013$60.48). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251222",
@@ -2834,9 +2962,10 @@
       "actual_price": 4.96,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 144.33,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $4.96 landed above the confidence range ($1.85\u2013$2.21)."
+      "notes": "Actual $4.96 landed above the band ($1.85\u2013$2.21). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20251222",
@@ -2856,9 +2985,10 @@
       "actual_price": 2775.76,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 14.57,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2,775.76 landed above the confidence range ($2,295.11\u2013$2,550.55)."
+      "notes": "Actual $2,775.76 landed above the band ($2,295.11\u2013$2,550.55). \u2713 direction correct."
     },
     {
       "id": "backtest-usd-index-20251222",
@@ -2878,6 +3008,7 @@
       "actual_price": 95.87,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 0.21,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -2900,9 +3031,10 @@
       "actual_price": 65.46,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 9.98,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $65.46 landed above the confidence range ($56.34\u2013$62.71)."
+      "notes": "Actual $65.46 landed above the band ($56.34\u2013$62.71). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251223",
@@ -2922,9 +3054,10 @@
       "actual_price": 8.42,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 334.02,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $8.42 landed above the confidence range ($1.77\u2013$2.11)."
+      "notes": "Actual $8.42 landed above the band ($1.77\u2013$2.11). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20251223",
@@ -2944,6 +3077,7 @@
       "actual_price": 2827.01,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 3.48,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -2966,9 +3100,10 @@
       "actual_price": 68.16,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 10.42,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $68.16 landed above the confidence range ($58.54\u2013$64.91)."
+      "notes": "Actual $68.16 landed above the band ($58.54\u2013$64.91). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251224",
@@ -2988,9 +3123,10 @@
       "actual_price": 30.72,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 1451.52,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $30.72 landed above the confidence range ($1.81\u2013$2.15)."
+      "notes": "Actual $30.72 landed above the band ($1.81\u2013$2.15). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20251224",
@@ -3010,6 +3146,7 @@
       "actual_price": 2865.87,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 4.0,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -3032,9 +3169,10 @@
       "actual_price": 67.7,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 6.4,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $67.70 landed above the confidence range ($60.45\u2013$66.81)."
+      "notes": "Actual $67.70 landed above the band ($60.45\u2013$66.81). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20251225",
@@ -3054,9 +3192,10 @@
       "actual_price": 25.01,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 1138.12,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $25.01 landed above the confidence range ($1.85\u2013$2.19)."
+      "notes": "Actual $25.01 landed above the band ($1.85\u2013$2.19). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20251225",
@@ -3076,9 +3215,10 @@
       "actual_price": 2907.79,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 4.9,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2,907.79 landed above the confidence range ($2,643.17\u2013$2,900.93)."
+      "notes": "Actual $2,907.79 landed above the band ($2,643.17\u2013$2,900.93). \u2713 direction correct."
     },
     {
       "id": "backtest-usd-index-20251225",
@@ -3098,6 +3238,7 @@
       "actual_price": 94.28,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 0.11,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -3120,6 +3261,7 @@
       "actual_price": 67.7,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 3.25,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -3142,9 +3284,10 @@
       "actual_price": 25.01,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 1163.13,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $25.01 landed above the confidence range ($1.81\u2013$2.15)."
+      "notes": "Actual $25.01 landed above the band ($1.81\u2013$2.15). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20251226",
@@ -3164,6 +3307,7 @@
       "actual_price": 2907.79,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 2.96,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -3186,6 +3330,7 @@
       "actual_price": 94.28,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 0.11,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -3208,9 +3353,10 @@
       "actual_price": 70.9,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 6.54,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $70.90 landed above the confidence range ($63.39\u2013$69.70)."
+      "notes": "Actual $70.90 landed above the band ($63.39\u2013$69.70). \u2713 direction correct."
     },
     {
       "id": "backtest-natural-gas-20251229",
@@ -3230,9 +3376,10 @@
       "actual_price": 9.34,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 238.41,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $9.34 landed above the confidence range ($2.54\u2013$2.98)."
+      "notes": "Actual $9.34 landed above the band ($2.54\u2013$2.98). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20251229",
@@ -3252,9 +3399,10 @@
       "actual_price": 3094.63,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 13.38,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3,094.63 landed above the confidence range ($2,604.79\u2013$2,854.21)."
+      "notes": "Actual $3,094.63 landed above the band ($2,604.79\u2013$2,854.21). \u2713 direction correct."
     },
     {
       "id": "backtest-usd-index-20251229",
@@ -3274,6 +3422,7 @@
       "actual_price": 93.71,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 0.38,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -3296,9 +3445,10 @@
       "actual_price": 34.4997,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 6.61,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $34.50 landed above the confidence range ($30.65\u2013$34.07)."
+      "notes": "Actual $34.50 landed above the band ($30.65\u2013$34.07). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251230",
@@ -3318,9 +3468,10 @@
       "actual_price": 71.0,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 7.11,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $71.00 landed above the confidence range ($63.18\u2013$69.41)."
+      "notes": "Actual $71.00 landed above the band ($63.18\u2013$69.41). \u2713 direction correct."
     },
     {
       "id": "backtest-natural-gas-20251230",
@@ -3340,9 +3491,10 @@
       "actual_price": 10.25,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 205.06,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $10.25 landed above the confidence range ($3.14\u2013$3.58)."
+      "notes": "Actual $10.25 landed above the band ($3.14\u2013$3.58). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20251230",
@@ -3362,9 +3514,10 @@
       "actual_price": 3103.02,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 15.91,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3,103.02 landed above the confidence range ($2,552.32\u2013$2,801.92)."
+      "notes": "Actual $3,103.02 landed above the band ($2,552.32\u2013$2,801.92). \u2713 direction correct."
     },
     {
       "id": "backtest-usd-index-20251230",
@@ -3384,6 +3537,7 @@
       "actual_price": 93.58,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 0.91,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -3406,9 +3560,10 @@
       "actual_price": 34.511,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 5.93,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $34.51 landed above the confidence range ($30.87\u2013$34.29)."
+      "notes": "Actual $34.51 landed above the band ($30.87\u2013$34.29). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251231",
@@ -3428,9 +3583,10 @@
       "actual_price": 72.25,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 12.02,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $72.25 landed above the confidence range ($61.43\u2013$67.57)."
+      "notes": "Actual $72.25 landed above the band ($61.43\u2013$67.57). \u2713 direction correct."
     },
     {
       "id": "backtest-natural-gas-20251231",
@@ -3450,9 +3606,10 @@
       "actual_price": 7.18,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 92.49,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $7.18 landed above the confidence range ($3.53\u2013$3.93)."
+      "notes": "Actual $7.18 landed above the band ($3.53\u2013$3.93). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20251231",
@@ -3472,9 +3629,10 @@
       "actual_price": 2784.21,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 7.53,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2,784.21 landed above the confidence range ($2,465.31\u2013$2,713.29)."
+      "notes": "Actual $2,784.21 landed above the band ($2,465.31\u2013$2,713.29). \u2713 direction correct."
     },
     {
       "id": "backtest-usd-index-20251231",
@@ -3494,6 +3652,7 @@
       "actual_price": 94.53,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 0.37,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -3516,6 +3675,7 @@
       "actual_price": 34.18,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 4.49,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -3538,9 +3698,10 @@
       "actual_price": 67.72,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 6.73,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $67.72 landed above the confidence range ($60.38\u2013$66.52)."
+      "notes": "Actual $67.72 landed above the band ($60.38\u2013$66.52). \u2713 direction correct."
     },
     {
       "id": "backtest-natural-gas-20260101",
@@ -3560,6 +3721,7 @@
       "actual_price": 4.4,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 2.56,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -3582,9 +3744,10 @@
       "actual_price": 2672.7,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 5.99,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2,672.70 landed above the confidence range ($2,397.77\u2013$2,645.75)."
+      "notes": "Actual $2,672.70 landed above the band ($2,397.77\u2013$2,645.75). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20260102",
@@ -3604,9 +3767,10 @@
       "actual_price": 67.72,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 7.85,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $67.72 landed above the confidence range ($59.69\u2013$65.89)."
+      "notes": "Actual $67.72 landed above the band ($59.69\u2013$65.89). \u2713 direction correct."
     },
     {
       "id": "backtest-natural-gas-20260102",
@@ -3626,9 +3790,10 @@
       "actual_price": 4.4,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 8.9,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $4.40 landed below the confidence range ($4.63\u2013$5.03)."
+      "notes": "Actual $4.40 landed below the band ($4.63\u2013$5.03). \u2713 direction correct."
     },
     {
       "id": "backtest-gold-20260102",
@@ -3648,9 +3813,10 @@
       "actual_price": 2672.7,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 8.1,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2,672.70 landed above the confidence range ($2,347.73\u2013$2,596.95)."
+      "notes": "Actual $2,672.70 landed above the band ($2,347.73\u2013$2,596.95). \u2717 direction wrong."
     },
     {
       "id": "backtest-usd-index-20260102",
@@ -3670,6 +3836,7 @@
       "actual_price": 95.0,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 0.52,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -3692,9 +3859,10 @@
       "actual_price": 71.15,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 13.3,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $71.15 landed above the confidence range ($59.65\u2013$65.95)."
+      "notes": "Actual $71.15 landed above the band ($59.65\u2013$65.95). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20260105",
@@ -3714,9 +3882,10 @@
       "actual_price": 6.88,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 82.98,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $6.88 landed above the confidence range ($3.62\u2013$3.90)."
+      "notes": "Actual $6.88 landed above the band ($3.62\u2013$3.90). \u2713 direction correct."
     },
     {
       "id": "backtest-gold-20260105",
@@ -3736,9 +3905,10 @@
       "actual_price": 2840.65,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 15.29,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2,840.65 landed above the confidence range ($2,336.09\u2013$2,591.87)."
+      "notes": "Actual $2,840.65 landed above the band ($2,336.09\u2013$2,591.87). \u2717 direction wrong."
     },
     {
       "id": "backtest-usd-index-20260105",
@@ -3758,6 +3928,7 @@
       "actual_price": 94.87,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 0.88,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -3780,9 +3951,10 @@
       "actual_price": 69.87,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 13.52,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $69.87 landed above the confidence range ($58.44\u2013$64.66)."
+      "notes": "Actual $69.87 landed above the band ($58.44\u2013$64.66). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20260106",
@@ -3802,9 +3974,10 @@
       "actual_price": 5.28,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 63.47,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $5.28 landed above the confidence range ($3.09\u2013$3.37)."
+      "notes": "Actual $5.28 landed above the band ($3.09\u2013$3.37). \u2713 direction correct."
     },
     {
       "id": "backtest-gold-20260106",
@@ -3824,9 +3997,10 @@
       "actual_price": 2765.0,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 10.03,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2,765.00 landed above the confidence range ($2,383.77\u2013$2,642.31)."
+      "notes": "Actual $2,765.00 landed above the band ($2,383.77\u2013$2,642.31). \u2717 direction wrong."
     },
     {
       "id": "backtest-usd-index-20260106",
@@ -3846,6 +4020,7 @@
       "actual_price": 95.12,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 1.1,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -3868,9 +4043,10 @@
       "actual_price": 70.45,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 17.42,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $70.45 landed above the confidence range ($56.95\u2013$63.05)."
+      "notes": "Actual $70.45 landed above the band ($56.95\u2013$63.05). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20260107",
@@ -3890,9 +4066,10 @@
       "actual_price": 4.37,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 53.33,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $4.37 landed above the confidence range ($2.70\u2013$3.00)."
+      "notes": "Actual $4.37 landed above the band ($2.70\u2013$3.00). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20260107",
@@ -3912,9 +4089,10 @@
       "actual_price": 2849.97,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 13.03,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2,849.97 landed above the confidence range ($2,393.33\u2013$2,649.39)."
+      "notes": "Actual $2,849.97 landed above the band ($2,393.33\u2013$2,649.39). \u2717 direction wrong."
     },
     {
       "id": "backtest-usd-index-20260107",
@@ -3934,6 +4112,7 @@
       "actual_price": 94.79,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 1.77,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -3956,9 +4135,10 @@
       "actual_price": 71.19,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 14.88,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $71.19 landed above the confidence range ($58.80\u2013$65.14)."
+      "notes": "Actual $71.19 landed above the band ($58.80\u2013$65.14). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20260108",
@@ -3978,9 +4158,10 @@
       "actual_price": 3.25,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 38.3,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.25 landed above the confidence range ($2.20\u2013$2.50)."
+      "notes": "Actual $3.25 landed above the band ($2.20\u2013$2.50). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20260108",
@@ -4000,9 +4181,10 @@
       "actual_price": 2922.37,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 13.63,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2,922.37 landed above the confidence range ($2,443.13\u2013$2,700.61)."
+      "notes": "Actual $2,922.37 landed above the band ($2,443.13\u2013$2,700.61). \u2717 direction wrong."
     },
     {
       "id": "backtest-usd-index-20260108",
@@ -4022,6 +4204,7 @@
       "actual_price": 94.01,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 2.94,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4044,6 +4227,7 @@
       "actual_price": 34.28,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 1.07,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4066,9 +4250,10 @@
       "actual_price": 71.19,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 10.56,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $71.19 landed above the confidence range ($61.13\u2013$67.65)."
+      "notes": "Actual $71.19 landed above the band ($61.13\u2013$67.65). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20260109",
@@ -4088,9 +4273,10 @@
       "actual_price": 3.25,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 65.82,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.25 landed above the confidence range ($1.82\u2013$2.10)."
+      "notes": "Actual $3.25 landed above the band ($1.82\u2013$2.10). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20260109",
@@ -4110,9 +4296,10 @@
       "actual_price": 2922.37,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 11.02,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2,922.37 landed above the confidence range ($2,502.57\u2013$2,761.91)."
+      "notes": "Actual $2,922.37 landed above the band ($2,502.57\u2013$2,761.91). \u2713 direction correct."
     },
     {
       "id": "backtest-usd-index-20260109",
@@ -4132,6 +4319,7 @@
       "actual_price": 94.01,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 3.44,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4154,9 +4342,10 @@
       "actual_price": 71.52,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 8.61,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $71.52 landed above the confidence range ($62.58\u2013$69.12)."
+      "notes": "Actual $71.52 landed above the band ($62.58\u2013$69.12). \u2717 direction wrong."
     },
     {
       "id": "backtest-natural-gas-20260112",
@@ -4176,9 +4365,10 @@
       "actual_price": 3.25,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 105.7,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.25 landed above the confidence range ($1.44\u2013$1.73)."
+      "notes": "Actual $3.25 landed above the band ($1.44\u2013$1.73). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20260112",
@@ -4198,9 +4388,10 @@
       "actual_price": 2926.13,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 7.39,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2,926.13 landed above the confidence range ($2,592.64\u2013$2,856.84)."
+      "notes": "Actual $2,926.13 landed above the band ($2,592.64\u2013$2,856.84). \u2713 direction correct."
     },
     {
       "id": "backtest-usd-index-20260112",
@@ -4220,6 +4411,7 @@
       "actual_price": 94.36,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 3.13,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4242,6 +4434,7 @@
       "actual_price": 34.38,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 1.26,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4264,6 +4457,7 @@
       "actual_price": 69.8,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 1.29,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4286,9 +4480,10 @@
       "actual_price": 3.43,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 94.89,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.43 landed above the confidence range ($1.61\u2013$1.91)."
+      "notes": "Actual $3.43 landed above the band ($1.61\u2013$1.91). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20260113",
@@ -4308,6 +4503,7 @@
       "actual_price": 2824.5,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 2.51,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4330,6 +4526,7 @@
       "actual_price": 94.36,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 3.45,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4352,6 +4549,7 @@
       "actual_price": 34.52,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 0.14,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4374,6 +4572,7 @@
       "actual_price": 69.96,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 4.15,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4396,9 +4595,10 @@
       "actual_price": 3.24,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 65.31,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.24 landed above the confidence range ($1.80\u2013$2.12)."
+      "notes": "Actual $3.24 landed above the band ($1.80\u2013$2.12). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20260114",
@@ -4418,6 +4618,7 @@
       "actual_price": 2894.78,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 3.15,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4440,6 +4641,7 @@
       "actual_price": 94.38,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 3.4,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4462,6 +4664,7 @@
       "actual_price": 34.35,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 0.44,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4484,6 +4687,7 @@
       "actual_price": 70.81,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 4.31,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4506,9 +4710,10 @@
       "actual_price": 3.13,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 67.38,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.13 landed above the confidence range ($1.72\u2013$2.02)."
+      "notes": "Actual $3.13 landed above the band ($1.72\u2013$2.02). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20260115",
@@ -4528,6 +4733,7 @@
       "actual_price": 2804.54,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 1.12,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4550,6 +4756,7 @@
       "actual_price": 94.51,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 3.49,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4572,6 +4779,7 @@
       "actual_price": 34.2416,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 0.56,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4594,9 +4802,10 @@
       "actual_price": 70.81,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 7.07,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $70.81 landed below the confidence range ($72.85\u2013$79.55)."
+      "notes": "Actual $70.81 landed below the band ($72.85\u2013$79.55). \u2713 direction correct."
     },
     {
       "id": "backtest-natural-gas-20260116",
@@ -4616,9 +4825,10 @@
       "actual_price": 3.13,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 55.72,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.13 landed above the confidence range ($1.86\u2013$2.16)."
+      "notes": "Actual $3.13 landed above the band ($1.86\u2013$2.16). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20260116",
@@ -4638,6 +4848,7 @@
       "actual_price": 2804.54,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 1.74,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4660,6 +4871,7 @@
       "actual_price": 94.51,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 3.55,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4682,9 +4894,10 @@
       "actual_price": 71.78,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 6.29,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $71.78 landed below the confidence range ($73.25\u2013$79.95)."
+      "notes": "Actual $71.78 landed below the band ($73.25\u2013$79.95). \u2713 direction correct."
     },
     {
       "id": "backtest-natural-gas-20260119",
@@ -4704,6 +4917,7 @@
       "actual_price": 2.98,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 6.43,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4726,6 +4940,7 @@
       "actual_price": 2867.62,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 3.9,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4748,6 +4963,7 @@
       "actual_price": 95.06,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 2.5,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4770,6 +4986,7 @@
       "actual_price": 34.4237,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 2.54,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4792,9 +5009,10 @@
       "actual_price": 73.17,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 5.71,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $73.17 landed below the confidence range ($74.22\u2013$80.98)."
+      "notes": "Actual $73.17 landed below the band ($74.22\u2013$80.98). \u2713 direction correct."
     },
     {
       "id": "backtest-natural-gas-20260120",
@@ -4814,9 +5032,10 @@
       "actual_price": 3.09,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 14.4,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.09 landed below the confidence range ($3.41\u2013$3.81)."
+      "notes": "Actual $3.09 landed below the band ($3.41\u2013$3.81). \u2713 direction correct."
     },
     {
       "id": "backtest-gold-20260120",
@@ -4836,6 +5055,7 @@
       "actual_price": 2875.63,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 3.86,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4858,6 +5078,7 @@
       "actual_price": 34.48,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 2.8,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4880,6 +5101,7 @@
       "actual_price": 72.75,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 3.45,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4902,9 +5124,10 @@
       "actual_price": 3.15,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 42.73,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.15 landed below the confidence range ($5.25\u2013$5.75)."
+      "notes": "Actual $3.15 landed below the band ($5.25\u2013$5.75). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20260121",
@@ -4924,6 +5147,7 @@
       "actual_price": 2932.32,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 3.69,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4946,6 +5170,7 @@
       "actual_price": 95.08,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 1.61,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4968,6 +5193,7 @@
       "actual_price": 34.66,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 3.25,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -4990,6 +5216,7 @@
       "actual_price": 71.9,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 0.69,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -5012,9 +5239,10 @@
       "actual_price": 3.13,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 73.41,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.13 landed below the confidence range ($11.35\u2013$12.19)."
+      "notes": "Actual $3.13 landed below the band ($11.35\u2013$12.19). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20260122",
@@ -5034,6 +5262,7 @@
       "actual_price": 3011.54,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 3.06,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -5056,6 +5285,7 @@
       "actual_price": 34.62,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 2.7,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -5078,6 +5308,7 @@
       "actual_price": 71.9,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 1.49,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -5100,9 +5331,10 @@
       "actual_price": 3.13,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 95.38,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.13 landed below the confidence range ($66.17\u2013$69.25)."
+      "notes": "Actual $3.13 landed below the band ($66.17\u2013$69.25). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20260123",
@@ -5122,9 +5354,10 @@
       "actual_price": 3011.54,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 5.56,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3,011.54 landed below the confidence range ($3,045.52\u2013$3,332.10)."
+      "notes": "Actual $3,011.54 landed below the band ($3,045.52\u2013$3,332.10). \u2713 direction correct."
     },
     {
       "id": "backtest-rice-20260123",
@@ -5144,6 +5377,7 @@
       "actual_price": 34.62,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 2.09,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -5166,6 +5400,7 @@
       "actual_price": 70.69,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 1.71,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -5188,9 +5423,10 @@
       "actual_price": 3.02,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 98.0,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.02 landed below the confidence range ($150.00\u2013$152.50)."
+      "notes": "Actual $3.02 landed below the band ($150.00\u2013$152.50). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20260126",
@@ -5210,9 +5446,10 @@
       "actual_price": 2962.35,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 10.34,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2,962.35 landed below the confidence range ($3,158.53\u2013$3,449.31)."
+      "notes": "Actual $2,962.35 landed below the band ($3,158.53\u2013$3,449.31). \u2713 direction correct."
     },
     {
       "id": "backtest-usd-index-20260126",
@@ -5232,6 +5469,7 @@
       "actual_price": 94.84,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 1.86,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -5254,6 +5492,7 @@
       "actual_price": 34.8,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 2.35,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -5276,6 +5515,7 @@
       "actual_price": 71.66,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 3.33,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -5298,9 +5538,10 @@
       "actual_price": 2.94,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 97.99,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2.94 landed below the confidence range ($145.43\u2013$147.15)."
+      "notes": "Actual $2.94 landed below the band ($145.43\u2013$147.15). \u2717 direction wrong."
     },
     {
       "id": "backtest-usd-index-20260127",
@@ -5320,6 +5561,7 @@
       "actual_price": 94.94,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 4.32,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -5342,6 +5584,7 @@
       "actual_price": 34.72,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 1.02,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -5364,6 +5607,7 @@
       "actual_price": 71.32,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 4.49,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -5386,9 +5630,10 @@
       "actual_price": 2.99,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 96.74,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2.99 landed below the confidence range ($91.26\u2013$92.20)."
+      "notes": "Actual $2.99 landed below the band ($91.26\u2013$92.20). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20260128",
@@ -5408,9 +5653,10 @@
       "actual_price": 3026.99,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 16.58,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3,026.99 landed below the confidence range ($3,473.70\u2013$3,783.16)."
+      "notes": "Actual $3,026.99 landed below the band ($3,473.70\u2013$3,783.16). \u2717 direction wrong."
     },
     {
       "id": "backtest-usd-index-20260128",
@@ -5430,6 +5676,7 @@
       "actual_price": 94.81,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 4.46,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -5452,6 +5699,7 @@
       "actual_price": 34.7194,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 0.11,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -5474,6 +5722,7 @@
       "actual_price": 77.24,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 2.54,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -5496,9 +5745,10 @@
       "actual_price": 2.99,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 97.01,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2.99 landed below the confidence range ($99.37\u2013$100.39)."
+      "notes": "Actual $2.99 landed below the band ($99.37\u2013$100.39). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20260129",
@@ -5518,9 +5768,10 @@
       "actual_price": 3066.1,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 17.85,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3,066.10 landed below the confidence range ($3,577.24\u2013$3,887.54)."
+      "notes": "Actual $3,066.10 landed below the band ($3,577.24\u2013$3,887.54). \u2717 direction wrong."
     },
     {
       "id": "backtest-usd-index-20260129",
@@ -5540,9 +5791,10 @@
       "actual_price": 95.83,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 6.7,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $95.83 landed above the confidence range ($85.13\u2013$94.49)."
+      "notes": "Actual $95.83 landed above the band ($85.13\u2013$94.49). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20260130",
@@ -5562,6 +5814,7 @@
       "actual_price": 77.24,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 1.71,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -5584,9 +5837,10 @@
       "actual_price": 2.99,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 95.06,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2.99 landed below the confidence range ($60.13\u2013$60.85)."
+      "notes": "Actual $2.99 landed below the band ($60.13\u2013$60.85). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20260130",
@@ -5606,9 +5860,10 @@
       "actual_price": 3066.1,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 9.97,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3,066.10 landed below the confidence range ($3,266.48\u2013$3,544.90)."
+      "notes": "Actual $3,066.10 landed below the band ($3,266.48\u2013$3,544.90). \u2713 direction correct."
     },
     {
       "id": "backtest-usd-index-20260130",
@@ -5628,9 +5883,10 @@
       "actual_price": 95.83,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 6.24,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $95.83 landed above the confidence range ($85.47\u2013$94.93)."
+      "notes": "Actual $95.83 landed above the band ($85.47\u2013$94.93). \u2717 direction wrong."
     },
     {
       "id": "backtest-rice-20260130",
@@ -5650,6 +5906,7 @@
       "actual_price": 34.66,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 0.66,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -5672,9 +5929,10 @@
       "actual_price": 81.56,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 9.24,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $81.56 landed above the confidence range ($71.27\u2013$78.05)."
+      "notes": "Actual $81.56 landed above the band ($71.27\u2013$78.05). \u2713 direction correct."
     },
     {
       "id": "backtest-natural-gas-20260202",
@@ -5694,9 +5952,10 @@
       "actual_price": 2.87,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 79.04,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2.87 landed below the confidence range ($13.47\u2013$13.91)."
+      "notes": "Actual $2.87 landed below the band ($13.47\u2013$13.91). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20260202",
@@ -5716,9 +5975,10 @@
       "actual_price": 2952.22,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 7.09,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2,952.22 landed below the confidence range ($3,043.95\u2013$3,311.23)."
+      "notes": "Actual $2,952.22 landed below the band ($3,043.95\u2013$3,311.23). \u2713 direction correct."
     },
     {
       "id": "backtest-usd-index-20260202",
@@ -5738,9 +5998,10 @@
       "actual_price": 96.28,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 5.95,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $96.28 landed above the confidence range ($86.12\u2013$95.62)."
+      "notes": "Actual $96.28 landed above the band ($86.12\u2013$95.62). \u2717 direction wrong."
     },
     {
       "id": "backtest-rice-20260202",
@@ -5760,6 +6021,7 @@
       "actual_price": 34.83,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 0.09,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -5782,9 +6044,10 @@
       "actual_price": 88.59,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 15.52,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $88.59 landed above the confidence range ($73.19\u2013$80.19)."
+      "notes": "Actual $88.59 landed above the band ($73.19\u2013$80.19). \u2713 direction correct."
     },
     {
       "id": "backtest-natural-gas-20260203",
@@ -5804,9 +6067,10 @@
       "actual_price": 2.9,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 39.58,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2.90 landed below the confidence range ($4.59\u2013$5.01)."
+      "notes": "Actual $2.90 landed below the band ($4.59\u2013$5.01). \u2717 direction wrong."
     },
     {
       "id": "backtest-gold-20260203",
@@ -5826,9 +6090,10 @@
       "actual_price": 2916.74,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 9.47,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2,916.74 landed below the confidence range ($3,079.82\u2013$3,364.08)."
+      "notes": "Actual $2,916.74 landed below the band ($3,079.82\u2013$3,364.08). \u2713 direction correct."
     },
     {
       "id": "backtest-usd-index-20260203",
@@ -5848,9 +6113,10 @@
       "actual_price": 96.49,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 5.72,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $96.49 landed above the confidence range ($86.53\u2013$96.01)."
+      "notes": "Actual $96.49 landed above the band ($86.53\u2013$96.01). \u2717 direction wrong."
     },
     {
       "id": "backtest-rice-20260203",
@@ -5870,6 +6136,7 @@
       "actual_price": 35.2,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 0.89,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -5892,9 +6159,10 @@
       "actual_price": 95.74,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 23.97,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $95.74 landed above the confidence range ($73.67\u2013$80.79)."
+      "notes": "Actual $95.74 landed above the band ($73.67\u2013$80.79). \u2713 direction correct."
     },
     {
       "id": "backtest-natural-gas-20260204",
@@ -5914,9 +6182,10 @@
       "actual_price": 3.1,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 23.51,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.10 landed above the confidence range ($2.17\u2013$2.85)."
+      "notes": "Actual $3.10 landed above the band ($2.17\u2013$2.85). \u2713 direction correct."
     },
     {
       "id": "backtest-gold-20260204",
@@ -5936,6 +6205,7 @@
       "actual_price": 2962.92,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 4.1,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -5958,6 +6228,7 @@
       "actual_price": 96.4,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 4.0,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -5980,6 +6251,7 @@
       "actual_price": 35.65,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 2.44,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -6002,9 +6274,10 @@
       "actual_price": 94.35,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 24.95,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $94.35 landed above the confidence range ($72.02\u2013$79.00)."
+      "notes": "Actual $94.35 landed above the band ($72.02\u2013$79.00). \u2713 direction correct."
     },
     {
       "id": "backtest-natural-gas-20260205",
@@ -6024,9 +6297,10 @@
       "actual_price": 3.25,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 212.5,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.25 landed above the confidence range ($0.78\u2013$1.30)."
+      "notes": "Actual $3.25 landed above the band ($0.78\u2013$1.30). \u2713 direction correct."
     },
     {
       "id": "backtest-gold-20260205",
@@ -6046,6 +6320,7 @@
       "actual_price": 2956.78,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 4.86,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -6068,6 +6343,7 @@
       "actual_price": 96.25,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 2.51,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -6090,6 +6366,7 @@
       "actual_price": 35.43,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 2.34,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -6112,9 +6389,10 @@
       "actual_price": 94.35,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 26.42,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $94.35 landed above the confidence range ($71.11\u2013$78.15)."
+      "notes": "Actual $94.35 landed above the band ($71.11\u2013$78.15). \u2713 direction correct."
     },
     {
       "id": "backtest-natural-gas-20260206",
@@ -6134,9 +6412,10 @@
       "actual_price": 3.25,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": -1647.62,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $3.25 landed above the confidence range ($-0.43\u2013$0.01)."
+      "notes": "Actual $3.25 landed above the band ($-0.43\u2013$0.01). \u2713 direction correct."
     },
     {
       "id": "backtest-gold-20260206",
@@ -6156,9 +6435,10 @@
       "actual_price": 2956.78,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 10.3,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2,956.78 landed above the confidence range ($2,538.28\u2013$2,823.28)."
+      "notes": "Actual $2,956.78 landed above the band ($2,538.28\u2013$2,823.28). \u2717 direction wrong."
     },
     {
       "id": "backtest-usd-index-20260206",
@@ -6178,6 +6458,7 @@
       "actual_price": 96.25,
       "status": "completed",
       "result": "hit",
+      "direction_correct": true,
       "error_pct": 1.57,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -6200,6 +6481,7 @@
       "actual_price": 35.43,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 2.87,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -6222,9 +6504,10 @@
       "actual_price": 94.35,
       "status": "completed",
       "result": "miss",
+      "direction_correct": true,
       "error_pct": 28.3,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $94.35 landed above the confidence range ($69.98\u2013$77.10)."
+      "notes": "Actual $94.35 landed above the band ($69.98\u2013$77.10). \u2713 direction correct."
     },
     {
       "id": "backtest-gold-20260209",
@@ -6244,9 +6527,10 @@
       "actual_price": 2980.0,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 8.5,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2,980.00 landed above the confidence range ($2,600.30\u2013$2,892.54)."
+      "notes": "Actual $2,980.00 landed above the band ($2,600.30\u2013$2,892.54). \u2717 direction wrong."
     },
     {
       "id": "backtest-usd-index-20260209",
@@ -6266,6 +6550,7 @@
       "actual_price": 96.84,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 2.49,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -6288,6 +6573,7 @@
       "actual_price": 35.63,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 3.49,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -6310,9 +6596,10 @@
       "actual_price": 2980.0,
       "status": "completed",
       "result": "miss",
+      "direction_correct": false,
       "error_pct": 5.22,
       "evaluated_date": "2026-03-13",
-      "notes": "Actual price $2,980.00 landed above the confidence range ($2,687.39\u2013$2,976.73)."
+      "notes": "Actual $2,980.00 landed above the band ($2,687.39\u2013$2,976.73). \u2717 direction wrong."
     },
     {
       "id": "backtest-usd-index-20260210",
@@ -6332,6 +6619,7 @@
       "actual_price": 96.84,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 2.49,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -6354,6 +6642,7 @@
       "actual_price": 35.63,
       "status": "completed",
       "result": "hit",
+      "direction_correct": false,
       "error_pct": 3.37,
       "evaluated_date": "2026-03-13",
       "notes": null
@@ -6471,6 +6760,9 @@
     "hits": 115,
     "misses": 174,
     "hit_rate": 39.8,
+    "directional_correct": 142,
+    "directional_total": 289,
+    "directional_accuracy": 49.1,
     "average_accuracy": 73.1,
     "last_updated": "2026-03-13"
   }
