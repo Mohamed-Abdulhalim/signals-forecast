@@ -170,23 +170,46 @@ def derive_forecast(entry_price, prices_30d, signal):
 
 def evaluate_outcome(signal, entry_price, exit_price, forecast):
     """
-    Determine if the prediction was correct.
-    A 'hit' means: actual price landed within the forecast band.
+    Two independent accuracy measures:
+
+    1. Band accuracy (result): did actual price land within the forecast band?
+       This is strict — a 5% band is a demanding target.
+
+    2. Directional accuracy (direction_correct): did price move the way
+       the signal predicted?
+       - bullish → exit_price > entry_price  = correct
+       - bearish → exit_price < entry_price  = correct
+       - neutral → abs move < 2%             = correct (price stayed flat)
+
+    Both are tracked separately in the entry and in the summary.
+    Directional accuracy is the more meaningful metric for
+    hedging/positioning decisions.
     """
     if not forecast or exit_price is None:
-        return None, None
+        return None, None, None, None
 
-    lo, hi = forecast['lower_bound'], forecast['upper_bound']
-    hit     = lo <= exit_price <= hi
-    error   = round(abs(exit_price - forecast['target']) / forecast['target'] * 100, 2)
+    # Band accuracy
+    lo, hi  = forecast['lower_bound'], forecast['upper_bound']
+    hit      = lo <= exit_price <= hi
+    error    = round(abs(exit_price - forecast['target']) / forecast['target'] * 100, 2)
+
+    # Directional accuracy
+    move_pct = (exit_price - entry_price) / entry_price * 100
+    if signal == 'bullish':
+        direction_correct = exit_price > entry_price
+    elif signal == 'bearish':
+        direction_correct = exit_price < entry_price
+    else:  # neutral — price stayed within ±2%
+        direction_correct = abs(move_pct) <= 2.0
 
     notes = None
     if not hit:
         direction = 'above' if exit_price > hi else 'below'
-        notes = (f"Actual price ${exit_price:,.2f} landed {direction} "
-                 f"the confidence range (${lo:,.2f}–${hi:,.2f}).")
+        dir_str   = '✓ direction correct' if direction_correct else '✗ direction wrong'
+        notes = (f"Actual ${exit_price:,.2f} landed {direction} "
+                 f"the band (${lo:,.2f}–${hi:,.2f}). {dir_str}.")
 
-    return ('hit' if hit else 'miss'), error, notes
+    return ('hit' if hit else 'miss'), error, direction_correct, notes
 
 
 # ── Main ─────────────────────────────────────────────────────
@@ -271,7 +294,7 @@ def main():
             if not forecast:
                 continue
 
-            result, error_pct, notes = evaluate_outcome(
+            result, error_pct, direction_correct, notes = evaluate_outcome(
                 signal, entry_price, exit_price, forecast)
             if result is None:
                 continue
@@ -285,22 +308,23 @@ def main():
                 continue  # Already recorded
 
             entry = {
-                'id':                entry_id,
-                'type':              'backtest',
-                'asset':             asset,
-                'signal':            signal,
-                'signal_confidence': confidence,
-                'momentum_score':    momentum,
-                'prediction_date':   entry_date,
-                'current_price':     entry_price,
-                'forecast_30_days':  forecast,
-                'outcome_date':      exit_date,
-                'actual_price':      exit_price,
-                'status':            'completed',
-                'result':            result,
-                'error_pct':         error_pct,
-                'evaluated_date':    today_str,
-                'notes':             notes,
+                'id':                 entry_id,
+                'type':               'backtest',
+                'asset':              asset,
+                'signal':             signal,
+                'signal_confidence':  confidence,
+                'momentum_score':     momentum,
+                'prediction_date':    entry_date,
+                'current_price':      entry_price,
+                'forecast_30_days':   forecast,
+                'outcome_date':       exit_date,
+                'actual_price':       exit_price,
+                'status':             'completed',
+                'result':             result,
+                'direction_correct':  direction_correct,
+                'error_pct':          error_pct,
+                'evaluated_date':     today_str,
+                'notes':              notes,
             }
 
             new_entries.append(entry)
@@ -324,29 +348,37 @@ def main():
 
     # Recompute summary
     print("\n[4/4] Updating summary...")
-    completed = [p for p in track['predictions'] if p['status'] == 'completed']
-    hits      = [p for p in completed if p['result'] == 'hit']
-    misses    = [p for p in completed if p['result'] == 'miss']
-    pending   = [p for p in track['predictions'] if p['status'] == 'pending']
+    completed  = [p for p in track['predictions'] if p['status'] == 'completed']
+    hits       = [p for p in completed if p['result'] == 'hit']
+    misses     = [p for p in completed if p['result'] == 'miss']
+    pending    = [p for p in track['predictions'] if p['status'] == 'pending']
+
+    # Directional accuracy — only count entries that have the field
+    dir_entries = [p for p in completed if 'direction_correct' in p]
+    dir_correct = [p for p in dir_entries if p['direction_correct']]
 
     track['summary'] = {
-        'total':            len(track['predictions']),
-        'pending':          len(pending),
-        'completed':        len(completed),
-        'hits':             len(hits),
-        'misses':           len(misses),
-        'hit_rate':         round(len(hits) / len(completed) * 100, 1) if completed else None,
-        'average_accuracy': round(
+        'total':                len(track['predictions']),
+        'pending':              len(pending),
+        'completed':            len(completed),
+        'hits':                 len(hits),
+        'misses':               len(misses),
+        'hit_rate':             round(len(hits) / len(completed) * 100, 1) if completed else None,
+        'directional_correct':  len(dir_correct),
+        'directional_total':    len(dir_entries),
+        'directional_accuracy': round(len(dir_correct) / len(dir_entries) * 100, 1) if dir_entries else None,
+        'average_accuracy':     round(
             sum(100 - p['error_pct'] for p in completed) / len(completed), 1
         ) if completed else None,
-        'last_updated':     today_str,
+        'last_updated':         today_str,
     }
 
     save_json(TRACK_FILE, track)
 
     print(f"\n  Saved {len(track['predictions'])} total entries.")
     print(f"  Backtests: {len(all_backtests)} | Live: {len(live_predictions)}")
-    print(f"  Hit rate: {track['summary']['hit_rate']}% over {len(completed)} completed cycles")
+    print(f"  Band hit rate:       {track['summary']['hit_rate']}% over {len(completed)} cycles")
+    print(f"  Directional accuracy:{track['summary']['directional_accuracy']}% over {len(dir_entries)} cycles")
     print("\n  Done.")
 
 
