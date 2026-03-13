@@ -2,8 +2,7 @@ name: Evaluate Predictions
 
 on:
   schedule:
-    # Runs daily at 10AM UTC — checks if any predictions are due
-    - cron: '0 10 * * *'
+    - cron: '0 10 * * *'   # Daily 10:00 AM UTC — evaluate live predictions
   workflow_dispatch:
 
 permissions:
@@ -14,26 +13,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
 
-      - name: Install dependencies
-        run: pip install yfinance requests --break-system-packages
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
 
-      - name: Run evaluation script
-        env:
-          ALPHA_VANTAGE_KEY: ${{ secrets.ALPHA_VANTAGE_KEY }}
-        run: python analysis/evaluate_predictions.py
+    - name: Evaluate live predictions
+      run: |
+        echo "Checking live prediction outcomes..."
+        python analysis/evaluate_predictions.py
 
-      - name: Commit results if updated
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/track_record.json
-          git diff --staged --quiet || git commit -m "Auto: evaluate matured predictions $(date +%Y-%m-%d)"
+    - name: Generate rolling backtest entries
+      run: |
+        echo "Generating historical backtest cycles..."
+        python analysis/generate_backtest.py
+
+    - name: Commit and push updated track record
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add data/track_record.json
+        if ! git diff --staged --quiet; then
+          git commit -m "Daily: update track record + backtest cycles [$(date +%Y-%m-%d)]"
           git push
+        else
+          echo "No changes to track record today."
+        fi
