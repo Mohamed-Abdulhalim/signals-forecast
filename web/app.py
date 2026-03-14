@@ -154,15 +154,19 @@ def api_chart_data():
         # Find forecast for this asset
         forecast = next((f for f in forecasts.get('forecasts', []) if f['asset'] == asset), None)
 
+        forecast_data = None
+        if forecast and forecast.get('forecast_30_days'):
+            forecast_data = {
+                'target': forecast['forecast_30_days'].get('prediction'),
+                'lower': forecast['forecast_30_days'].get('lower_bound'),
+                'upper': forecast['forecast_30_days'].get('upper_bound'),
+                'date': forecast.get('forecast_date'),
+                'confidence': forecast['forecast_30_days'].get('confidence'),
+            }
+        
         result[asset] = {
             'history': [{'date': d, 'price': p} for d, p in history],
-            'forecast': {
-                'target': forecast['forecast_30_days']['prediction'] if forecast else None,
-                'lower': forecast['forecast_30_days']['lower_bound'] if forecast else None,
-                'upper': forecast['forecast_30_days']['upper_bound'] if forecast else None,
-                'date': forecast['forecast_date'] if forecast else None,
-                'confidence': forecast['forecast_30_days']['confidence'] if forecast else None,
-            } if forecast else None
+            'forecast': forecast_data
         }
 
     return jsonify(result)
