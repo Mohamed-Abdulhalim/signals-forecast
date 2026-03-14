@@ -72,17 +72,22 @@ def load_track_record():
 def home():
     signals = load_latest_signals()
     forecasts = load_latest_forecasts()
+    prices = load_latest_prices()
+    price_map = {p['asset']: p for p in prices}
     return render_template('index.html',
                          signals=signals.get('signals', []),
-                         forecasts=forecasts.get('forecasts', []))
+                         forecasts=forecasts.get('forecasts', []),
+                         price_map=price_map)
 
 @app.route('/signals')
 def signals_page():
     signals = load_latest_signals()
     prices = load_latest_prices()
+    price_map = {p['asset']: p for p in prices}
     return render_template('signals.html',
                          signals=signals.get('signals', []),
-                         prices=prices)
+                         prices=prices,
+                         price_map=price_map)
 
 @app.route('/forecasts')
 def forecasts_page():
