@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-14T00:27:28.827178",
+  "timestamp": "2026-03-14T00:38:31.286935",
   "forecasts": [
     {
       "asset": "Brent Oil",
@@ -20,7 +20,7 @@
       "momentum": 0.2494,
       "trend": "up",
       "methodology": "Linear regression with volatility bands",
-      "timestamp": "2026-03-14T00:27:28.830019",
+      "timestamp": "2026-03-14T00:38:31.289546",
       "forecast_date": "2026-04-13"
     },
     {
@@ -42,7 +42,7 @@
       "momentum": 0.0279,
       "trend": "up",
       "methodology": "Linear regression with volatility bands",
-      "timestamp": "2026-03-14T00:27:28.832043",
+      "timestamp": "2026-03-14T00:38:31.291688",
       "forecast_date": "2026-04-13"
     },
     {
@@ -64,7 +64,7 @@
       "momentum": -0.0103,
       "trend": "neutral",
       "methodology": "Linear regression with volatility bands",
-      "timestamp": "2026-03-14T00:27:28.834225",
+      "timestamp": "2026-03-14T00:38:31.293813",
       "forecast_date": "2026-04-13"
     },
     {
@@ -86,7 +86,7 @@
       "momentum": 0.02,
       "trend": "neutral",
       "methodology": "Linear regression with volatility bands",
-      "timestamp": "2026-03-14T00:27:28.836538",
+      "timestamp": "2026-03-14T00:38:31.296111",
       "forecast_date": "2026-04-13"
     },
     {
@@ -116,7 +116,7 @@
       "momentum": 0.0233,
       "trend": "up",
       "methodology": "Linear regression with volatility bands",
-      "timestamp": "2026-03-14T00:27:28.841780",
+      "timestamp": "2026-03-14T00:38:31.301558",
       "forecast_date": "2026-04-13"
     }
   ]
