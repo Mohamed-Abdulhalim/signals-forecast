@@ -47,6 +47,52 @@
       "notes": "Actual $3.36 landed above the band ($2.73\u2013$3.03). \u2717 direction wrong."
     },
     {
+      "id": "backtest-wheat-20250929",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.28,
+      "prediction_date": "2025-09-29",
+      "current_price": 519.5,
+      "forecast_30_days": {
+        "target": 519.5,
+        "lower_bound": 493.52,
+        "upper_bound": 545.48
+      },
+      "outcome_date": "2025-10-29",
+      "actual_price": 532.25,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 2.45,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
+      "id": "backtest-corn-20250929",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.07,
+      "prediction_date": "2025-09-29",
+      "current_price": 421.5,
+      "forecast_30_days": {
+        "target": 426.5,
+        "lower_bound": 405.43,
+        "upper_bound": 447.57
+      },
+      "outcome_date": "2025-10-29",
+      "actual_price": 434.0,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 1.76,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-brent-oil-20250930",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -91,6 +137,52 @@
       "error_pct": 28.15,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $3.46 landed above the band ($2.54\u2013$2.86). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-wheat-20250930",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "low",
+      "momentum_score": 0.11,
+      "prediction_date": "2025-09-30",
+      "current_price": 508.0,
+      "forecast_30_days": {
+        "target": 534.5,
+        "lower_bound": 509.1,
+        "upper_bound": 559.9
+      },
+      "outcome_date": "2025-10-30",
+      "actual_price": 524.25,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 1.92,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
+      "id": "backtest-corn-20250930",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.04,
+      "prediction_date": "2025-09-30",
+      "current_price": 415.5,
+      "forecast_30_days": {
+        "target": 432.4,
+        "lower_bound": 411.62,
+        "upper_bound": 453.17
+      },
+      "outcome_date": "2025-10-30",
+      "actual_price": 430.25,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 0.5,
+      "evaluated_date": "2026-03-14",
+      "notes": null
     },
     {
       "id": "backtest-brent-oil-20251001",
@@ -139,6 +231,52 @@
       "notes": "Actual $3.57 landed above the band ($2.52\u2013$2.84). \u2717 direction wrong."
     },
     {
+      "id": "backtest-wheat-20251001",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "low",
+      "momentum_score": 0.19,
+      "prediction_date": "2025-10-01",
+      "current_price": 509.25,
+      "forecast_30_days": {
+        "target": 528.25,
+        "lower_bound": 502.79,
+        "upper_bound": 553.71
+      },
+      "outcome_date": "2025-10-31",
+      "actual_price": 534.0,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 1.09,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
+      "id": "backtest-corn-20251001",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bearish",
+      "signal_confidence": "low",
+      "momentum_score": 0.15,
+      "prediction_date": "2025-10-01",
+      "current_price": 416.5,
+      "forecast_30_days": {
+        "target": 427.1,
+        "lower_bound": 406.28,
+        "upper_bound": 447.93
+      },
+      "outcome_date": "2025-10-31",
+      "actual_price": 431.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 1.03,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-brent-oil-20251002",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -183,6 +321,52 @@
       "error_pct": 22.55,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $3.37 landed above the band ($2.58\u2013$2.92). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-wheat-20251002",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.24,
+      "prediction_date": "2025-10-02",
+      "current_price": 514.75,
+      "forecast_30_days": {
+        "target": 518.65,
+        "lower_bound": 492.91,
+        "upper_bound": 544.39
+      },
+      "outcome_date": "2025-11-01",
+      "actual_price": 543.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 4.79,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
+      "id": "backtest-corn-20251002",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.22,
+      "prediction_date": "2025-10-02",
+      "current_price": 421.75,
+      "forecast_30_days": {
+        "target": 418.75,
+        "lower_bound": 397.66,
+        "upper_bound": 439.84
+      },
+      "outcome_date": "2025-11-01",
+      "actual_price": 434.25,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 3.7,
+      "evaluated_date": "2026-03-14",
+      "notes": null
     },
     {
       "id": "backtest-brent-oil-20251003",
@@ -231,6 +415,52 @@
       "notes": "Actual $3.37 landed above the band ($2.85\u2013$3.17). \u2713 direction correct."
     },
     {
+      "id": "backtest-wheat-20251003",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.35,
+      "prediction_date": "2025-10-03",
+      "current_price": 515.25,
+      "forecast_30_days": {
+        "target": 513.25,
+        "lower_bound": 487.49,
+        "upper_bound": 539.01
+      },
+      "outcome_date": "2025-11-02",
+      "actual_price": 543.5,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 5.89,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $543.50 landed above the band ($487.49\u2013$539.01). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251003",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.26,
+      "prediction_date": "2025-10-03",
+      "current_price": 419.0,
+      "forecast_30_days": {
+        "target": 419.9,
+        "lower_bound": 398.95,
+        "upper_bound": 440.85
+      },
+      "outcome_date": "2025-11-02",
+      "actual_price": 434.25,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 3.42,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-brent-oil-20251006",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -275,6 +505,52 @@
       "error_pct": 5.9,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $3.51 landed below the band ($3.56\u2013$3.90). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-wheat-20251006",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.37,
+      "prediction_date": "2025-10-06",
+      "current_price": 512.75,
+      "forecast_30_days": {
+        "target": 493.54,
+        "lower_bound": 467.9,
+        "upper_bound": 519.18
+      },
+      "outcome_date": "2025-11-05",
+      "actual_price": 554.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 12.4,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $554.75 landed above the band ($467.90\u2013$519.18). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251006",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.28,
+      "prediction_date": "2025-10-06",
+      "current_price": 421.75,
+      "forecast_30_days": {
+        "target": 410.08,
+        "lower_bound": 388.99,
+        "upper_bound": 431.17
+      },
+      "outcome_date": "2025-11-05",
+      "actual_price": 435.25,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 6.14,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $435.25 landed above the band ($388.99\u2013$431.17). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251007",
@@ -323,6 +599,52 @@
       "notes": "Actual $3.71 landed below the band ($3.75\u2013$4.09). \u2713 direction correct."
     },
     {
+      "id": "backtest-wheat-20251007",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.41,
+      "prediction_date": "2025-10-07",
+      "current_price": 506.75,
+      "forecast_30_days": {
+        "target": 486.19,
+        "lower_bound": 460.85,
+        "upper_bound": 511.53
+      },
+      "outcome_date": "2025-11-06",
+      "actual_price": 535.5,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 10.14,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $535.50 landed above the band ($460.85\u2013$511.53). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251007",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.27,
+      "prediction_date": "2025-10-07",
+      "current_price": 419.75,
+      "forecast_30_days": {
+        "target": 408.58,
+        "lower_bound": 387.59,
+        "upper_bound": 429.57
+      },
+      "outcome_date": "2025-11-06",
+      "actual_price": 428.75,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 4.94,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-brent-oil-20251008",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -369,6 +691,52 @@
       "notes": "Actual $3.76 landed below the band ($3.86\u2013$4.20). \u2713 direction correct."
     },
     {
+      "id": "backtest-wheat-20251008",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.32,
+      "prediction_date": "2025-10-08",
+      "current_price": 507.25,
+      "forecast_30_days": {
+        "target": 491.15,
+        "lower_bound": 465.79,
+        "upper_bound": 516.51
+      },
+      "outcome_date": "2025-11-07",
+      "actual_price": 527.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 7.45,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $527.75 landed above the band ($465.79\u2013$516.51). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251008",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bearish",
+      "signal_confidence": "low",
+      "momentum_score": 0.16,
+      "prediction_date": "2025-10-08",
+      "current_price": 422.0,
+      "forecast_30_days": {
+        "target": 415.22,
+        "lower_bound": 394.12,
+        "upper_bound": 436.32
+      },
+      "outcome_date": "2025-11-07",
+      "actual_price": 427.25,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 2.9,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-brent-oil-20251009",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -412,6 +780,52 @@
       "direction_correct": true,
       "error_pct": 3.8,
       "evaluated_date": "2026-03-13",
+      "notes": null
+    },
+    {
+      "id": "backtest-wheat-20251009",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.26,
+      "prediction_date": "2025-10-09",
+      "current_price": 506.5,
+      "forecast_30_days": {
+        "target": 493.3,
+        "lower_bound": 467.98,
+        "upper_bound": 518.62
+      },
+      "outcome_date": "2025-11-08",
+      "actual_price": 535.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 8.61,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $535.75 landed above the band ($467.98\u2013$518.62). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251009",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.06,
+      "prediction_date": "2025-10-09",
+      "current_price": 418.25,
+      "forecast_30_days": {
+        "target": 415.72,
+        "lower_bound": 394.81,
+        "upper_bound": 436.63
+      },
+      "outcome_date": "2025-11-08",
+      "actual_price": 429.75,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 3.37,
+      "evaluated_date": "2026-03-14",
       "notes": null
     },
     {
@@ -461,6 +875,52 @@
       "notes": "Actual $3.80 landed above the band ($3.31\u2013$3.60). \u2713 direction correct."
     },
     {
+      "id": "backtest-wheat-20251010",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.29,
+      "prediction_date": "2025-10-10",
+      "current_price": 498.5,
+      "forecast_30_days": {
+        "target": 484.14,
+        "lower_bound": 459.21,
+        "upper_bound": 509.06
+      },
+      "outcome_date": "2025-11-09",
+      "actual_price": 535.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 10.66,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $535.75 landed above the band ($459.21\u2013$509.06). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251010",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.08,
+      "prediction_date": "2025-10-10",
+      "current_price": 413.0,
+      "forecast_30_days": {
+        "target": 409.53,
+        "lower_bound": 388.88,
+        "upper_bound": 430.18
+      },
+      "outcome_date": "2025-11-09",
+      "actual_price": 429.75,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 4.94,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-brent-oil-20251013",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -505,6 +965,52 @@
       "error_pct": 10.09,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $3.60 landed above the band ($3.12\u2013$3.42). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-wheat-20251013",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.39,
+      "prediction_date": "2025-10-13",
+      "current_price": 496.75,
+      "forecast_30_days": {
+        "target": 477.37,
+        "lower_bound": 452.53,
+        "upper_bound": 502.21
+      },
+      "outcome_date": "2025-11-12",
+      "actual_price": 536.0,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 12.28,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $536.00 landed above the band ($452.53\u2013$502.21). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251013",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bearish",
+      "signal_confidence": "low",
+      "momentum_score": 0.12,
+      "prediction_date": "2025-10-13",
+      "current_price": 410.75,
+      "forecast_30_days": {
+        "target": 405.93,
+        "lower_bound": 385.39,
+        "upper_bound": 426.47
+      },
+      "outcome_date": "2025-11-12",
+      "actual_price": 435.25,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 7.22,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $435.25 landed above the band ($385.39\u2013$426.47). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251014",
@@ -553,6 +1059,52 @@
       "notes": "Actual $3.60 landed above the band ($2.82\u2013$3.10). \u2713 direction correct."
     },
     {
+      "id": "backtest-wheat-20251014",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.52,
+      "prediction_date": "2025-10-14",
+      "current_price": 500.25,
+      "forecast_30_days": {
+        "target": 474.15,
+        "lower_bound": 449.14,
+        "upper_bound": 499.16
+      },
+      "outcome_date": "2025-11-13",
+      "actual_price": 535.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 12.99,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $535.75 landed above the band ($449.14\u2013$499.16). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251014",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.22,
+      "prediction_date": "2025-10-14",
+      "current_price": 413.0,
+      "forecast_30_days": {
+        "target": 403.84,
+        "lower_bound": 383.19,
+        "upper_bound": 424.49
+      },
+      "outcome_date": "2025-11-13",
+      "actual_price": 441.5,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 9.33,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $441.50 landed above the band ($383.19\u2013$424.49). \u2717 direction wrong."
+    },
+    {
       "id": "backtest-brent-oil-20251015",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -597,6 +1149,52 @@
       "error_pct": 31.2,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $3.49 landed above the band ($2.52\u2013$2.80). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-wheat-20251015",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.52,
+      "prediction_date": "2025-10-15",
+      "current_price": 498.75,
+      "forecast_30_days": {
+        "target": 472.81,
+        "lower_bound": 447.87,
+        "upper_bound": 497.75
+      },
+      "outcome_date": "2025-11-14",
+      "actual_price": 527.25,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 11.51,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $527.25 landed above the band ($447.87\u2013$497.75). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251015",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.26,
+      "prediction_date": "2025-10-15",
+      "current_price": 416.75,
+      "forecast_30_days": {
+        "target": 406.1,
+        "lower_bound": 385.26,
+        "upper_bound": 426.94
+      },
+      "outcome_date": "2025-11-14",
+      "actual_price": 430.25,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 5.95,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $430.25 landed above the band ($385.26\u2013$426.94). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251016",
@@ -645,6 +1243,52 @@
       "notes": "Actual $3.71 landed above the band ($2.27\u2013$2.55). \u2717 direction wrong."
     },
     {
+      "id": "backtest-wheat-20251016",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.54,
+      "prediction_date": "2025-10-16",
+      "current_price": 502.5,
+      "forecast_30_days": {
+        "target": 475.37,
+        "lower_bound": 450.25,
+        "upper_bound": 500.5
+      },
+      "outcome_date": "2025-11-15",
+      "actual_price": 544.25,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 14.49,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $544.25 landed above the band ($450.25\u2013$500.50). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251016",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.29,
+      "prediction_date": "2025-10-16",
+      "current_price": 421.75,
+      "forecast_30_days": {
+        "target": 409.31,
+        "lower_bound": 388.22,
+        "upper_bound": 430.4
+      },
+      "outcome_date": "2025-11-15",
+      "actual_price": 434.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 6.22,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $434.75 landed above the band ($388.22\u2013$430.40). \u2717 direction wrong."
+    },
+    {
       "id": "backtest-brent-oil-20251017",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -689,6 +1333,52 @@
       "error_pct": 78.37,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $3.71 landed above the band ($1.95\u2013$2.21). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-wheat-20251017",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.49,
+      "prediction_date": "2025-10-17",
+      "current_price": 503.75,
+      "forecast_30_days": {
+        "target": 478.91,
+        "lower_bound": 453.72,
+        "upper_bound": 504.1
+      },
+      "outcome_date": "2025-11-16",
+      "actual_price": 544.25,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 13.64,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $544.25 landed above the band ($453.72\u2013$504.10). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251017",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.23,
+      "prediction_date": "2025-10-17",
+      "current_price": 422.5,
+      "forecast_30_days": {
+        "target": 412.94,
+        "lower_bound": 391.81,
+        "upper_bound": 434.06
+      },
+      "outcome_date": "2025-11-16",
+      "actual_price": 434.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 5.28,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $434.75 landed above the band ($391.81\u2013$434.06). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251020",
@@ -737,6 +1427,52 @@
       "notes": "Actual $3.94 landed above the band ($2.10\u2013$2.40). \u2717 direction wrong."
     },
     {
+      "id": "backtest-wheat-20251020",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.37,
+      "prediction_date": "2025-10-20",
+      "current_price": 504.75,
+      "forecast_30_days": {
+        "target": 486.04,
+        "lower_bound": 460.8,
+        "upper_bound": 511.28
+      },
+      "outcome_date": "2025-11-19",
+      "actual_price": 536.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 10.43,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $536.75 landed above the band ($460.80\u2013$511.28). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251020",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.09,
+      "prediction_date": "2025-10-20",
+      "current_price": 423.25,
+      "forecast_30_days": {
+        "target": 419.31,
+        "lower_bound": 398.15,
+        "upper_bound": 440.47
+      },
+      "outcome_date": "2025-11-19",
+      "actual_price": 429.75,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 2.49,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-brent-oil-20251021",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -781,6 +1517,52 @@
       "error_pct": 58.17,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $3.97 landed above the band ($2.35\u2013$2.67). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-wheat-20251021",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.22,
+      "prediction_date": "2025-10-21",
+      "current_price": 500.25,
+      "forecast_30_days": {
+        "target": 489.26,
+        "lower_bound": 464.25,
+        "upper_bound": 514.27
+      },
+      "outcome_date": "2025-11-20",
+      "actual_price": 527.0,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 7.71,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $527.00 landed above the band ($464.25\u2013$514.27). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251021",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.08,
+      "prediction_date": "2025-10-21",
+      "current_price": 419.75,
+      "forecast_30_days": {
+        "target": 423.01,
+        "lower_bound": 402.02,
+        "upper_bound": 444.0
+      },
+      "outcome_date": "2025-11-20",
+      "actual_price": 426.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.83,
+      "evaluated_date": "2026-03-14",
+      "notes": null
     },
     {
       "id": "backtest-brent-oil-20251022",
@@ -829,6 +1611,52 @@
       "notes": "Actual $4.13 landed above the band ($2.72\u2013$3.06). \u2717 direction wrong."
     },
     {
+      "id": "backtest-wheat-20251022",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "low",
+      "momentum_score": 0.19,
+      "prediction_date": "2025-10-22",
+      "current_price": 503.75,
+      "forecast_30_days": {
+        "target": 494.21,
+        "lower_bound": 469.02,
+        "upper_bound": 519.4
+      },
+      "outcome_date": "2025-11-21",
+      "actual_price": 527.0,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 6.63,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $527.00 landed above the band ($469.02\u2013$519.40). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251022",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.15,
+      "prediction_date": "2025-10-22",
+      "current_price": 423.0,
+      "forecast_30_days": {
+        "target": 429.53,
+        "lower_bound": 408.38,
+        "upper_bound": 450.68
+      },
+      "outcome_date": "2025-11-21",
+      "actual_price": 425.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.94,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-brent-oil-20251023",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -873,6 +1701,52 @@
       "error_pct": 30.91,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $4.15 landed above the band ($3.00\u2013$3.34). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-wheat-20251023",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "low",
+      "momentum_score": 0.11,
+      "prediction_date": "2025-10-23",
+      "current_price": 513.0,
+      "forecast_30_days": {
+        "target": 507.42,
+        "lower_bound": 481.77,
+        "upper_bound": 533.07
+      },
+      "outcome_date": "2025-11-22",
+      "actual_price": 522.25,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 2.92,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
+      "id": "backtest-corn-20251023",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.21,
+      "prediction_date": "2025-10-23",
+      "current_price": 428.0,
+      "forecast_30_days": {
+        "target": 437.12,
+        "lower_bound": 415.72,
+        "upper_bound": 458.52
+      },
+      "outcome_date": "2025-11-22",
+      "actual_price": 423.75,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 3.06,
+      "evaluated_date": "2026-03-14",
+      "notes": null
     },
     {
       "id": "backtest-brent-oil-20251024",
@@ -921,6 +1795,29 @@
       "notes": "Actual $4.15 landed above the band ($3.21\u2013$3.53). \u2713 direction correct."
     },
     {
+      "id": "backtest-wheat-20251024",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.02,
+      "prediction_date": "2025-10-24",
+      "current_price": 512.5,
+      "forecast_30_days": {
+        "target": 513.67,
+        "lower_bound": 488.04,
+        "upper_bound": 539.29
+      },
+      "outcome_date": "2025-11-23",
+      "actual_price": 522.25,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.67,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-brent-oil-20251027",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -967,6 +1864,52 @@
       "notes": "Actual $4.59 landed above the band ($3.67\u2013$4.00). \u2713 direction correct."
     },
     {
+      "id": "backtest-wheat-20251027",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.14,
+      "prediction_date": "2025-10-27",
+      "current_price": 526.0,
+      "forecast_30_days": {
+        "target": 533.26,
+        "lower_bound": 506.96,
+        "upper_bound": 559.56
+      },
+      "outcome_date": "2025-11-26",
+      "actual_price": 529.0,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.8,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
+      "id": "backtest-corn-20251027",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.26,
+      "prediction_date": "2025-10-27",
+      "current_price": 428.75,
+      "forecast_30_days": {
+        "target": 440.03,
+        "lower_bound": 418.59,
+        "upper_bound": 461.47
+      },
+      "outcome_date": "2025-11-26",
+      "actual_price": 431.75,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.88,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-natural-gas-20251028",
       "type": "backtest",
       "asset": "Natural Gas",
@@ -988,6 +1931,29 @@
       "error_pct": 8.77,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $4.59 landed above the band ($4.05\u2013$4.39). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-corn-20251028",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.31,
+      "prediction_date": "2025-10-28",
+      "current_price": 432.0,
+      "forecast_30_days": {
+        "target": 445.33,
+        "lower_bound": 423.73,
+        "upper_bound": 466.93
+      },
+      "outcome_date": "2025-11-27",
+      "actual_price": 435.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 2.21,
+      "evaluated_date": "2026-03-14",
+      "notes": null
     },
     {
       "id": "backtest-brent-oil-20251029",
@@ -1082,6 +2048,52 @@
       "notes": "Actual $5.08 landed above the band ($4.09\u2013$4.43). \u2713 direction correct."
     },
     {
+      "id": "backtest-wheat-20251030",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 0.84,
+      "prediction_date": "2025-10-30",
+      "current_price": 524.25,
+      "forecast_30_days": {
+        "target": 568.1,
+        "lower_bound": 541.89,
+        "upper_bound": 594.31
+      },
+      "outcome_date": "2025-11-29",
+      "actual_price": 530.25,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 6.66,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $530.25 landed below the band ($541.89\u2013$594.31). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-corn-20251030",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.53,
+      "prediction_date": "2025-10-30",
+      "current_price": 430.25,
+      "forecast_30_days": {
+        "target": 452.88,
+        "lower_bound": 431.37,
+        "upper_bound": 474.39
+      },
+      "outcome_date": "2025-11-29",
+      "actual_price": 432.75,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 4.44,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-brent-oil-20251031",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -1126,6 +2138,29 @@
       "error_pct": 14.67,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $5.08 landed above the band ($4.25\u2013$4.61). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-wheat-20251031",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 0.9,
+      "prediction_date": "2025-10-31",
+      "current_price": 534.0,
+      "forecast_30_days": {
+        "target": 582.01,
+        "lower_bound": 555.31,
+        "upper_bound": 608.71
+      },
+      "outcome_date": "2025-11-30",
+      "actual_price": 530.25,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 8.89,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $530.25 landed below the band ($555.31\u2013$608.71). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251103",
@@ -1174,6 +2209,52 @@
       "notes": "Actual $4.86 landed above the band ($4.09\u2013$4.43). \u2713 direction correct."
     },
     {
+      "id": "backtest-wheat-20251103",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2025-11-03",
+      "current_price": 543.5,
+      "forecast_30_days": {
+        "target": 598.48,
+        "lower_bound": 571.31,
+        "upper_bound": 625.65
+      },
+      "outcome_date": "2025-12-03",
+      "actual_price": 537.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 10.15,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $537.75 landed below the band ($571.31\u2013$625.65). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251103",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.53,
+      "prediction_date": "2025-11-03",
+      "current_price": 434.25,
+      "forecast_30_days": {
+        "target": 457.19,
+        "lower_bound": 435.48,
+        "upper_bound": 478.9
+      },
+      "outcome_date": "2025-12-03",
+      "actual_price": 431.5,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 5.62,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $431.50 landed below the band ($435.48\u2013$478.90). \u2717 direction wrong."
+    },
+    {
       "id": "backtest-brent-oil-20251104",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -1218,6 +2299,52 @@
       "error_pct": 17.27,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $4.89 landed above the band ($4.00\u2013$4.34). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-wheat-20251104",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2025-11-04",
+      "current_price": 550.25,
+      "forecast_30_days": {
+        "target": 606.84,
+        "lower_bound": 579.33,
+        "upper_bound": 634.35
+      },
+      "outcome_date": "2025-12-04",
+      "actual_price": 541.0,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 10.85,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $541.00 landed below the band ($579.33\u2013$634.35). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251104",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.49,
+      "prediction_date": "2025-11-04",
+      "current_price": 431.5,
+      "forecast_30_days": {
+        "target": 452.77,
+        "lower_bound": 431.19,
+        "upper_bound": 474.34
+      },
+      "outcome_date": "2025-12-04",
+      "actual_price": 437.75,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 3.32,
+      "evaluated_date": "2026-03-14",
+      "notes": null
     },
     {
       "id": "backtest-brent-oil-20251105",
@@ -1266,6 +2393,29 @@
       "notes": "Actual $5.19 landed above the band ($3.99\u2013$4.35). \u2713 direction correct."
     },
     {
+      "id": "backtest-wheat-20251105",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2025-11-05",
+      "current_price": 554.75,
+      "forecast_30_days": {
+        "target": 614.48,
+        "lower_bound": 586.74,
+        "upper_bound": 642.22
+      },
+      "outcome_date": "2025-12-05",
+      "actual_price": 537.5,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 12.53,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $537.50 landed below the band ($586.74\u2013$642.22). \u2717 direction wrong."
+    },
+    {
       "id": "backtest-natural-gas-20251106",
       "type": "backtest",
       "asset": "Natural Gas",
@@ -1287,6 +2437,29 @@
       "error_pct": 19.86,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $5.19 landed above the band ($4.14\u2013$4.52). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-corn-20251106",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.33,
+      "prediction_date": "2025-11-06",
+      "current_price": 428.75,
+      "forecast_30_days": {
+        "target": 442.7,
+        "lower_bound": 421.26,
+        "upper_bound": 464.14
+      },
+      "outcome_date": "2025-12-06",
+      "actual_price": 436.25,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.46,
+      "evaluated_date": "2026-03-14",
+      "notes": null
     },
     {
       "id": "backtest-brent-oil-20251107",
@@ -1335,6 +2508,52 @@
       "notes": "Actual $5.19 landed above the band ($4.16\u2013$4.54). \u2713 direction correct."
     },
     {
+      "id": "backtest-wheat-20251107",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2025-11-07",
+      "current_price": 527.75,
+      "forecast_30_days": {
+        "target": 586.47,
+        "lower_bound": 560.08,
+        "upper_bound": 612.86
+      },
+      "outcome_date": "2025-12-07",
+      "actual_price": 536.0,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 8.61,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $536.00 landed below the band ($560.08\u2013$612.86). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-corn-20251107",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.27,
+      "prediction_date": "2025-11-07",
+      "current_price": 427.25,
+      "forecast_30_days": {
+        "target": 438.82,
+        "lower_bound": 417.46,
+        "upper_bound": 460.18
+      },
+      "outcome_date": "2025-12-07",
+      "actual_price": 436.25,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.59,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-natural-gas-20251110",
       "type": "backtest",
       "asset": "Natural Gas",
@@ -1356,6 +2575,52 @@
       "error_pct": 8.45,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $4.62 landed above the band ($4.07\u2013$4.45). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-wheat-20251110",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 0.94,
+      "prediction_date": "2025-11-10",
+      "current_price": 535.75,
+      "forecast_30_days": {
+        "target": 586.17,
+        "lower_bound": 559.38,
+        "upper_bound": 612.96
+      },
+      "outcome_date": "2025-12-10",
+      "actual_price": 531.25,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 9.37,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $531.25 landed below the band ($559.38\u2013$612.96). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251110",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.19,
+      "prediction_date": "2025-11-10",
+      "current_price": 429.75,
+      "forecast_30_days": {
+        "target": 437.84,
+        "lower_bound": 416.35,
+        "upper_bound": 459.33
+      },
+      "outcome_date": "2025-12-10",
+      "actual_price": 434.75,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.71,
+      "evaluated_date": "2026-03-14",
+      "notes": null
     },
     {
       "id": "backtest-brent-oil-20251111",
@@ -1404,6 +2669,29 @@
       "notes": null
     },
     {
+      "id": "backtest-corn-20251111",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.09,
+      "prediction_date": "2025-11-11",
+      "current_price": 432.0,
+      "forecast_30_days": {
+        "target": 436.08,
+        "lower_bound": 414.48,
+        "upper_bound": 457.68
+      },
+      "outcome_date": "2025-12-11",
+      "actual_price": 435.25,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.19,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-natural-gas-20251112",
       "type": "backtest",
       "asset": "Natural Gas",
@@ -1425,6 +2713,29 @@
       "error_pct": 5.35,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $4.07 landed below the band ($4.12\u2013$4.48). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-corn-20251112",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.04,
+      "prediction_date": "2025-11-12",
+      "current_price": 435.25,
+      "forecast_30_days": {
+        "target": 437.17,
+        "lower_bound": 415.41,
+        "upper_bound": 458.93
+      },
+      "outcome_date": "2025-12-12",
+      "actual_price": 431.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.3,
+      "evaluated_date": "2026-03-14",
+      "notes": null
     },
     {
       "id": "backtest-brent-oil-20251113",
@@ -1473,6 +2784,29 @@
       "notes": "Actual $3.90 landed below the band ($4.15\u2013$4.51). \u2713 direction correct."
     },
     {
+      "id": "backtest-wheat-20251113",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.08,
+      "prediction_date": "2025-11-13",
+      "current_price": 535.75,
+      "forecast_30_days": {
+        "target": 540.28,
+        "lower_bound": 513.49,
+        "upper_bound": 567.07
+      },
+      "outcome_date": "2025-12-13",
+      "actual_price": 520.75,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 3.61,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-brent-oil-20251114",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -1516,6 +2850,52 @@
       "direction_correct": true,
       "error_pct": 4.18,
       "evaluated_date": "2026-03-13",
+      "notes": null
+    },
+    {
+      "id": "backtest-wheat-20251114",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.0,
+      "prediction_date": "2025-11-14",
+      "current_price": 527.25,
+      "forecast_30_days": {
+        "target": 527.35,
+        "lower_bound": 500.99,
+        "upper_bound": 553.71
+      },
+      "outcome_date": "2025-12-14",
+      "actual_price": 520.75,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.25,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
+      "id": "backtest-corn-20251114",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.1,
+      "prediction_date": "2025-11-14",
+      "current_price": 430.25,
+      "forecast_30_days": {
+        "target": 434.64,
+        "lower_bound": 413.13,
+        "upper_bound": 456.15
+      },
+      "outcome_date": "2025-12-14",
+      "actual_price": 439.75,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.18,
+      "evaluated_date": "2026-03-14",
       "notes": null
     },
     {
@@ -1565,6 +2945,52 @@
       "notes": "Actual $3.66 landed below the band ($3.89\u2013$4.27). \u2717 direction wrong."
     },
     {
+      "id": "backtest-wheat-20251117",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.06,
+      "prediction_date": "2025-11-17",
+      "current_price": 544.25,
+      "forecast_30_days": {
+        "target": 541.05,
+        "lower_bound": 513.84,
+        "upper_bound": 568.26
+      },
+      "outcome_date": "2025-12-17",
+      "actual_price": 506.25,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 6.43,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $506.25 landed below the band ($513.84\u2013$568.26). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251117",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.11,
+      "prediction_date": "2025-11-17",
+      "current_price": 434.75,
+      "forecast_30_days": {
+        "target": 439.59,
+        "lower_bound": 417.85,
+        "upper_bound": 461.33
+      },
+      "outcome_date": "2025-12-17",
+      "actual_price": 440.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.21,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-brent-oil-20251118",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -1608,6 +3034,52 @@
       "direction_correct": true,
       "error_pct": 1.28,
       "evaluated_date": "2026-03-13",
+      "notes": null
+    },
+    {
+      "id": "backtest-wheat-20251118",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.03,
+      "prediction_date": "2025-11-18",
+      "current_price": 546.5,
+      "forecast_30_days": {
+        "target": 544.77,
+        "lower_bound": 517.44,
+        "upper_bound": 572.1
+      },
+      "outcome_date": "2025-12-18",
+      "actual_price": 507.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 6.8,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $507.75 landed below the band ($517.44\u2013$572.10). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251118",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.15,
+      "prediction_date": "2025-11-18",
+      "current_price": 436.75,
+      "forecast_30_days": {
+        "target": 443.43,
+        "lower_bound": 421.59,
+        "upper_bound": 465.27
+      },
+      "outcome_date": "2025-12-18",
+      "actual_price": 444.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.24,
+      "evaluated_date": "2026-03-14",
       "notes": null
     },
     {
@@ -1657,6 +3129,52 @@
       "notes": "Actual $3.58 landed below the band ($3.85\u2013$4.25). \u2717 direction wrong."
     },
     {
+      "id": "backtest-wheat-20251119",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.02,
+      "prediction_date": "2025-11-19",
+      "current_price": 536.75,
+      "forecast_30_days": {
+        "target": 537.85,
+        "lower_bound": 511.01,
+        "upper_bound": 564.69
+      },
+      "outcome_date": "2025-12-19",
+      "actual_price": 509.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 5.22,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $509.75 landed below the band ($511.01\u2013$564.69). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251119",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.2,
+      "prediction_date": "2025-11-19",
+      "current_price": 429.75,
+      "forecast_30_days": {
+        "target": 438.22,
+        "lower_bound": 416.73,
+        "upper_bound": 459.71
+      },
+      "outcome_date": "2025-12-19",
+      "actual_price": 443.75,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.26,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-brent-oil-20251120",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -1701,6 +3219,52 @@
       "error_pct": 12.2,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $3.67 landed below the band ($3.98\u2013$4.38). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-wheat-20251120",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.01,
+      "prediction_date": "2025-11-20",
+      "current_price": 527.0,
+      "forecast_30_days": {
+        "target": 527.64,
+        "lower_bound": 501.29,
+        "upper_bound": 553.99
+      },
+      "outcome_date": "2025-12-20",
+      "actual_price": 515.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 2.3,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
+      "id": "backtest-corn-20251120",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.14,
+      "prediction_date": "2025-11-20",
+      "current_price": 426.5,
+      "forecast_30_days": {
+        "target": 432.48,
+        "lower_bound": 411.16,
+        "upper_bound": 453.81
+      },
+      "outcome_date": "2025-12-20",
+      "actual_price": 447.0,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 3.36,
+      "evaluated_date": "2026-03-14",
+      "notes": null
     },
     {
       "id": "backtest-brent-oil-20251121",
@@ -1749,6 +3313,52 @@
       "notes": "Actual $3.67 landed below the band ($4.27\u2013$4.69). \u2717 direction wrong."
     },
     {
+      "id": "backtest-wheat-20251121",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.1,
+      "prediction_date": "2025-11-21",
+      "current_price": 527.0,
+      "forecast_30_days": {
+        "target": 521.96,
+        "lower_bound": 495.61,
+        "upper_bound": 548.31
+      },
+      "outcome_date": "2025-12-21",
+      "actual_price": 515.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 1.24,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
+      "id": "backtest-corn-20251121",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.05,
+      "prediction_date": "2025-11-21",
+      "current_price": 425.5,
+      "forecast_30_days": {
+        "target": 423.34,
+        "lower_bound": 402.06,
+        "upper_bound": 444.61
+      },
+      "outcome_date": "2025-12-21",
+      "actual_price": 447.0,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 5.59,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $447.00 landed above the band ($402.06\u2013$444.61). \u2717 direction wrong."
+    },
+    {
       "id": "backtest-brent-oil-20251124",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -1795,6 +3405,29 @@
       "notes": "Actual $3.31 landed below the band ($4.61\u2013$5.03). \u2717 direction wrong."
     },
     {
+      "id": "backtest-corn-20251124",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.09,
+      "prediction_date": "2025-11-24",
+      "current_price": 423.75,
+      "forecast_30_days": {
+        "target": 419.98,
+        "lower_bound": 398.79,
+        "upper_bound": 441.17
+      },
+      "outcome_date": "2025-12-24",
+      "actual_price": 451.0,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 7.39,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $451.00 landed above the band ($398.79\u2013$441.17). \u2717 direction wrong."
+    },
+    {
       "id": "backtest-natural-gas-20251125",
       "type": "backtest",
       "asset": "Natural Gas",
@@ -1816,6 +3449,52 @@
       "error_pct": 32.45,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $3.31 landed below the band ($4.69\u2013$5.11). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-wheat-20251125",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.24,
+      "prediction_date": "2025-11-25",
+      "current_price": 527.25,
+      "forecast_30_days": {
+        "target": 514.66,
+        "lower_bound": 488.3,
+        "upper_bound": 541.02
+      },
+      "outcome_date": "2025-12-25",
+      "actual_price": 519.0,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.84,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
+      "id": "backtest-corn-20251125",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bearish",
+      "signal_confidence": "low",
+      "momentum_score": 0.19,
+      "prediction_date": "2025-11-25",
+      "current_price": 423.5,
+      "forecast_30_days": {
+        "target": 415.33,
+        "lower_bound": 394.15,
+        "upper_bound": 436.5
+      },
+      "outcome_date": "2025-12-25",
+      "actual_price": 450.0,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 8.35,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $450.00 landed above the band ($394.15\u2013$436.50). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251126",
@@ -1862,6 +3541,52 @@
       "error_pct": 40.68,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $3.31 landed below the band ($5.35\u2013$5.81). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-wheat-20251126",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.37,
+      "prediction_date": "2025-11-26",
+      "current_price": 529.0,
+      "forecast_30_days": {
+        "target": 509.53,
+        "lower_bound": 483.08,
+        "upper_bound": 535.98
+      },
+      "outcome_date": "2025-12-26",
+      "actual_price": 519.0,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.86,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
+      "id": "backtest-corn-20251126",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.34,
+      "prediction_date": "2025-11-26",
+      "current_price": 431.75,
+      "forecast_30_days": {
+        "target": 417.1,
+        "lower_bound": 395.51,
+        "upper_bound": 438.69
+      },
+      "outcome_date": "2025-12-26",
+      "actual_price": 450.0,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 7.89,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $450.00 landed above the band ($395.51\u2013$438.69). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251127",
@@ -1956,6 +3681,52 @@
       "notes": "Actual $4.35 landed below the band ($5.78\u2013$6.24). \u2717 direction wrong."
     },
     {
+      "id": "backtest-wheat-20251128",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.36,
+      "prediction_date": "2025-11-28",
+      "current_price": 531.0,
+      "forecast_30_days": {
+        "target": 511.89,
+        "lower_bound": 485.34,
+        "upper_bound": 538.44
+      },
+      "outcome_date": "2025-12-28",
+      "actual_price": 513.0,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.22,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
+      "id": "backtest-corn-20251128",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.3,
+      "prediction_date": "2025-11-28",
+      "current_price": 435.5,
+      "forecast_30_days": {
+        "target": 422.61,
+        "lower_bound": 400.84,
+        "upper_bound": 444.38
+      },
+      "outcome_date": "2025-12-28",
+      "actual_price": 442.25,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 4.65,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-brent-oil-20251201",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -2000,6 +3771,52 @@
       "error_pct": 41.09,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $4.00 landed below the band ($6.54\u2013$7.04). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-wheat-20251201",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.3,
+      "prediction_date": "2025-12-01",
+      "current_price": 530.25,
+      "forecast_30_days": {
+        "target": 514.4,
+        "lower_bound": 487.89,
+        "upper_bound": 540.91
+      },
+      "outcome_date": "2025-12-31",
+      "actual_price": 507.0,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.44,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
+      "id": "backtest-corn-20251201",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.2,
+      "prediction_date": "2025-12-01",
+      "current_price": 432.75,
+      "forecast_30_days": {
+        "target": 423.99,
+        "lower_bound": 402.35,
+        "upper_bound": 445.63
+      },
+      "outcome_date": "2025-12-31",
+      "actual_price": 440.25,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 3.83,
+      "evaluated_date": "2026-03-14",
+      "notes": null
     },
     {
       "id": "backtest-brent-oil-20251202",
@@ -2048,6 +3865,52 @@
       "notes": "Actual $4.00 landed below the band ($6.58\u2013$7.06). \u2717 direction wrong."
     },
     {
+      "id": "backtest-wheat-20251202",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.27,
+      "prediction_date": "2025-12-02",
+      "current_price": 537.75,
+      "forecast_30_days": {
+        "target": 523.13,
+        "lower_bound": 496.24,
+        "upper_bound": 550.02
+      },
+      "outcome_date": "2026-01-01",
+      "actual_price": 169.2505,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 67.65,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $169.25 landed below the band ($496.24\u2013$550.02). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-corn-20251202",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bearish",
+      "signal_confidence": "low",
+      "momentum_score": 0.13,
+      "prediction_date": "2025-12-02",
+      "current_price": 438.0,
+      "forecast_30_days": {
+        "target": 432.43,
+        "lower_bound": 410.53,
+        "upper_bound": 454.33
+      },
+      "outcome_date": "2026-01-01",
+      "actual_price": 203.8978,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 52.85,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $203.90 landed below the band ($410.53\u2013$454.33). \u2713 direction correct."
+    },
+    {
       "id": "backtest-brent-oil-20251203",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -2092,6 +3955,52 @@
       "error_pct": 43.82,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $4.00 landed below the band ($6.88\u2013$7.36). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-wheat-20251203",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "low",
+      "momentum_score": 0.11,
+      "prediction_date": "2025-12-03",
+      "current_price": 537.75,
+      "forecast_30_days": {
+        "target": 532.06,
+        "lower_bound": 505.17,
+        "upper_bound": 558.95
+      },
+      "outcome_date": "2026-01-02",
+      "actual_price": 506.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 4.8,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
+      "id": "backtest-corn-20251203",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.03,
+      "prediction_date": "2025-12-03",
+      "current_price": 431.5,
+      "forecast_30_days": {
+        "target": 432.9,
+        "lower_bound": 411.32,
+        "upper_bound": 454.47
+      },
+      "outcome_date": "2026-01-02",
+      "actual_price": 437.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.06,
+      "evaluated_date": "2026-03-14",
+      "notes": null
     },
     {
       "id": "backtest-brent-oil-20251204",
@@ -2140,6 +4049,52 @@
       "notes": "Actual $2.82 landed below the band ($6.76\u2013$7.24). \u2717 direction wrong."
     },
     {
+      "id": "backtest-wheat-20251204",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.01,
+      "prediction_date": "2025-12-04",
+      "current_price": 541.0,
+      "forecast_30_days": {
+        "target": 541.3,
+        "lower_bound": 514.25,
+        "upper_bound": 568.35
+      },
+      "outcome_date": "2026-01-03",
+      "actual_price": 512.5,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 5.32,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $512.50 landed below the band ($514.25\u2013$568.35). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251204",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.15,
+      "prediction_date": "2025-12-04",
+      "current_price": 437.75,
+      "forecast_30_days": {
+        "target": 444.15,
+        "lower_bound": 422.26,
+        "upper_bound": 466.04
+      },
+      "outcome_date": "2026-01-03",
+      "actual_price": 444.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.08,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-brent-oil-20251205",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -2184,6 +4139,52 @@
       "error_pct": 61.21,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $2.82 landed below the band ($7.01\u2013$7.53). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-wheat-20251205",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.12,
+      "prediction_date": "2025-12-05",
+      "current_price": 537.5,
+      "forecast_30_days": {
+        "target": 544.06,
+        "lower_bound": 517.18,
+        "upper_bound": 570.93
+      },
+      "outcome_date": "2026-01-04",
+      "actual_price": 512.5,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 5.8,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $512.50 landed below the band ($517.18\u2013$570.93). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251205",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.22,
+      "prediction_date": "2025-12-05",
+      "current_price": 436.75,
+      "forecast_30_days": {
+        "target": 446.29,
+        "lower_bound": 424.45,
+        "upper_bound": 468.13
+      },
+      "outcome_date": "2026-01-04",
+      "actual_price": 444.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.4,
+      "evaluated_date": "2026-03-14",
+      "notes": null
     },
     {
       "id": "backtest-brent-oil-20251208",
@@ -2232,6 +4233,52 @@
       "notes": "Actual $3.10 landed below the band ($6.98\u2013$7.50). \u2717 direction wrong."
     },
     {
+      "id": "backtest-wheat-20251208",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.19,
+      "prediction_date": "2025-12-08",
+      "current_price": 536.0,
+      "forecast_30_days": {
+        "target": 546.13,
+        "lower_bound": 519.33,
+        "upper_bound": 572.93
+      },
+      "outcome_date": "2026-01-07",
+      "actual_price": 518.0,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 5.15,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $518.00 landed below the band ($519.33\u2013$572.93). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251208",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.26,
+      "prediction_date": "2025-12-08",
+      "current_price": 436.25,
+      "forecast_30_days": {
+        "target": 447.52,
+        "lower_bound": 425.71,
+        "upper_bound": 469.33
+      },
+      "outcome_date": "2026-01-07",
+      "actual_price": 446.75,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.17,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-brent-oil-20251209",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -2276,6 +4323,52 @@
       "error_pct": 53.87,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $2.92 landed below the band ($6.09\u2013$6.57). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-wheat-20251209",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.22,
+      "prediction_date": "2025-12-09",
+      "current_price": 536.25,
+      "forecast_30_days": {
+        "target": 548.09,
+        "lower_bound": 521.28,
+        "upper_bound": 574.9
+      },
+      "outcome_date": "2026-01-08",
+      "actual_price": 518.0,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 5.49,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $518.00 landed below the band ($521.28\u2013$574.90). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251209",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.28,
+      "prediction_date": "2025-12-09",
+      "current_price": 440.75,
+      "forecast_30_days": {
+        "target": 453.05,
+        "lower_bound": 431.01,
+        "upper_bound": 475.09
+      },
+      "outcome_date": "2026-01-08",
+      "actual_price": 446.0,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.56,
+      "evaluated_date": "2026-03-14",
+      "notes": null
     },
     {
       "id": "backtest-brent-oil-20251210",
@@ -2324,6 +4417,52 @@
       "notes": "Actual $2.87 landed below the band ($5.61\u2013$6.07). \u2717 direction wrong."
     },
     {
+      "id": "backtest-wheat-20251210",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.23,
+      "prediction_date": "2025-12-10",
+      "current_price": 531.25,
+      "forecast_30_days": {
+        "target": 543.69,
+        "lower_bound": 517.13,
+        "upper_bound": 570.25
+      },
+      "outcome_date": "2026-01-09",
+      "actual_price": 517.25,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 4.86,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
+      "id": "backtest-corn-20251210",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.29,
+      "prediction_date": "2025-12-10",
+      "current_price": 434.75,
+      "forecast_30_days": {
+        "target": 447.33,
+        "lower_bound": 425.59,
+        "upper_bound": 469.07
+      },
+      "outcome_date": "2026-01-09",
+      "actual_price": 445.75,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.35,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-brent-oil-20251211",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -2368,6 +4507,52 @@
       "error_pct": 44.23,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $2.90 landed below the band ($4.98\u2013$5.42). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-wheat-20251211",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.22,
+      "prediction_date": "2025-12-11",
+      "current_price": 534.5,
+      "forecast_30_days": {
+        "target": 546.19,
+        "lower_bound": 519.47,
+        "upper_bound": 572.92
+      },
+      "outcome_date": "2026-01-10",
+      "actual_price": 511.25,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 6.4,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $511.25 landed below the band ($519.47\u2013$572.92). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251211",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.34,
+      "prediction_date": "2025-12-11",
+      "current_price": 435.25,
+      "forecast_30_days": {
+        "target": 450.24,
+        "lower_bound": 428.48,
+        "upper_bound": 472.0
+      },
+      "outcome_date": "2026-01-10",
+      "actual_price": 421.5,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 6.38,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $421.50 landed below the band ($428.48\u2013$472.00). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251212",
@@ -2416,6 +4601,52 @@
       "notes": "Actual $2.90 landed below the band ($4.29\u2013$4.69). \u2717 direction wrong."
     },
     {
+      "id": "backtest-wheat-20251212",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.15,
+      "prediction_date": "2025-12-12",
+      "current_price": 534.5,
+      "forecast_30_days": {
+        "target": 542.7,
+        "lower_bound": 515.98,
+        "upper_bound": 569.43
+      },
+      "outcome_date": "2026-01-11",
+      "actual_price": 511.25,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 5.8,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $511.25 landed below the band ($515.98\u2013$569.43). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251212",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.28,
+      "prediction_date": "2025-12-12",
+      "current_price": 431.5,
+      "forecast_30_days": {
+        "target": 443.72,
+        "lower_bound": 422.15,
+        "upper_bound": 465.3
+      },
+      "outcome_date": "2026-01-11",
+      "actual_price": 421.5,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 5.01,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $421.50 landed below the band ($422.15\u2013$465.30). \u2717 direction wrong."
+    },
+    {
       "id": "backtest-brent-oil-20251215",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -2460,6 +4691,52 @@
       "error_pct": 16.53,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $3.13 landed below the band ($3.56\u2013$3.94). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-wheat-20251215",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.09,
+      "prediction_date": "2025-12-15",
+      "current_price": 520.75,
+      "forecast_30_days": {
+        "target": 525.5,
+        "lower_bound": 499.46,
+        "upper_bound": 551.54
+      },
+      "outcome_date": "2026-01-14",
+      "actual_price": 512.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 2.47,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
+      "id": "backtest-corn-20251215",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.19,
+      "prediction_date": "2025-12-15",
+      "current_price": 439.75,
+      "forecast_30_days": {
+        "target": 447.95,
+        "lower_bound": 425.96,
+        "upper_bound": 469.94
+      },
+      "outcome_date": "2026-01-14",
+      "actual_price": 422.0,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 5.79,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $422.00 landed below the band ($425.96\u2013$469.94). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251216",
@@ -2577,6 +4854,29 @@
       "notes": null
     },
     {
+      "id": "backtest-corn-20251216",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.17,
+      "prediction_date": "2025-12-16",
+      "current_price": 436.5,
+      "forecast_30_days": {
+        "target": 443.86,
+        "lower_bound": 422.04,
+        "upper_bound": 465.69
+      },
+      "outcome_date": "2026-01-15",
+      "actual_price": 420.25,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 5.32,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $420.25 landed below the band ($422.04\u2013$465.69). \u2717 direction wrong."
+    },
+    {
       "id": "backtest-brent-oil-20251217",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -2689,6 +4989,52 @@
       "direction_correct": false,
       "error_pct": 4.16,
       "evaluated_date": "2026-03-13",
+      "notes": null
+    },
+    {
+      "id": "backtest-wheat-20251217",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.31,
+      "prediction_date": "2025-12-17",
+      "current_price": 506.25,
+      "forecast_30_days": {
+        "target": 490.57,
+        "lower_bound": 465.26,
+        "upper_bound": 515.88
+      },
+      "outcome_date": "2026-01-16",
+      "actual_price": 518.0,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 5.59,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $518.00 landed above the band ($465.26\u2013$515.88). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251217",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.05,
+      "prediction_date": "2025-12-17",
+      "current_price": 440.5,
+      "forecast_30_days": {
+        "target": 442.73,
+        "lower_bound": 420.71,
+        "upper_bound": 464.75
+      },
+      "outcome_date": "2026-01-16",
+      "actual_price": 424.75,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 4.06,
+      "evaluated_date": "2026-03-14",
       "notes": null
     },
     {
@@ -2807,6 +5153,29 @@
       "notes": null
     },
     {
+      "id": "backtest-corn-20251218",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.05,
+      "prediction_date": "2025-12-18",
+      "current_price": 444.5,
+      "forecast_30_days": {
+        "target": 446.8,
+        "lower_bound": 424.57,
+        "upper_bound": 469.03
+      },
+      "outcome_date": "2026-01-17",
+      "actual_price": 423.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 5.16,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $423.75 landed below the band ($424.57\u2013$469.03). \u2717 direction wrong."
+    },
+    {
       "id": "backtest-brent-oil-20251219",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -2922,6 +5291,29 @@
       "notes": null
     },
     {
+      "id": "backtest-corn-20251219",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.12,
+      "prediction_date": "2025-12-19",
+      "current_price": 443.75,
+      "forecast_30_days": {
+        "target": 449.09,
+        "lower_bound": 426.9,
+        "upper_bound": 471.28
+      },
+      "outcome_date": "2026-01-18",
+      "actual_price": 423.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 5.64,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $423.75 landed below the band ($426.90\u2013$471.28). \u2717 direction wrong."
+    },
+    {
       "id": "backtest-brent-oil-20251222",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -3014,6 +5406,52 @@
       "notes": null
     },
     {
+      "id": "backtest-wheat-20251222",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "high",
+      "momentum_score": 0.93,
+      "prediction_date": "2025-12-22",
+      "current_price": 515.5,
+      "forecast_30_days": {
+        "target": 467.62,
+        "lower_bound": 441.85,
+        "upper_bound": 493.39
+      },
+      "outcome_date": "2026-01-21",
+      "actual_price": 507.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 8.58,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $507.75 landed above the band ($441.85\u2013$493.39). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-corn-20251222",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.25,
+      "prediction_date": "2025-12-22",
+      "current_price": 447.0,
+      "forecast_30_days": {
+        "target": 458.24,
+        "lower_bound": 435.89,
+        "upper_bound": 480.59
+      },
+      "outcome_date": "2026-01-21",
+      "actual_price": 421.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 7.96,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $421.75 landed below the band ($435.89\u2013$480.59). \u2717 direction wrong."
+    },
+    {
       "id": "backtest-brent-oil-20251223",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -3083,6 +5521,29 @@
       "notes": null
     },
     {
+      "id": "backtest-corn-20251223",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.29,
+      "prediction_date": "2025-12-23",
+      "current_price": 447.5,
+      "forecast_30_days": {
+        "target": 460.27,
+        "lower_bound": 437.89,
+        "upper_bound": 482.64
+      },
+      "outcome_date": "2026-01-22",
+      "actual_price": 424.0,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 7.88,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $424.00 landed below the band ($437.89\u2013$482.64). \u2717 direction wrong."
+    },
+    {
       "id": "backtest-brent-oil-20251224",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -3150,6 +5611,52 @@
       "error_pct": 4.0,
       "evaluated_date": "2026-03-13",
       "notes": null
+    },
+    {
+      "id": "backtest-wheat-20251224",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "high",
+      "momentum_score": 0.78,
+      "prediction_date": "2025-12-24",
+      "current_price": 521.75,
+      "forecast_30_days": {
+        "target": 481.24,
+        "lower_bound": 455.15,
+        "upper_bound": 507.33
+      },
+      "outcome_date": "2026-01-23",
+      "actual_price": 529.5,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 10.03,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $529.50 landed above the band ($455.15\u2013$507.33). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251224",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.39,
+      "prediction_date": "2025-12-24",
+      "current_price": 451.0,
+      "forecast_30_days": {
+        "target": 468.74,
+        "lower_bound": 446.19,
+        "upper_bound": 491.29
+      },
+      "outcome_date": "2026-01-23",
+      "actual_price": 430.5,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 8.16,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $430.50 landed below the band ($446.19\u2013$491.29). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251225",
@@ -3336,6 +5843,52 @@
       "notes": null
     },
     {
+      "id": "backtest-wheat-20251226",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.54,
+      "prediction_date": "2025-12-26",
+      "current_price": 519.0,
+      "forecast_30_days": {
+        "target": 490.73,
+        "lower_bound": 464.78,
+        "upper_bound": 516.68
+      },
+      "outcome_date": "2026-01-25",
+      "actual_price": 522.5,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 6.47,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $522.50 landed above the band ($464.78\u2013$516.68). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251226",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.45,
+      "prediction_date": "2025-12-26",
+      "current_price": 450.0,
+      "forecast_30_days": {
+        "target": 470.13,
+        "lower_bound": 447.63,
+        "upper_bound": 492.63
+      },
+      "outcome_date": "2026-01-25",
+      "actual_price": 428.25,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 8.91,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $428.25 landed below the band ($447.63\u2013$492.63). \u2717 direction wrong."
+    },
+    {
       "id": "backtest-brent-oil-20251229",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -3449,6 +6002,52 @@
       "error_pct": 6.61,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $34.50 landed above the band ($30.65\u2013$34.07). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-wheat-20251229",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.34,
+      "prediction_date": "2025-12-29",
+      "current_price": 513.0,
+      "forecast_30_days": {
+        "target": 495.77,
+        "lower_bound": 470.12,
+        "upper_bound": 521.42
+      },
+      "outcome_date": "2026-01-28",
+      "actual_price": 536.0,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 8.11,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $536.00 landed above the band ($470.12\u2013$521.42). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251229",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.47,
+      "prediction_date": "2025-12-29",
+      "current_price": 442.25,
+      "forecast_30_days": {
+        "target": 462.86,
+        "lower_bound": 440.75,
+        "upper_bound": 484.97
+      },
+      "outcome_date": "2026-01-28",
+      "actual_price": 430.0,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 7.1,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $430.00 landed below the band ($440.75\u2013$484.97). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20251230",
@@ -3566,6 +6165,52 @@
       "notes": "Actual $34.51 landed above the band ($30.87\u2013$34.29). \u2717 direction wrong."
     },
     {
+      "id": "backtest-wheat-20251230",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.21,
+      "prediction_date": "2025-12-30",
+      "current_price": 510.75,
+      "forecast_30_days": {
+        "target": 500.2,
+        "lower_bound": 474.66,
+        "upper_bound": 525.74
+      },
+      "outcome_date": "2026-01-29",
+      "actual_price": 541.5,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 8.26,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $541.50 landed above the band ($474.66\u2013$525.74). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251230",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.42,
+      "prediction_date": "2025-12-30",
+      "current_price": 440.5,
+      "forecast_30_days": {
+        "target": 458.99,
+        "lower_bound": 436.97,
+        "upper_bound": 481.01
+      },
+      "outcome_date": "2026-01-29",
+      "actual_price": 430.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 6.15,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $430.75 landed below the band ($436.97\u2013$481.01). \u2717 direction wrong."
+    },
+    {
       "id": "backtest-brent-oil-20251231",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -3681,6 +6326,52 @@
       "notes": null
     },
     {
+      "id": "backtest-wheat-20251231",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "low",
+      "momentum_score": 0.17,
+      "prediction_date": "2025-12-31",
+      "current_price": 507.0,
+      "forecast_30_days": {
+        "target": 498.62,
+        "lower_bound": 473.27,
+        "upper_bound": 523.97
+      },
+      "outcome_date": "2026-01-30",
+      "actual_price": 538.0,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 7.9,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $538.00 landed above the band ($473.27\u2013$523.97). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20251231",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.31,
+      "prediction_date": "2025-12-31",
+      "current_price": 440.25,
+      "forecast_30_days": {
+        "target": 453.93,
+        "lower_bound": 431.92,
+        "upper_bound": 475.94
+      },
+      "outcome_date": "2026-01-30",
+      "actual_price": 428.25,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 5.66,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $428.25 landed below the band ($431.92\u2013$475.94). \u2717 direction wrong."
+    },
+    {
       "id": "backtest-brent-oil-20260101",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -3748,6 +6439,52 @@
       "error_pct": 5.99,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $2,672.70 landed above the band ($2,397.77\u2013$2,645.75). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-wheat-20260101",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "low",
+      "momentum_score": 0.17,
+      "prediction_date": "2026-01-01",
+      "current_price": 169.2505,
+      "forecast_30_days": {
+        "target": 166.4,
+        "lower_bound": 157.94,
+        "upper_bound": 174.86
+      },
+      "outcome_date": "2026-01-31",
+      "actual_price": 527.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 217.16,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $527.75 landed above the band ($157.94\u2013$174.86). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20260101",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.21,
+      "prediction_date": "2026-01-01",
+      "current_price": 203.8978,
+      "forecast_30_days": {
+        "target": 208.25,
+        "lower_bound": 198.06,
+        "upper_bound": 218.44
+      },
+      "outcome_date": "2026-01-31",
+      "actual_price": 425.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 104.44,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $425.75 landed above the band ($198.06\u2013$218.44). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20260102",
@@ -3842,6 +6579,52 @@
       "notes": null
     },
     {
+      "id": "backtest-wheat-20260102",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-01-02",
+      "current_price": 506.5,
+      "forecast_30_days": {
+        "target": 361.86,
+        "lower_bound": 336.54,
+        "upper_bound": 387.19
+      },
+      "outcome_date": "2026-02-01",
+      "actual_price": 527.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 45.84,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $527.75 landed above the band ($336.54\u2013$387.19). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20260102",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bearish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-01-02",
+      "current_price": 437.5,
+      "forecast_30_days": {
+        "target": 345.7,
+        "lower_bound": 323.82,
+        "upper_bound": 367.57
+      },
+      "outcome_date": "2026-02-01",
+      "actual_price": 425.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 23.16,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $425.75 landed above the band ($323.82\u2013$367.57). \u2713 direction correct."
+    },
+    {
       "id": "backtest-brent-oil-20260105",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -3932,6 +6715,52 @@
       "error_pct": 0.88,
       "evaluated_date": "2026-03-13",
       "notes": null
+    },
+    {
+      "id": "backtest-wheat-20260105",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-01-05",
+      "current_price": 512.5,
+      "forecast_30_days": {
+        "target": 363.82,
+        "lower_bound": 338.19,
+        "upper_bound": 389.44
+      },
+      "outcome_date": "2026-02-04",
+      "actual_price": 526.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 44.78,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $526.75 landed above the band ($338.19\u2013$389.44). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20260105",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bearish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-01-05",
+      "current_price": 444.5,
+      "forecast_30_days": {
+        "target": 343.56,
+        "lower_bound": 321.33,
+        "upper_bound": 365.79
+      },
+      "outcome_date": "2026-02-04",
+      "actual_price": 429.5,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 25.01,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $429.50 landed above the band ($321.33\u2013$365.79). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20260106",
@@ -4026,6 +6855,52 @@
       "notes": null
     },
     {
+      "id": "backtest-wheat-20260106",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-01-06",
+      "current_price": 510.5,
+      "forecast_30_days": {
+        "target": 365.85,
+        "lower_bound": 340.33,
+        "upper_bound": 391.38
+      },
+      "outcome_date": "2026-02-05",
+      "actual_price": 535.25,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 46.3,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $535.25 landed above the band ($340.33\u2013$391.38). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20260106",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bearish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-01-06",
+      "current_price": 444.0,
+      "forecast_30_days": {
+        "target": 342.17,
+        "lower_bound": 319.97,
+        "upper_bound": 364.37
+      },
+      "outcome_date": "2026-02-05",
+      "actual_price": 435.0,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 27.13,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $435.00 landed above the band ($319.97\u2013$364.37). \u2713 direction correct."
+    },
+    {
       "id": "backtest-brent-oil-20260107",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -4116,6 +6991,52 @@
       "error_pct": 1.77,
       "evaluated_date": "2026-03-13",
       "notes": null
+    },
+    {
+      "id": "backtest-wheat-20260107",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-01-07",
+      "current_price": 518.0,
+      "forecast_30_days": {
+        "target": 372.86,
+        "lower_bound": 346.96,
+        "upper_bound": 398.76
+      },
+      "outcome_date": "2026-02-06",
+      "actual_price": 529.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 42.08,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $529.75 landed above the band ($346.96\u2013$398.76). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20260107",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bearish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-01-07",
+      "current_price": 446.75,
+      "forecast_30_days": {
+        "target": 345.57,
+        "lower_bound": 323.23,
+        "upper_bound": 367.91
+      },
+      "outcome_date": "2026-02-06",
+      "actual_price": 430.25,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 24.5,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $430.25 landed above the band ($323.23\u2013$367.91). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20260108",
@@ -4233,6 +7154,52 @@
       "notes": null
     },
     {
+      "id": "backtest-wheat-20260108",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bearish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-01-08",
+      "current_price": 518.0,
+      "forecast_30_days": {
+        "target": 377.74,
+        "lower_bound": 351.84,
+        "upper_bound": 403.64
+      },
+      "outcome_date": "2026-02-07",
+      "actual_price": 528.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 39.98,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $528.75 landed above the band ($351.84\u2013$403.64). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20260108",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bearish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-01-08",
+      "current_price": 446.0,
+      "forecast_30_days": {
+        "target": 346.93,
+        "lower_bound": 324.63,
+        "upper_bound": 369.23
+      },
+      "outcome_date": "2026-02-07",
+      "actual_price": 428.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 23.58,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $428.75 landed above the band ($324.63\u2013$369.23). \u2713 direction correct."
+    },
+    {
       "id": "backtest-brent-oil-20260109",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -4323,6 +7290,52 @@
       "error_pct": 3.44,
       "evaluated_date": "2026-03-13",
       "notes": null
+    },
+    {
+      "id": "backtest-wheat-20260109",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-01-09",
+      "current_price": 517.25,
+      "forecast_30_days": {
+        "target": 590.72,
+        "lower_bound": 564.86,
+        "upper_bound": 616.58
+      },
+      "outcome_date": "2026-02-08",
+      "actual_price": 528.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 10.49,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $528.75 landed below the band ($564.86\u2013$616.58). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-corn-20260109",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-01-09",
+      "current_price": 445.75,
+      "forecast_30_days": {
+        "target": 493.78,
+        "lower_bound": 471.49,
+        "upper_bound": 516.07
+      },
+      "outcome_date": "2026-02-08",
+      "actual_price": 428.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 13.17,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $428.75 landed below the band ($471.49\u2013$516.07). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20260112",
@@ -4440,6 +7453,52 @@
       "notes": null
     },
     {
+      "id": "backtest-wheat-20260112",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-01-12",
+      "current_price": 511.25,
+      "forecast_30_days": {
+        "target": 588.75,
+        "lower_bound": 563.19,
+        "upper_bound": 614.31
+      },
+      "outcome_date": "2026-02-11",
+      "actual_price": 537.25,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 8.75,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $537.25 landed below the band ($563.19\u2013$614.31). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-corn-20260112",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-01-12",
+      "current_price": 421.5,
+      "forecast_30_days": {
+        "target": 471.71,
+        "lower_bound": 450.63,
+        "upper_bound": 492.78
+      },
+      "outcome_date": "2026-02-11",
+      "actual_price": 427.5,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 9.37,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $427.50 landed below the band ($450.63\u2013$492.78). \u2713 direction correct."
+    },
+    {
       "id": "backtest-brent-oil-20260113",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -4553,6 +7612,52 @@
       "error_pct": 0.14,
       "evaluated_date": "2026-03-13",
       "notes": null
+    },
+    {
+      "id": "backtest-wheat-20260113",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-01-13",
+      "current_price": 510.5,
+      "forecast_30_days": {
+        "target": 586.72,
+        "lower_bound": 561.2,
+        "upper_bound": 612.25
+      },
+      "outcome_date": "2026-02-12",
+      "actual_price": 552.5,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 5.83,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $552.50 landed below the band ($561.20\u2013$612.25). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-corn-20260113",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.97,
+      "prediction_date": "2026-01-13",
+      "current_price": 419.75,
+      "forecast_30_days": {
+        "target": 460.4,
+        "lower_bound": 439.41,
+        "upper_bound": 481.39
+      },
+      "outcome_date": "2026-02-12",
+      "actual_price": 431.25,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 6.33,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $431.25 landed below the band ($439.41\u2013$481.39). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20260114",
@@ -4670,6 +7775,52 @@
       "notes": null
     },
     {
+      "id": "backtest-wheat-20260114",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-01-14",
+      "current_price": 512.5,
+      "forecast_30_days": {
+        "target": 590.17,
+        "lower_bound": 564.54,
+        "upper_bound": 615.79
+      },
+      "outcome_date": "2026-02-13",
+      "actual_price": 548.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 7.02,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $548.75 landed below the band ($564.54\u2013$615.79). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-corn-20260114",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.75,
+      "prediction_date": "2026-01-14",
+      "current_price": 422.0,
+      "forecast_30_days": {
+        "target": 453.76,
+        "lower_bound": 432.66,
+        "upper_bound": 474.86
+      },
+      "outcome_date": "2026-02-13",
+      "actual_price": 431.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 4.85,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $431.75 landed below the band ($432.66\u2013$474.86). \u2713 direction correct."
+    },
+    {
       "id": "backtest-brent-oil-20260115",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -4785,6 +7936,52 @@
       "notes": null
     },
     {
+      "id": "backtest-wheat-20260115",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-01-15",
+      "current_price": 510.5,
+      "forecast_30_days": {
+        "target": 585.29,
+        "lower_bound": 559.76,
+        "upper_bound": 610.81
+      },
+      "outcome_date": "2026-02-14",
+      "actual_price": 537.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 8.12,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $537.75 landed below the band ($559.76\u2013$610.81). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-corn-20260115",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.52,
+      "prediction_date": "2026-01-15",
+      "current_price": 420.25,
+      "forecast_30_days": {
+        "target": 442.13,
+        "lower_bound": 421.12,
+        "upper_bound": 463.14
+      },
+      "outcome_date": "2026-02-14",
+      "actual_price": 426.25,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 3.59,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-brent-oil-20260116",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -4875,6 +8072,29 @@
       "error_pct": 3.55,
       "evaluated_date": "2026-03-13",
       "notes": null
+    },
+    {
+      "id": "backtest-wheat-20260116",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-01-16",
+      "current_price": 518.0,
+      "forecast_30_days": {
+        "target": 591.51,
+        "lower_bound": 565.61,
+        "upper_bound": 617.41
+      },
+      "outcome_date": "2026-02-15",
+      "actual_price": 537.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 9.09,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $537.75 landed below the band ($565.61\u2013$617.41). \u2713 direction correct."
     },
     {
       "id": "backtest-brent-oil-20260119",
@@ -5084,6 +8304,29 @@
       "notes": null
     },
     {
+      "id": "backtest-wheat-20260120",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-01-20",
+      "current_price": 510.25,
+      "forecast_30_days": {
+        "target": 583.38,
+        "lower_bound": 557.87,
+        "upper_bound": 608.89
+      },
+      "outcome_date": "2026-02-19",
+      "actual_price": 559.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 4.09,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-brent-oil-20260121",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -5199,6 +8442,52 @@
       "notes": null
     },
     {
+      "id": "backtest-wheat-20260121",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-01-21",
+      "current_price": 507.75,
+      "forecast_30_days": {
+        "target": 580.5,
+        "lower_bound": 555.11,
+        "upper_bound": 605.89
+      },
+      "outcome_date": "2026-02-20",
+      "actual_price": 573.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.21,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
+      "id": "backtest-corn-20260121",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.24,
+      "prediction_date": "2026-01-21",
+      "current_price": 421.75,
+      "forecast_30_days": {
+        "target": 431.93,
+        "lower_bound": 410.84,
+        "upper_bound": 453.02
+      },
+      "outcome_date": "2026-02-20",
+      "actual_price": 427.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.03,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-brent-oil-20260122",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -5288,6 +8577,52 @@
       "direction_correct": false,
       "error_pct": 2.7,
       "evaluated_date": "2026-03-13",
+      "notes": null
+    },
+    {
+      "id": "backtest-wheat-20260122",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-01-22",
+      "current_price": 515.5,
+      "forecast_30_days": {
+        "target": 588.23,
+        "lower_bound": 562.46,
+        "upper_bound": 614.0
+      },
+      "outcome_date": "2026-02-21",
+      "actual_price": 569.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 3.18,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
+      "id": "backtest-corn-20260122",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.36,
+      "prediction_date": "2026-01-22",
+      "current_price": 424.0,
+      "forecast_30_days": {
+        "target": 439.35,
+        "lower_bound": 418.15,
+        "upper_bound": 460.55
+      },
+      "outcome_date": "2026-02-21",
+      "actual_price": 427.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 2.7,
+      "evaluated_date": "2026-03-14",
       "notes": null
     },
     {
@@ -5381,6 +8716,52 @@
       "error_pct": 2.09,
       "evaluated_date": "2026-03-13",
       "notes": null
+    },
+    {
+      "id": "backtest-wheat-20260123",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-01-23",
+      "current_price": 529.5,
+      "forecast_30_days": {
+        "target": 604.23,
+        "lower_bound": 577.75,
+        "upper_bound": 630.71
+      },
+      "outcome_date": "2026-02-22",
+      "actual_price": 569.5,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 5.75,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $569.50 landed below the band ($577.75\u2013$630.71). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-corn-20260123",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.47,
+      "prediction_date": "2026-01-23",
+      "current_price": 430.5,
+      "forecast_30_days": {
+        "target": 450.79,
+        "lower_bound": 429.27,
+        "upper_bound": 472.31
+      },
+      "outcome_date": "2026-02-22",
+      "actual_price": 427.5,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 5.17,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $427.50 landed below the band ($429.27\u2013$472.31). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20260126",
@@ -5498,6 +8879,52 @@
       "notes": null
     },
     {
+      "id": "backtest-wheat-20260126",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.13,
+      "prediction_date": "2026-01-26",
+      "current_price": 522.5,
+      "forecast_30_days": {
+        "target": 529.53,
+        "lower_bound": 503.4,
+        "upper_bound": 555.65
+      },
+      "outcome_date": "2026-02-25",
+      "actual_price": 565.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 6.84,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $565.75 landed above the band ($503.40\u2013$555.65). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-corn-20260126",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.45,
+      "prediction_date": "2026-01-26",
+      "current_price": 428.25,
+      "forecast_30_days": {
+        "target": 408.85,
+        "lower_bound": 387.44,
+        "upper_bound": 430.26
+      },
+      "outcome_date": "2026-02-25",
+      "actual_price": 430.5,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 5.3,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $430.50 landed above the band ($387.44\u2013$430.26). \u2717 direction wrong."
+    },
+    {
       "id": "backtest-brent-oil-20260127",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -5588,6 +9015,52 @@
       "error_pct": 1.02,
       "evaluated_date": "2026-03-13",
       "notes": null
+    },
+    {
+      "id": "backtest-wheat-20260127",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.12,
+      "prediction_date": "2026-01-27",
+      "current_price": 523.25,
+      "forecast_30_days": {
+        "target": 529.77,
+        "lower_bound": 503.61,
+        "upper_bound": 555.93
+      },
+      "outcome_date": "2026-02-26",
+      "actual_price": 571.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 7.92,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $571.75 landed above the band ($503.61\u2013$555.93). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-corn-20260127",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.36,
+      "prediction_date": "2026-01-27",
+      "current_price": 426.5,
+      "forecast_30_days": {
+        "target": 411.01,
+        "lower_bound": 389.69,
+        "upper_bound": 432.33
+      },
+      "outcome_date": "2026-02-26",
+      "actual_price": 433.25,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 5.41,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $433.25 landed above the band ($389.69\u2013$432.33). \u2717 direction wrong."
     },
     {
       "id": "backtest-brent-oil-20260128",
@@ -5705,6 +9178,52 @@
       "notes": null
     },
     {
+      "id": "backtest-wheat-20260128",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.23,
+      "prediction_date": "2026-01-28",
+      "current_price": 536.0,
+      "forecast_30_days": {
+        "target": 548.57,
+        "lower_bound": 521.77,
+        "upper_bound": 575.37
+      },
+      "outcome_date": "2026-02-27",
+      "actual_price": 591.25,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 7.78,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $591.25 landed above the band ($521.77\u2013$575.37). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-corn-20260128",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.24,
+      "prediction_date": "2026-01-28",
+      "current_price": 430.0,
+      "forecast_30_days": {
+        "target": 419.54,
+        "lower_bound": 398.04,
+        "upper_bound": 441.04
+      },
+      "outcome_date": "2026-02-27",
+      "actual_price": 438.75,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 4.58,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-brent-oil-20260129",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -5795,6 +9314,52 @@
       "error_pct": 6.7,
       "evaluated_date": "2026-03-13",
       "notes": "Actual $95.83 landed above the band ($85.13\u2013$94.49). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-wheat-20260129",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.47,
+      "prediction_date": "2026-01-29",
+      "current_price": 541.5,
+      "forecast_30_days": {
+        "target": 566.71,
+        "lower_bound": 539.63,
+        "upper_bound": 593.79
+      },
+      "outcome_date": "2026-02-28",
+      "actual_price": 574.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.37,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
+      "id": "backtest-corn-20260129",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.06,
+      "prediction_date": "2026-01-29",
+      "current_price": 430.75,
+      "forecast_30_days": {
+        "target": 427.99,
+        "lower_bound": 406.45,
+        "upper_bound": 449.53
+      },
+      "outcome_date": "2026-02-28",
+      "actual_price": 433.25,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.23,
+      "evaluated_date": "2026-03-14",
+      "notes": null
     },
     {
       "id": "backtest-brent-oil-20260130",
@@ -5909,6 +9474,52 @@
       "direction_correct": true,
       "error_pct": 0.66,
       "evaluated_date": "2026-03-13",
+      "notes": null
+    },
+    {
+      "id": "backtest-wheat-20260130",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 0.68,
+      "prediction_date": "2026-01-30",
+      "current_price": 538.0,
+      "forecast_30_days": {
+        "target": 574.49,
+        "lower_bound": 547.59,
+        "upper_bound": 601.39
+      },
+      "outcome_date": "2026-03-01",
+      "actual_price": 574.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.0,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
+      "id": "backtest-corn-20260130",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.11,
+      "prediction_date": "2026-01-30",
+      "current_price": 428.25,
+      "forecast_30_days": {
+        "target": 432.76,
+        "lower_bound": 411.35,
+        "upper_bound": 454.17
+      },
+      "outcome_date": "2026-03-01",
+      "actual_price": 433.25,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.11,
+      "evaluated_date": "2026-03-14",
       "notes": null
     },
     {
@@ -6027,6 +9638,52 @@
       "notes": null
     },
     {
+      "id": "backtest-wheat-20260202",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 0.7,
+      "prediction_date": "2026-02-02",
+      "current_price": 527.75,
+      "forecast_30_days": {
+        "target": 564.59,
+        "lower_bound": 538.2,
+        "upper_bound": 590.98
+      },
+      "outcome_date": "2026-03-04",
+      "actual_price": 566.75,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.38,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
+      "id": "backtest-corn-20260202",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.16,
+      "prediction_date": "2026-02-02",
+      "current_price": 425.75,
+      "forecast_30_days": {
+        "target": 432.46,
+        "lower_bound": 411.17,
+        "upper_bound": 453.75
+      },
+      "outcome_date": "2026-03-04",
+      "actual_price": 431.75,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.16,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-brent-oil-20260203",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -6139,6 +9796,52 @@
       "direction_correct": true,
       "error_pct": 0.89,
       "evaluated_date": "2026-03-13",
+      "notes": null
+    },
+    {
+      "id": "backtest-wheat-20260203",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 0.72,
+      "prediction_date": "2026-02-03",
+      "current_price": 528.75,
+      "forecast_30_days": {
+        "target": 566.7,
+        "lower_bound": 540.26,
+        "upper_bound": 593.14
+      },
+      "outcome_date": "2026-03-05",
+      "actual_price": 582.75,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 2.83,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
+      "id": "backtest-corn-20260203",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.22,
+      "prediction_date": "2026-02-03",
+      "current_price": 428.5,
+      "forecast_30_days": {
+        "target": 437.81,
+        "lower_bound": 416.38,
+        "upper_bound": 459.24
+      },
+      "outcome_date": "2026-03-05",
+      "actual_price": 441.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.84,
+      "evaluated_date": "2026-03-14",
       "notes": null
     },
     {
@@ -6257,6 +9960,52 @@
       "notes": null
     },
     {
+      "id": "backtest-wheat-20260204",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 0.71,
+      "prediction_date": "2026-02-04",
+      "current_price": 526.75,
+      "forecast_30_days": {
+        "target": 564.26,
+        "lower_bound": 537.92,
+        "upper_bound": 590.6
+      },
+      "outcome_date": "2026-03-06",
+      "actual_price": 611.25,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 8.33,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $611.25 landed above the band ($537.92\u2013$590.60). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-corn-20260204",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.21,
+      "prediction_date": "2026-02-04",
+      "current_price": 429.5,
+      "forecast_30_days": {
+        "target": 438.61,
+        "lower_bound": 417.13,
+        "upper_bound": 460.09
+      },
+      "outcome_date": "2026-03-06",
+      "actual_price": 447.0,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.91,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-brent-oil-20260205",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -6369,6 +10118,52 @@
       "direction_correct": false,
       "error_pct": 2.34,
       "evaluated_date": "2026-03-13",
+      "notes": null
+    },
+    {
+      "id": "backtest-wheat-20260205",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.54,
+      "prediction_date": "2026-02-05",
+      "current_price": 535.25,
+      "forecast_30_days": {
+        "target": 564.1,
+        "lower_bound": 537.34,
+        "upper_bound": 590.86
+      },
+      "outcome_date": "2026-03-07",
+      "actual_price": 598.0,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 6.01,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $598.00 landed above the band ($537.34\u2013$590.86). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-corn-20260205",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.16,
+      "prediction_date": "2026-02-05",
+      "current_price": 435.0,
+      "forecast_30_days": {
+        "target": 441.91,
+        "lower_bound": 420.16,
+        "upper_bound": 463.66
+      },
+      "outcome_date": "2026-03-07",
+      "actual_price": 437.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.0,
+      "evaluated_date": "2026-03-14",
       "notes": null
     },
     {
@@ -6487,6 +10282,52 @@
       "notes": null
     },
     {
+      "id": "backtest-wheat-20260206",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.38,
+      "prediction_date": "2026-02-06",
+      "current_price": 529.75,
+      "forecast_30_days": {
+        "target": 549.71,
+        "lower_bound": 523.22,
+        "upper_bound": 576.2
+      },
+      "outcome_date": "2026-03-08",
+      "actual_price": 598.0,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 8.78,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $598.00 landed above the band ($523.22\u2013$576.20). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-corn-20260206",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.16,
+      "prediction_date": "2026-02-06",
+      "current_price": 430.25,
+      "forecast_30_days": {
+        "target": 437.02,
+        "lower_bound": 415.51,
+        "upper_bound": 458.53
+      },
+      "outcome_date": "2026-03-08",
+      "actual_price": 437.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.11,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-brent-oil-20260209",
       "type": "backtest",
       "asset": "Brent Oil",
@@ -6579,6 +10420,52 @@
       "notes": null
     },
     {
+      "id": "backtest-wheat-20260209",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.21,
+      "prediction_date": "2026-02-09",
+      "current_price": 528.75,
+      "forecast_30_days": {
+        "target": 539.69,
+        "lower_bound": 513.25,
+        "upper_bound": 566.13
+      },
+      "outcome_date": "2026-03-11",
+      "actual_price": 588.5,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 9.04,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $588.50 landed above the band ($513.25\u2013$566.13). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-corn-20260209",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.14,
+      "prediction_date": "2026-02-09",
+      "current_price": 428.75,
+      "forecast_30_days": {
+        "target": 434.68,
+        "lower_bound": 413.24,
+        "upper_bound": 456.12
+      },
+      "outcome_date": "2026-03-11",
+      "actual_price": 444.25,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 2.2,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
       "id": "backtest-gold-20260210",
       "type": "backtest",
       "asset": "Gold",
@@ -6646,6 +10533,121 @@
       "error_pct": 3.37,
       "evaluated_date": "2026-03-13",
       "notes": null
+    },
+    {
+      "id": "backtest-wheat-20260210",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.18,
+      "prediction_date": "2026-02-10",
+      "current_price": 528.25,
+      "forecast_30_days": {
+        "target": 537.6,
+        "lower_bound": 511.19,
+        "upper_bound": 564.01
+      },
+      "outcome_date": "2026-03-12",
+      "actual_price": 592.25,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 10.17,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $592.25 landed above the band ($511.19\u2013$564.01). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-corn-20260210",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.16,
+      "prediction_date": "2026-02-10",
+      "current_price": 428.75,
+      "forecast_30_days": {
+        "target": 435.68,
+        "lower_bound": 414.24,
+        "upper_bound": 457.12
+      },
+      "outcome_date": "2026-03-12",
+      "actual_price": 448.25,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 2.89,
+      "evaluated_date": "2026-03-14",
+      "notes": null
+    },
+    {
+      "id": "backtest-usd-index-20260211",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.02,
+      "prediction_date": "2026-02-11",
+      "current_price": 94.36,
+      "forecast_30_days": {
+        "target": 94.59,
+        "lower_bound": 89.87,
+        "upper_bound": 99.31
+      },
+      "outcome_date": "2026-03-13",
+      "actual_price": 99.68,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 5.38,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $99.68 landed above the band ($89.87\u2013$99.31). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-wheat-20260211",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.1,
+      "prediction_date": "2026-02-11",
+      "current_price": 537.25,
+      "forecast_30_days": {
+        "target": 542.75,
+        "lower_bound": 515.89,
+        "upper_bound": 569.61
+      },
+      "outcome_date": "2026-03-13",
+      "actual_price": 613.25,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 12.99,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $613.25 landed above the band ($515.89\u2013$569.61). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-corn-20260211",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.14,
+      "prediction_date": "2026-02-11",
+      "current_price": 427.5,
+      "forecast_30_days": {
+        "target": 433.55,
+        "lower_bound": 412.18,
+        "upper_bound": 454.93
+      },
+      "outcome_date": "2026-03-13",
+      "actual_price": 467.0,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 7.72,
+      "evaluated_date": "2026-03-14",
+      "notes": "Actual $467.00 landed above the band ($412.18\u2013$454.93). \u2713 direction correct."
     },
     {
       "id": "brent-oil-20260313",
@@ -6754,16 +10756,16 @@
     }
   ],
   "summary": {
-    "total": 294,
+    "total": 468,
     "pending": 5,
-    "completed": 289,
-    "hits": 115,
-    "misses": 174,
-    "hit_rate": 39.8,
-    "directional_correct": 142,
-    "directional_total": 289,
-    "directional_accuracy": 49.1,
-    "average_accuracy": 68.0,
-    "last_updated": "2026-03-13"
+    "completed": 463,
+    "hits": 189,
+    "misses": 274,
+    "hit_rate": 40.8,
+    "directional_correct": 224,
+    "directional_total": 463,
+    "directional_accuracy": 48.4,
+    "average_accuracy": 76.5,
+    "last_updated": "2026-03-14"
   }
 }
