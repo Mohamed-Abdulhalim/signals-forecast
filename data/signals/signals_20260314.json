@@ -1,24 +1,26 @@
 {
-  "timestamp": "2026-03-14T00:47:37.453351",
+  "timestamp": "2026-03-14T01:27:00.562333",
   "signals": [
     {
       "asset": "Brent Oil",
-      "signal": "bullish",
-      "confidence": "high",
+      "signal": "neutral",
+      "confidence": "medium",
       "momentum": 1,
       "volatility": "High",
       "current_price": 103.86,
-      "timestamp": "2026-03-14T00:47:37.454998",
+      "timestamp": "2026-03-14T01:27:00.566514",
+      "reversion_applied": true,
       "category": "energy"
     },
     {
       "asset": "Natural Gas",
       "signal": "bullish",
-      "confidence": "medium",
+      "confidence": "high",
       "momentum": 0.64,
       "volatility": "Moderate",
       "current_price": 3.13,
-      "timestamp": "2026-03-14T00:47:37.455118",
+      "timestamp": "2026-03-14T01:27:00.566646",
+      "reversion_applied": true,
       "category": "energy"
     },
     {
@@ -28,7 +30,8 @@
       "momentum": 0.6,
       "volatility": "Low",
       "current_price": 100.53,
-      "timestamp": "2026-03-14T00:47:37.456555",
+      "timestamp": "2026-03-14T01:27:00.570478",
+      "reversion_applied": false,
       "category": "safe_haven"
     },
     {
@@ -38,17 +41,19 @@
       "momentum": 0.45,
       "volatility": "Low",
       "current_price": 2980.0,
-      "timestamp": "2026-03-14T00:47:37.456704",
+      "timestamp": "2026-03-14T01:27:00.570572",
+      "reversion_applied": false,
       "category": "safe_haven"
     },
     {
       "asset": "Wheat",
-      "signal": "bullish",
-      "confidence": "high",
+      "signal": "neutral",
+      "confidence": "medium",
       "momentum": 0.72,
       "volatility": "Moderate",
       "current_price": 613.25,
-      "timestamp": "2026-03-14T00:47:37.458142",
+      "timestamp": "2026-03-14T01:27:00.574350",
+      "reversion_applied": true,
       "category": "food"
     },
     {
@@ -58,7 +63,8 @@
       "momentum": 0.67,
       "volatility": "Moderate",
       "current_price": 467.0,
-      "timestamp": "2026-03-14T00:47:37.458238",
+      "timestamp": "2026-03-14T01:27:00.574443",
+      "reversion_applied": false,
       "category": "food"
     },
     {
@@ -68,7 +74,8 @@
       "momentum": 0.62,
       "volatility": "Low",
       "current_price": 35.72,
-      "timestamp": "2026-03-14T00:47:37.458327",
+      "timestamp": "2026-03-14T01:27:00.574526",
+      "reversion_applied": false,
       "category": "food"
     }
   ]
