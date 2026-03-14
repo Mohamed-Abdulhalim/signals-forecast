@@ -117,9 +117,19 @@
     <section class="weekly-changes reveal">
       <h2>Market Context</h2>
       <ul class="changes-list">
-        <li>Energy markets responding to geopolitical supply pressures and OPEC+ output decisions</li>
-        <li>USD Index tracking Federal Reserve rate path signals and inflation data</li>
-        <li>Food commodity volatility elevated — agricultural supply chain disruptions ongoing</li>
+        {% for signal in signals %}
+        {% if signal.signal != 'neutral' and signal.get('momentum') %}
+        <li>
+          <strong>{{ signal.asset }}</strong> —
+          {% if signal.signal == 'bullish' %}upward momentum detected
+          {% else %}downward pressure building{% endif %}
+          ({{ signal.confidence }} confidence · momentum {{ signal.momentum }})
+        </li>
+        {% endif %}
+        {% endfor %}
+        {% if signals %}
+        <li>Signals last generated · {{ signals[0].timestamp[:10] }}</li>
+        {% endif %}
       </ul>
       <p class="update-note">System timestamp · {{ signals[0].timestamp[:19].replace('T', ' ') if signals else '—' }} UTC</p>
     </section>
