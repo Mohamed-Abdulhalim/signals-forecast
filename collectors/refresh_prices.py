@@ -143,6 +143,7 @@ def update_today_files(prices):
             for asset in data.get('assets', []):
                 if asset['asset'] in asset_prices:
                     old = asset['price']
+                    asset['prev_price'] = old          # ← store previous price
                     asset['price'] = asset_prices[asset['asset']]
                     asset['timestamp'] = datetime.now().isoformat()
                     print(f"  Updated {asset['asset']}: ${old} → ${asset['price']}")
