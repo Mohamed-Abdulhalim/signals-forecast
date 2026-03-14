@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-14T00:39:08.496586",
+  "timestamp": "2026-03-14T00:47:38.474536",
   "forecasts": [
     {
       "asset": "Brent Oil",
@@ -20,7 +20,7 @@
       "momentum": 0.2494,
       "trend": "up",
       "methodology": "Linear regression with volatility bands",
-      "timestamp": "2026-03-14T00:39:08.498594",
+      "timestamp": "2026-03-14T00:47:38.477504",
       "forecast_date": "2026-04-13"
     },
     {
@@ -42,7 +42,7 @@
       "momentum": 0.0279,
       "trend": "up",
       "methodology": "Linear regression with volatility bands",
-      "timestamp": "2026-03-14T00:39:08.500037",
+      "timestamp": "2026-03-14T00:47:38.480067",
       "forecast_date": "2026-04-13"
     },
     {
@@ -64,7 +64,7 @@
       "momentum": -0.0103,
       "trend": "neutral",
       "methodology": "Linear regression with volatility bands",
-      "timestamp": "2026-03-14T00:39:08.501501",
+      "timestamp": "2026-03-14T00:47:38.482675",
       "forecast_date": "2026-04-13"
     },
     {
@@ -86,16 +86,52 @@
       "momentum": 0.02,
       "trend": "neutral",
       "methodology": "Linear regression with volatility bands",
-      "timestamp": "2026-03-14T00:39:08.503042",
+      "timestamp": "2026-03-14T00:47:38.485136",
       "forecast_date": "2026-04-13"
     },
     {
       "asset": "Wheat",
-      "error": "Insufficient historical data"
+      "category": "food",
+      "current_price": 613.25,
+      "forecast_30_days": {
+        "prediction": 699.89,
+        "lower_bound": 680.58,
+        "upper_bound": 719.2,
+        "confidence": "high"
+      },
+      "forecast_90_days": {
+        "prediction": 878.84,
+        "lower_bound": 845.39,
+        "upper_bound": 912.28,
+        "confidence": "high"
+      },
+      "momentum": 0.0438,
+      "trend": "up",
+      "methodology": "Linear regression with volatility bands",
+      "timestamp": "2026-03-14T00:47:38.487763",
+      "forecast_date": "2026-04-13"
     },
     {
       "asset": "Corn",
-      "error": "Insufficient historical data"
+      "category": "food",
+      "current_price": 467.0,
+      "forecast_30_days": {
+        "prediction": 502.49,
+        "lower_bound": 489.68,
+        "upper_bound": 515.31,
+        "confidence": "medium"
+      },
+      "forecast_90_days": {
+        "prediction": 597.85,
+        "lower_bound": 575.66,
+        "upper_bound": 620.04,
+        "confidence": "medium"
+      },
+      "momentum": 0.0342,
+      "trend": "up",
+      "methodology": "Linear regression with volatility bands",
+      "timestamp": "2026-03-14T00:47:38.490200",
+      "forecast_date": "2026-04-13"
     },
     {
       "asset": "Rice",
@@ -116,7 +152,7 @@
       "momentum": 0.0233,
       "trend": "up",
       "methodology": "Linear regression with volatility bands",
-      "timestamp": "2026-03-14T00:39:08.506277",
+      "timestamp": "2026-03-14T00:47:38.492644",
       "forecast_date": "2026-04-13"
     }
   ]

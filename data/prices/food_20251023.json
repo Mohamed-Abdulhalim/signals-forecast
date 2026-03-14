@@ -1,0 +1,20 @@
+{
+  "category": "food",
+  "timestamp": "2025-10-23T00:00:00",
+  "assets": [
+    {
+      "asset": "Wheat",
+      "symbol": "WHEAT",
+      "price": 513.0,
+      "date": "2025-10-23",
+      "timestamp": "2025-10-23T00:00:00"
+    },
+    {
+      "asset": "Corn",
+      "symbol": "CORN",
+      "price": 428.0,
+      "date": "2025-10-23",
+      "timestamp": "2025-10-23T00:00:00"
+    }
+  ]
+}

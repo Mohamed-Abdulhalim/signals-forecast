@@ -1,5 +1,20 @@
 {
   "category": "food",
   "timestamp": "2026-03-13T20:39:32.962662",
-  "assets": []
+  "assets": [
+    {
+      "asset": "Wheat",
+      "symbol": "WHEAT",
+      "price": 613.25,
+      "date": "2026-03-13",
+      "timestamp": "2026-03-13T00:00:00"
+    },
+    {
+      "asset": "Corn",
+      "symbol": "CORN",
+      "price": 467.0,
+      "date": "2026-03-13",
+      "timestamp": "2026-03-13T00:00:00"
+    }
+  ]
 }

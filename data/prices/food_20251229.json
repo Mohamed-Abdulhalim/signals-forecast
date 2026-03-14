@@ -8,6 +8,20 @@
       "price": 34.215,
       "date": "2025-12-29",
       "timestamp": "2025-12-29T18:28:02.323375"
+    },
+    {
+      "asset": "Wheat",
+      "symbol": "WHEAT",
+      "price": 513.0,
+      "date": "2025-12-29",
+      "timestamp": "2025-12-29T00:00:00"
+    },
+    {
+      "asset": "Corn",
+      "symbol": "CORN",
+      "price": 442.25,
+      "date": "2025-12-29",
+      "timestamp": "2025-12-29T00:00:00"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-14T00:39:08.061392",
+  "timestamp": "2026-03-14T00:47:37.453351",
   "signals": [
     {
       "asset": "Brent Oil",
@@ -8,7 +8,7 @@
       "momentum": 1,
       "volatility": "High",
       "current_price": 103.86,
-      "timestamp": "2026-03-14T00:39:08.062675",
+      "timestamp": "2026-03-14T00:47:37.454998",
       "category": "energy"
     },
     {
@@ -18,7 +18,7 @@
       "momentum": 0.64,
       "volatility": "Moderate",
       "current_price": 3.13,
-      "timestamp": "2026-03-14T00:39:08.062796",
+      "timestamp": "2026-03-14T00:47:37.455118",
       "category": "energy"
     },
     {
@@ -28,7 +28,7 @@
       "momentum": 0.6,
       "volatility": "Low",
       "current_price": 100.53,
-      "timestamp": "2026-03-14T00:39:08.063685",
+      "timestamp": "2026-03-14T00:47:37.456555",
       "category": "safe_haven"
     },
     {
@@ -38,21 +38,27 @@
       "momentum": 0.45,
       "volatility": "Low",
       "current_price": 2980.0,
-      "timestamp": "2026-03-14T00:39:08.063754",
+      "timestamp": "2026-03-14T00:47:37.456704",
       "category": "safe_haven"
     },
     {
       "asset": "Wheat",
-      "signal": "neutral",
-      "confidence": "low",
-      "reason": "Insufficient data",
+      "signal": "bullish",
+      "confidence": "high",
+      "momentum": 0.72,
+      "volatility": "Moderate",
+      "current_price": 613.25,
+      "timestamp": "2026-03-14T00:47:37.458142",
       "category": "food"
     },
     {
       "asset": "Corn",
-      "signal": "neutral",
-      "confidence": "low",
-      "reason": "Insufficient data",
+      "signal": "bullish",
+      "confidence": "medium",
+      "momentum": 0.67,
+      "volatility": "Moderate",
+      "current_price": 467.0,
+      "timestamp": "2026-03-14T00:47:37.458238",
       "category": "food"
     },
     {
@@ -62,7 +68,7 @@
       "momentum": 0.62,
       "volatility": "Low",
       "current_price": 35.72,
-      "timestamp": "2026-03-14T00:39:08.064390",
+      "timestamp": "2026-03-14T00:47:37.458327",
       "category": "food"
     }
   ]

@@ -3,25 +3,25 @@
   "timestamp": "2026-01-02T18:04:54.546770",
   "assets": [
     {
-      "asset": "Wheat",
-      "symbol": "WHEAT",
-      "price": 169.2505,
-      "date": "2026-01-02",
-      "timestamp": "2026-01-02T18:04:54.546770"
-    },
-    {
-      "asset": "Corn",
-      "symbol": "CORN",
-      "price": 203.8978,
-      "date": "2026-01-02",
-      "timestamp": "2026-01-02T18:04:54.546770"
-    },
-    {
       "asset": "Rice",
       "symbol": "RICE",
       "price": 34.055,
       "date": "2026-01-02",
       "timestamp": "2026-01-02T18:28:02.323375"
+    },
+    {
+      "asset": "Wheat",
+      "symbol": "WHEAT",
+      "price": 506.5,
+      "date": "2026-01-02",
+      "timestamp": "2026-01-02T00:00:00"
+    },
+    {
+      "asset": "Corn",
+      "symbol": "CORN",
+      "price": 437.5,
+      "date": "2026-01-02",
+      "timestamp": "2026-01-02T00:00:00"
     }
   ]
 }

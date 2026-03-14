@@ -8,6 +8,20 @@
       "price": 34.15,
       "date": "2026-02-02",
       "timestamp": "2026-02-02T18:28:02.323375"
+    },
+    {
+      "asset": "Wheat",
+      "symbol": "WHEAT",
+      "price": 527.75,
+      "date": "2026-02-02",
+      "timestamp": "2026-02-02T00:00:00"
+    },
+    {
+      "asset": "Corn",
+      "symbol": "CORN",
+      "price": 425.75,
+      "date": "2026-02-02",
+      "timestamp": "2026-02-02T00:00:00"
     }
   ]
 }

@@ -5,16 +5,16 @@
     {
       "asset": "Wheat",
       "symbol": "WHEAT",
-      "price": 169.2033,
+      "price": 534.0,
       "date": "2025-10-31",
-      "timestamp": "2025-10-31T18:04:54.546770"
+      "timestamp": "2025-10-31T00:00:00"
     },
     {
       "asset": "Corn",
       "symbol": "CORN",
-      "price": 201.6579,
+      "price": 431.5,
       "date": "2025-10-31",
-      "timestamp": "2025-10-31T18:04:54.546770"
+      "timestamp": "2025-10-31T00:00:00"
     }
   ]
 }
