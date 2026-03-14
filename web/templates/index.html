@@ -80,7 +80,18 @@
           <div class="forecast-data">
             <div class="current">
               <span class="label">Current</span>
-              <span class="value">${{ "{:,.2f}".format(forecast.current_price) }}</span>
+              <span class="value">
+                ${{ "{:,.2f}".format(forecast.current_price) }}
+                {% set p = price_map.get(forecast.asset) %}
+                {% if p and p.prev_price and p.prev_price != p.price %}
+                  {% set delta = p.price - p.prev_price %}
+                  {% set delta_pct = (delta / p.prev_price * 100) %}
+                  <span class="price-delta {% if delta > 0 %}delta-up{% else %}delta-down{% endif %}">
+                    {% if delta > 0 %}▲{% else %}▼{% endif %}
+                    {{ "{:+.2f}".format(delta_pct) }}%
+                  </span>
+                {% endif %}
+              </span>
             </div>
             <div class="predicted">
               <span class="label">Forecast</span>
