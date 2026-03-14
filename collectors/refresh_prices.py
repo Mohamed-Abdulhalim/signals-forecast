@@ -89,7 +89,12 @@ def fetch_all_prices():
         print(f"  Natural Gas: ${natgas}")
 
     # Safe Haven — Gold: metals.live first, then yfinance
-    gold = yf_price('GC=F', 2500, 4000) or yf_price('GLD', 240, 400)
+    gold = yf_price('GC=F', 2500, 4000)
+    if not gold:
+        gld = yf_price('GLD', 240, 500)
+        if gld:
+            gold = round(gld * 6.5, 2)  # GLD ≈ spot/10 × 65% factor
+            print(f"  Gold (via GLD scaled): ${gold}")
     if gold:
         prices[('safe_haven', 'Gold')] = gold
         print(f"  Gold:        ${gold}")
