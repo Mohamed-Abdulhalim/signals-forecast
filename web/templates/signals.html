@@ -41,7 +41,17 @@
   <div class="signal-metrics">
     <div class="metric">
       <span class="metric-label">Price</span>
-      <span class="metric-value">${{ "{:,.2f}".format(signal.current_price) }}</span>
+      <span class="metric-value">
+        ${{ "{:,.2f}".format(signal.current_price) }}
+        {% set p = price_map.get(signal.asset) %}
+        {% if p and p.get('prev_price') and p.prev_price != signal.current_price %}
+          {% set delta_pct = ((signal.current_price - p.prev_price) / p.prev_price * 100) %}
+          <span class="price-delta {% if delta_pct > 0 %}delta-up{% else %}delta-down{% endif %}">
+            {% if delta_pct > 0 %}▲{% else %}▼{% endif %}
+            {{ "{:+.2f}".format(delta_pct) }}%
+          </span>
+        {% endif %}
+      </span>
     </div>
     <div class="metric">
       <span class="metric-label tooltip-wrap">Trend<span class="tooltip-icon">?</span><span class="tooltip-box">Direction based on 7-day vs 14-day moving average crossover. Up = short-term average above long-term. Flat = converging averages.</span></span>
