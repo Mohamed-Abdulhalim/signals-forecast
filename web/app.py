@@ -79,6 +79,10 @@ def home():
                          forecasts=forecasts.get('forecasts', []),
                          price_map=price_map)
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
 @app.route('/signals')
 def signals_page():
     signals = load_latest_signals()
