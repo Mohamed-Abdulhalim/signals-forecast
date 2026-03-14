@@ -8,63 +8,143 @@
     <style>
         .form-status {
             display: none;
-            margin-top: 1.5rem;
-            padding: 1.25rem 1.5rem;
+            margin-top: 1.25rem;
+            padding: 1rem 1.25rem;
             border-radius: 4px;
             font-family: 'DM Mono', monospace;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
+            letter-spacing: 0.02em;
         }
         .form-status.success {
-            display: block;
             background: rgba(74, 124, 89, 0.15);
             border: 1px solid rgba(74, 124, 89, 0.4);
-            color: var(--bullish-text, #6db88a);
+            color: #6db88a;
         }
         .form-status.error {
-            display: block;
             background: rgba(180, 80, 80, 0.12);
             border: 1px solid rgba(180, 80, 80, 0.35);
-            color: var(--bearish-text, #c97070);
+            color: #c97070;
         }
-        .submit-button:disabled {
-            opacity: 0.6;
+        .wwm-submit:disabled {
+            opacity: 0.55;
             cursor: not-allowed;
         }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="container">
-            <a href="/" class="logo"><span class="logo-dot">●</span> EDGEPULSE</a>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/signals">Signals</a></li>
-                <li><a href="/forecasts">Forecasts</a></li>
-                <li><a href="/track-record">Track Record</a></li>
-                <li><a href="/methodology">Methodology</a></li>
-                <li><a href="/work-with-me" class="active">Work With Me</a></li>
-            </ul>
+
+<div class="scanlines"></div>
+
+<nav>
+    <div class="container nav-inner">
+        <a href="/" class="logo">
+            <span class="logo-dot"></span>
+            EdgePulse
+        </a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/signals">Signals</a></li>
+            <li><a href="/forecasts">Forecasts</a></li>
+            <li><a href="/track-record">Track Record</a></li>
+            <li><a href="/methodology">Methodology</a></li>
+            <li><a href="/work-with-me" class="active">Work With Me</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main class="container">
+
+    <!-- Hero -->
+    <header class="page-header">
+        <div class="page-header-left">
+            <h1>Work With Me</h1>
+            <p class="page-subtitle">Custom data systems for businesses that can't afford to be surprised by markets.</p>
         </div>
-    </nav>
+    </header>
 
-    <main class="container">
-        <h1>Work With Me</h1>
+    <div class="divider"></div>
 
-        <section class="services-intro">
-            <p class="lead">Custom data systems for businesses that can't afford to be surprised by markets.</p>
-            <p>Most businesses feel market volatility after it hits. They see the invoice, the margin squeeze, the procurement crisis — and then react. I build systems that show it coming.</p>
-            <p>EdgePulse is a live example of what I build: automated data pipelines, signal engines, forecast models, and clean interfaces — running without manual intervention, updated multiple times daily, tracking 7 assets across 3 markets. If your business is exposed to commodity prices, currency swings, or supply chain inputs, we should talk.</p>
-        </section>
+    <!-- Positioning statement -->
+    <section class="wwm-intro">
+        <p class="wwm-lead">
+            Most businesses feel market volatility after it hits. They see the invoice, the margin squeeze,
+            the procurement crisis — and then react. I build systems that show it coming.
+        </p>
+        <p class="wwm-sub">
+            EdgePulse is a live example of what I build: automated data pipelines, signal engines, 
+            forecast models, and clean interfaces — running without manual intervention, 
+            updated multiple times daily, tracking 7 assets across 3 markets.
+            If your business is exposed to commodity prices, currency swings, or supply chain inputs,
+            we should talk.
+        </p>
+    </section>
 
-        <section class="services-section">
-            <h2>What I Offer</h2>
-            <div class="services-grid">
-                <div class="service-card featured">
-                    <div class="service-tag">MOST REQUESTED</div>
+    <div class="divider"></div>
+
+    <!-- Who this is for -->
+    <section class="wwm-section">
+        <h2>Who I Work With</h2>
+        <div class="wwm-client-grid">
+            <div class="wwm-client-card">
+                <span class="wwm-client-icon">⬡</span>
+                <h3>Import &amp; Export Operators</h3>
+                <p>Your margins live and die on Brent, the USD Index, and wheat futures. Know the direction before you lock in a contract.</p>
+            </div>
+            <div class="wwm-client-card">
+                <span class="wwm-client-icon">⬡</span>
+                <h3>Supply Chain Teams</h3>
+                <p>Energy and food input costs move in cycles. A pipeline that tracks them in advance gives your procurement team a real edge.</p>
+            </div>
+            <div class="wwm-client-card">
+                <span class="wwm-client-icon">⬡</span>
+                <h3>Trading &amp; Investment Desks</h3>
+                <p>Signal-based dashboards tailored to the assets you trade — with transparent methodology and daily updates.</p>
+            </div>
+            <div class="wwm-client-card">
+                <span class="wwm-client-icon">⬡</span>
+                <h3>Risk &amp; Strategy Teams</h3>
+                <p>Market data pipelines that feed directly into your existing models, reports, or internal tools.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Services + pricing -->
+    <section class="wwm-section">
+        <h2>What I Build</h2>
+        <p class="section-note">Every engagement is scoped to your specific data, assets, and infrastructure. The below reflects typical starting points.</p>
+
+        <div class="wwm-service-grid">
+
+            <div class="wwm-service-card">
+                <div class="wwm-service-header">
+                    <span class="wwm-service-tag">ENTRY POINT</span>
+                    <h3>Market Intelligence Report</h3>
+                    <div class="wwm-price">From <span>$500</span></div>
+                </div>
+                <div class="wwm-service-body">
+                    <p>A focused, one-time analysis of the assets most relevant to your business — with signal direction, 30-day forecasts, and plain-language commentary on what the data suggests.</p>
+                    <ul class="wwm-service-list">
+                        <li>3–7 assets tracked</li>
+                        <li>Signal + forecast output</li>
+                        <li>Methodology explained</li>
+                        <li>PDF or web delivery</li>
+                        <li>Delivered within 5 days</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="wwm-cta-link">Enquire →</a>
+            </div>
+
+            <div class="wwm-service-card featured">
+                <div class="wwm-service-header">
+                    <span class="wwm-service-tag">MOST REQUESTED</span>
                     <h3>Custom Intelligence Dashboard</h3>
-                    <div class="service-price">From <span class="price-amount">$1,500</span></div>
+                    <div class="wwm-price">From <span>$1,500</span></div>
+                </div>
+                <div class="wwm-service-body">
                     <p>A fully deployed, live dashboard tracking the assets and signals that matter to your operation — like EdgePulse, but built around your business specifically.</p>
-                    <ul class="service-features">
+                    <ul class="wwm-service-list">
                         <li>Custom asset selection</li>
                         <li>Automated daily data collection</li>
                         <li>Signal + forecast engine</li>
@@ -72,133 +152,185 @@
                         <li>Fully automated — no manual updates</li>
                         <li>Hosted and maintained</li>
                     </ul>
-                    <a href="#contact" class="service-cta">Enquire →</a>
                 </div>
+                <a href="#contact" class="wwm-cta-link">Enquire →</a>
+            </div>
 
-                <div class="service-card">
-                    <div class="service-tag">ENTRY POINT</div>
-                    <h3>Market Intelligence Report</h3>
-                    <div class="service-price">From <span class="price-amount">$500</span></div>
-                    <p>A focused, one-time analysis of the assets most relevant to your business — with signal direction, 30-day forecasts, and plain-language commentary on what the data suggests.</p>
-                    <ul class="service-features">
-                        <li>3-7 assets tracked</li>
-                        <li>Signal + forecast output</li>
-                        <li>Methodology explained</li>
-                        <li>PDF or web delivery</li>
-                        <li>Delivered within 5 days</li>
-                    </ul>
-                    <a href="#contact" class="service-cta">Enquire →</a>
+            <div class="wwm-service-card">
+                <div class="wwm-service-header">
+                    <span class="wwm-service-tag">INFRASTRUCTURE</span>
+                    <h3>Data Pipeline &amp; Automation</h3>
+                    <div class="wwm-price">From <span>$800</span></div>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-tag">FOR TEAMS</div>
-                    <h3>Ongoing Monitoring Retainer</h3>
-                    <div class="service-price">From <span class="price-amount">$800/mo</span></div>
-                    <p>Weekly signal updates and monthly forecast reviews for a defined set of assets — delivered as a report or dashboard update. Includes threshold alerts when conditions change significantly.</p>
-                    <ul class="service-features">
-                        <li>Weekly signal refresh</li>
-                        <li>Monthly forecast review</li>
-                        <li>Alert on significant changes</li>
-                        <li>Plain-language commentary</li>
-                        <li>Direct access via email or Slack</li>
+                <div class="wwm-service-body">
+                    <p>A reliable, automated data collection and processing system built around your specific sources — APIs, web scraping, or internal data — with scheduled runs and clean output.</p>
+                    <ul class="wwm-service-list">
+                        <li>API integration or web scraping</li>
+                        <li>Scheduled automation</li>
+                        <li>Structured JSON / CSV output</li>
+                        <li>Error handling and logging</li>
+                        <li>GitHub Actions or server deployment</li>
                     </ul>
-                    <a href="#contact" class="service-cta">Enquire →</a>
+                </div>
+                <a href="#contact" class="wwm-cta-link">Enquire →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- How it works -->
+    <section class="wwm-section">
+        <h2>How It Works</h2>
+        <div class="wwm-process">
+            <div class="wwm-step">
+                <span class="wwm-step-num">01</span>
+                <div class="wwm-step-body">
+                    <h3>You describe the problem</h3>
+                    <p>Tell me which markets affect your business, what decisions you're trying to make better, and what you currently use to track them — or don't.</p>
                 </div>
             </div>
-        </section>
+            <div class="wwm-step">
+                <span class="wwm-step-num">02</span>
+                <div class="wwm-step-body">
+                    <h3>I scope the solution</h3>
+                    <p>Within 48 hours I'll come back with a clear scope, timeline, and fixed price. No hourly billing, no scope creep, no surprises.</p>
+                </div>
+            </div>
+            <div class="wwm-step">
+                <span class="wwm-step-num">03</span>
+                <div class="wwm-step-body">
+                    <h3>We build and deploy</h3>
+                    <p>I handle everything — data sources, pipeline, model, interface. You get a working system, not a prototype that needs your IT team to finish it.</p>
+                </div>
+            </div>
+            <div class="wwm-step">
+                <span class="wwm-step-num">04</span>
+                <div class="wwm-step-body">
+                    <h3>It runs itself</h3>
+                    <p>Every system I build is fully automated. Data collects, signals generate, forecasts update — on a schedule, without anyone touching it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section class="contact-form" id="contact">
-            <h2>Get In Touch</h2>
-            <p>Describe your situation. I'll respond within 48 hours.</p>
+    <div class="divider"></div>
 
+    <!-- Contact form -->
+    <section class="wwm-section" id="contact">
+        <h2>Start a Conversation</h2>
+        <p class="wwm-form-intro">Describe what you're trying to solve. I'll respond within 48 hours with either a scoped proposal or a question if I need more context.</p>
+
+        <div class="wwm-form-wrap">
             <form id="inquiry-form" action="https://formspree.io/f/mzdjgjje" method="POST" class="inquiry-form">
-                <div class="form-group">
-                    <label for="name">NAME</label>
-                    <input type="text" id="name" name="name" placeholder="Your name" required>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">NAME</label>
+                        <input type="text" id="name" name="name" required placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">EMAIL</label>
+                        <input type="email" id="email" name="email" required placeholder="your@email.com">
+                    </div>
                 </div>
-
-                <div class="form-group">
-                    <label for="email">EMAIL</label>
-                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
-                </div>
-
                 <div class="form-group">
                     <label for="company">COMPANY / ORGANISATION</label>
                     <input type="text" id="company" name="company" placeholder="Optional">
                 </div>
-
                 <div class="form-group">
                     <label for="service">WHAT ARE YOU INTERESTED IN?</label>
                     <select id="service" name="service">
-                        <option value="" disabled selected>Select a service...</option>
-                        <option value="custom-dashboard">Custom Intelligence Dashboard</option>
+                        <option value="">Select a service...</option>
                         <option value="report">Market Intelligence Report</option>
-                        <option value="retainer">Ongoing Monitoring Retainer</option>
+                        <option value="dashboard">Custom Intelligence Dashboard</option>
+                        <option value="pipeline">Data Pipeline &amp; Automation</option>
                         <option value="other">Something else</option>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label for="message">WHAT ARE YOU TRYING TO SOLVE?</label>
-                    <textarea id="message" name="message" rows="6" placeholder="Describe your situation — which markets affect you, what decisions you need to make, what you currently rely on..." required></textarea>
+                    <textarea id="message" name="message" rows="6" required placeholder="Describe your situation — which markets affect you, what decisions you need to make, what you currently rely on..."></textarea>
                 </div>
-
-                <button type="submit" class="submit-button" id="submit-btn">Send Message</button>
+                <button type="submit" class="wwm-submit" id="submit-btn">Send Message</button>
 
                 <div class="form-status success" id="form-success">
                     ✓ Message sent — I'll respond within 48 hours.
                 </div>
                 <div class="form-status error" id="form-error">
-                    ✗ Something went wrong. Email directly: <a href="mailto:mohamed@edgepulse.io" style="color:inherit;text-decoration:underline">mohamed@edgepulse.io</a>
+                    ✗ Something went wrong. Email directly:
+                    <a href="mailto:mohamed.data.solutions@gmail.com" style="color:inherit;text-decoration:underline">
+                        mohamed.data.solutions@gmail.com
+                    </a>
                 </div>
             </form>
-        </section>
-    </main>
 
-    <footer>
-        <div class="container">
-            <p class="footer-sources">PRICES VIA YAHOO FINANCE · METALS.LIVE · ALPHA VANTAGE</p>
-            <p class="footer-copy">© 2026 EdgePulse. Independent market intelligence.</p>
+            <div class="wwm-form-aside">
+                <div class="wwm-aside-block">
+                    <span class="wwm-aside-label">RESPONSE TIME</span>
+                    <span class="wwm-aside-value">Within 48 hours</span>
+                </div>
+                <div class="wwm-aside-block">
+                    <span class="wwm-aside-label">PRICING MODEL</span>
+                    <span class="wwm-aside-value">Fixed project price — scoped upfront, no surprises</span>
+                </div>
+                <div class="wwm-aside-block">
+                    <span class="wwm-aside-label">DIRECT EMAIL</span>
+                    <a href="mailto:mohamed.data.solutions@gmail.com" class="wwm-aside-value email-link">mohamed.data.solutions@gmail.com</a>
+                </div>
+                <div class="wwm-aside-block">
+                    <span class="wwm-aside-label">LIVE PROOF OF WORK</span>
+                    <a href="/" class="wwm-aside-value email-link">EdgePulse Dashboard →</a>
+                </div>
+            </div>
         </div>
-    </footer>
+    </section>
 
-    <script>
-        const form = document.getElementById('inquiry-form');
-        const btn = document.getElementById('submit-btn');
-        const successMsg = document.getElementById('form-success');
-        const errorMsg = document.getElementById('form-error');
+</main>
 
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
+<footer>
+    <div class="container footer-inner">
+        <span class="footer-brand">© 2026 EdgePulse. Independent market intelligence.</span>
+    </div>
+</footer>
 
-            // Reset state
-            successMsg.style.display = 'none';
-            errorMsg.style.display = 'none';
-            btn.disabled = true;
-            btn.textContent = 'Sending…';
+<script src="/static/tooltips.js"></script>
+<script>
+    const form = document.getElementById('inquiry-form');
+    const btn = document.getElementById('submit-btn');
+    const successMsg = document.getElementById('form-success');
+    const errorMsg = document.getElementById('form-error');
 
-            try {
-                const data = new FormData(form);
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: data,
-                    headers: { 'Accept': 'application/json' }
-                });
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
 
-                if (response.ok) {
-                    btn.textContent = 'Sent ✓';
-                    successMsg.style.display = 'block';
-                    form.reset();
-                    successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                } else {
-                    throw new Error('Non-OK response');
-                }
-            } catch (err) {
-                btn.disabled = false;
-                btn.textContent = 'Send Message';
-                errorMsg.style.display = 'block';
+        successMsg.style.display = 'none';
+        errorMsg.style.display = 'none';
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                btn.textContent = 'Sent ✓';
+                successMsg.style.display = 'block';
+                form.reset();
+                successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } else {
+                throw new Error('Non-OK response');
             }
-        });
-    </script>
+        } catch (err) {
+            btn.disabled = false;
+            btn.textContent = 'Send Message';
+            errorMsg.style.display = 'block';
+        }
+    });
+</script>
+
 </body>
 </html>
