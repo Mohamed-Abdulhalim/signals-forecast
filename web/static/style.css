@@ -50,7 +50,15 @@
   --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
+.price-delta {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  margin-left: 6px;
+  font-weight: 500;
+}
+.delta-up   { color: var(--bullish-text); }
+.delta-down { color: var(--bearish-text); }
 /* ── Reset ─────────────────────────────────────────────────── */
 *, *::before, *::after {
   margin: 0;
