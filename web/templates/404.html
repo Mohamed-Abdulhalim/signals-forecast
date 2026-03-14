@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Signal Not Found — EdgePulse</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .error-page {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+        .error-code {
+            font-family: 'DM Mono', monospace;
+            font-size: clamp(5rem, 18vw, 9rem);
+            font-weight: 400;
+            color: var(--gold, #c9a84c);
+            opacity: 0.25;
+            line-height: 1;
+            margin: 0 0 1rem;
+            letter-spacing: -0.04em;
+        }
+        .error-title {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(1.6rem, 5vw, 2.4rem);
+            font-weight: 400;
+            color: var(--text-primary, #e8e0d0);
+            margin: 0 0 1rem;
+        }
+        .error-subtitle {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            color: var(--text-muted, #6b7280);
+            text-transform: uppercase;
+            margin: 0 0 2.5rem;
+        }
+        .error-divider {
+            width: 40px;
+            height: 1px;
+            background: var(--gold, #c9a84c);
+            opacity: 0.4;
+            margin: 0 auto 2.5rem;
+        }
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .error-btn-primary {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.75rem 1.75rem;
+            background: var(--gold, #c9a84c);
+            color: var(--bg-primary, #0f0f0f);
+            text-decoration: none;
+            border-radius: 2px;
+            transition: opacity 0.2s;
+        }
+        .error-btn-primary:hover { opacity: 0.85; }
+        .error-btn-secondary {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.75rem 1.75rem;
+            border: 1px solid var(--border-subtle, rgba(255,255,255,0.1));
+            color: var(--text-muted, #6b7280);
+            text-decoration: none;
+            border-radius: 2px;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .error-btn-secondary:hover {
+            border-color: var(--gold, #c9a84c);
+            color: var(--gold, #c9a84c);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo"><span class="logo-dot">●</span> EDGEPULSE</a>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/signals">Signals</a></li>
+                <li><a href="/forecasts">Forecasts</a></li>
+                <li><a href="/track-record">Track Record</a></li>
+                <li><a href="/methodology">Methodology</a></li>
+                <li><a href="/work-with-me">Work With Me</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="error-page">
+            <div class="error-code">404</div>
+            <h1 class="error-title">Signal Not Found</h1>
+            <p class="error-subtitle">This page does not exist</p>
+            <div class="error-divider"></div>
+            <div class="error-actions">
+                <a href="/" class="error-btn-primary">Return to Dashboard</a>
+                <a href="/signals" class="error-btn-secondary">View Signals</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-sources">PRICES VIA YAHOO FINANCE · METALS.LIVE · ALPHA VANTAGE</p>
+            <p class="footer-copy">© 2026 EdgePulse. Independent market intelligence.</p>
+        </div>
+    </footer>
+</body>
+</html>
