@@ -1,0 +1,50 @@
+name: Seed Wheat & Corn (Run Once)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  seed-wheat-corn:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install yfinance requests
+
+    - name: Seed Wheat and Corn historical data
+      run: python seed_wheat_corn.py
+
+    - name: Regenerate signals
+      run: |
+        pip install numpy scipy
+        python analysis/signals.py
+
+    - name: Regenerate forecasts
+      run: python analysis/forecasts.py
+
+    - name: Commit and push
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add data/
+        if ! git diff --staged --quiet; then
+          git commit -m "Seed: Wheat and Corn 180-day history via yfinance"
+          git push
+        else
+          echo "Nothing new to commit"
+        fi
