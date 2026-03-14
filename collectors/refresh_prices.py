@@ -89,13 +89,13 @@ def fetch_all_prices():
         print(f"  Natural Gas: ${natgas}")
 
     # Safe Haven — Gold: metals.live first, then yfinance
-    gold = metals_live_gold() or yf_price('GC=F', 1500, 5000)
+    gold = yf_price('GC=F', 2500, 4000) or yf_price('GLD', 240, 400)
     if gold:
         prices[('safe_haven', 'Gold')] = gold
         print(f"  Gold:        ${gold}")
 
     # Safe Haven — USD Index: real DXY
-    dxy = yf_price('DX-Y.NYB', 80, 130)
+    dxy = yf_price('DX=F', 80, 130) or yf_price('DX-Y.NYB', 80, 130)
     if dxy:
         prices[('safe_haven', 'USD Index')] = dxy
         print(f"  USD Index:   {dxy}")
