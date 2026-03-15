@@ -10650,6 +10650,75 @@
       "notes": "Actual $467.00 landed above the band ($412.18\u2013$454.93). \u2713 direction correct."
     },
     {
+      "id": "backtest-gold-20260211",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.21,
+      "prediction_date": "2026-02-11",
+      "current_price": 2926.13,
+      "forecast_30_days": {
+        "target": 2863.26,
+        "lower_bound": 2716.95,
+        "upper_bound": 3009.57
+      },
+      "outcome_date": "2026-03-13",
+      "actual_price": 2995.46,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 4.62,
+      "evaluated_date": "2026-03-15",
+      "notes": null
+    },
+    {
+      "id": "backtest-gold-20260212",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bearish",
+      "signal_confidence": "low",
+      "momentum_score": 0.14,
+      "prediction_date": "2026-02-12",
+      "current_price": 2824.5,
+      "forecast_30_days": {
+        "target": 2784.67,
+        "lower_bound": 2643.45,
+        "upper_bound": 2925.89
+      },
+      "outcome_date": "2026-03-14",
+      "actual_price": 2995.46,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 7.57,
+      "evaluated_date": "2026-03-15",
+      "notes": "Actual $2,995.46 landed above the band ($2,643.45\u2013$2,925.89). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-usd-index-20260212",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.02,
+      "prediction_date": "2026-02-12",
+      "current_price": 94.36,
+      "forecast_30_days": {
+        "target": 94.59,
+        "lower_bound": 89.87,
+        "upper_bound": 99.31
+      },
+      "outcome_date": "2026-03-14",
+      "actual_price": 100.53,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 6.28,
+      "evaluated_date": "2026-03-15",
+      "notes": "Actual $100.53 landed above the band ($89.87\u2013$99.31). \u2717 direction wrong."
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -10756,16 +10825,16 @@
     }
   ],
   "summary": {
-    "total": 468,
+    "total": 471,
     "pending": 5,
-    "completed": 463,
-    "hits": 189,
-    "misses": 274,
+    "completed": 466,
+    "hits": 190,
+    "misses": 276,
     "hit_rate": 40.8,
     "directional_correct": 224,
-    "directional_total": 463,
-    "directional_accuracy": 48.4,
-    "average_accuracy": 76.5,
-    "last_updated": "2026-03-14"
+    "directional_total": 466,
+    "directional_accuracy": 48.1,
+    "average_accuracy": 76.7,
+    "last_updated": "2026-03-15"
   }
 }
