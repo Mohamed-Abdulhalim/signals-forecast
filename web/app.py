@@ -34,10 +34,46 @@ def load_latest_prices():
                 all_prices.extend(data.get('assets', []))
     return all_prices
 
+def get_price_refresh_timestamp():
+    """
+    Returns the timestamp of the most recently modified price file.
+    The price refresh runs every 4 hours, so this reflects the last
+    time prices were actually updated.
+    """
+    categories = ['energy', 'safe_haven', 'food']
+    latest_ts = None
+
+    for category in categories:
+        files = glob.glob(f'data/prices/{category}_*.json')
+        if not files:
+            continue
+        latest_file = max(files)
+        try:
+            with open(latest_file, 'r') as f:
+                data = json.load(f)
+            ts = data.get('timestamp')
+            if ts:
+                ts_clean = ts[:16].replace('T', ' ')
+                if latest_ts is None or ts_clean > latest_ts:
+                    latest_ts = ts_clean
+        except:
+            continue
+
+    if latest_ts is None:
+        all_files = []
+        for category in categories:
+            all_files.extend(glob.glob(f'data/prices/{category}_*.json'))
+        if all_files:
+            newest = max(all_files, key=os.path.getmtime)
+            mtime = os.path.getmtime(newest)
+            latest_ts = datetime.utcfromtimestamp(mtime).strftime('%Y-%m-%d %H:%M')
+
+    return latest_ts or '—'
+
 def load_price_history(asset_name, days=90):
     """Load historical prices for a specific asset across all files"""
     categories = ['energy', 'safe_haven', 'food']
-    history = {}  # date -> price
+    history = {}
 
     for category in categories:
         files = sorted(glob.glob(f'data/prices/{category}_*.json'))
@@ -48,14 +84,12 @@ def load_price_history(asset_name, days=90):
                 for asset in data.get('assets', []):
                     if asset.get('asset') == asset_name and asset.get('price'):
                         date = asset.get('date') or filepath.split('_')[-1].replace('.json','')
-                        # Format date as YYYY-MM-DD
                         if len(date) == 8:
                             date = f"{date[:4]}-{date[4:6]}-{date[6:]}"
                         history[date] = asset['price']
             except:
                 continue
 
-    # Sort by date and return last N days
     sorted_history = sorted(history.items())
     if days:
         sorted_history = sorted_history[-days:]
@@ -74,10 +108,12 @@ def home():
     forecasts = load_latest_forecasts()
     prices = load_latest_prices()
     price_map = {p['asset']: p for p in prices}
+    price_updated = get_price_refresh_timestamp()
     return render_template('index.html',
                          signals=signals.get('signals', []),
                          forecasts=forecasts.get('forecasts', []),
-                         price_map=price_map)
+                         price_map=price_map,
+                         price_updated=price_updated)
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -118,7 +154,6 @@ def work_with_me():
 
 @app.route('/api/track-record')
 def api_track_record():
-    """API endpoint for track record data"""
     return jsonify(load_track_record())
 
 @app.route('/api/signals')
@@ -135,7 +170,6 @@ def api_prices():
 
 @app.route('/api/history/<asset_name>')
 def api_history(asset_name):
-    """Return price history for charting"""
     days = 90
     history = load_price_history(asset_name, days)
     return jsonify({
@@ -145,7 +179,6 @@ def api_history(asset_name):
 
 @app.route('/api/chart-data')
 def api_chart_data():
-    """Return history + forecast for all assets in one call"""
     forecasts = load_latest_forecasts()
     assets = ['Brent Oil', 'Natural Gas', 'Gold', 'USD Index', 'Rice', 'Wheat', 'Corn']
     result = {}
@@ -155,7 +188,6 @@ def api_chart_data():
         if not history:
             continue
 
-        # Find forecast for this asset
         forecast = next((f for f in forecasts.get('forecasts', []) if f['asset'] == asset), None)
 
         forecast_data = None
@@ -167,7 +199,7 @@ def api_chart_data():
                 'date': forecast.get('forecast_date'),
                 'confidence': forecast['forecast_30_days'].get('confidence'),
             }
-        
+
         result[asset] = {
             'history': [{'date': d, 'price': p} for d, p in history],
             'forecast': forecast_data
