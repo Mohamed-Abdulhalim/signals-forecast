@@ -50,6 +50,30 @@
   --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.footer-linkedin {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: 1rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold-dim, #8a6d20);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.footer-linkedin:hover {
+    color: var(--gold, #c9a84c);
+}
+.footer-linkedin svg {
+    flex-shrink: 0;
+    opacity: 0.75;
+    transition: opacity 0.2s;
+}
+.footer-linkedin:hover svg {
+    opacity: 1;
+}
 .hiw-steps {
     display: flex;
     flex-direction: column;
