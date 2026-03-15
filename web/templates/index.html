@@ -37,7 +37,7 @@
     <section class="signals-overview reveal">
       <div class="section-header">
         <h2>Current Signals</h2>
-        <span class="section-meta">Updated daily · {{ signals[0].timestamp[:10] if signals else '—' }}</span>
+        <span class="section-meta">Prices updated · {{ price_updated }} UTC</span>
       </div>
       <div class="signal-grid">
         {% for signal in signals %}
