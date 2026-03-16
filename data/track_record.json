@@ -10719,6 +10719,52 @@
       "notes": "Actual $100.53 landed above the band ($89.87\u2013$99.31). \u2717 direction wrong."
     },
     {
+      "id": "backtest-gold-20260213",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.02,
+      "prediction_date": "2026-02-13",
+      "current_price": 2894.78,
+      "forecast_30_days": {
+        "target": 2890.19,
+        "lower_bound": 2745.45,
+        "upper_bound": 3034.93
+      },
+      "outcome_date": "2026-03-15",
+      "actual_price": 2995.46,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 3.64,
+      "evaluated_date": "2026-03-16",
+      "notes": null
+    },
+    {
+      "id": "backtest-usd-index-20260213",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.0,
+      "prediction_date": "2026-02-13",
+      "current_price": 94.38,
+      "forecast_30_days": {
+        "target": 94.34,
+        "lower_bound": 89.62,
+        "upper_bound": 99.06
+      },
+      "outcome_date": "2026-03-15",
+      "actual_price": 100.53,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 6.56,
+      "evaluated_date": "2026-03-16",
+      "notes": "Actual $100.53 landed above the band ($89.62\u2013$99.06). \u2717 direction wrong."
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -10825,16 +10871,16 @@
     }
   ],
   "summary": {
-    "total": 471,
+    "total": 473,
     "pending": 5,
-    "completed": 466,
-    "hits": 190,
-    "misses": 276,
+    "completed": 468,
+    "hits": 191,
+    "misses": 277,
     "hit_rate": 40.8,
     "directional_correct": 224,
-    "directional_total": 466,
-    "directional_accuracy": 48.1,
+    "directional_total": 468,
+    "directional_accuracy": 47.9,
     "average_accuracy": 76.7,
-    "last_updated": "2026-03-15"
+    "last_updated": "2026-03-16"
   }
 }
