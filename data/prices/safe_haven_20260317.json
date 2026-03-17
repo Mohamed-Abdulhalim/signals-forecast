@@ -1,20 +1,20 @@
 {
   "category": "safe_haven",
-  "timestamp": "2026-03-17T08:57:47.819936",
+  "timestamp": "2026-03-17T13:20:15.616117",
   "assets": [
     {
       "asset": "Gold",
       "price": 2992.8,
       "date": "2026-03-17",
-      "timestamp": "2026-03-17T08:57:47.819923",
+      "timestamp": "2026-03-17T13:20:15.616104",
       "prev_price": 2992.8
     },
     {
       "asset": "USD Index",
       "price": 99.83,
       "date": "2026-03-17",
-      "timestamp": "2026-03-17T08:57:47.819933",
-      "prev_price": 100.0
+      "timestamp": "2026-03-17T13:20:15.616113",
+      "prev_price": 99.83
     }
   ]
 }
