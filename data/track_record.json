@@ -10995,6 +10995,52 @@
       "notes": null
     },
     {
+      "id": "backtest-gold-20260219",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bearish",
+      "signal_confidence": "low",
+      "momentum_score": 0.15,
+      "prediction_date": "2026-02-19",
+      "current_price": 2875.63,
+      "forecast_30_days": {
+        "target": 2833.77,
+        "lower_bound": 2689.99,
+        "upper_bound": 2977.55
+      },
+      "outcome_date": "2026-03-21",
+      "actual_price": 2686.97,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 5.18,
+      "evaluated_date": "2026-03-22",
+      "notes": "Actual $2,686.97 landed below the band ($2,689.99\u2013$2,977.55). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-usd-index-20260219",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.01,
+      "prediction_date": "2026-02-19",
+      "current_price": 95.14,
+      "forecast_30_days": {
+        "target": 95.22,
+        "lower_bound": 90.46,
+        "upper_bound": 99.98
+      },
+      "outcome_date": "2026-03-21",
+      "actual_price": 99.5,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 4.49,
+      "evaluated_date": "2026-03-22",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -11101,16 +11147,16 @@
     }
   ],
   "summary": {
-    "total": 483,
+    "total": 485,
     "pending": 5,
-    "completed": 478,
-    "hits": 195,
-    "misses": 283,
+    "completed": 480,
+    "hits": 196,
+    "misses": 284,
     "hit_rate": 40.8,
-    "directional_correct": 230,
-    "directional_total": 478,
+    "directional_correct": 231,
+    "directional_total": 480,
     "directional_accuracy": 48.1,
     "average_accuracy": 76.8,
-    "last_updated": "2026-03-21"
+    "last_updated": "2026-03-22"
   }
 }
