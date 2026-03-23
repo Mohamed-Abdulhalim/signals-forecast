@@ -1,0 +1,159 @@
+{
+  "timestamp": "2026-03-23T10:03:15.516204",
+  "forecasts": [
+    {
+      "asset": "Brent Oil",
+      "category": "energy",
+      "current_price": 109.36,
+      "forecast_30_days": {
+        "prediction": 147.64,
+        "lower_bound": 140.04,
+        "upper_bound": 155.02,
+        "confidence": "high"
+      },
+      "forecast_90_days": {
+        "prediction": 165.86,
+        "lower_bound": 152.7,
+        "upper_bound": 174.16,
+        "confidence": "high"
+      },
+      "momentum": 0.0837,
+      "trend": "up",
+      "methodology": "Linear regression with volatility bands",
+      "timestamp": "2026-03-23T10:03:15.518953",
+      "forecast_date": "2026-04-22"
+    },
+    {
+      "asset": "Natural Gas",
+      "category": "energy",
+      "current_price": 3.25,
+      "forecast_30_days": {
+        "prediction": 2.87,
+        "lower_bound": 2.61,
+        "upper_bound": 3.13,
+        "confidence": "low"
+      },
+      "forecast_90_days": {
+        "prediction": 2.52,
+        "lower_bound": 2.07,
+        "upper_bound": 2.97,
+        "confidence": "low"
+      },
+      "momentum": 0.024,
+      "trend": "up",
+      "methodology": "Linear regression with volatility bands",
+      "timestamp": "2026-03-23T10:03:15.521060",
+      "forecast_date": "2026-04-22"
+    },
+    {
+      "asset": "Gold",
+      "category": "safe_haven",
+      "current_price": 2686.97,
+      "forecast_30_days": {
+        "prediction": 2734.33,
+        "lower_bound": 2530.85,
+        "upper_bound": 2937.81,
+        "confidence": "low"
+      },
+      "forecast_90_days": {
+        "prediction": 2512.32,
+        "lower_bound": 2159.89,
+        "upper_bound": 2864.76,
+        "confidence": "low"
+      },
+      "momentum": -0.0701,
+      "trend": "down",
+      "methodology": "Linear regression with volatility bands",
+      "timestamp": "2026-03-23T10:03:15.523175",
+      "forecast_date": "2026-04-22"
+    },
+    {
+      "asset": "USD Index",
+      "category": "safe_haven",
+      "current_price": 99.75,
+      "forecast_30_days": {
+        "prediction": 107.48,
+        "lower_bound": 105.8,
+        "upper_bound": 109.16,
+        "confidence": "high"
+      },
+      "forecast_90_days": {
+        "prediction": 121.08,
+        "lower_bound": 118.17,
+        "upper_bound": 123.98,
+        "confidence": "high"
+      },
+      "momentum": 0.0096,
+      "trend": "neutral",
+      "methodology": "Linear regression with volatility bands",
+      "timestamp": "2026-03-23T10:03:15.525398",
+      "forecast_date": "2026-04-22"
+    },
+    {
+      "asset": "Wheat",
+      "category": "food",
+      "current_price": 613.25,
+      "forecast_30_days": {
+        "prediction": 689.49,
+        "lower_bound": 670.18,
+        "upper_bound": 708.79,
+        "confidence": "high"
+      },
+      "forecast_90_days": {
+        "prediction": 857.45,
+        "lower_bound": 824.01,
+        "upper_bound": 890.89,
+        "confidence": "high"
+      },
+      "momentum": 0.0402,
+      "trend": "up",
+      "methodology": "Linear regression with volatility bands",
+      "timestamp": "2026-03-23T10:03:15.528342",
+      "forecast_date": "2026-04-22"
+    },
+    {
+      "asset": "Corn",
+      "category": "food",
+      "current_price": 467.0,
+      "forecast_30_days": {
+        "prediction": 486.65,
+        "lower_bound": 474.98,
+        "upper_bound": 498.33,
+        "confidence": "medium"
+      },
+      "forecast_90_days": {
+        "prediction": 561.32,
+        "lower_bound": 541.09,
+        "upper_bound": 581.55,
+        "confidence": "medium"
+      },
+      "momentum": 0.0305,
+      "trend": "up",
+      "methodology": "Linear regression with volatility bands",
+      "timestamp": "2026-03-23T10:03:15.530777",
+      "forecast_date": "2026-04-22"
+    },
+    {
+      "asset": "Rice",
+      "category": "food",
+      "current_price": 35.63,
+      "forecast_30_days": {
+        "prediction": 36.82,
+        "lower_bound": 36.4,
+        "upper_bound": 37.24,
+        "confidence": "high"
+      },
+      "forecast_90_days": {
+        "prediction": 39.63,
+        "lower_bound": 38.91,
+        "upper_bound": 40.36,
+        "confidence": "high"
+      },
+      "momentum": 0.0205,
+      "trend": "up",
+      "methodology": "Linear regression with volatility bands",
+      "timestamp": "2026-03-23T10:03:15.532879",
+      "forecast_date": "2026-04-22"
+    }
+  ]
+}
