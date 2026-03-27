@@ -1,0 +1,18 @@
+{
+  "category": "safe_haven",
+  "timestamp": "2026-03-27T02:42:06.034326",
+  "assets": [
+    {
+      "asset": "Gold",
+      "price": 2604.16,
+      "date": "2026-03-27",
+      "timestamp": "2026-03-27T02:42:06.034338"
+    },
+    {
+      "asset": "USD Index",
+      "price": 99.84,
+      "date": "2026-03-27",
+      "timestamp": "2026-03-27T02:42:06.034343"
+    }
+  ]
+}
