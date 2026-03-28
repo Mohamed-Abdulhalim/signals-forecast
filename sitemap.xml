@@ -2,37 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://signals-forecast.vercel.app/</loc>
+    <loc>https://edgepulse.halim.pro/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://signals-forecast.vercel.app/signals</loc>
+    <loc>https://edgepulse.halim.pro/signals</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://signals-forecast.vercel.app/forecasts</loc>
+    <loc>https://edgepulse.halim.pro/forecasts</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://signals-forecast.vercel.app/track-record</loc>
+    <loc>https://edgepulse.halim.pro/track-record</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://signals-forecast.vercel.app/methodology</loc>
+    <loc>https://edgepulse.halim.pro/methodology</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://signals-forecast.vercel.app/work-with-me</loc>
+    <loc>https://edgepulse.halim.pro/work-with-me</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
