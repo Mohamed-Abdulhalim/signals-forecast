@@ -1,0 +1,82 @@
+{
+  "timestamp": "2026-03-30T10:17:14.520610",
+  "signals": [
+    {
+      "asset": "Brent Oil",
+      "signal": "bearish",
+      "confidence": "medium",
+      "momentum": 0.49,
+      "volatility": "Moderate",
+      "current_price": 107.96,
+      "timestamp": "2026-03-30T10:17:14.526202",
+      "reversion_applied": true,
+      "category": "energy"
+    },
+    {
+      "asset": "Natural Gas",
+      "signal": "bullish",
+      "confidence": "high",
+      "momentum": 0.69,
+      "volatility": "Moderate",
+      "current_price": 3.25,
+      "timestamp": "2026-03-30T10:17:14.526379",
+      "reversion_applied": true,
+      "category": "energy"
+    },
+    {
+      "asset": "Gold",
+      "signal": "bearish",
+      "confidence": "medium",
+      "momentum": 0.34,
+      "volatility": "Moderate",
+      "current_price": 2695.55,
+      "timestamp": "2026-03-30T10:17:14.531204",
+      "reversion_applied": false,
+      "category": "safe_haven"
+    },
+    {
+      "asset": "USD Index",
+      "signal": "neutral",
+      "confidence": "medium",
+      "momentum": 0.52,
+      "volatility": "Low",
+      "current_price": 100.29,
+      "timestamp": "2026-03-30T10:17:14.531299",
+      "reversion_applied": false,
+      "category": "safe_haven"
+    },
+    {
+      "asset": "Wheat",
+      "signal": "neutral",
+      "confidence": "medium",
+      "momentum": 0.72,
+      "volatility": "Moderate",
+      "current_price": 613.25,
+      "timestamp": "2026-03-30T10:17:14.534951",
+      "reversion_applied": true,
+      "category": "food"
+    },
+    {
+      "asset": "Corn",
+      "signal": "bullish",
+      "confidence": "medium",
+      "momentum": 0.65,
+      "volatility": "Moderate",
+      "current_price": 467.0,
+      "timestamp": "2026-03-30T10:17:14.535044",
+      "reversion_applied": false,
+      "category": "food"
+    },
+    {
+      "asset": "Rice",
+      "signal": "bullish",
+      "confidence": "medium",
+      "momentum": 0.6,
+      "volatility": "Low",
+      "current_price": 35.63,
+      "timestamp": "2026-03-30T10:17:14.535144",
+      "reversion_applied": false,
+      "category": "food"
+    }
+  ]
+}
