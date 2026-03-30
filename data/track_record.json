@@ -11363,6 +11363,52 @@
       "notes": null
     },
     {
+      "id": "backtest-gold-20260227",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 0.74,
+      "prediction_date": "2026-02-27",
+      "current_price": 3026.99,
+      "forecast_30_days": {
+        "target": 3251.73,
+        "lower_bound": 3100.38,
+        "upper_bound": 3403.08
+      },
+      "outcome_date": "2026-03-29",
+      "actual_price": 2695.55,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 17.1,
+      "evaluated_date": "2026-03-30",
+      "notes": "Actual $2,695.55 landed below the band ($3,100.38\u2013$3,403.08). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-usd-index-20260227",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.1,
+      "prediction_date": "2026-02-27",
+      "current_price": 94.81,
+      "forecast_30_days": {
+        "target": 95.78,
+        "lower_bound": 91.04,
+        "upper_bound": 100.52
+      },
+      "outcome_date": "2026-03-29",
+      "actual_price": 100.15,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 4.56,
+      "evaluated_date": "2026-03-30",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -11469,16 +11515,16 @@
     }
   ],
   "summary": {
-    "total": 499,
+    "total": 501,
     "pending": 5,
-    "completed": 494,
-    "hits": 201,
-    "misses": 293,
+    "completed": 496,
+    "hits": 202,
+    "misses": 294,
     "hit_rate": 40.7,
-    "directional_correct": 234,
-    "directional_total": 494,
+    "directional_correct": 235,
+    "directional_total": 496,
     "directional_accuracy": 47.4,
     "average_accuracy": 77.0,
-    "last_updated": "2026-03-29"
+    "last_updated": "2026-03-30"
   }
 }
