@@ -11271,6 +11271,29 @@
       "notes": null
     },
     {
+      "id": "backtest-brent-oil-20260224",
+      "type": "backtest",
+      "asset": "Brent Oil",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.37,
+      "prediction_date": "2026-02-24",
+      "current_price": 71.21,
+      "forecast_30_days": {
+        "target": 73.83,
+        "lower_bound": 70.27,
+        "upper_bound": 77.39
+      },
+      "outcome_date": "2026-03-26",
+      "actual_price": 108.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 47.3,
+      "evaluated_date": "2026-04-02",
+      "notes": "Actual $108.75 landed above the band ($70.27\u2013$77.39). \u2713 direction correct."
+    },
+    {
       "id": "backtest-gold-20260225",
       "type": "backtest",
       "asset": "Gold",
@@ -11315,6 +11338,29 @@
       "error_pct": 4.33,
       "evaluated_date": "2026-03-28",
       "notes": null
+    },
+    {
+      "id": "backtest-brent-oil-20260225",
+      "type": "backtest",
+      "asset": "Brent Oil",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.46,
+      "prediction_date": "2026-02-25",
+      "current_price": 70.69,
+      "forecast_30_days": {
+        "target": 73.91,
+        "lower_bound": 70.38,
+        "upper_bound": 77.44
+      },
+      "outcome_date": "2026-03-27",
+      "actual_price": 108.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 47.14,
+      "evaluated_date": "2026-04-02",
+      "notes": "Actual $108.75 landed above the band ($70.38\u2013$77.44). \u2713 direction correct."
     },
     {
       "id": "backtest-gold-20260226",
@@ -11363,6 +11409,29 @@
       "notes": null
     },
     {
+      "id": "backtest-brent-oil-20260226",
+      "type": "backtest",
+      "asset": "Brent Oil",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.38,
+      "prediction_date": "2026-02-26",
+      "current_price": 71.66,
+      "forecast_30_days": {
+        "target": 74.36,
+        "lower_bound": 70.78,
+        "upper_bound": 77.94
+      },
+      "outcome_date": "2026-03-28",
+      "actual_price": 108.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 46.25,
+      "evaluated_date": "2026-04-02",
+      "notes": "Actual $108.75 landed above the band ($70.78\u2013$77.94). \u2713 direction correct."
+    },
+    {
       "id": "backtest-gold-20260227",
       "type": "backtest",
       "asset": "Gold",
@@ -11406,6 +11475,75 @@
       "direction_correct": true,
       "error_pct": 4.56,
       "evaluated_date": "2026-03-30",
+      "notes": null
+    },
+    {
+      "id": "backtest-brent-oil-20260227",
+      "type": "backtest",
+      "asset": "Brent Oil",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.2,
+      "prediction_date": "2026-02-27",
+      "current_price": 71.32,
+      "forecast_30_days": {
+        "target": 72.72,
+        "lower_bound": 69.15,
+        "upper_bound": 76.29
+      },
+      "outcome_date": "2026-03-29",
+      "actual_price": 108.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 49.55,
+      "evaluated_date": "2026-04-02",
+      "notes": "Actual $108.75 landed above the band ($69.15\u2013$76.29). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-gold-20260302",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 0.81,
+      "prediction_date": "2026-03-02",
+      "current_price": 3066.1,
+      "forecast_30_days": {
+        "target": 3315.91,
+        "lower_bound": 3162.61,
+        "upper_bound": 3469.21
+      },
+      "outcome_date": "2026-04-01",
+      "actual_price": 2845.83,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 14.18,
+      "evaluated_date": "2026-04-02",
+      "notes": "Actual $2,845.83 landed below the band ($3,162.61\u2013$3,469.21). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-usd-index-20260302",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.08,
+      "prediction_date": "2026-03-02",
+      "current_price": 95.83,
+      "forecast_30_days": {
+        "target": 96.64,
+        "lower_bound": 91.85,
+        "upper_bound": 101.43
+      },
+      "outcome_date": "2026-04-01",
+      "actual_price": 99.56,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 3.02,
+      "evaluated_date": "2026-04-02",
       "notes": null
     },
     {
@@ -11515,16 +11653,16 @@
     }
   ],
   "summary": {
-    "total": 501,
+    "total": 507,
     "pending": 5,
-    "completed": 496,
-    "hits": 202,
-    "misses": 294,
-    "hit_rate": 40.7,
-    "directional_correct": 235,
-    "directional_total": 496,
-    "directional_accuracy": 47.4,
-    "average_accuracy": 77.0,
-    "last_updated": "2026-03-30"
+    "completed": 502,
+    "hits": 203,
+    "misses": 299,
+    "hit_rate": 40.4,
+    "directional_correct": 239,
+    "directional_total": 502,
+    "directional_accuracy": 47.6,
+    "average_accuracy": 76.9,
+    "last_updated": "2026-04-02"
   }
 }
