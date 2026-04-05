@@ -11639,6 +11639,52 @@
       "notes": null
     },
     {
+      "id": "backtest-gold-20260305",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 0.68,
+      "prediction_date": "2026-03-05",
+      "current_price": 2916.74,
+      "forecast_30_days": {
+        "target": 3113.66,
+        "lower_bound": 2967.82,
+        "upper_bound": 3259.5
+      },
+      "outcome_date": "2026-04-04",
+      "actual_price": 2791.16,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 10.36,
+      "evaluated_date": "2026-04-05",
+      "notes": "Actual $2,791.16 landed below the band ($2,967.82\u2013$3,259.50). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-usd-index-20260305",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.18,
+      "prediction_date": "2026-03-05",
+      "current_price": 96.49,
+      "forecast_30_days": {
+        "target": 98.23,
+        "lower_bound": 93.41,
+        "upper_bound": 103.05
+      },
+      "outcome_date": "2026-04-04",
+      "actual_price": 100.19,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 2.0,
+      "evaluated_date": "2026-04-05",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -11745,16 +11791,16 @@
     }
   ],
   "summary": {
-    "total": 511,
+    "total": 513,
     "pending": 5,
-    "completed": 506,
-    "hits": 205,
-    "misses": 301,
-    "hit_rate": 40.5,
-    "directional_correct": 240,
-    "directional_total": 506,
+    "completed": 508,
+    "hits": 206,
+    "misses": 302,
+    "hit_rate": 40.6,
+    "directional_correct": 241,
+    "directional_total": 508,
     "directional_accuracy": 47.4,
-    "average_accuracy": 77.0,
-    "last_updated": "2026-04-04"
+    "average_accuracy": 77.1,
+    "last_updated": "2026-04-05"
   }
 }
