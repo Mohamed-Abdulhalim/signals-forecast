@@ -2,7 +2,7 @@
 
 **Commodity intelligence for operators who can't afford surprises.**
 
-Live at → [signals-forecast.vercel.app](https://signals-forecast.vercel.app)
+Live at → [edgepulse.halim.pro](https://edgepulse.halim.pro)
 
 ---
 
