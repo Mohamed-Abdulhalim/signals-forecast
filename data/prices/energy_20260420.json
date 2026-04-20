@@ -1,13 +1,14 @@
 {
   "category": "energy",
-  "timestamp": "2026-04-20T09:29:49.669384",
+  "timestamp": "2026-04-20T10:01:42.036296",
   "assets": [
     {
       "asset": "Brent Oil",
       "symbol": "BRENT",
-      "price": 123.28,
+      "price": 94.54,
       "date": "2026-04-13",
-      "timestamp": "2026-04-20T09:29:49.844321"
+      "timestamp": "2026-04-20T10:01:42.036287",
+      "prev_price": 123.28
     }
   ]
 }
