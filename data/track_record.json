@@ -12306,6 +12306,52 @@
       "notes": "Actual $98.10 landed below the band ($100.09\u2013$110.05). \u2717 direction wrong."
     },
     {
+      "id": "backtest-gold-20260321",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bearish",
+      "signal_confidence": "high",
+      "momentum_score": 0.72,
+      "prediction_date": "2026-03-21",
+      "current_price": 2686.97,
+      "forecast_30_days": {
+        "target": 2492.71,
+        "lower_bound": 2358.36,
+        "upper_bound": 2627.06
+      },
+      "outcome_date": "2026-04-20",
+      "actual_price": 2873.59,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 15.28,
+      "evaluated_date": "2026-04-21",
+      "notes": "Actual $2,873.59 landed above the band ($2,358.36\u2013$2,627.06). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-usd-index-20260321",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.43,
+      "prediction_date": "2026-03-21",
+      "current_price": 99.5,
+      "forecast_30_days": {
+        "target": 103.75,
+        "lower_bound": 98.78,
+        "upper_bound": 108.72
+      },
+      "outcome_date": "2026-04-20",
+      "actual_price": 98.07,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 5.47,
+      "evaluated_date": "2026-04-21",
+      "notes": "Actual $98.07 landed below the band ($98.78\u2013$108.72). \u2717 direction wrong."
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -12412,16 +12458,16 @@
     }
   ],
   "summary": {
-    "total": 540,
+    "total": 542,
     "pending": 5,
-    "completed": 535,
+    "completed": 537,
     "hits": 217,
-    "misses": 318,
-    "hit_rate": 40.6,
+    "misses": 320,
+    "hit_rate": 40.4,
     "directional_correct": 249,
-    "directional_total": 535,
-    "directional_accuracy": 46.5,
-    "average_accuracy": 77.8,
-    "last_updated": "2026-04-20"
+    "directional_total": 537,
+    "directional_accuracy": 46.4,
+    "average_accuracy": 77.9,
+    "last_updated": "2026-04-21"
   }
 }
