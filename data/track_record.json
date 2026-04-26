@@ -12513,6 +12513,52 @@
       "notes": null
     },
     {
+      "id": "backtest-gold-20260326",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bearish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-03-26",
+      "current_price": 2604.16,
+      "forecast_30_days": {
+        "target": 2147.29,
+        "lower_bound": 2017.08,
+        "upper_bound": 2277.5
+      },
+      "outcome_date": "2026-04-25",
+      "actual_price": 2816.12,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 31.15,
+      "evaluated_date": "2026-04-26",
+      "notes": "Actual $2,816.12 landed above the band ($2,017.08\u2013$2,277.50). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-usd-index-20260326",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.03,
+      "prediction_date": "2026-03-26",
+      "current_price": 99.9,
+      "forecast_30_days": {
+        "target": 100.18,
+        "lower_bound": 95.19,
+        "upper_bound": 105.18
+      },
+      "outcome_date": "2026-04-25",
+      "actual_price": 98.51,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.67,
+      "evaluated_date": "2026-04-26",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -12619,16 +12665,16 @@
     }
   ],
   "summary": {
-    "total": 549,
+    "total": 551,
     "pending": 5,
-    "completed": 544,
-    "hits": 220,
-    "misses": 324,
-    "hit_rate": 40.4,
-    "directional_correct": 250,
-    "directional_total": 544,
+    "completed": 546,
+    "hits": 221,
+    "misses": 325,
+    "hit_rate": 40.5,
+    "directional_correct": 251,
+    "directional_total": 546,
     "directional_accuracy": 46.0,
     "average_accuracy": 78.0,
-    "last_updated": "2026-04-25"
+    "last_updated": "2026-04-26"
   }
 }
