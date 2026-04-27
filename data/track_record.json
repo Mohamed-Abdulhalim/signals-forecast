@@ -12559,6 +12559,52 @@
       "notes": null
     },
     {
+      "id": "backtest-gold-20260327",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bearish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-03-27",
+      "current_price": 2695.55,
+      "forecast_30_days": {
+        "target": 2237.64,
+        "lower_bound": 2102.86,
+        "upper_bound": 2372.42
+      },
+      "outcome_date": "2026-04-26",
+      "actual_price": 2816.12,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 25.85,
+      "evaluated_date": "2026-04-27",
+      "notes": "Actual $2,816.12 landed above the band ($2,102.86\u2013$2,372.42). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-usd-index-20260327",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.01,
+      "prediction_date": "2026-03-27",
+      "current_price": 100.18,
+      "forecast_30_days": {
+        "target": 100.09,
+        "lower_bound": 95.08,
+        "upper_bound": 105.1
+      },
+      "outcome_date": "2026-04-26",
+      "actual_price": 98.51,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.58,
+      "evaluated_date": "2026-04-27",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -12665,16 +12711,16 @@
     }
   ],
   "summary": {
-    "total": 551,
+    "total": 553,
     "pending": 5,
-    "completed": 546,
-    "hits": 221,
-    "misses": 325,
+    "completed": 548,
+    "hits": 222,
+    "misses": 326,
     "hit_rate": 40.5,
-    "directional_correct": 251,
-    "directional_total": 546,
+    "directional_correct": 252,
+    "directional_total": 548,
     "directional_accuracy": 46.0,
     "average_accuracy": 78.0,
-    "last_updated": "2026-04-26"
+    "last_updated": "2026-04-27"
   }
 }
