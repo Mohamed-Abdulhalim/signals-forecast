@@ -13134,6 +13134,52 @@
       "notes": null
     },
     {
+      "id": "backtest-gold-20260409",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.49,
+      "prediction_date": "2026-04-09",
+      "current_price": 2846.41,
+      "forecast_30_days": {
+        "target": 2986.03,
+        "lower_bound": 2843.71,
+        "upper_bound": 3128.35
+      },
+      "outcome_date": "2026-05-09",
+      "actual_price": 2819.51,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 5.58,
+      "evaluated_date": "2026-05-10",
+      "notes": "Actual $2,819.51 landed below the band ($2,843.71\u2013$3,128.35). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-usd-index-20260409",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.05,
+      "prediction_date": "2026-04-09",
+      "current_price": 98.83,
+      "forecast_30_days": {
+        "target": 98.35,
+        "lower_bound": 93.41,
+        "upper_bound": 103.29
+      },
+      "outcome_date": "2026-05-09",
+      "actual_price": 97.84,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.52,
+      "evaluated_date": "2026-05-10",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -13240,16 +13286,16 @@
     }
   ],
   "summary": {
-    "total": 576,
+    "total": 578,
     "pending": 5,
-    "completed": 571,
-    "hits": 238,
-    "misses": 333,
+    "completed": 573,
+    "hits": 239,
+    "misses": 334,
     "hit_rate": 41.7,
-    "directional_correct": 265,
-    "directional_total": 571,
+    "directional_correct": 266,
+    "directional_total": 573,
     "directional_accuracy": 46.4,
     "average_accuracy": 78.7,
-    "last_updated": "2026-05-09"
+    "last_updated": "2026-05-10"
   }
 }
