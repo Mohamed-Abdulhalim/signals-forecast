@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-05-11T12:10:21.452143",
+  "signals": [
+    {
+      "asset": "Brent Oil",
+      "signal": "bearish",
+      "confidence": "high",
+      "momentum": 0.22,
+      "volatility": "Moderate",
+      "current_price": 104.01,
+      "timestamp": "2026-05-11T12:10:21.456962",
+      "reversion_applied": false,
+      "category": "energy"
+    },
+    {
+      "asset": "Natural Gas",
+      "signal": "neutral",
+      "confidence": "low",
+      "reason": "Insufficient data",
+      "category": "energy"
+    },
+    {
+      "asset": "Gold",
+      "signal": "bullish",
+      "confidence": "medium",
+      "momentum": 0.62,
+      "volatility": "Low",
+      "current_price": 2819.51,
+      "timestamp": "2026-05-11T12:10:21.460469",
+      "reversion_applied": false,
+      "category": "safe_haven"
+    },
+    {
+      "asset": "USD Index",
+      "signal": "neutral",
+      "confidence": "medium",
+      "momentum": 0.48,
+      "volatility": "Low",
+      "current_price": 97.97,
+      "timestamp": "2026-05-11T12:10:21.460548",
+      "reversion_applied": false,
+      "category": "safe_haven"
+    }
+  ]
+}
