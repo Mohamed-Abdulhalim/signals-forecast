@@ -13410,6 +13410,52 @@
       "notes": null
     },
     {
+      "id": "backtest-gold-20260416",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.3,
+      "prediction_date": "2026-04-16",
+      "current_price": 2860.52,
+      "forecast_30_days": {
+        "target": 2947.64,
+        "lower_bound": 2804.61,
+        "upper_bound": 3090.67
+      },
+      "outcome_date": "2026-05-16",
+      "actual_price": 2712.39,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 7.98,
+      "evaluated_date": "2026-05-17",
+      "notes": "Actual $2,712.39 landed below the band ($2,804.61\u2013$3,090.67). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-usd-index-20260416",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.25,
+      "prediction_date": "2026-04-16",
+      "current_price": 98.2,
+      "forecast_30_days": {
+        "target": 95.77,
+        "lower_bound": 90.86,
+        "upper_bound": 100.68
+      },
+      "outcome_date": "2026-05-16",
+      "actual_price": 99.27,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 3.65,
+      "evaluated_date": "2026-05-17",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -13516,16 +13562,16 @@
     }
   ],
   "summary": {
-    "total": 588,
+    "total": 590,
     "pending": 5,
-    "completed": 583,
-    "hits": 244,
-    "misses": 339,
+    "completed": 585,
+    "hits": 245,
+    "misses": 340,
     "hit_rate": 41.9,
     "directional_correct": 268,
-    "directional_total": 583,
-    "directional_accuracy": 46.0,
-    "average_accuracy": 79.0,
-    "last_updated": "2026-05-16"
+    "directional_total": 585,
+    "directional_accuracy": 45.8,
+    "average_accuracy": 79.1,
+    "last_updated": "2026-05-17"
   }
 }
