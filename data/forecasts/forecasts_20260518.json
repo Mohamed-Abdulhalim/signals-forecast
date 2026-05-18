@@ -1,0 +1,75 @@
+{
+  "timestamp": "2026-05-18T12:29:58.504678",
+  "forecasts": [
+    {
+      "asset": "Brent Oil",
+      "category": "energy",
+      "current_price": 106.11,
+      "forecast_30_days": {
+        "prediction": 118.62,
+        "lower_bound": 109.52,
+        "upper_bound": 127.71,
+        "confidence": "low"
+      },
+      "forecast_90_days": {
+        "prediction": 137.15,
+        "lower_bound": 121.4,
+        "upper_bound": 152.91,
+        "confidence": "low"
+      },
+      "momentum": 0.0418,
+      "trend": "up",
+      "methodology": "Linear regression with volatility bands",
+      "timestamp": "2026-05-18T12:29:58.507131",
+      "forecast_date": "2026-06-17"
+    },
+    {
+      "asset": "Natural Gas",
+      "error": "Insufficient historical data"
+    },
+    {
+      "asset": "Gold",
+      "category": "safe_haven",
+      "current_price": 2712.39,
+      "forecast_30_days": {
+        "prediction": 2653.97,
+        "lower_bound": 2566.37,
+        "upper_bound": 2741.57,
+        "confidence": "low"
+      },
+      "forecast_90_days": {
+        "prediction": 2485.86,
+        "lower_bound": 2334.14,
+        "upper_bound": 2637.59,
+        "confidence": "low"
+      },
+      "momentum": -0.0189,
+      "trend": "neutral",
+      "methodology": "Linear regression with volatility bands",
+      "timestamp": "2026-05-18T12:29:58.510683",
+      "forecast_date": "2026-06-17"
+    },
+    {
+      "asset": "USD Index",
+      "category": "safe_haven",
+      "current_price": 99.21,
+      "forecast_30_days": {
+        "prediction": 99.11,
+        "lower_bound": 98.31,
+        "upper_bound": 99.91,
+        "confidence": "low"
+      },
+      "forecast_90_days": {
+        "prediction": 99.97,
+        "lower_bound": 98.59,
+        "upper_bound": 101.35,
+        "confidence": "low"
+      },
+      "momentum": 0.0094,
+      "trend": "neutral",
+      "methodology": "Linear regression with volatility bands",
+      "timestamp": "2026-05-18T12:29:58.512801",
+      "forecast_date": "2026-06-17"
+    }
+  ]
+}
