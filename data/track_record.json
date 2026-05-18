@@ -13456,6 +13456,52 @@
       "notes": null
     },
     {
+      "id": "backtest-gold-20260417",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.34,
+      "prediction_date": "2026-04-17",
+      "current_price": 2898.55,
+      "forecast_30_days": {
+        "target": 2995.68,
+        "lower_bound": 2850.75,
+        "upper_bound": 3140.61
+      },
+      "outcome_date": "2026-05-17",
+      "actual_price": 2712.39,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 9.46,
+      "evaluated_date": "2026-05-18",
+      "notes": "Actual $2,712.39 landed below the band ($2,850.75\u2013$3,140.61). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-usd-index-20260417",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.25,
+      "prediction_date": "2026-04-17",
+      "current_price": 98.2,
+      "forecast_30_days": {
+        "target": 95.77,
+        "lower_bound": 90.86,
+        "upper_bound": 100.68
+      },
+      "outcome_date": "2026-05-17",
+      "actual_price": 99.27,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 3.65,
+      "evaluated_date": "2026-05-18",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -13562,16 +13608,16 @@
     }
   ],
   "summary": {
-    "total": 590,
+    "total": 592,
     "pending": 5,
-    "completed": 585,
-    "hits": 245,
-    "misses": 340,
+    "completed": 587,
+    "hits": 246,
+    "misses": 341,
     "hit_rate": 41.9,
     "directional_correct": 268,
-    "directional_total": 585,
-    "directional_accuracy": 45.8,
+    "directional_total": 587,
+    "directional_accuracy": 45.7,
     "average_accuracy": 79.1,
-    "last_updated": "2026-05-17"
+    "last_updated": "2026-05-18"
   }
 }
