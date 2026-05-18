@@ -1,18 +1,20 @@
 {
   "category": "energy",
-  "timestamp": "2026-05-18T03:58:53.739908",
+  "timestamp": "2026-05-18T08:12:40.080741",
   "assets": [
     {
       "asset": "Brent Oil",
-      "price": 111.27,
+      "price": 110.07,
       "date": "2026-05-18",
-      "timestamp": "2026-05-18T03:58:53.739949"
+      "timestamp": "2026-05-18T08:12:40.080727",
+      "prev_price": 111.27
     },
     {
       "asset": "Natural Gas",
-      "price": 3.02,
+      "price": 3.04,
       "date": "2026-05-18",
-      "timestamp": "2026-05-18T03:58:53.739956"
+      "timestamp": "2026-05-18T08:12:40.080737",
+      "prev_price": 3.02
     }
   ]
 }
