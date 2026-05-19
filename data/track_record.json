@@ -13502,6 +13502,52 @@
       "notes": null
     },
     {
+      "id": "backtest-gold-20260418",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.38,
+      "prediction_date": "2026-04-18",
+      "current_price": 2898.55,
+      "forecast_30_days": {
+        "target": 3008.74,
+        "lower_bound": 2863.81,
+        "upper_bound": 3153.67
+      },
+      "outcome_date": "2026-05-18",
+      "actual_price": 2719.8,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 9.6,
+      "evaluated_date": "2026-05-19",
+      "notes": "Actual $2,719.80 landed below the band ($2,863.81\u2013$3,153.67). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-usd-index-20260418",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.24,
+      "prediction_date": "2026-04-18",
+      "current_price": 98.1,
+      "forecast_30_days": {
+        "target": 95.76,
+        "lower_bound": 90.86,
+        "upper_bound": 100.67
+      },
+      "outcome_date": "2026-05-18",
+      "actual_price": 98.99,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 3.37,
+      "evaluated_date": "2026-05-19",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -13608,16 +13654,16 @@
     }
   ],
   "summary": {
-    "total": 592,
+    "total": 594,
     "pending": 5,
-    "completed": 587,
-    "hits": 246,
-    "misses": 341,
+    "completed": 589,
+    "hits": 247,
+    "misses": 342,
     "hit_rate": 41.9,
     "directional_correct": 268,
-    "directional_total": 587,
-    "directional_accuracy": 45.7,
-    "average_accuracy": 79.1,
-    "last_updated": "2026-05-18"
+    "directional_total": 589,
+    "directional_accuracy": 45.5,
+    "average_accuracy": 79.2,
+    "last_updated": "2026-05-19"
   }
 }
