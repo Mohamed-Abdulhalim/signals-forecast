@@ -13594,6 +13594,52 @@
       "notes": null
     },
     {
+      "id": "backtest-gold-20260420",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.38,
+      "prediction_date": "2026-04-20",
+      "current_price": 2873.59,
+      "forecast_30_days": {
+        "target": 2983.86,
+        "lower_bound": 2840.18,
+        "upper_bound": 3127.54
+      },
+      "outcome_date": "2026-05-20",
+      "actual_price": 2713.1,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 9.07,
+      "evaluated_date": "2026-05-21",
+      "notes": "Actual $2,713.10 landed below the band ($2,840.18\u2013$3,127.54). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-usd-index-20260420",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "bearish",
+      "signal_confidence": "low",
+      "momentum_score": 0.17,
+      "prediction_date": "2026-04-20",
+      "current_price": 98.07,
+      "forecast_30_days": {
+        "target": 96.36,
+        "lower_bound": 91.46,
+        "upper_bound": 101.26
+      },
+      "outcome_date": "2026-05-20",
+      "actual_price": 99.11,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 2.85,
+      "evaluated_date": "2026-05-21",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -13700,16 +13746,16 @@
     }
   ],
   "summary": {
-    "total": 596,
+    "total": 598,
     "pending": 5,
-    "completed": 591,
-    "hits": 248,
-    "misses": 343,
+    "completed": 593,
+    "hits": 249,
+    "misses": 344,
     "hit_rate": 42.0,
     "directional_correct": 268,
-    "directional_total": 591,
-    "directional_accuracy": 45.3,
-    "average_accuracy": 79.2,
-    "last_updated": "2026-05-20"
+    "directional_total": 593,
+    "directional_accuracy": 45.2,
+    "average_accuracy": 79.3,
+    "last_updated": "2026-05-21"
   }
 }
