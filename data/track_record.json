@@ -13824,6 +13824,98 @@
       "notes": null
     },
     {
+      "id": "backtest-gold-20260425",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.31,
+      "prediction_date": "2026-04-25",
+      "current_price": 2816.12,
+      "forecast_30_days": {
+        "target": 2729.59,
+        "lower_bound": 2588.78,
+        "upper_bound": 2870.4
+      },
+      "outcome_date": "2026-05-25",
+      "actual_price": 2689.83,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.46,
+      "evaluated_date": "2026-05-27",
+      "notes": null
+    },
+    {
+      "id": "backtest-usd-index-20260425",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.03,
+      "prediction_date": "2026-04-25",
+      "current_price": 98.51,
+      "forecast_30_days": {
+        "target": 98.83,
+        "lower_bound": 93.9,
+        "upper_bound": 103.76
+      },
+      "outcome_date": "2026-05-25",
+      "actual_price": 99.24,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.41,
+      "evaluated_date": "2026-05-27",
+      "notes": null
+    },
+    {
+      "id": "backtest-gold-20260426",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.41,
+      "prediction_date": "2026-04-26",
+      "current_price": 2816.12,
+      "forecast_30_days": {
+        "target": 2700.8,
+        "lower_bound": 2559.99,
+        "upper_bound": 2841.61
+      },
+      "outcome_date": "2026-05-26",
+      "actual_price": 2691.0,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.36,
+      "evaluated_date": "2026-05-27",
+      "notes": null
+    },
+    {
+      "id": "backtest-usd-index-20260426",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.06,
+      "prediction_date": "2026-04-26",
+      "current_price": 98.51,
+      "forecast_30_days": {
+        "target": 99.13,
+        "lower_bound": 94.2,
+        "upper_bound": 104.06
+      },
+      "outcome_date": "2026-05-26",
+      "actual_price": 99.15,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.02,
+      "evaluated_date": "2026-05-27",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -13930,16 +14022,16 @@
     }
   ],
   "summary": {
-    "total": 606,
+    "total": 610,
     "pending": 5,
-    "completed": 601,
-    "hits": 255,
+    "completed": 605,
+    "hits": 259,
     "misses": 346,
-    "hit_rate": 42.4,
-    "directional_correct": 272,
-    "directional_total": 601,
-    "directional_accuracy": 45.3,
-    "average_accuracy": 79.5,
-    "last_updated": "2026-05-25"
+    "hit_rate": 42.8,
+    "directional_correct": 276,
+    "directional_total": 605,
+    "directional_accuracy": 45.6,
+    "average_accuracy": 79.6,
+    "last_updated": "2026-05-27"
   }
 }
