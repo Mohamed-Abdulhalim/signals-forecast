@@ -14307,6 +14307,52 @@
       "notes": null
     },
     {
+      "id": "backtest-gold-20260507",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.29,
+      "prediction_date": "2026-05-07",
+      "current_price": 2805.92,
+      "forecast_30_days": {
+        "target": 2725.33,
+        "lower_bound": 2585.03,
+        "upper_bound": 2865.63
+      },
+      "outcome_date": "2026-06-06",
+      "actual_price": 2575.56,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 5.5,
+      "evaluated_date": "2026-06-07",
+      "notes": "Actual $2,575.56 landed below the band ($2,585.03\u2013$2,865.63). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-usd-index-20260507",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.05,
+      "prediction_date": "2026-05-07",
+      "current_price": 98.26,
+      "forecast_30_days": {
+        "target": 97.75,
+        "lower_bound": 92.84,
+        "upper_bound": 102.66
+      },
+      "outcome_date": "2026-06-06",
+      "actual_price": 100.07,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 2.37,
+      "evaluated_date": "2026-06-07",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -14413,16 +14459,16 @@
     }
   ],
   "summary": {
-    "total": 627,
+    "total": 629,
     "pending": 5,
-    "completed": 622,
-    "hits": 276,
-    "misses": 346,
+    "completed": 624,
+    "hits": 277,
+    "misses": 347,
     "hit_rate": 44.4,
-    "directional_correct": 292,
-    "directional_total": 622,
-    "directional_accuracy": 46.9,
-    "average_accuracy": 80.1,
-    "last_updated": "2026-06-06"
+    "directional_correct": 294,
+    "directional_total": 624,
+    "directional_accuracy": 47.1,
+    "average_accuracy": 80.2,
+    "last_updated": "2026-06-07"
   }
 }
