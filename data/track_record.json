@@ -14514,6 +14514,75 @@
       "notes": null
     },
     {
+      "id": "backtest-gold-20260511",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.47,
+      "prediction_date": "2026-05-11",
+      "current_price": 2825.22,
+      "forecast_30_days": {
+        "target": 2957.86,
+        "lower_bound": 2816.6,
+        "upper_bound": 3099.12
+      },
+      "outcome_date": "2026-06-10",
+      "actual_price": 2511.08,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 15.1,
+      "evaluated_date": "2026-06-12",
+      "notes": "Actual $2,511.08 landed below the band ($2,816.60\u2013$3,099.12). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-gold-20260512",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.52,
+      "prediction_date": "2026-05-12",
+      "current_price": 2814.05,
+      "forecast_30_days": {
+        "target": 2959.12,
+        "lower_bound": 2818.42,
+        "upper_bound": 3099.82
+      },
+      "outcome_date": "2026-06-11",
+      "actual_price": 2511.08,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 15.14,
+      "evaluated_date": "2026-06-12",
+      "notes": "Actual $2,511.08 landed below the band ($2,818.42\u2013$3,099.82). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-usd-index-20260512",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.09,
+      "prediction_date": "2026-05-12",
+      "current_price": 98.32,
+      "forecast_30_days": {
+        "target": 97.45,
+        "lower_bound": 92.53,
+        "upper_bound": 102.37
+      },
+      "outcome_date": "2026-06-11",
+      "actual_price": 99.68,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 2.29,
+      "evaluated_date": "2026-06-12",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -14620,16 +14689,16 @@
     }
   ],
   "summary": {
-    "total": 636,
+    "total": 639,
     "pending": 5,
-    "completed": 631,
-    "hits": 281,
-    "misses": 350,
+    "completed": 634,
+    "hits": 282,
+    "misses": 352,
     "hit_rate": 44.5,
-    "directional_correct": 295,
-    "directional_total": 631,
-    "directional_accuracy": 46.8,
-    "average_accuracy": 80.3,
-    "last_updated": "2026-06-11"
+    "directional_correct": 296,
+    "directional_total": 634,
+    "directional_accuracy": 46.7,
+    "average_accuracy": 80.4,
+    "last_updated": "2026-06-12"
   }
 }
