@@ -14629,6 +14629,52 @@
       "notes": null
     },
     {
+      "id": "backtest-gold-20260514",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.43,
+      "prediction_date": "2026-05-14",
+      "current_price": 2776.86,
+      "forecast_30_days": {
+        "target": 2896.37,
+        "lower_bound": 2757.53,
+        "upper_bound": 3035.21
+      },
+      "outcome_date": "2026-06-13",
+      "actual_price": 2512.51,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 13.25,
+      "evaluated_date": "2026-06-14",
+      "notes": "Actual $2,512.51 landed below the band ($2,757.53\u2013$3,035.21). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-usd-index-20260514",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.04,
+      "prediction_date": "2026-05-14",
+      "current_price": 98.87,
+      "forecast_30_days": {
+        "target": 98.48,
+        "lower_bound": 93.54,
+        "upper_bound": 103.42
+      },
+      "outcome_date": "2026-06-13",
+      "actual_price": 99.75,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.29,
+      "evaluated_date": "2026-06-14",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -14735,16 +14781,16 @@
     }
   ],
   "summary": {
-    "total": 641,
+    "total": 643,
     "pending": 5,
-    "completed": 636,
-    "hits": 283,
-    "misses": 353,
+    "completed": 638,
+    "hits": 284,
+    "misses": 354,
     "hit_rate": 44.5,
-    "directional_correct": 297,
-    "directional_total": 636,
+    "directional_correct": 298,
+    "directional_total": 638,
     "directional_accuracy": 46.7,
-    "average_accuracy": 80.4,
-    "last_updated": "2026-06-13"
+    "average_accuracy": 80.5,
+    "last_updated": "2026-06-14"
   }
 }
