@@ -14974,6 +14974,52 @@
       "notes": null
     },
     {
+      "id": "backtest-gold-20260523",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.57,
+      "prediction_date": "2026-05-23",
+      "current_price": 2689.83,
+      "forecast_30_days": {
+        "target": 2536.19,
+        "lower_bound": 2401.7,
+        "upper_bound": 2670.68
+      },
+      "outcome_date": "2026-06-22",
+      "actual_price": 2499.84,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.43,
+      "evaluated_date": "2026-06-23",
+      "notes": null
+    },
+    {
+      "id": "backtest-usd-index-20260523",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.14,
+      "prediction_date": "2026-05-23",
+      "current_price": 99.32,
+      "forecast_30_days": {
+        "target": 100.71,
+        "lower_bound": 95.74,
+        "upper_bound": 105.68
+      },
+      "outcome_date": "2026-06-22",
+      "actual_price": 100.99,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.28,
+      "evaluated_date": "2026-06-23",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -15080,16 +15126,16 @@
     }
   ],
   "summary": {
-    "total": 656,
+    "total": 658,
     "pending": 5,
-    "completed": 651,
-    "hits": 295,
+    "completed": 653,
+    "hits": 297,
     "misses": 356,
-    "hit_rate": 45.3,
-    "directional_correct": 309,
-    "directional_total": 651,
-    "directional_accuracy": 47.5,
-    "average_accuracy": 80.8,
-    "last_updated": "2026-06-22"
+    "hit_rate": 45.5,
+    "directional_correct": 311,
+    "directional_total": 653,
+    "directional_accuracy": 47.6,
+    "average_accuracy": 80.9,
+    "last_updated": "2026-06-23"
   }
 }
