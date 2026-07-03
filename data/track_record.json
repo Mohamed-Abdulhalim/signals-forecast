@@ -15434,6 +15434,52 @@
       "notes": null
     },
     {
+      "id": "backtest-gold-20260602",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.04,
+      "prediction_date": "2026-06-02",
+      "current_price": 2677.67,
+      "forecast_30_days": {
+        "target": 2688.91,
+        "lower_bound": 2555.03,
+        "upper_bound": 2822.79
+      },
+      "outcome_date": "2026-07-02",
+      "actual_price": 2457.84,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 8.59,
+      "evaluated_date": "2026-07-03",
+      "notes": "Actual $2,457.84 landed below the band ($2,555.03\u2013$2,822.79). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-usd-index-20260602",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.05,
+      "prediction_date": "2026-06-02",
+      "current_price": 99.22,
+      "forecast_30_days": {
+        "target": 98.77,
+        "lower_bound": 93.81,
+        "upper_bound": 103.73
+      },
+      "outcome_date": "2026-07-02",
+      "actual_price": 100.87,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 2.13,
+      "evaluated_date": "2026-07-03",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -15540,16 +15586,16 @@
     }
   ],
   "summary": {
-    "total": 676,
+    "total": 678,
     "pending": 5,
-    "completed": 671,
-    "hits": 307,
-    "misses": 364,
+    "completed": 673,
+    "hits": 308,
+    "misses": 365,
     "hit_rate": 45.8,
-    "directional_correct": 320,
-    "directional_total": 671,
+    "directional_correct": 321,
+    "directional_total": 673,
     "directional_accuracy": 47.7,
-    "average_accuracy": 81.2,
-    "last_updated": "2026-07-02"
+    "average_accuracy": 81.3,
+    "last_updated": "2026-07-03"
   }
 }
