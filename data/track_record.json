@@ -15480,6 +15480,52 @@
       "notes": null
     },
     {
+      "id": "backtest-gold-20260603",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.06,
+      "prediction_date": "2026-06-03",
+      "current_price": 2651.16,
+      "forecast_30_days": {
+        "target": 2667.45,
+        "lower_bound": 2534.89,
+        "upper_bound": 2800.01
+      },
+      "outcome_date": "2026-07-03",
+      "actual_price": 2457.84,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 7.86,
+      "evaluated_date": "2026-07-04",
+      "notes": "Actual $2,457.84 landed below the band ($2,534.89\u2013$2,800.01). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-usd-index-20260603",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.04,
+      "prediction_date": "2026-06-03",
+      "current_price": 99.55,
+      "forecast_30_days": {
+        "target": 99.18,
+        "lower_bound": 94.2,
+        "upper_bound": 104.16
+      },
+      "outcome_date": "2026-07-03",
+      "actual_price": 100.86,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.69,
+      "evaluated_date": "2026-07-04",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -15586,16 +15632,16 @@
     }
   ],
   "summary": {
-    "total": 678,
+    "total": 680,
     "pending": 5,
-    "completed": 673,
-    "hits": 308,
-    "misses": 365,
+    "completed": 675,
+    "hits": 309,
+    "misses": 366,
     "hit_rate": 45.8,
-    "directional_correct": 321,
-    "directional_total": 673,
+    "directional_correct": 322,
+    "directional_total": 675,
     "directional_accuracy": 47.7,
     "average_accuracy": 81.3,
-    "last_updated": "2026-07-03"
+    "last_updated": "2026-07-04"
   }
 }
