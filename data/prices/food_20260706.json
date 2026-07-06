@@ -1,24 +1,27 @@
 {
   "category": "food",
-  "timestamp": "2026-07-06T03:51:20.642785",
+  "timestamp": "2026-07-06T08:23:57.781665",
   "assets": [
     {
       "asset": "Wheat",
-      "price": 603.75,
+      "price": 608.75,
       "date": "2026-07-06",
-      "timestamp": "2026-07-06T03:51:20.642796"
+      "timestamp": "2026-07-06T08:23:57.781649",
+      "prev_price": 603.75
     },
     {
       "asset": "Corn",
-      "price": 448.75,
+      "price": 452.25,
       "date": "2026-07-06",
-      "timestamp": "2026-07-06T03:51:20.642801"
+      "timestamp": "2026-07-06T08:23:57.781658",
+      "prev_price": 448.75
     },
     {
       "asset": "Rice",
       "price": 35.69,
       "date": "2026-07-06",
-      "timestamp": "2026-07-06T03:51:20.642805"
+      "timestamp": "2026-07-06T08:23:57.781662",
+      "prev_price": 35.69
     }
   ]
 }
