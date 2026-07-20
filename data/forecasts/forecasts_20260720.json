@@ -1,0 +1,87 @@
+{
+  "timestamp": "2026-07-20T11:43:57.712191",
+  "forecasts": [
+    {
+      "asset": "Brent Oil",
+      "category": "energy",
+      "current_price": 88.48,
+      "forecast_30_days": {
+        "prediction": 98.63,
+        "lower_bound": 90.21,
+        "upper_bound": 107.04,
+        "confidence": "medium"
+      },
+      "forecast_90_days": {
+        "prediction": 126.13,
+        "lower_bound": 111.56,
+        "upper_bound": 140.7,
+        "confidence": "medium"
+      },
+      "momentum": 0.1246,
+      "trend": "up",
+      "methodology": "Linear regression with volatility bands",
+      "timestamp": "2026-07-20T11:43:57.714107",
+      "forecast_date": "2026-08-19"
+    },
+    {
+      "asset": "Natural Gas",
+      "error": "Insufficient historical data"
+    },
+    {
+      "asset": "Gold",
+      "category": "safe_haven",
+      "current_price": 2394.66,
+      "forecast_30_days": {
+        "prediction": 2730.31,
+        "lower_bound": 2189.84,
+        "upper_bound": 3270.78,
+        "confidence": "low"
+      },
+      "forecast_90_days": {
+        "prediction": 3050.82,
+        "lower_bound": 2114.7,
+        "upper_bound": 3813.5,
+        "confidence": "low"
+      },
+      "momentum": 0.0769,
+      "trend": "up",
+      "methodology": "Linear regression with volatility bands",
+      "timestamp": "2026-07-20T11:43:57.716937",
+      "forecast_date": "2026-08-19"
+    },
+    {
+      "asset": "USD Index",
+      "category": "safe_haven",
+      "current_price": 100.76,
+      "forecast_30_days": {
+        "prediction": 100.13,
+        "lower_bound": 99.74,
+        "upper_bound": 100.51,
+        "confidence": "medium"
+      },
+      "forecast_90_days": {
+        "prediction": 98.94,
+        "lower_bound": 98.27,
+        "upper_bound": 99.61,
+        "confidence": "medium"
+      },
+      "momentum": -0.003,
+      "trend": "neutral",
+      "methodology": "Linear regression with volatility bands",
+      "timestamp": "2026-07-20T11:43:57.718566",
+      "forecast_date": "2026-08-19"
+    },
+    {
+      "asset": "Wheat",
+      "error": "Insufficient historical data"
+    },
+    {
+      "asset": "Corn",
+      "error": "Insufficient historical data"
+    },
+    {
+      "asset": "Rice",
+      "error": "Insufficient historical data"
+    }
+  ]
+}
