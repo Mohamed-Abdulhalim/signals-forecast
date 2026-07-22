@@ -16101,6 +16101,29 @@
       "notes": null
     },
     {
+      "id": "backtest-gold-20260621",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.52,
+      "prediction_date": "2026-06-21",
+      "current_price": 2516.28,
+      "forecast_30_days": {
+        "target": 2385.18,
+        "lower_bound": 2259.37,
+        "upper_bound": 2510.99
+      },
+      "outcome_date": "2026-07-21",
+      "actual_price": 2436.26,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 2.14,
+      "evaluated_date": "2026-07-22",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -16207,16 +16230,16 @@
     }
   ],
   "summary": {
-    "total": 705,
+    "total": 706,
     "pending": 5,
-    "completed": 700,
-    "hits": 332,
+    "completed": 701,
+    "hits": 333,
     "misses": 368,
-    "hit_rate": 47.4,
-    "directional_correct": 346,
-    "directional_total": 700,
-    "directional_accuracy": 49.4,
+    "hit_rate": 47.5,
+    "directional_correct": 347,
+    "directional_total": 701,
+    "directional_accuracy": 49.5,
     "average_accuracy": 81.9,
-    "last_updated": "2026-07-21"
+    "last_updated": "2026-07-22"
   }
 }
