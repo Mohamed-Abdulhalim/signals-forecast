@@ -16285,6 +16285,29 @@
       "notes": null
     },
     {
+      "id": "backtest-usd-index-20260701",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.08,
+      "prediction_date": "2026-07-01",
+      "current_price": 101.39,
+      "forecast_30_days": {
+        "target": 102.21,
+        "lower_bound": 97.14,
+        "upper_bound": 107.28
+      },
+      "outcome_date": "2026-07-31",
+      "actual_price": 99.78,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 2.38,
+      "evaluated_date": "2026-08-01",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -16391,16 +16414,16 @@
     }
   ],
   "summary": {
-    "total": 713,
+    "total": 714,
     "pending": 5,
-    "completed": 708,
-    "hits": 336,
+    "completed": 709,
+    "hits": 337,
     "misses": 372,
     "hit_rate": 47.5,
-    "directional_correct": 349,
-    "directional_total": 708,
-    "directional_accuracy": 49.3,
+    "directional_correct": 350,
+    "directional_total": 709,
+    "directional_accuracy": 49.4,
     "average_accuracy": 82.1,
-    "last_updated": "2026-07-31"
+    "last_updated": "2026-08-01"
   }
 }
