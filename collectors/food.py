@@ -206,17 +206,19 @@ class FoodCollector:
             'assets': []
         }
 
+        time.sleep(3)  # let any AV rate-limit window from a prior step clear
+
         wheat = self.get_wheat()
         if wheat:
             results['assets'].append(wheat)
 
-        time.sleep(15)  # respect Alpha Vantage's 5 requests/minute limit
+        time.sleep(15)  # respect Alpha Vantage's 1 request/second limit
 
         corn = self.get_corn()
         if corn:
             results['assets'].append(corn)
 
-        time.sleep(15)
+        time.sleep(15)  # respect Alpha Vantage's 1 request/second limit
 
         rice = self.get_rice()
         if rice:
