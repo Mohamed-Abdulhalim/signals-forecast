@@ -170,11 +170,13 @@ class SafeHavenCollector:
             'assets':    []
         }
 
+        time.sleep(3)  # let any AV rate-limit window from a prior step clear
+
         gold = self.get_gold_price()
         if gold:
             results['assets'].append(gold)
 
-        time.sleep(15)  # respect Alpha Vantage's 5 requests/minute limit
+        time.sleep(15)  # respect Alpha Vantage's 1 request/second limit
 
         usd = self.get_usd_index()
         if usd:
