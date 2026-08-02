@@ -206,7 +206,7 @@ class FoodCollector:
             'assets': []
         }
 
-        time.sleep(3)  # let any AV rate-limit window from a prior step clear
+        time.sleep(10)  # let any AV rate-limit window from the prior step clear
 
         wheat = self.get_wheat()
         if wheat:
