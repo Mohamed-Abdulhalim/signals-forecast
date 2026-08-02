@@ -51,7 +51,7 @@ class FoodCollector:
 
     def get_wheat(self):
         print("  [WHEAT] Trying 2 sources...")
-        price = self._wheat_from_yfinance() or self._wheat_from_alpha_vantage()
+        price = self._wheat_from_alpha_vantage() or self._wheat_from_yfinance()
         if price is None:
             print("  [FAIL] All wheat sources failed — skipping Wheat today")
             return None
@@ -105,7 +105,7 @@ class FoodCollector:
 
     def get_corn(self):
         print("  [CORN] Trying 2 sources...")
-        price = self._corn_from_yfinance() or self._corn_from_alpha_vantage()
+        price = self._corn_from_alpha_vantage() or self._corn_from_yfinance()
         if price is None:
             print("  [FAIL] All corn sources failed — skipping Corn today")
             return None
@@ -175,8 +175,8 @@ class FoodCollector:
         print("  [RICE] Trying 3 sources...")
         price = (
             self._rice_from_yfinance() or
-            self._rice_from_pdba() or
-            self._rice_from_alpha_vantage()
+            self._rice_from_alpha_vantage() or
+            self._rice_from_pdba()
         )
         if price is None:
             print("  [FAIL] All rice sources failed — skipping Rice today")
