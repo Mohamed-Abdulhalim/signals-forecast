@@ -2,6 +2,7 @@ import requests
 import json
 from datetime import datetime
 import os
+import time
 
 class SafeHavenCollector:
     def __init__(self):
@@ -63,6 +64,8 @@ class SafeHavenCollector:
                     return price
                 else:
                     print(f"    [WARN] AV returned suspicious gold price: ${price}")
+            else:
+                print(f"    [WARN] AV gold unexpected response: {data}")
         except Exception as e:
             print(f"    [WARN] Alpha Vantage XAU/USD failed: {e}")
         return None
@@ -131,6 +134,8 @@ class SafeHavenCollector:
                 if 80 < price < 130:
                     print(f"    [OK] USD Index via AV EUR/USD inversion: {price}")
                     return price
+            else:
+                print(f"    [WARN] AV USD Index unexpected response: {data}")
         except Exception as e:
             print(f"    [WARN] Alpha Vantage EUR/USD failed: {e}")
         return None
@@ -168,6 +173,8 @@ class SafeHavenCollector:
         gold = self.get_gold_price()
         if gold:
             results['assets'].append(gold)
+
+        time.sleep(15)  # respect Alpha Vantage's 5 requests/minute limit
 
         usd = self.get_usd_index()
         if usd:
