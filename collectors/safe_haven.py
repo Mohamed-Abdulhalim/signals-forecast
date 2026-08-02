@@ -40,25 +40,27 @@ class SafeHavenCollector:
         return None
 
     def _gold_from_alpha_vantage(self):
-        """Source 3: Alpha Vantage CURRENCY_EXCHANGE_RATE XAU/USD
-           Works on free tier — returns spot FX rate for gold."""
+        """Source 3: Alpha Vantage FX_DAILY XAU/USD
+           CURRENCY_EXCHANGE_RATE is a premium-only endpoint on the free
+           tier (confirmed via 'Invalid API call' error) — FX_DAILY is
+           free-tier accessible and used successfully for USD Index."""
         if not self.alpha_vantage_key:
             print("    [WARN] No ALPHA_VANTAGE_KEY set, skipping AV gold")
             return None
         try:
             url = (
                 'https://www.alphavantage.co/query'
-                '?function=CURRENCY_EXCHANGE_RATE'
-                '&from_currency=XAU'
-                '&to_currency=USD'
+                '?function=FX_DAILY'
+                '&from_symbol=XAU'
+                '&to_symbol=USD'
                 f'&apikey={self.alpha_vantage_key}'
             )
             r = requests.get(url, timeout=15)
             data = r.json()
-            rate_data = data.get('Realtime Currency Exchange Rate', {})
-            rate = rate_data.get('5. Exchange Rate', '')
-            if rate:
-                price = round(float(rate), 2)
+            series = data.get('Time Series FX (Daily)', {})
+            if series:
+                latest_date = sorted(series.keys())[-1]
+                price = round(float(series[latest_date]['4. close']), 2)
                 if 1500 < price < 5000:
                     print(f"    [OK] Gold via Alpha Vantage XAU/USD: ${price}")
                     return price
@@ -170,13 +172,11 @@ class SafeHavenCollector:
             'assets':    []
         }
 
-        time.sleep(3)  # let any AV rate-limit window from a prior step clear
-
         gold = self.get_gold_price()
         if gold:
             results['assets'].append(gold)
 
-        time.sleep(15)  # respect Alpha Vantage's 1 request/second limit
+        time.sleep(15)  # respect Alpha Vantage's 5 requests/minute limit
 
         usd = self.get_usd_index()
         if usd:
