@@ -16308,6 +16308,52 @@
       "notes": null
     },
     {
+      "id": "backtest-gold-20260702",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bearish",
+      "signal_confidence": "high",
+      "momentum_score": 0.63,
+      "prediction_date": "2026-07-02",
+      "current_price": 2457.84,
+      "forecast_30_days": {
+        "target": 2302.93,
+        "lower_bound": 2180.04,
+        "upper_bound": 2425.82
+      },
+      "outcome_date": "2026-08-01",
+      "actual_price": 2415.01,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 4.87,
+      "evaluated_date": "2026-08-02",
+      "notes": null
+    },
+    {
+      "id": "backtest-usd-index-20260702",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.05,
+      "prediction_date": "2026-07-02",
+      "current_price": 100.87,
+      "forecast_30_days": {
+        "target": 101.33,
+        "lower_bound": 96.29,
+        "upper_bound": 106.37
+      },
+      "outcome_date": "2026-08-01",
+      "actual_price": 99.8,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.51,
+      "evaluated_date": "2026-08-02",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -16414,16 +16460,16 @@
     }
   ],
   "summary": {
-    "total": 714,
+    "total": 716,
     "pending": 5,
-    "completed": 709,
-    "hits": 337,
+    "completed": 711,
+    "hits": 339,
     "misses": 372,
-    "hit_rate": 47.5,
-    "directional_correct": 350,
-    "directional_total": 709,
-    "directional_accuracy": 49.4,
+    "hit_rate": 47.7,
+    "directional_correct": 352,
+    "directional_total": 711,
+    "directional_accuracy": 49.5,
     "average_accuracy": 82.1,
-    "last_updated": "2026-08-01"
+    "last_updated": "2026-08-02"
   }
 }
