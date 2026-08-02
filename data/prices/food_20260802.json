@@ -1,5 +1,14 @@
 {
   "category": "food",
-  "timestamp": "2026-08-02T20:58:01.135161",
-  "assets": []
+  "timestamp": "2026-08-02T21:34:59.861134",
+  "assets": [
+    {
+      "asset": "Corn",
+      "symbol": "ZC=F",
+      "price": 195.78,
+      "currency": "USD",
+      "date": "2026-08-02",
+      "timestamp": "2026-08-02T21:35:00.951493"
+    }
+  ]
 }
