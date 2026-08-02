@@ -42,9 +42,13 @@ jobs:
       run: python collectors/energy.py || echo "Energy collection failed, continuing..."
     
     - name: Collect Safe Haven Data
+      env:
+        ALPHA_VANTAGE_KEY: ${{ secrets.ALPHA_VANTAGE_KEY }}
       run: python collectors/safe_haven.py || echo "Safe haven collection failed, continuing..."
     
     - name: Collect Food Data
+      env:
+        ALPHA_VANTAGE_KEY: ${{ secrets.ALPHA_VANTAGE_KEY }}
       run: python collectors/food.py || echo "Food collection failed, continuing..."
     
     - name: Check collected data
