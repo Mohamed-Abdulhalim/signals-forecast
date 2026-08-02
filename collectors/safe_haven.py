@@ -172,6 +172,8 @@ class SafeHavenCollector:
             'assets':    []
         }
 
+        time.sleep(10)  # let any AV rate-limit window from the prior step clear
+
         gold = self.get_gold_price()
         if gold:
             results['assets'].append(gold)
