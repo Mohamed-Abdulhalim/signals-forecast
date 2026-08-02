@@ -1,6 +1,6 @@
 {
   "category": "food",
-  "timestamp": "2026-08-02T21:34:59.861134",
+  "timestamp": "2026-08-02T21:39:16.096959",
   "assets": [
     {
       "asset": "Corn",
@@ -8,7 +8,15 @@
       "price": 195.78,
       "currency": "USD",
       "date": "2026-08-02",
-      "timestamp": "2026-08-02T21:35:00.951493"
+      "timestamp": "2026-08-02T21:39:32.131494"
+    },
+    {
+      "asset": "Rice",
+      "symbol": "PDBA",
+      "price": 36.73,
+      "currency": "USD",
+      "date": "2026-08-02",
+      "timestamp": "2026-08-02T21:39:47.645636"
     }
   ]
 }
