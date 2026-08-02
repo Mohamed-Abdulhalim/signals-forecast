@@ -2,6 +2,7 @@ import requests
 import json
 from datetime import datetime
 import os
+import time
 
 
 class EnergyCollector:
@@ -46,6 +47,8 @@ class EnergyCollector:
                     print(f"    [OK] Brent Oil via Alpha Vantage: ${price}")
                     return price
                 print(f"    [WARN] AV Brent price {price} outside sane range")
+            else:
+                print(f"    [WARN] AV Brent unexpected response: {data}")
         except Exception as e:
             print(f"    [WARN] Alpha Vantage Brent failed: {e}")
         return None
@@ -101,6 +104,8 @@ class EnergyCollector:
                     print(f"    [OK] Natural Gas via Alpha Vantage: ${price}")
                     return price
                 print(f"    [WARN] AV Natural Gas price {price} outside sane range")
+            else:
+                print(f"    [WARN] AV Natural Gas unexpected response: {data}")
         except Exception as e:
             print(f"    [WARN] Alpha Vantage Natural Gas failed: {e}")
         return None
@@ -133,6 +138,8 @@ class EnergyCollector:
         oil = self.get_brent_oil()
         if oil:
             results['assets'].append(oil)
+
+        time.sleep(15)  # respect Alpha Vantage's 5 requests/minute limit
 
         gas = self.get_natural_gas()
         if gas:
