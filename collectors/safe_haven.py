@@ -72,9 +72,9 @@ class SafeHavenCollector:
         print("  [GOLD] Trying 3 sources...")
 
         price = (
-            self._gold_from_metals_live() or
-            self._gold_from_yfinance()    or
-            self._gold_from_alpha_vantage()
+            self._gold_from_alpha_vantage() or
+            self._gold_from_yfinance()      or
+            self._gold_from_metals_live()
         )
 
         if price is None:
