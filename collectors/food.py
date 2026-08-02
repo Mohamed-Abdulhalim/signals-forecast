@@ -2,6 +2,7 @@ import requests
 import json
 from datetime import datetime
 import os
+import time
 
 
 class FoodCollector:
@@ -45,6 +46,8 @@ class FoodCollector:
                     print(f"    [OK] Wheat via Alpha Vantage: ${price}")
                     return price
                 print(f"    [WARN] AV wheat price {price} outside sane range")
+            else:
+                print(f"    [WARN] AV wheat unexpected response: {data}")
         except Exception as e:
             print(f"    [WARN] Alpha Vantage wheat failed: {e}")
         return None
@@ -99,6 +102,8 @@ class FoodCollector:
                     print(f"    [OK] Corn via Alpha Vantage: ${price}")
                     return price
                 print(f"    [WARN] AV corn price {price} outside sane range")
+            else:
+                print(f"    [WARN] AV corn unexpected response: {data}")
         except Exception as e:
             print(f"    [WARN] Alpha Vantage corn failed: {e}")
         return None
@@ -167,6 +172,8 @@ class FoodCollector:
                     print(f"    [OK] Rice via Alpha Vantage PDBA: ${price}")
                     return price
                 print(f"    [WARN] AV rice price {price} outside sane range")
+            else:
+                print(f"    [WARN] AV rice unexpected response: {r.json()}")
         except Exception as e:
             print(f"    [WARN] Alpha Vantage rice failed: {e}")
         return None
@@ -203,9 +210,13 @@ class FoodCollector:
         if wheat:
             results['assets'].append(wheat)
 
+        time.sleep(15)  # respect Alpha Vantage's 5 requests/minute limit
+
         corn = self.get_corn()
         if corn:
             results['assets'].append(corn)
+
+        time.sleep(15)
 
         rice = self.get_rice()
         if rice:
