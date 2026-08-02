@@ -53,7 +53,7 @@ class EnergyCollector:
     def get_brent_oil(self):
         """Try yfinance first (no quota cost), fall back to Alpha Vantage."""
         print("  [BRENT] Trying 2 sources...")
-        price = self._brent_from_yfinance() or self._brent_from_alpha_vantage()
+        price = self._brent_from_alpha_vantage() or self._brent_from_yfinance()
         if price is None:
             print("  [FAIL] All Brent Oil sources failed — skipping today")
             return None
@@ -108,7 +108,7 @@ class EnergyCollector:
     def get_natural_gas(self):
         """Try yfinance first (no quota cost), fall back to Alpha Vantage."""
         print("  [NATGAS] Trying 2 sources...")
-        price = self._natgas_from_yfinance() or self._natgas_from_alpha_vantage()
+        price = self._natgas_from_alpha_vantage() or self._natgas_from_yfinance()
         if price is None:
             print("  [FAIL] All Natural Gas sources failed — skipping today")
             return None
