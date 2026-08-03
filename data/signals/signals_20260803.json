@@ -1,0 +1,66 @@
+{
+  "timestamp": "2026-08-03T12:21:33.161888",
+  "signals": [
+    {
+      "asset": "Brent Oil",
+      "signal": "bearish",
+      "confidence": "high",
+      "momentum": 0.15,
+      "volatility": "High",
+      "current_price": 83.58,
+      "timestamp": "2026-08-03T12:21:33.166992",
+      "reversion_applied": false,
+      "category": "energy"
+    },
+    {
+      "asset": "Natural Gas",
+      "signal": "neutral",
+      "confidence": "low",
+      "reason": "Insufficient data",
+      "category": "energy"
+    },
+    {
+      "asset": "Gold",
+      "signal": "bullish",
+      "confidence": "high",
+      "momentum": 0.96,
+      "volatility": "High",
+      "current_price": 2415.01,
+      "timestamp": "2026-08-03T12:21:33.171992",
+      "reversion_applied": false,
+      "category": "safe_haven"
+    },
+    {
+      "asset": "USD Index",
+      "signal": "neutral",
+      "confidence": "medium",
+      "momentum": 0.42,
+      "volatility": "Low",
+      "current_price": 99.81,
+      "timestamp": "2026-08-03T12:21:33.172100",
+      "reversion_applied": false,
+      "category": "safe_haven"
+    },
+    {
+      "asset": "Wheat",
+      "signal": "neutral",
+      "confidence": "low",
+      "reason": "Insufficient data",
+      "category": "food"
+    },
+    {
+      "asset": "Corn",
+      "signal": "neutral",
+      "confidence": "low",
+      "reason": "Insufficient data",
+      "category": "food"
+    },
+    {
+      "asset": "Rice",
+      "signal": "neutral",
+      "confidence": "low",
+      "reason": "Insufficient data",
+      "category": "food"
+    }
+  ]
+}
