@@ -16354,6 +16354,52 @@
       "notes": null
     },
     {
+      "id": "backtest-gold-20260703",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.52,
+      "prediction_date": "2026-07-03",
+      "current_price": 2457.84,
+      "forecast_30_days": {
+        "target": 2330.62,
+        "lower_bound": 2207.73,
+        "upper_bound": 2453.51
+      },
+      "outcome_date": "2026-08-02",
+      "actual_price": 4043.699951,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 73.5,
+      "evaluated_date": "2026-08-03",
+      "notes": "Actual $4,043.70 landed above the band ($2,207.73\u2013$2,453.51). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-usd-index-20260703",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.01,
+      "prediction_date": "2026-07-03",
+      "current_price": 100.86,
+      "forecast_30_days": {
+        "target": 100.92,
+        "lower_bound": 95.88,
+        "upper_bound": 105.96
+      },
+      "outcome_date": "2026-08-02",
+      "actual_price": 97.16,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 3.73,
+      "evaluated_date": "2026-08-03",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -16460,16 +16506,16 @@
     }
   ],
   "summary": {
-    "total": 716,
+    "total": 718,
     "pending": 5,
-    "completed": 711,
-    "hits": 339,
-    "misses": 372,
+    "completed": 713,
+    "hits": 340,
+    "misses": 373,
     "hit_rate": 47.7,
     "directional_correct": 352,
-    "directional_total": 711,
-    "directional_accuracy": 49.5,
+    "directional_total": 713,
+    "directional_accuracy": 49.4,
     "average_accuracy": 82.1,
-    "last_updated": "2026-08-02"
+    "last_updated": "2026-08-03"
   }
 }
