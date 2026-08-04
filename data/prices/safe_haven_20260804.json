@@ -1,6 +1,6 @@
 {
   "category": "safe_haven",
-  "timestamp": "2026-08-04T10:23:33.074765",
+  "timestamp": "2026-08-04T10:41:59.053575",
   "assets": [
     {
       "asset": "Gold",
@@ -13,9 +13,10 @@
     {
       "asset": "USD Index",
       "symbol": "DXY",
-      "price": 97.33,
+      "price": 100.0,
       "date": "2026-08-04",
-      "timestamp": "2026-08-04T10:24:00.362614"
+      "timestamp": "2026-08-04T10:41:59.053571",
+      "prev_price": 97.33
     }
   ]
 }
