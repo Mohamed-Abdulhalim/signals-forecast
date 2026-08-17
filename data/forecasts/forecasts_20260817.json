@@ -1,0 +1,159 @@
+{
+  "timestamp": "2026-08-17T09:39:31.162319",
+  "forecasts": [
+    {
+      "asset": "Brent Oil",
+      "category": "energy",
+      "current_price": 88.92,
+      "forecast_30_days": {
+        "prediction": 76.29,
+        "lower_bound": 67.14,
+        "upper_bound": 85.43,
+        "confidence": "low"
+      },
+      "forecast_90_days": {
+        "prediction": 60.1,
+        "lower_bound": 44.26,
+        "upper_bound": 75.94,
+        "confidence": "low"
+      },
+      "momentum": 0.0742,
+      "trend": "up",
+      "methodology": "Linear regression with volatility bands",
+      "timestamp": "2026-08-17T09:39:31.165119",
+      "forecast_date": "2026-09-16"
+    },
+    {
+      "asset": "Natural Gas",
+      "category": "energy",
+      "current_price": 2.65,
+      "forecast_30_days": {
+        "prediction": 2.52,
+        "lower_bound": 2.36,
+        "upper_bound": 2.68,
+        "confidence": "low"
+      },
+      "forecast_90_days": {
+        "prediction": 2.21,
+        "lower_bound": 1.93,
+        "upper_bound": 2.49,
+        "confidence": "low"
+      },
+      "momentum": 0.0176,
+      "trend": "neutral",
+      "methodology": "Linear regression with volatility bands",
+      "timestamp": "2026-08-17T09:39:31.167438",
+      "forecast_date": "2026-09-16"
+    },
+    {
+      "asset": "Gold",
+      "category": "safe_haven",
+      "current_price": 2609.62,
+      "forecast_30_days": {
+        "prediction": 2953.28,
+        "lower_bound": 2402.4,
+        "upper_bound": 3504.15,
+        "confidence": "low"
+      },
+      "forecast_90_days": {
+        "prediction": 3485.9,
+        "lower_bound": 2531.75,
+        "upper_bound": 4155.82,
+        "confidence": "low"
+      },
+      "momentum": 0.0211,
+      "trend": "up",
+      "methodology": "Linear regression with volatility bands",
+      "timestamp": "2026-08-17T09:39:31.169741",
+      "forecast_date": "2026-09-16"
+    },
+    {
+      "asset": "USD Index",
+      "category": "safe_haven",
+      "current_price": 99.32,
+      "forecast_30_days": {
+        "prediction": 97.03,
+        "lower_bound": 95.65,
+        "upper_bound": 98.42,
+        "confidence": "medium"
+      },
+      "forecast_90_days": {
+        "prediction": 92.84,
+        "lower_bound": 90.44,
+        "upper_bound": 95.24,
+        "confidence": "medium"
+      },
+      "momentum": 0.0001,
+      "trend": "neutral",
+      "methodology": "Linear regression with volatility bands",
+      "timestamp": "2026-08-17T09:39:31.172200",
+      "forecast_date": "2026-09-16"
+    },
+    {
+      "asset": "Wheat",
+      "category": "food",
+      "current_price": 685.25,
+      "forecast_30_days": {
+        "prediction": 925.09,
+        "lower_bound": 739.79,
+        "upper_bound": 971.34,
+        "confidence": "low"
+      },
+      "forecast_90_days": {
+        "prediction": 1039.3,
+        "lower_bound": 718.36,
+        "upper_bound": 1091.26,
+        "confidence": "low"
+      },
+      "momentum": 0.0469,
+      "trend": "up",
+      "methodology": "Linear regression with volatility bands",
+      "timestamp": "2026-08-17T09:39:31.174313",
+      "forecast_date": "2026-09-16"
+    },
+    {
+      "asset": "Corn",
+      "category": "food",
+      "current_price": 485.25,
+      "forecast_30_days": {
+        "prediction": 655.09,
+        "lower_bound": 541.32,
+        "upper_bound": 687.84,
+        "confidence": "low"
+      },
+      "forecast_90_days": {
+        "prediction": 735.96,
+        "lower_bound": 538.91,
+        "upper_bound": 772.76,
+        "confidence": "low"
+      },
+      "momentum": 0.0357,
+      "trend": "up",
+      "methodology": "Linear regression with volatility bands",
+      "timestamp": "2026-08-17T09:39:31.176396",
+      "forecast_date": "2026-09-16"
+    },
+    {
+      "asset": "Rice",
+      "category": "food",
+      "current_price": 37.1,
+      "forecast_30_days": {
+        "prediction": 37.62,
+        "lower_bound": 37.4,
+        "upper_bound": 37.84,
+        "confidence": "low"
+      },
+      "forecast_90_days": {
+        "prediction": 38.65,
+        "lower_bound": 38.28,
+        "upper_bound": 39.03,
+        "confidence": "low"
+      },
+      "momentum": 0.0038,
+      "trend": "neutral",
+      "methodology": "Linear regression with volatility bands",
+      "timestamp": "2026-08-17T09:39:31.178468",
+      "forecast_date": "2026-09-16"
+    }
+  ]
+}
