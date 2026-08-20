@@ -17136,6 +17136,52 @@
       "notes": null
     },
     {
+      "id": "backtest-gold-20260720",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-07-20",
+      "current_price": 2389.4,
+      "forecast_30_days": {
+        "target": 2921.78,
+        "lower_bound": 2802.31,
+        "upper_bound": 3041.25
+      },
+      "outcome_date": "2026-08-19",
+      "actual_price": 2689.96,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 7.93,
+      "evaluated_date": "2026-08-20",
+      "notes": "Actual $2,689.96 landed below the band ($2,802.31\u2013$3,041.25). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-usd-index-20260720",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.06,
+      "prediction_date": "2026-07-20",
+      "current_price": 100.95,
+      "forecast_30_days": {
+        "target": 100.35,
+        "lower_bound": 95.3,
+        "upper_bound": 105.4
+      },
+      "outcome_date": "2026-08-19",
+      "actual_price": 98.81,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 1.53,
+      "evaluated_date": "2026-08-20",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -17242,16 +17288,16 @@
     }
   ],
   "summary": {
-    "total": 750,
+    "total": 752,
     "pending": 5,
-    "completed": 745,
-    "hits": 364,
-    "misses": 381,
+    "completed": 747,
+    "hits": 365,
+    "misses": 382,
     "hit_rate": 48.9,
-    "directional_correct": 381,
-    "directional_total": 745,
+    "directional_correct": 382,
+    "directional_total": 747,
     "directional_accuracy": 51.1,
     "average_accuracy": 82.7,
-    "last_updated": "2026-08-19"
+    "last_updated": "2026-08-20"
   }
 }
