@@ -1,14 +1,15 @@
 {
   "category": "safe_haven",
-  "timestamp": "2026-08-22T08:14:04.009016",
+  "timestamp": "2026-08-22T08:32:47.062785",
   "assets": [
     {
       "asset": "Gold",
       "symbol": "XAU",
-      "price": 4604.399902,
+      "price": 2751.84,
       "currency": "USD",
       "date": "2026-08-22",
-      "timestamp": "2026-08-22T08:14:14.488769"
+      "timestamp": "2026-08-22T08:32:47.062778",
+      "prev_price": 4604.399902
     }
   ]
 }
