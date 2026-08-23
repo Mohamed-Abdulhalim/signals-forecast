@@ -1,13 +1,14 @@
 {
   "category": "safe_haven",
-  "timestamp": "2026-08-23T08:14:26.233692",
+  "timestamp": "2026-08-23T08:32:45.821567",
   "assets": [
     {
       "asset": "USD Index",
       "symbol": "DXY",
-      "price": 95.9,
+      "price": 98.8,
       "date": "2026-08-23",
-      "timestamp": "2026-08-23T08:14:55.040189"
+      "timestamp": "2026-08-23T08:32:45.821558",
+      "prev_price": 95.9
     }
   ]
 }
