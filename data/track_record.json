@@ -17320,6 +17320,52 @@
       "notes": null
     },
     {
+      "id": "backtest-gold-20260724",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bearish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-07-24",
+      "current_price": 2417.35,
+      "forecast_30_days": {
+        "target": 2116.56,
+        "lower_bound": 1995.69,
+        "upper_bound": 2237.43
+      },
+      "outcome_date": "2026-08-23",
+      "actual_price": 2751.84,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 30.01,
+      "evaluated_date": "2026-08-24",
+      "notes": "Actual $2,751.84 landed above the band ($1,995.69\u2013$2,237.43). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-usd-index-20260724",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.04,
+      "prediction_date": "2026-07-24",
+      "current_price": 101.47,
+      "forecast_30_days": {
+        "target": 101.9,
+        "lower_bound": 96.83,
+        "upper_bound": 106.97
+      },
+      "outcome_date": "2026-08-23",
+      "actual_price": 98.8,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 3.04,
+      "evaluated_date": "2026-08-24",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -17426,16 +17472,16 @@
     }
   ],
   "summary": {
-    "total": 758,
+    "total": 760,
     "pending": 5,
-    "completed": 753,
-    "hits": 368,
-    "misses": 385,
+    "completed": 755,
+    "hits": 369,
+    "misses": 386,
     "hit_rate": 48.9,
     "directional_correct": 383,
-    "directional_total": 753,
-    "directional_accuracy": 50.9,
+    "directional_total": 755,
+    "directional_accuracy": 50.7,
     "average_accuracy": 82.7,
-    "last_updated": "2026-08-23"
+    "last_updated": "2026-08-24"
   }
 }
