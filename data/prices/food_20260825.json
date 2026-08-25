@@ -1,22 +1,24 @@
 {
   "category": "food",
-  "timestamp": "2026-08-25T08:26:44.055811",
+  "timestamp": "2026-08-25T08:45:39.601577",
   "assets": [
     {
       "asset": "Wheat",
       "symbol": "ZW=F",
-      "price": 228.74,
+      "price": 697.25,
       "currency": "USD",
       "date": "2026-08-25",
-      "timestamp": "2026-08-25T08:26:54.106528"
+      "timestamp": "2026-08-25T08:45:39.601552",
+      "prev_price": 228.74
     },
     {
       "asset": "Corn",
       "symbol": "ZC=F",
-      "price": 213.19,
+      "price": 517.25,
       "currency": "USD",
       "date": "2026-08-25",
-      "timestamp": "2026-08-25T08:27:09.157713"
+      "timestamp": "2026-08-25T08:45:39.601566",
+      "prev_price": 213.19
     },
     {
       "asset": "Rice",
@@ -24,7 +26,8 @@
       "price": 37.77,
       "currency": "USD",
       "date": "2026-08-25",
-      "timestamp": "2026-08-25T08:27:25.042494"
+      "timestamp": "2026-08-25T08:45:39.601574",
+      "prev_price": 37.77
     }
   ]
 }
