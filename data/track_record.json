@@ -17435,6 +17435,52 @@
       "notes": null
     },
     {
+      "id": "backtest-gold-20260727",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bearish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-07-27",
+      "current_price": 2435.09,
+      "forecast_30_days": {
+        "target": 2173.47,
+        "lower_bound": 2051.72,
+        "upper_bound": 2295.22
+      },
+      "outcome_date": "2026-08-26",
+      "actual_price": 2738.58,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 26.0,
+      "evaluated_date": "2026-08-27",
+      "notes": "Actual $2,738.58 landed above the band ($2,051.72\u2013$2,295.22). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-usd-index-20260727",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.1,
+      "prediction_date": "2026-07-27",
+      "current_price": 101.52,
+      "forecast_30_days": {
+        "target": 102.54,
+        "lower_bound": 97.46,
+        "upper_bound": 107.62
+      },
+      "outcome_date": "2026-08-26",
+      "actual_price": 99.13,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 3.33,
+      "evaluated_date": "2026-08-27",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -17541,16 +17587,16 @@
     }
   ],
   "summary": {
-    "total": 763,
+    "total": 765,
     "pending": 5,
-    "completed": 758,
-    "hits": 371,
-    "misses": 387,
+    "completed": 760,
+    "hits": 372,
+    "misses": 388,
     "hit_rate": 48.9,
     "directional_correct": 383,
-    "directional_total": 758,
-    "directional_accuracy": 50.5,
-    "average_accuracy": 82.7,
-    "last_updated": "2026-08-26"
+    "directional_total": 760,
+    "directional_accuracy": 50.4,
+    "average_accuracy": 82.8,
+    "last_updated": "2026-08-27"
   }
 }
