@@ -17481,6 +17481,52 @@
       "notes": null
     },
     {
+      "id": "backtest-gold-20260728",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bearish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-07-28",
+      "current_price": 2400.91,
+      "forecast_30_days": {
+        "target": 2145.06,
+        "lower_bound": 2025.01,
+        "upper_bound": 2265.11
+      },
+      "outcome_date": "2026-08-27",
+      "actual_price": 2746.9,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 28.06,
+      "evaluated_date": "2026-08-28",
+      "notes": "Actual $2,746.90 landed above the band ($2,025.01\u2013$2,265.11). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-usd-index-20260728",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.11,
+      "prediction_date": "2026-07-28",
+      "current_price": 101.41,
+      "forecast_30_days": {
+        "target": 102.56,
+        "lower_bound": 97.49,
+        "upper_bound": 107.63
+      },
+      "outcome_date": "2026-08-27",
+      "actual_price": 99.12,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 3.35,
+      "evaluated_date": "2026-08-28",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -17587,16 +17633,16 @@
     }
   ],
   "summary": {
-    "total": 765,
+    "total": 767,
     "pending": 5,
-    "completed": 760,
-    "hits": 372,
-    "misses": 388,
-    "hit_rate": 48.9,
+    "completed": 762,
+    "hits": 373,
+    "misses": 389,
+    "hit_rate": 49.0,
     "directional_correct": 383,
-    "directional_total": 760,
-    "directional_accuracy": 50.4,
+    "directional_total": 762,
+    "directional_accuracy": 50.3,
     "average_accuracy": 82.8,
-    "last_updated": "2026-08-27"
+    "last_updated": "2026-08-28"
   }
 }
