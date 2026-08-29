@@ -1,6 +1,6 @@
 {
   "category": "food",
-  "timestamp": "2026-08-29T19:17:01.967439",
+  "timestamp": "2026-08-29T22:28:59.815068",
   "assets": [
     {
       "asset": "Wheat",
@@ -24,7 +24,7 @@
       "price": 38.94,
       "currency": "USD",
       "date": "2026-08-29",
-      "timestamp": "2026-08-29T19:17:01.967430",
+      "timestamp": "2026-08-29T22:28:59.815064",
       "prev_price": 38.94
     }
   ]
