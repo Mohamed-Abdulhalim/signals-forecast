@@ -1,0 +1,82 @@
+{
+  "timestamp": "2026-08-31T16:43:43.129213",
+  "signals": [
+    {
+      "asset": "Brent Oil",
+      "signal": "bearish",
+      "confidence": "high",
+      "momentum": 0.23,
+      "volatility": "Moderate",
+      "current_price": 88.3,
+      "timestamp": "2026-08-31T16:43:43.133399",
+      "reversion_applied": false,
+      "category": "energy"
+    },
+    {
+      "asset": "Natural Gas",
+      "signal": "bullish",
+      "confidence": "medium",
+      "momentum": 0.64,
+      "volatility": "Moderate",
+      "current_price": 2.92,
+      "timestamp": "2026-08-31T16:43:43.133503",
+      "reversion_applied": false,
+      "category": "energy"
+    },
+    {
+      "asset": "Gold",
+      "signal": "neutral",
+      "confidence": "medium",
+      "momentum": 0.5,
+      "volatility": "Moderate",
+      "current_price": 2638.22,
+      "timestamp": "2026-08-31T16:43:43.137597",
+      "reversion_applied": false,
+      "category": "safe_haven"
+    },
+    {
+      "asset": "USD Index",
+      "signal": "neutral",
+      "confidence": "medium",
+      "momentum": 0.51,
+      "volatility": "Low",
+      "current_price": 99.4,
+      "timestamp": "2026-08-31T16:43:43.137697",
+      "reversion_applied": false,
+      "category": "safe_haven"
+    },
+    {
+      "asset": "Wheat",
+      "signal": "bearish",
+      "confidence": "medium",
+      "momentum": 0.41,
+      "volatility": "High",
+      "current_price": 760.25,
+      "timestamp": "2026-08-31T16:43:43.141529",
+      "reversion_applied": true,
+      "category": "food"
+    },
+    {
+      "asset": "Corn",
+      "signal": "bearish",
+      "confidence": "high",
+      "momentum": 0.37,
+      "volatility": "High",
+      "current_price": 534.5,
+      "timestamp": "2026-08-31T16:43:43.141611",
+      "reversion_applied": true,
+      "category": "food"
+    },
+    {
+      "asset": "Rice",
+      "signal": "bullish",
+      "confidence": "medium",
+      "momentum": 0.6,
+      "volatility": "Low",
+      "current_price": 39.0,
+      "timestamp": "2026-08-31T16:43:43.141691",
+      "reversion_applied": false,
+      "category": "food"
+    }
+  ]
+}
