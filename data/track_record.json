@@ -17803,6 +17803,52 @@
       "notes": null
     },
     {
+      "id": "backtest-gold-20260806",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-08-06",
+      "current_price": 2541.63,
+      "forecast_30_days": {
+        "target": 3256.91,
+        "lower_bound": 3129.83,
+        "upper_bound": 3383.99
+      },
+      "outcome_date": "2026-09-05",
+      "actual_price": 2644.01,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 18.82,
+      "evaluated_date": "2026-09-06",
+      "notes": "Actual $2,644.01 landed below the band ($3,129.83\u2013$3,383.99). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-usd-index-20260806",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.34,
+      "prediction_date": "2026-08-06",
+      "current_price": 99.79,
+      "forecast_30_days": {
+        "target": 96.35,
+        "lower_bound": 91.36,
+        "upper_bound": 101.34
+      },
+      "outcome_date": "2026-09-05",
+      "actual_price": 99.16,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 2.92,
+      "evaluated_date": "2026-09-06",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -17909,16 +17955,16 @@
     }
   ],
   "summary": {
-    "total": 779,
+    "total": 781,
     "pending": 5,
-    "completed": 774,
-    "hits": 377,
-    "misses": 397,
+    "completed": 776,
+    "hits": 378,
+    "misses": 398,
     "hit_rate": 48.7,
-    "directional_correct": 388,
-    "directional_total": 774,
-    "directional_accuracy": 50.1,
+    "directional_correct": 390,
+    "directional_total": 776,
+    "directional_accuracy": 50.3,
     "average_accuracy": 82.8,
-    "last_updated": "2026-09-05"
+    "last_updated": "2026-09-06"
   }
 }
