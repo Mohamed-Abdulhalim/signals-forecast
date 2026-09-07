@@ -1,0 +1,18 @@
+{
+  "category": "energy",
+  "timestamp": "2026-09-07T03:36:37.117618",
+  "assets": [
+    {
+      "asset": "Brent Oil",
+      "price": 96.28,
+      "date": "2026-09-07",
+      "timestamp": "2026-09-07T03:36:37.117640"
+    },
+    {
+      "asset": "Natural Gas",
+      "price": 2.97,
+      "date": "2026-09-07",
+      "timestamp": "2026-09-07T03:36:37.117646"
+    }
+  ]
+}
