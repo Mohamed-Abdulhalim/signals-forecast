@@ -17941,6 +17941,52 @@
       "notes": null
     },
     {
+      "id": "backtest-brent-oil-20260810",
+      "type": "backtest",
+      "asset": "Brent Oil",
+      "signal": "bearish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-08-10",
+      "current_price": 87.86,
+      "forecast_30_days": {
+        "target": 75.97,
+        "lower_bound": 71.58,
+        "upper_bound": 80.36
+      },
+      "outcome_date": "2026-09-09",
+      "actual_price": 102.05,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 34.33,
+      "evaluated_date": "2026-09-10",
+      "notes": "Actual $102.05 landed above the band ($71.58\u2013$80.36). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-usd-index-20260810",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "bearish",
+      "signal_confidence": "low",
+      "momentum_score": 0.1,
+      "prediction_date": "2026-08-10",
+      "current_price": 99.82,
+      "forecast_30_days": {
+        "target": 98.78,
+        "lower_bound": 93.79,
+        "upper_bound": 103.77
+      },
+      "outcome_date": "2026-09-09",
+      "actual_price": 98.78,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.0,
+      "evaluated_date": "2026-09-10",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -18047,16 +18093,16 @@
     }
   ],
   "summary": {
-    "total": 785,
+    "total": 787,
     "pending": 5,
-    "completed": 780,
-    "hits": 379,
-    "misses": 401,
+    "completed": 782,
+    "hits": 380,
+    "misses": 402,
     "hit_rate": 48.6,
-    "directional_correct": 392,
-    "directional_total": 780,
+    "directional_correct": 393,
+    "directional_total": 782,
     "directional_accuracy": 50.3,
     "average_accuracy": 82.8,
-    "last_updated": "2026-09-09"
+    "last_updated": "2026-09-10"
   }
 }
