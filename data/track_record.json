@@ -17987,6 +17987,98 @@
       "notes": null
     },
     {
+      "id": "backtest-brent-oil-20260811",
+      "type": "backtest",
+      "asset": "Brent Oil",
+      "signal": "bearish",
+      "signal_confidence": "high",
+      "momentum_score": 0.75,
+      "prediction_date": "2026-08-11",
+      "current_price": 89.13,
+      "forecast_30_days": {
+        "target": 78.08,
+        "lower_bound": 73.62,
+        "upper_bound": 82.54
+      },
+      "outcome_date": "2026-09-10",
+      "actual_price": 109.17,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 39.82,
+      "evaluated_date": "2026-09-11",
+      "notes": "Actual $109.17 landed above the band ($73.62\u2013$82.54). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-natural-gas-20260811",
+      "type": "backtest",
+      "asset": "Natural Gas",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.39,
+      "prediction_date": "2026-08-11",
+      "current_price": 2.75,
+      "forecast_30_days": {
+        "target": 2.61,
+        "lower_bound": 2.47,
+        "upper_bound": 2.75
+      },
+      "outcome_date": "2026-09-10",
+      "actual_price": 2.84,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 8.81,
+      "evaluated_date": "2026-09-11",
+      "notes": "Actual $2.84 landed above the band ($2.47\u2013$2.75). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-gold-20260811",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.08,
+      "prediction_date": "2026-08-11",
+      "current_price": 2606.24,
+      "forecast_30_days": {
+        "target": 2586.67,
+        "lower_bound": 2456.36,
+        "upper_bound": 2716.98
+      },
+      "outcome_date": "2026-09-10",
+      "actual_price": 2576.34,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.4,
+      "evaluated_date": "2026-09-11",
+      "notes": null
+    },
+    {
+      "id": "backtest-usd-index-20260811",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.06,
+      "prediction_date": "2026-08-11",
+      "current_price": 99.83,
+      "forecast_30_days": {
+        "target": 99.2,
+        "lower_bound": 94.21,
+        "upper_bound": 104.19
+      },
+      "outcome_date": "2026-09-10",
+      "actual_price": 99.09,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.11,
+      "evaluated_date": "2026-09-11",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -18093,16 +18185,16 @@
     }
   ],
   "summary": {
-    "total": 787,
+    "total": 791,
     "pending": 5,
-    "completed": 782,
-    "hits": 380,
-    "misses": 402,
+    "completed": 786,
+    "hits": 382,
+    "misses": 404,
     "hit_rate": 48.6,
-    "directional_correct": 393,
-    "directional_total": 782,
+    "directional_correct": 395,
+    "directional_total": 786,
     "directional_accuracy": 50.3,
     "average_accuracy": 82.8,
-    "last_updated": "2026-09-10"
+    "last_updated": "2026-09-11"
   }
 }
