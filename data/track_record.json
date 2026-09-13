@@ -18240,6 +18240,144 @@
       "notes": "Actual $38.69 landed above the band ($34.81\u2013$38.53). \u2717 direction wrong."
     },
     {
+      "id": "backtest-brent-oil-20260813",
+      "type": "backtest",
+      "asset": "Brent Oil",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.43,
+      "prediction_date": "2026-08-13",
+      "current_price": 86.95,
+      "forecast_30_days": {
+        "target": 86.03,
+        "lower_bound": 81.68,
+        "upper_bound": 90.38
+      },
+      "outcome_date": "2026-09-12",
+      "actual_price": 104.61,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 21.6,
+      "evaluated_date": "2026-09-13",
+      "notes": "Actual $104.61 landed above the band ($81.68\u2013$90.38). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-natural-gas-20260813",
+      "type": "backtest",
+      "asset": "Natural Gas",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.11,
+      "prediction_date": "2026-08-13",
+      "current_price": 2.73,
+      "forecast_30_days": {
+        "target": 2.73,
+        "lower_bound": 2.59,
+        "upper_bound": 2.87
+      },
+      "outcome_date": "2026-09-12",
+      "actual_price": 2.83,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 3.66,
+      "evaluated_date": "2026-09-13",
+      "notes": null
+    },
+    {
+      "id": "backtest-usd-index-20260813",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.02,
+      "prediction_date": "2026-08-13",
+      "current_price": 99.97,
+      "forecast_30_days": {
+        "target": 100.21,
+        "lower_bound": 95.21,
+        "upper_bound": 105.21
+      },
+      "outcome_date": "2026-09-12",
+      "actual_price": 99.12,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.09,
+      "evaluated_date": "2026-09-13",
+      "notes": null
+    },
+    {
+      "id": "backtest-wheat-20260813",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-08-13",
+      "current_price": 668.5,
+      "forecast_30_days": {
+        "target": 612.5,
+        "lower_bound": 579.08,
+        "upper_bound": 645.92
+      },
+      "outcome_date": "2026-09-12",
+      "actual_price": 707.0,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 15.43,
+      "evaluated_date": "2026-09-13",
+      "notes": "Actual $707.00 landed above the band ($579.08\u2013$645.92). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-corn-20260813",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-08-13",
+      "current_price": 472.25,
+      "forecast_30_days": {
+        "target": 449.35,
+        "lower_bound": 425.74,
+        "upper_bound": 472.96
+      },
+      "outcome_date": "2026-09-12",
+      "actual_price": 510.25,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 13.55,
+      "evaluated_date": "2026-09-13",
+      "notes": "Actual $510.25 landed above the band ($425.74\u2013$472.96). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-rice-20260813",
+      "type": "backtest",
+      "asset": "Rice",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.05,
+      "prediction_date": "2026-08-13",
+      "current_price": 36.85,
+      "forecast_30_days": {
+        "target": 37.07,
+        "lower_bound": 35.23,
+        "upper_bound": 38.91
+      },
+      "outcome_date": "2026-09-12",
+      "actual_price": 38.69,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 4.37,
+      "evaluated_date": "2026-09-13",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -18346,16 +18484,16 @@
     }
   ],
   "summary": {
-    "total": 798,
+    "total": 804,
     "pending": 5,
-    "completed": 793,
-    "hits": 384,
-    "misses": 409,
+    "completed": 799,
+    "hits": 387,
+    "misses": 412,
     "hit_rate": 48.4,
-    "directional_correct": 399,
-    "directional_total": 793,
-    "directional_accuracy": 50.3,
+    "directional_correct": 404,
+    "directional_total": 799,
+    "directional_accuracy": 50.6,
     "average_accuracy": 82.9,
-    "last_updated": "2026-09-12"
+    "last_updated": "2026-09-13"
   }
 }
