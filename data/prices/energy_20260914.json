@@ -1,22 +1,22 @@
 {
   "category": "energy",
-  "timestamp": "2026-09-14T14:50:07.768739",
+  "timestamp": "2026-09-14T20:11:30.572566",
   "assets": [
     {
       "asset": "Brent Oil",
       "symbol": "BRENT",
-      "price": 108.82,
+      "price": 106.24,
       "date": "2026-09-14",
-      "timestamp": "2026-09-14T14:50:07.768725",
-      "prev_price": 109.51
+      "timestamp": "2026-09-14T20:11:30.572552",
+      "prev_price": 108.82
     },
     {
       "asset": "Natural Gas",
       "symbol": "NATGAS",
-      "price": 2.89,
+      "price": 2.87,
       "date": "2026-09-14",
-      "timestamp": "2026-09-14T14:50:07.768735",
-      "prev_price": 2.81
+      "timestamp": "2026-09-14T20:11:30.572562",
+      "prev_price": 2.89
     }
   ]
 }
