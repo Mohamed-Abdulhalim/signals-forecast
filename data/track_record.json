@@ -18976,6 +18976,144 @@
       "notes": null
     },
     {
+      "id": "backtest-brent-oil-20260818",
+      "type": "backtest",
+      "asset": "Brent Oil",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-08-18",
+      "current_price": 91.07,
+      "forecast_30_days": {
+        "target": 101.83,
+        "lower_bound": 97.28,
+        "upper_bound": 106.38
+      },
+      "outcome_date": "2026-09-17",
+      "actual_price": 104.08,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 2.21,
+      "evaluated_date": "2026-09-18",
+      "notes": null
+    },
+    {
+      "id": "backtest-natural-gas-20260818",
+      "type": "backtest",
+      "asset": "Natural Gas",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.1,
+      "prediction_date": "2026-08-18",
+      "current_price": 2.78,
+      "forecast_30_days": {
+        "target": 2.81,
+        "lower_bound": 2.67,
+        "upper_bound": 2.95
+      },
+      "outcome_date": "2026-09-17",
+      "actual_price": 2.86,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 1.78,
+      "evaluated_date": "2026-09-18",
+      "notes": null
+    },
+    {
+      "id": "backtest-usd-index-20260818",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.01,
+      "prediction_date": "2026-08-18",
+      "current_price": 99.68,
+      "forecast_30_days": {
+        "target": 99.54,
+        "lower_bound": 94.56,
+        "upper_bound": 104.52
+      },
+      "outcome_date": "2026-09-17",
+      "actual_price": 100.24,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.7,
+      "evaluated_date": "2026-09-18",
+      "notes": null
+    },
+    {
+      "id": "backtest-wheat-20260818",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-08-18",
+      "current_price": 677.0,
+      "forecast_30_days": {
+        "target": 762.85,
+        "lower_bound": 729.0,
+        "upper_bound": 796.7
+      },
+      "outcome_date": "2026-09-17",
+      "actual_price": 725.75,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 4.86,
+      "evaluated_date": "2026-09-18",
+      "notes": "Actual $725.75 landed below the band ($729.00\u2013$796.70). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-corn-20260818",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 0.65,
+      "prediction_date": "2026-08-18",
+      "current_price": 487.75,
+      "forecast_30_days": {
+        "target": 519.34,
+        "lower_bound": 494.95,
+        "upper_bound": 543.73
+      },
+      "outcome_date": "2026-09-17",
+      "actual_price": 531.0,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 2.25,
+      "evaluated_date": "2026-09-18",
+      "notes": null
+    },
+    {
+      "id": "backtest-rice-20260818",
+      "type": "backtest",
+      "asset": "Rice",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.11,
+      "prediction_date": "2026-08-18",
+      "current_price": 37.44,
+      "forecast_30_days": {
+        "target": 37.84,
+        "lower_bound": 35.97,
+        "upper_bound": 39.71
+      },
+      "outcome_date": "2026-09-17",
+      "actual_price": 38.0,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 0.42,
+      "evaluated_date": "2026-09-18",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -19082,16 +19220,16 @@
     }
   ],
   "summary": {
-    "total": 830,
+    "total": 836,
     "pending": 5,
-    "completed": 825,
-    "hits": 399,
-    "misses": 426,
-    "hit_rate": 48.4,
-    "directional_correct": 426,
-    "directional_total": 825,
-    "directional_accuracy": 51.6,
-    "average_accuracy": 83.2,
-    "last_updated": "2026-09-17"
+    "completed": 831,
+    "hits": 404,
+    "misses": 427,
+    "hit_rate": 48.6,
+    "directional_correct": 431,
+    "directional_total": 831,
+    "directional_accuracy": 51.9,
+    "average_accuracy": 83.3,
+    "last_updated": "2026-09-18"
   }
 }
