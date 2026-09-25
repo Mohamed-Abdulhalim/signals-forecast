@@ -20034,6 +20034,121 @@
       "notes": null
     },
     {
+      "id": "backtest-brent-oil-20260825",
+      "type": "backtest",
+      "asset": "Brent Oil",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-08-25",
+      "current_price": 85.09,
+      "forecast_30_days": {
+        "target": 93.7,
+        "lower_bound": 89.45,
+        "upper_bound": 97.95
+      },
+      "outcome_date": "2026-09-24",
+      "actual_price": 106.45,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 13.61,
+      "evaluated_date": "2026-09-25",
+      "notes": "Actual $106.45 landed above the band ($89.45\u2013$97.95). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-natural-gas-20260825",
+      "type": "backtest",
+      "asset": "Natural Gas",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.3,
+      "prediction_date": "2026-08-25",
+      "current_price": 2.84,
+      "forecast_30_days": {
+        "target": 2.92,
+        "lower_bound": 2.78,
+        "upper_bound": 3.06
+      },
+      "outcome_date": "2026-09-24",
+      "actual_price": 3.27,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 11.99,
+      "evaluated_date": "2026-09-25",
+      "notes": "Actual $3.27 landed above the band ($2.78\u2013$3.06). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-gold-20260825",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 0.95,
+      "prediction_date": "2026-08-25",
+      "current_price": 2782.45,
+      "forecast_30_days": {
+        "target": 3046.8,
+        "lower_bound": 2907.68,
+        "upper_bound": 3185.92
+      },
+      "outcome_date": "2026-09-24",
+      "actual_price": 2545.99,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 16.44,
+      "evaluated_date": "2026-09-25",
+      "notes": "Actual $2,545.99 landed below the band ($2,907.68\u2013$3,185.92). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-usd-index-20260825",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "bearish",
+      "signal_confidence": "low",
+      "momentum_score": 0.18,
+      "prediction_date": "2026-08-25",
+      "current_price": 98.88,
+      "forecast_30_days": {
+        "target": 97.13,
+        "lower_bound": 92.19,
+        "upper_bound": 102.07
+      },
+      "outcome_date": "2026-09-24",
+      "actual_price": 101.25,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 4.24,
+      "evaluated_date": "2026-09-25",
+      "notes": null
+    },
+    {
+      "id": "backtest-rice-20260825",
+      "type": "backtest",
+      "asset": "Rice",
+      "signal": "bullish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.35,
+      "prediction_date": "2026-08-25",
+      "current_price": 37.74,
+      "forecast_30_days": {
+        "target": 39.05,
+        "lower_bound": 37.16,
+        "upper_bound": 40.94
+      },
+      "outcome_date": "2026-09-24",
+      "actual_price": 38.06,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 2.54,
+      "evaluated_date": "2026-09-25",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -20140,16 +20255,16 @@
     }
   ],
   "summary": {
-    "total": 876,
+    "total": 881,
     "pending": 5,
-    "completed": 871,
-    "hits": 425,
-    "misses": 446,
-    "hit_rate": 48.8,
-    "directional_correct": 460,
-    "directional_total": 871,
-    "directional_accuracy": 52.8,
+    "completed": 876,
+    "hits": 427,
+    "misses": 449,
+    "hit_rate": 48.7,
+    "directional_correct": 463,
+    "directional_total": 876,
+    "directional_accuracy": 52.9,
     "average_accuracy": 83.8,
-    "last_updated": "2026-09-24"
+    "last_updated": "2026-09-25"
   }
 }
