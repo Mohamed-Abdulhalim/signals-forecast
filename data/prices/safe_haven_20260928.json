@@ -1,18 +1,21 @@
 {
   "category": "safe_haven",
-  "timestamp": "2026-09-28T04:24:21.504476",
+  "timestamp": "2026-09-28T16:07:59.901004",
   "assets": [
     {
       "asset": "Gold",
-      "price": 2557.16,
+      "symbol": "XAU",
+      "price": 4124.0,
+      "currency": "USD",
       "date": "2026-09-28",
-      "timestamp": "2026-09-28T04:24:21.504487"
+      "timestamp": "2026-09-28T16:08:10.196142"
     },
     {
       "asset": "USD Index",
-      "price": 101.1,
+      "symbol": "DXY",
+      "price": 98.32,
       "date": "2026-09-28",
-      "timestamp": "2026-09-28T04:24:21.504492"
+      "timestamp": "2026-09-28T16:08:26.827947"
     }
   ]
 }
