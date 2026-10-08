@@ -21989,6 +21989,167 @@
       "notes": "Actual $508.50 landed below the band ($603.65\u2013$657.33). \u2717 direction wrong."
     },
     {
+      "id": "backtest-brent-oil-20260907",
+      "type": "backtest",
+      "asset": "Brent Oil",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-09-07",
+      "current_price": 97.29,
+      "forecast_30_days": {
+        "target": 110.76,
+        "lower_bound": 105.9,
+        "upper_bound": 115.62
+      },
+      "outcome_date": "2026-10-07",
+      "actual_price": 100.92,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": true,
+      "error_pct": 8.88,
+      "evaluated_date": "2026-10-08",
+      "notes": "Actual $100.92 landed below the band ($105.90\u2013$115.62). \u2713 direction correct."
+    },
+    {
+      "id": "backtest-natural-gas-20260907",
+      "type": "backtest",
+      "asset": "Natural Gas",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 0.68,
+      "prediction_date": "2026-09-07",
+      "current_price": 2.98,
+      "forecast_30_days": {
+        "target": 3.18,
+        "lower_bound": 3.03,
+        "upper_bound": 3.33
+      },
+      "outcome_date": "2026-10-07",
+      "actual_price": 3.22,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 1.26,
+      "evaluated_date": "2026-10-08",
+      "notes": null
+    },
+    {
+      "id": "backtest-gold-20260907",
+      "type": "backtest",
+      "asset": "Gold",
+      "signal": "bearish",
+      "signal_confidence": "medium",
+      "momentum_score": 0.42,
+      "prediction_date": "2026-09-07",
+      "current_price": 2644.01,
+      "forecast_30_days": {
+        "target": 2532.93,
+        "lower_bound": 2400.73,
+        "upper_bound": 2665.13
+      },
+      "outcome_date": "2026-10-07",
+      "actual_price": 2443.22,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": true,
+      "error_pct": 3.54,
+      "evaluated_date": "2026-10-08",
+      "notes": null
+    },
+    {
+      "id": "backtest-usd-index-20260907",
+      "type": "backtest",
+      "asset": "USD Index",
+      "signal": "neutral",
+      "signal_confidence": "low",
+      "momentum_score": 0.02,
+      "prediction_date": "2026-09-07",
+      "current_price": 99.18,
+      "forecast_30_days": {
+        "target": 98.99,
+        "lower_bound": 94.03,
+        "upper_bound": 103.95
+      },
+      "outcome_date": "2026-10-07",
+      "actual_price": 102.28,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 3.32,
+      "evaluated_date": "2026-10-08",
+      "notes": null
+    },
+    {
+      "id": "backtest-wheat-20260907",
+      "type": "backtest",
+      "asset": "Wheat",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-09-07",
+      "current_price": 716.0,
+      "forecast_30_days": {
+        "target": 809.83,
+        "lower_bound": 774.03,
+        "upper_bound": 845.63
+      },
+      "outcome_date": "2026-10-07",
+      "actual_price": 686.0,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 15.29,
+      "evaluated_date": "2026-10-08",
+      "notes": "Actual $686.00 landed below the band ($774.03\u2013$845.63). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-corn-20260907",
+      "type": "backtest",
+      "asset": "Corn",
+      "signal": "bullish",
+      "signal_confidence": "high",
+      "momentum_score": 1.0,
+      "prediction_date": "2026-09-07",
+      "current_price": 512.0,
+      "forecast_30_days": {
+        "target": 584.03,
+        "lower_bound": 558.43,
+        "upper_bound": 609.63
+      },
+      "outcome_date": "2026-10-07",
+      "actual_price": 502.0,
+      "status": "completed",
+      "result": "miss",
+      "direction_correct": false,
+      "error_pct": 14.05,
+      "evaluated_date": "2026-10-08",
+      "notes": "Actual $502.00 landed below the band ($558.43\u2013$609.63). \u2717 direction wrong."
+    },
+    {
+      "id": "backtest-rice-20260907",
+      "type": "backtest",
+      "asset": "Rice",
+      "signal": "bullish",
+      "signal_confidence": "low",
+      "momentum_score": 0.15,
+      "prediction_date": "2026-09-07",
+      "current_price": 38.65,
+      "forecast_30_days": {
+        "target": 39.23,
+        "lower_bound": 37.3,
+        "upper_bound": 41.16
+      },
+      "outcome_date": "2026-10-07",
+      "actual_price": 38.07,
+      "status": "completed",
+      "result": "hit",
+      "direction_correct": false,
+      "error_pct": 2.96,
+      "evaluated_date": "2026-10-08",
+      "notes": null
+    },
+    {
       "id": "brent-oil-20260313",
       "asset": "Brent Oil",
       "category": "energy",
@@ -22095,16 +22256,16 @@
     }
   ],
   "summary": {
-    "total": 961,
+    "total": 968,
     "pending": 5,
-    "completed": 956,
-    "hits": 460,
-    "misses": 496,
-    "hit_rate": 48.1,
-    "directional_correct": 502,
-    "directional_total": 956,
-    "directional_accuracy": 52.5,
+    "completed": 963,
+    "hits": 464,
+    "misses": 499,
+    "hit_rate": 48.2,
+    "directional_correct": 505,
+    "directional_total": 963,
+    "directional_accuracy": 52.4,
     "average_accuracy": 84.3,
-    "last_updated": "2026-10-07"
+    "last_updated": "2026-10-08"
   }
 }
