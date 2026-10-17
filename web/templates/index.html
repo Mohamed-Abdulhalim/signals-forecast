@@ -55,7 +55,7 @@
           <h3>{{ a.name }}</h3>
         </div>
         {% if f %}
-        <span class="trend-badge {{ f.trend }}" title="Direction of the last {{ trend_days }} trading days">
+        <span class="trend-badge {{ f.trend }}" title="Direction over the last {{ trend_days }} trading days. This describes the past; as a predictor it has been right {{ a.backtest.trend }}% of the time.">
           {% if f.trend == 'up' %}↑ Uptrend{% else %}↓ Downtrend{% endif %}
           <small>{{ f.strength }}</small>
         </span>

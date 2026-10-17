@@ -64,3 +64,16 @@ def test_api_and_outage(client, monkeypatch):
     r = client.get("/")
     assert r.status_code == 200
     assert "temporarily unavailable" in r.get_data(as_text=True)
+
+
+def test_empty_response_is_not_cached(monkeypatch):
+    web._cache.clear()
+    calls = []
+
+    def rpc(name):
+        calls.append(name)
+        return [] if len(calls) == 1 else DASH
+
+    monkeypatch.setattr(web, "_rpc", rpc)
+    assert web.cached("dashboard") == []
+    assert web.cached("dashboard") == DASH

@@ -39,7 +39,8 @@ def cached(name):
         value = _rpc(name)
     except Exception:
         return hit[1] if hit else None
-    _cache[name] = (now, value)
+    if value:
+        _cache[name] = (now, value)
     return value
 
 
