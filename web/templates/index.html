@@ -28,7 +28,7 @@
   </div>
   <div class="score-box">
     <span class="score-label">Trend signal right</span>
-    <span class="score-value">{{ bt.trend }}%</span>
+    <span class="score-value muted">{{ bt.trend }}%</span>
     <span class="score-note">coin flip 50% · "always up" {{ bt.up }}%</span>
   </div>
   <div class="score-box">
@@ -48,19 +48,16 @@
   <div class="mkt-grid">
     {% for a in assets %}
     {% set f = a.forecast %}
-    <article class="mkt-card {% if f %}trend-{{ f.trend }}{% endif %}" id="{{ a.slug }}">
+    <article class="mkt-card" id="{{ a.slug }}">
       <div class="mkt-head">
-        <div>
-          <span class="mkt-cat">{{ a.category }}</span>
-          <h3>{{ a.name }}</h3>
-        </div>
+        <span class="mkt-cat">{{ a.category }}</span>
         {% if f %}
         <span class="trend-badge {{ f.trend }}" title="Direction over the last {{ trend_days }} trading days. This describes the past; as a predictor it has been right {{ a.backtest.trend }}% of the time.">
-          {% if f.trend == 'up' %}↑ Uptrend{% else %}↓ Downtrend{% endif %}
-          <small>{{ f.strength }}</small>
+          {% if f.trend == 'up' %}↑{% else %}↓{% endif %} 3-month trend · {{ f.strength }}
         </span>
         {% endif %}
       </div>
+      <h3 class="mkt-name">{{ a.name }}</h3>
       <div class="mkt-price">
         <span class="mkt-value">{{ a.price }}</span>
         <span class="mkt-unit">{{ a.unit }}</span>

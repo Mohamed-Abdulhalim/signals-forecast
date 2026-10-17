@@ -46,7 +46,7 @@
     </div>
     <div class="score-box">
       <span class="score-label">Trend signal right</span>
-      <span class="score-value">{{ t.trend }}%</span>
+      <span class="score-value muted">{{ t.trend }}%</span>
       <span class="score-note">coin flip 50% · "always up" {{ t.up }}%</span>
     </div>
     <div class="score-box">
@@ -83,7 +83,7 @@
 </section>
 {% endfor %}
 
-<section class="reveal">
+<section>
   <div class="section-header">
     <h2>Recent forecasts</h2>
     <span class="section-meta">Live first, then the latest backtests</span>
@@ -117,6 +117,7 @@
       </tbody>
     </table>
   </div>
+  <button type="button" class="more-btn" id="more">Show more</button>
   <p class="section-note">The earlier version of EdgePulse (linear-regression price targets, retired October 2026) lost to a "no change" forecast and its data had errors, so its record is not carried over.</p>
 </section>
 {% endblock %}
@@ -124,17 +125,28 @@
 {% block scripts %}
 <script>
   (function () {
+    const PAGE = 25;
     const kind = document.getElementById('f-kind');
     const asset = document.getElementById('f-asset');
-    const rows = document.querySelectorAll('#recent tbody tr');
+    const more = document.getElementById('more');
+    const rows = Array.from(document.querySelectorAll('#recent tbody tr'));
+    let limit = PAGE;
     function apply() {
+      let shown = 0, matching = 0;
       rows.forEach(r => {
         const ok = (!kind.value || r.dataset.kind === kind.value) && (!asset.value || r.dataset.asset === asset.value);
-        r.style.display = ok ? '' : 'none';
+        if (ok) matching++;
+        const visible = ok && shown < limit;
+        if (visible) shown++;
+        r.style.display = visible ? '' : 'none';
       });
+      more.hidden = matching <= limit;
+      more.textContent = `Show more (${matching - shown} left)`;
     }
-    kind.addEventListener('change', apply);
-    asset.addEventListener('change', apply);
+    kind.addEventListener('change', () => { limit = PAGE; apply(); });
+    asset.addEventListener('change', () => { limit = PAGE; apply(); });
+    more.addEventListener('click', () => { limit += PAGE * 2; apply(); });
+    apply();
   })();
 </script>
 {% endblock %}
