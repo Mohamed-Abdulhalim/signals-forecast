@@ -1,63 +1,10 @@
-# Environment
 .env
 venv/
-env/
-ENV/
-
-# Python
 __pycache__/
 *.py[cod]
-*$py.class
-*.so
-.Python
-
-# Environment
-.env
-venv/
-env/
-ENV/
-
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-
-# IDE
+.pytest_cache/
 .vscode/
 .idea/
-*.swp
-*.swo
-*~
-
-# OS
 .DS_Store
-Thumbs.db
-
-# Logs
 *.log
-
-# Distribution
-build/
-dist/
-*.egg-info/
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Logs
-*.log
-
-# Distribution
-build/
-dist/
-*.egg-info/
+.vercel

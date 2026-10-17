@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 — Signal Not Found — EdgePulse</title>
-    <link rel="stylesheet" href="/static/style.css">
-    <style>
+{% extends "base.html" %}
+{% block title %}Not found · EdgePulse{% endblock %}
+{% block head %}
+<style>
         .error-page {
             min-height: 60vh;
             display: flex;
@@ -83,40 +79,16 @@
             color: var(--gold, #c9a84c);
         }
     </style>
-</head>
-<body>
-    <nav>
-        <div class="container">
-            <a href="/" class="logo">EDGEPULSE</a>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/signals">Signals</a></li>
-                <li><a href="/forecasts">Forecasts</a></li>
-                <li><a href="/track-record">Track Record</a></li>
-                <li><a href="/methodology">Methodology</a></li>
-                <li><a href="/work-with-me">Work With Me</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <main class="container">
+{% endblock %}
+{% block content %}
         <div class="error-page">
             <div class="error-code">404</div>
-            <h1 class="error-title">Signal Not Found</h1>
+            <h1 class="error-title">Page not found</h1>
             <p class="error-subtitle">This page does not exist</p>
             <div class="error-divider"></div>
             <div class="error-actions">
                 <a href="/" class="error-btn-primary">Return to Dashboard</a>
-                <a href="/signals" class="error-btn-secondary">View Signals</a>
+                <a href="/track-record" class="error-btn-secondary">Track record</a>
             </div>
         </div>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p class="footer-sources">PRICES VIA YAHOO FINANCE · METALS.LIVE · ALPHA VANTAGE</p>
-            <p class="footer-copy">© 2026 EdgePulse. Independent market intelligence.</p>
-        </div>
-    </footer>
-</body>
-</html>
+{% endblock %}

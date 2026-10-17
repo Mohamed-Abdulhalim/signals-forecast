@@ -1,614 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prediction Track Record — EdgePulse</title>
-    <link rel="stylesheet" href="/static/style.css">
-    <style>
-        /* ── Filter bar ─────────────────────────────── */
-        .tr-filter-bar {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            align-items: center;
-            margin: 1.75rem 0 1.25rem;
-        }
-        .tr-filter-label {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.65rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-right: 0.25rem;
-        }
-        .tr-filter-btn {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.65rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 0.3rem 0.8rem;
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--border-subtle);
-            background: transparent;
-            color: var(--text-muted);
-            cursor: pointer;
-            transition: all var(--transition);
-        }
-        .tr-filter-btn:hover {
-            border-color: var(--border-mid);
-            color: var(--text-secondary);
-        }
-        .tr-filter-btn.active {
-            background: var(--gold-glow);
-            border-color: var(--gold-dim);
-            color: var(--gold);
-        }
-        .tr-filter-sep {
-            width: 1px;
-            height: 18px;
-            background: var(--border-subtle);
-            margin: 0 0.25rem;
-        }
-        .tr-asset-select {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.65rem;
-            letter-spacing: 0.08em;
-            background: var(--bg-inset);
-            border: 1px solid var(--border-subtle);
-            color: var(--text-muted);
-            padding: 0.3rem 0.7rem;
-            border-radius: var(--radius-sm);
-            cursor: pointer;
-            outline: none;
-        }
-        .tr-asset-select:focus {
-            border-color: var(--gold-dim);
-        }
-        .tr-asset-select option {
-            background: #111;
-        }
+{% extends "base.html" %}
+{% block title %}Track record · EdgePulse{% endblock %}
+{% block description %}Every EdgePulse forecast, scored: how often the one-month price ranges held and how often the trend signal was right, compared with simple baselines.{% endblock %}
 
-        /* ── Table meta row ─────────────────────────── */
-        .tr-meta-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-        .tr-count {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.68rem;
-            color: var(--text-muted);
-            letter-spacing: 0.08em;
-        }
-        .tr-sort-wrap {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-        .tr-sort-wrap label {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.65rem;
-            color: var(--text-muted);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-        .tr-sort-select {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.65rem;
-            background: var(--bg-inset);
-            border: 1px solid var(--border-subtle);
-            color: var(--text-secondary);
-            padding: 0.28rem 0.6rem;
-            border-radius: var(--radius-sm);
-            cursor: pointer;
-            outline: none;
-        }
+{% block content %}
+<header class="page-header">
+  <div class="page-header-left">
+    <h1>Track record</h1>
+    <p class="page-subtitle">Every forecast is saved before its outcome is known, then checked automatically {{ horizon_days }} days later.</p>
+  </div>
+</header>
 
-        /* ── Prediction rows ────────────────────────── */
-        #predictions-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1px;
-            background: var(--border-subtle);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-        }
+{% if unavailable %}
+<section class="v2-notice">The track record is temporarily unavailable. Please try again in a few minutes.</section>
+{% endif %}
 
-        .pred-row {
-            background: var(--bg-card);
-            padding: 1.25rem 1.75rem;
-            display: grid;
-            grid-template-columns: 72px 160px 130px 1fr 1fr 110px 90px;
-            gap: 1rem;
-            align-items: center;
-            transition: background var(--transition);
-            border-left: 2px solid transparent;
-        }
-        .pred-row:hover { background: var(--bg-card-hover); }
-        .pred-row.result-hit     { border-left-color: var(--bullish); }
-        .pred-row.result-miss    { border-left-color: var(--bearish); }
-        .pred-row.result-pending { border-left-color: var(--gold-dim); }
+<section class="reveal">
+  <div class="section-header">
+    <h2>What is being tested</h2>
+  </div>
+  <div class="tr-explain">
+    <div>
+      <h3>The {{ coverage_pct }}% range</h3>
+      <p>Each forecast gives a low and a high price for {{ horizon_days }} days later. If the method is honest, the actual price should land inside about {{ coverage_pct }}% of the time. Much lower means the ranges are too narrow; much higher means they are too wide to be useful.</p>
+    </div>
+    <div>
+      <h3>The trend signal</h3>
+      <p>"Uptrend" means the price is higher than {{ trend_days }} trading days ago. The test is whether the price is higher again {{ horizon_days }} days later. A coin flip scores 50%. Always saying "up" scores whatever share of months happened to rise, so that is the bar to beat.</p>
+    </div>
+  </div>
+</section>
 
-        .pred-cell {
-            display: flex;
-            flex-direction: column;
-            gap: 0.2rem;
-        }
-        .pred-cell-label {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.6rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-        }
-        .pred-cell-value {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.82rem;
-            color: var(--text-primary);
-            font-weight: 400;
-        }
-        .pred-cell-sub {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.68rem;
-            color: var(--text-muted);
-        }
+{% for kind, label, note in [('live', 'Live forecasts', 'Made every weekday since ' ~ live_start ~ ', before the outcome was known.'), ('backtest', 'Backtest', 'The same code run on past data, one forecast a week per market, using only the prices available on that day.')] %}
+{% set t = track[kind] %}
+<section class="reveal">
+  <div class="section-header">
+    <h2>{{ label }}</h2>
+    <span class="section-meta">{{ note }}</span>
+  </div>
+  {% if t.completed %}
+  <div class="score-strip">
+    <div class="score-box">
+      <span class="score-label">Ranges that held</span>
+      <span class="score-value">{{ t.range }}%</span>
+      <span class="score-note">target {{ coverage_pct }}%</span>
+    </div>
+    <div class="score-box">
+      <span class="score-label">Trend signal right</span>
+      <span class="score-value">{{ t.trend }}%</span>
+      <span class="score-note">coin flip 50% · "always up" {{ t.up }}%</span>
+    </div>
+    <div class="score-box">
+      <span class="score-label">Scored</span>
+      <span class="score-value">{{ "{:,}".format(t.completed) }}</span>
+      <span class="score-note">{{ t.pending }} still open</span>
+    </div>
+  </div>
+  {% elif t.pending %}
+  <p class="section-note">{{ t.pending }} forecasts are waiting for their outcome date. The first ones are scored {{ horizon_days }} days after {{ t.first_on }}.</p>
+  {% else %}
+  <p class="section-note">Nothing here yet.</p>
+  {% endif %}
 
-        /* Type badge */
-        .type-badge {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.58rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 0.2rem 0.5rem;
-            border-radius: var(--radius-sm);
-        }
-        .type-badge.live {
-            background: rgba(201,168,76,0.1);
-            color: var(--gold);
-            border: 1px solid var(--gold-dim);
-        }
-        .type-badge.backtest {
-            background: rgba(100,149,237,0.1);
-            color: #6495ed;
-            border: 1px solid rgba(100,149,237,0.3);
-        }
+  {% set rows = track.per_asset | selectattr('kind', 'equalto', kind) | selectattr('completed') | list %}
+  {% if rows %}
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <thead><tr><th>Market</th><th>Scored</th><th>Range held</th><th>Trend right</th><th>"Always up"</th></tr></thead>
+      <tbody>
+        {% for r in rows %}
+        <tr>
+          <td>{{ r.asset }}</td>
+          <td>{{ "{:,}".format(r.completed) }}</td>
+          <td class="{% if r.range is not none and (r.range - coverage_pct) | abs > 7 %}warn{% endif %}">{{ r.range }}%</td>
+          <td class="{% if r.trend is not none and r.up is not none and r.trend > r.best_constant %}good{% endif %}">{{ r.trend }}%</td>
+          <td>{{ r.up }}%</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% endif %}
+</section>
+{% endfor %}
 
-        /* Signal badge — uses existing .signal-badge styles + inline */
-        .signal-pill {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.68rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 0.25rem 0.6rem;
-            border-radius: var(--radius-sm);
-            display: inline-block;
-        }
-        .signal-pill.bullish {
-            background: var(--bullish-dim);
-            color: var(--bullish-text);
-            border: 1px solid rgba(61,122,86,0.3);
-        }
-        .signal-pill.bearish {
-            background: var(--bearish-dim);
-            color: var(--bearish-text);
-            border: 1px solid rgba(122,61,61,0.3);
-        }
-        .signal-pill.neutral {
-            background: var(--neutral-dim);
-            color: var(--neutral-text);
-            border: 1px solid var(--border-subtle);
-        }
+<section class="reveal">
+  <div class="section-header">
+    <h2>Recent forecasts</h2>
+    <span class="section-meta">Live first, then the latest backtests</span>
+  </div>
+  <div class="tr-filters" role="group" aria-label="Filter">
+    <label>Type
+      <select id="f-kind"><option value="">All</option><option value="live">Live</option><option value="backtest">Backtest</option></select>
+    </label>
+    <label>Market
+      <select id="f-asset"><option value="">All</option>{% for r in track.recent | map(attribute='asset') | unique | sort %}<option>{{ r }}</option>{% endfor %}</select>
+    </label>
+  </div>
+  <div class="tbl-wrap">
+    <table class="tbl" id="recent">
+      <thead><tr><th>Made on</th><th>Market</th><th>Type</th><th>Price</th><th>Trend</th><th>{{ coverage_pct }}% range</th><th>Due</th><th>Actual</th><th>Range</th><th>Trend</th></tr></thead>
+      <tbody>
+        {% for r in track.recent %}
+        <tr data-kind="{{ r.kind }}" data-asset="{{ r.asset }}">
+          <td>{{ r.made_on }}</td>
+          <td>{{ r.asset }}</td>
+          <td><span class="pill {{ r.kind }}">{{ r.kind }}</span></td>
+          <td>{{ r.price }}</td>
+          <td>{% if r.trend == 'up' %}↑ up{% else %}↓ down{% endif %}</td>
+          <td>{{ r.range }}</td>
+          <td>{{ r.target_on }}</td>
+          <td>{{ r.actual or "—" }}</td>
+          <td>{% if r.in_range is none %}<span class="pill pending">open</span>{% elif r.in_range %}<span class="pill hit">held</span>{% else %}<span class="pill miss">missed</span>{% endif %}</td>
+          <td>{% if r.trend_hit is none %}<span class="pill pending">open</span>{% elif r.trend_hit %}<span class="pill hit">right</span>{% else %}<span class="pill miss">wrong</span>{% endif %}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <p class="section-note">The earlier version of EdgePulse (linear-regression price targets, retired October 2026) lost to a "no change" forecast and its data had errors, so its record is not carried over.</p>
+</section>
+{% endblock %}
 
-        /* Result badge — uses .outcome-badge pattern */
-        .result-pill {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.62rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 0.28rem 0.65rem;
-            border-radius: var(--radius-sm);
-            display: inline-block;
-        }
-        .result-pill.hit {
-            background: rgba(61,122,86,0.15);
-            color: var(--bullish-text);
-            border: 1px solid rgba(61,122,86,0.3);
-        }
-        .result-pill.miss {
-            background: var(--bearish-dim);
-            color: var(--bearish-text);
-            border: 1px solid rgba(122,61,61,0.3);
-        }
-        .result-pill.pending {
-            background: rgba(201,168,76,0.08);
-            color: var(--gold-dim);
-            border: 1px solid rgba(201,168,76,0.2);
-        }
-
-        /* Direction indicator */
-        .dir-indicator {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-family: 'DM Mono', monospace;
-            font-size: 0.72rem;
-        }
-        .dir-dot {
-            width: 6px; height: 6px;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-        .dir-dot.correct   { background: var(--bullish-text); }
-        .dir-dot.incorrect { background: var(--bearish-text); }
-        .dir-dot.pending   { background: var(--text-muted); }
-
-        /* ── Pagination ──────────────────────────────── */
-        .tr-pagination {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.4rem;
-            margin: 2.5rem 0;
-        }
-        .page-btn {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.68rem;
-            letter-spacing: 0.06em;
-            padding: 0.35rem 0.7rem;
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--border-subtle);
-            background: transparent;
-            color: var(--text-muted);
-            cursor: pointer;
-            transition: all var(--transition);
-        }
-        .page-btn:hover, .page-btn.active {
-            background: var(--gold-glow);
-            border-color: var(--gold-dim);
-            color: var(--gold);
-        }
-        .page-btn:disabled { opacity: 0.25; cursor: default; }
-        .page-ellipsis {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.68rem;
-            color: var(--text-muted);
-            padding: 0 0.2rem;
-        }
-
-        /* ── Intro note ─────────────────────────────── */
-        .tr-methodology-note {
-            margin-bottom: 2rem;
-            padding: 1.25rem 1.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-left: 2px solid var(--gold-dim);
-            border-radius: 0 var(--radius-md) var(--radius-md) 0;
-        }
-        .tr-methodology-note p {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            font-weight: 300;
-            line-height: 1.75;
-            margin-bottom: 0.5rem;
-        }
-        .tr-methodology-note p:last-child { margin-bottom: 0; }
-        .tr-methodology-note strong { color: var(--text-primary); font-weight: 500; }
-        .tr-methodology-note .mono {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.78rem;
-            color: var(--gold-dim);
-        }
-
-        /* Loading/empty */
-        .tr-loading, .tr-empty-msg {
-            background: var(--bg-card);
-            padding: 3rem;
-            text-align: center;
-            font-family: 'DM Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            letter-spacing: 0.08em;
-        }
-
-        @media (max-width: 1000px) {
-            .pred-row { grid-template-columns: 72px 1fr 1fr 1fr; }
-            .pred-row .pred-cell:nth-child(5),
-            .pred-row .pred-cell:nth-child(6) { display: none; }
-        }
-        @media (max-width: 640px) {
-            .tr-stat-grid { grid-template-columns: 1fr 1fr; }
-            .pred-row { grid-template-columns: 1fr 1fr; padding: 1rem; }
-            .pred-row .pred-cell:nth-child(n+4) { display: none; }
-        }
-    </style>
-</head>
-<body>
-    <nav>
-        <div class="container">
-            <a href="/" class="logo">EdgePulse</a>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/signals">Signals</a></li>
-                <li><a href="/forecasts">Forecasts</a></li>
-                <li><a href="/track-record" class="active">Track Record</a></li>
-                <li><a href="/methodology">Methodology</a></li>
-                <li><a href="/work-with-me">Work With Me</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <main class="container">
-        <h1>Track Record</h1>
-        <p class="page-intro">Transparent performance — every prediction, every outcome, no cherry-picking.</p>
-
-        <!-- Stats — uses existing .tr-stat-grid from style.css -->
-        <div class="tr-stat-grid" id="stats-grid">
-            <div class="tr-stat">
-                <span class="tr-stat-label">Completed Cycles</span>
-                <span class="tr-stat-value gold" id="stat-total">—</span>
-            </div>
-            <div class="tr-stat">
-                <span class="tr-stat-label">Directional Accuracy</span>
-                <span class="tr-stat-value gold" id="stat-directional">—</span>
-            </div>
-            <div class="tr-stat">
-                <span class="tr-stat-label">Band Hit Rate</span>
-                <span class="tr-stat-value" id="stat-hitrate">—</span>
-            </div>
-            <div class="tr-stat">
-                <span class="tr-stat-label">Live Pending</span>
-                <span class="tr-stat-value" id="stat-pending">—</span>
-            </div>
-        </div>
-
-        <!-- Methodology note -->
-        <div class="tr-methodology-note">
-            <p><strong>Two accuracy metrics are tracked independently.</strong></p>
-            <p><strong>Directional accuracy</strong> — did price move in the predicted direction? Bullish signals expect an upward move; bearish expect a decline. This is the metric that matters most for hedging and positioning decisions.</p>
-            <p><strong>Band hit rate</strong> — did the final price land within the 30-day forecast range? A stricter test using a ~5% confidence band around the projected target.</p>
-            <p>Entries labeled <span class="mono">BACKTEST</span> apply the same signal logic to historical prices already in the dataset — not invented, not retrofitted after the fact. Both hits and misses are shown.</p>
-        </div>
-
-        <!-- Filter bar -->
-        <div class="tr-filter-bar">
-            <span class="tr-filter-label">Type</span>
-            <button class="tr-filter-btn active" data-filter-type="all">All</button>
-            <button class="tr-filter-btn" data-filter-type="live">Live</button>
-            <button class="tr-filter-btn" data-filter-type="backtest">Backtest</button>
-            <div class="tr-filter-sep"></div>
-            <span class="tr-filter-label">Result</span>
-            <button class="tr-filter-btn active" data-filter-result="all">All</button>
-            <button class="tr-filter-btn" data-filter-result="hit">Hits</button>
-            <button class="tr-filter-btn" data-filter-result="miss">Misses</button>
-            <button class="tr-filter-btn" data-filter-result="pending">Pending</button>
-            <div class="tr-filter-sep"></div>
-            <span class="tr-filter-label">Asset</span>
-            <select class="tr-asset-select" id="asset-filter">
-                <option value="all">All Assets</option>
-                <option value="Brent Oil">Brent Oil</option>
-                <option value="Natural Gas">Natural Gas</option>
-                <option value="Gold">Gold</option>
-                <option value="USD Index">USD Index</option>
-                <option value="Wheat">Wheat</option>
-                <option value="Corn">Corn</option>
-                <option value="Rice">Rice</option>
-            </select>
-        </div>
-
-        <!-- Meta row -->
-        <div class="tr-meta-row">
-            <span class="tr-count" id="result-count">Loading…</span>
-            <div class="tr-sort-wrap">
-                <label for="sort-select">Sort</label>
-                <select class="tr-sort-select" id="sort-select">
-                    <option value="date-desc">Newest first</option>
-                    <option value="date-asc">Oldest first</option>
-                    <option value="asset">Asset A–Z</option>
-                    <option value="error-asc">Best accuracy</option>
-                    <option value="error-desc">Worst accuracy</option>
-                </select>
-            </div>
-        </div>
-
-        <!-- List -->
-        <div id="predictions-list">
-            <div class="tr-loading">Fetching track record…</div>
-        </div>
-
-        <!-- Pagination -->
-        <div class="tr-pagination" id="pagination"></div>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 EdgePulse. Independent market intelligence.</p>
-            <p class="disclaimer">All data for informational purposes only. Not financial advice.</p>
-        </div>
-    </footer>
-
-    <script>
-    (() => {
-        const PER_PAGE = 25;
-        let all = [], filtered = [], page = 1;
-        let fType = 'all', fResult = 'all', fAsset = 'all', fSort = 'date-desc';
-
-        async function load() {
-            try {
-                const r = await fetch('/api/track-record');
-                const j = await r.json();
-                all = j.predictions || [];
-                renderStats(j.summary || {});
-                apply();
-            } catch(e) {
-                document.getElementById('predictions-list').innerHTML =
-                    '<div class="tr-empty-msg">Could not load track record — please refresh.</div>';
-            }
-        }
-
-        function renderStats(s) {
-            set('stat-total',       s.completed != null ? s.completed : '—');
-            set('stat-directional', s.directional_accuracy != null ? s.directional_accuracy + '%' : '—');
-            set('stat-hitrate',     s.hit_rate != null ? s.hit_rate + '%' : '—');
-            set('stat-pending',     s.pending != null ? s.pending : '—');
-        }
-        function set(id, v) { const e = document.getElementById(id); if(e) e.textContent = v; }
-
-        function apply() {
-            filtered = all.filter(p => {
-                const t = p.type || 'live';
-                if (fType !== 'all' && t !== fType) return false;
-                if (fResult !== 'all') {
-                    if (fResult === 'pending' && p.status !== 'pending') return false;
-                    if (fResult !== 'pending' && p.result !== fResult) return false;
-                }
-                if (fAsset !== 'all' && p.asset !== fAsset) return false;
-                return true;
-            });
-            filtered.sort((a, b) => {
-                if (fSort === 'date-desc') return b.prediction_date.localeCompare(a.prediction_date);
-                if (fSort === 'date-asc')  return a.prediction_date.localeCompare(b.prediction_date);
-                if (fSort === 'asset')     return a.asset.localeCompare(b.asset);
-                if (fSort === 'error-asc') return (a.error_pct ?? 999) - (b.error_pct ?? 999);
-                if (fSort === 'error-desc')return (b.error_pct ?? 0)   - (a.error_pct ?? 0);
-                return 0;
-            });
-            page = 1;
-            document.getElementById('result-count').textContent =
-                filtered.length + ' prediction' + (filtered.length !== 1 ? 's' : '');
-            renderPage();
-        }
-
-        function renderPage() {
-            const slice = filtered.slice((page-1)*PER_PAGE, page*PER_PAGE);
-            const list  = document.getElementById('predictions-list');
-            if (!slice.length) {
-                list.innerHTML = '<div class="tr-empty-msg">No predictions match the current filters.</div>';
-            } else {
-                list.innerHTML = slice.map(row).join('');
-            }
-            renderPagination();
-        }
-
-        function row(p) {
-            const isLive    = !p.type || p.type === 'live';
-            const isPending = p.status === 'pending';
-            const f         = p.forecast_30_days || {};
-
-            const typeBadge = isLive
-                ? '<span class="type-badge live">Live</span>'
-                : '<span class="type-badge backtest">Backtest</span>';
-
-            const sig = (p.signal || 'neutral').toLowerCase();
-            const signalPill = `<span class="signal-pill ${sig}">${cap(p.signal)}</span>`;
-
-            const resPill = isPending
-                ? '<span class="result-pill pending">Pending</span>'
-                : p.result === 'hit'
-                    ? '<span class="result-pill hit">✓ Hit</span>'
-                    : '<span class="result-pill miss">✗ Miss</span>';
-
-            let dirHtml;
-            if (isPending) {
-                dirHtml = '<span class="dir-dot pending"></span><span style="color:var(--text-muted)">—</span>';
-            } else if (p.direction_correct === true) {
-                dirHtml = `<span class="dir-dot correct"></span><span style="color:var(--bullish-text);font-size:0.72rem;font-family:'DM Mono',monospace">Correct</span>`;
-            } else if (p.direction_correct === false) {
-                dirHtml = `<span class="dir-dot incorrect"></span><span style="color:var(--bearish-text);font-size:0.72rem;font-family:'DM Mono',monospace">Wrong</span>`;
-            } else {
-                dirHtml = '<span class="dir-dot pending"></span><span style="color:var(--text-muted)">—</span>';
-            }
-
-            const band = (f.lower_bound && f.upper_bound)
-                ? money(f.lower_bound) + '–' + money(f.upper_bound) : '—';
-
-            const cls = isPending ? 'result-pending' : 'result-' + p.result;
-
-            return `<div class="pred-row ${cls}">
-                <div class="pred-cell">${typeBadge}</div>
-                <div class="pred-cell">
-                    <span class="pred-cell-label">Asset</span>
-                    <span class="pred-cell-value">${p.asset}</span>
-                    <span class="pred-cell-sub">${p.prediction_date}</span>
-                </div>
-                <div class="pred-cell">
-                    <span class="pred-cell-label">Signal</span>
-                    ${signalPill}
-                    <span class="pred-cell-sub">${cap(p.signal_confidence)} conf.</span>
-                </div>
-                <div class="pred-cell">
-                    <span class="pred-cell-label">Entry → Target</span>
-                    <span class="pred-cell-value">${money(p.current_price)} → ${f.target ? money(f.target) : '—'}</span>
-                    <span class="pred-cell-sub">Band: ${band}</span>
-                </div>
-                <div class="pred-cell">
-                    <span class="pred-cell-label">Actual / Error</span>
-                    <span class="pred-cell-value">${isPending ? '—' : money(p.actual_price)}</span>
-                    <span class="pred-cell-sub">Error: ${isPending ? '—' : (p.error_pct != null ? p.error_pct + '%' : '—')}</span>
-                </div>
-                <div class="pred-cell">
-                    <span class="pred-cell-label">Direction</span>
-                    <div class="dir-indicator">${dirHtml}</div>
-                </div>
-                <div class="pred-cell">
-                    <span class="pred-cell-label">Result</span>
-                    ${resPill}
-                </div>
-            </div>`;
-        }
-
-        function renderPagination() {
-            const total = Math.ceil(filtered.length / PER_PAGE);
-            const pag   = document.getElementById('pagination');
-            if (total <= 1) { pag.innerHTML = ''; return; }
-
-            let h = `<button class="page-btn" onclick="goPage(${page-1})" ${page===1?'disabled':''}>← Prev</button>`;
-            pageRange(page, total).forEach(n => {
-                h += n === '…'
-                    ? `<span class="page-ellipsis">…</span>`
-                    : `<button class="page-btn ${n===page?'active':''}" onclick="goPage(${n})">${n}</button>`;
-            });
-            h += `<button class="page-btn" onclick="goPage(${page+1})" ${page===total?'disabled':''}>Next →</button>`;
-            pag.innerHTML = h;
-        }
-
-        function pageRange(cur, total) {
-            if (total <= 7) return Array.from({length:total},(_,i)=>i+1);
-            if (cur <= 4)   return [1,2,3,4,5,'…',total];
-            if (cur >= total-3) return [1,'…',total-4,total-3,total-2,total-1,total];
-            return [1,'…',cur-1,cur,cur+1,'…',total];
-        }
-
-        window.goPage = function(n) {
-            const total = Math.ceil(filtered.length / PER_PAGE);
-            if (n < 1 || n > total) return;
-            page = n;
-            renderPage();
-            window.scrollTo({top:0, behavior:'smooth'});
-        };
-
-        document.querySelectorAll('[data-filter-type]').forEach(b => b.addEventListener('click', () => {
-            document.querySelectorAll('[data-filter-type]').forEach(x => x.classList.remove('active'));
-            b.classList.add('active'); fType = b.dataset.filterType; apply();
-        }));
-        document.querySelectorAll('[data-filter-result]').forEach(b => b.addEventListener('click', () => {
-            document.querySelectorAll('[data-filter-result]').forEach(x => x.classList.remove('active'));
-            b.classList.add('active'); fResult = b.dataset.filterResult; apply();
-        }));
-        document.getElementById('asset-filter').addEventListener('change', e => { fAsset = e.target.value; apply(); });
-        document.getElementById('sort-select').addEventListener('change', e => { fSort = e.target.value; apply(); });
-
-        function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : '—'; }
-        function money(n) {
-            if (n == null) return '—';
-            return '$' + Number(n).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
-        }
-
-        load();
-    })();
-    </script>
-</body>
-</html>
+{% block scripts %}
+<script>
+  (function () {
+    const kind = document.getElementById('f-kind');
+    const asset = document.getElementById('f-asset');
+    const rows = document.querySelectorAll('#recent tbody tr');
+    function apply() {
+      rows.forEach(r => {
+        const ok = (!kind.value || r.dataset.kind === kind.value) && (!asset.value || r.dataset.asset === asset.value);
+        r.style.display = ok ? '' : 'none';
+      });
+    }
+    kind.addEventListener('change', apply);
+    asset.addEventListener('change', apply);
+  })();
+</script>
+{% endblock %}

@@ -1,223 +1,240 @@
-from flask import Flask, render_template, jsonify
-import json
 import os
-from datetime import datetime
-import glob
+import sys
+import time
+from datetime import date, datetime, timezone
+
+import requests
+from flask import Flask, Response, jsonify, redirect, render_template
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+from edgepulse.assets import ASSETS, BY_NAME, COVERAGE, HORIZON_DAYS, LIVE_START, TREND_LOOKBACK, strength_label
 
 app = Flask(__name__)
 
-def load_latest_signals():
-    signal_files = glob.glob('data/signals/signals_*.json')
-    if not signal_files:
-        return {'signals': []}
-    latest_file = max(signal_files)
-    with open(latest_file, 'r') as f:
-        return json.load(f)
+SUPABASE_URL = (os.environ.get("SUPABASE_URL") or "https://zajbilbmvapbfakorfez.supabase.co").rstrip("/")
+SUPABASE_KEY = os.environ.get("SUPABASE_PUBLISHABLE_KEY") or "sb_publishable_DY1lG2FW7E37L9myVOiuUg_BBw1qn1x"
+SITE_URL = "https://edgepulse.halim.pro"
+CACHE_TTL = 600
+CHART_DAYS = 370
 
-def load_latest_forecasts():
-    forecast_files = glob.glob('data/forecasts/forecasts_*.json')
-    if not forecast_files:
-        return {'forecasts': []}
-    latest_file = max(forecast_files)
-    with open(latest_file, 'r') as f:
-        return json.load(f)
+_cache = {}
 
-def load_latest_prices():
-    categories = ['energy', 'safe_haven', 'food']
-    all_prices = []
-    for category in categories:
-        files = glob.glob(f'data/prices/{category}_*.json')
-        if files:
-            latest_file = max(files)
-            with open(latest_file, 'r') as f:
-                data = json.load(f)
-                all_prices.extend(data.get('assets', []))
-    return all_prices
 
-def get_price_refresh_timestamp():
-    """
-    Returns the timestamp of the most recently modified price file.
-    The price refresh runs every 4 hours, so this reflects the last
-    time prices were actually updated.
-    """
-    categories = ['energy', 'safe_haven', 'food']
-    latest_ts = None
+def _rpc(name):
+    headers = {"apikey": SUPABASE_KEY, "Content-Type": "application/json"}
+    if not SUPABASE_KEY.startswith("sb_"):
+        headers["Authorization"] = f"Bearer {SUPABASE_KEY}"
+    r = requests.post(f"{SUPABASE_URL}/rest/v1/rpc/{name}", headers=headers, json={}, timeout=15)
+    r.raise_for_status()
+    return r.json()
 
-    for category in categories:
-        files = glob.glob(f'data/prices/{category}_*.json')
-        if not files:
-            continue
-        latest_file = max(files)
-        try:
-            with open(latest_file, 'r') as f:
-                data = json.load(f)
-            ts = data.get('timestamp')
-            if ts:
-                ts_clean = ts[:16].replace('T', ' ')
-                if latest_ts is None or ts_clean > latest_ts:
-                    latest_ts = ts_clean
-        except:
-            continue
 
-    if latest_ts is None:
-        all_files = []
-        for category in categories:
-            all_files.extend(glob.glob(f'data/prices/{category}_*.json'))
-        if all_files:
-            newest = max(all_files, key=os.path.getmtime)
-            mtime = os.path.getmtime(newest)
-            latest_ts = datetime.utcfromtimestamp(mtime).strftime('%Y-%m-%d %H:%M')
-
-    return latest_ts or '—'
-
-def load_price_history(asset_name, days=90):
-    """Load historical prices for a specific asset across all files"""
-    categories = ['energy', 'safe_haven', 'food']
-    history = {}
-
-    for category in categories:
-        files = sorted(glob.glob(f'data/prices/{category}_*.json'))
-        for filepath in files:
-            try:
-                with open(filepath, 'r') as f:
-                    data = json.load(f)
-                for asset in data.get('assets', []):
-                    if asset.get('asset') == asset_name and asset.get('price'):
-                        date = asset.get('date') or filepath.split('_')[-1].replace('.json','')
-                        if len(date) == 8:
-                            date = f"{date[:4]}-{date[4:6]}-{date[6:]}"
-                        history[date] = asset['price']
-            except:
-                continue
-
-    sorted_history = sorted(history.items())
-    if days:
-        sorted_history = sorted_history[-days:]
-    return sorted_history
-
-def load_track_record():
+def cached(name):
+    now = time.time()
+    hit = _cache.get(name)
+    if hit and now - hit[0] < CACHE_TTL:
+        return hit[1]
     try:
-        with open('data/track_record.json', 'r') as f:
-            return json.load(f)
-    except:
-        return {"predictions": [], "summary": {"total": 0, "open": 0, "hits": 0, "misses": 0, "average_accuracy": None}}
+        value = _rpc(name)
+    except Exception:
+        return hit[1] if hit else None
+    _cache[name] = (now, value)
+    return value
 
-@app.route('/')
-def home():
-    signals = load_latest_signals()
-    forecasts = load_latest_forecasts()
-    prices = load_latest_prices()
-    price_map = {p['asset']: p for p in prices}
-    price_updated = get_price_refresh_timestamp()
-    return render_template('index.html',
-                         signals=signals.get('signals', []),
-                         forecasts=forecasts.get('forecasts', []),
-                         price_map=price_map,
-                         price_updated=price_updated)
 
-@app.errorhandler(404)
-def page_not_found(e):
-    return render_template('404.html'), 404
+def fmt(value, decimals):
+    if value is None:
+        return "—"
+    return f"{value:,.{decimals}f}"
 
-@app.route('/signals')
-def signals_page():
-    signals = load_latest_signals()
-    prices = load_latest_prices()
-    price_map = {p['asset']: p for p in prices}
-    return render_template('signals.html',
-                         signals=signals.get('signals', []),
-                         prices=prices,
-                         price_map=price_map)
 
-@app.route('/forecasts')
-def forecasts_page():
-    forecasts = load_latest_forecasts()
-    return render_template('forecasts.html',
-                         forecasts=forecasts.get('forecasts', []))
+def pct(value):
+    if value is None:
+        return None
+    return round(value * 100, 1)
 
-@app.route('/methodology')
-def methodology():
-    return render_template('methodology.html')
 
-@app.route('/track-record')
-def track_record():
-    record = load_track_record()
-    return render_template('track_record.html',
-                           predictions=record.get('predictions', []),
-                           summary=record.get('summary', {}))
-
-@app.route('/work-with-me')
-def work_with_me():
-    return render_template('work_with_me.html')
-
-# ── API endpoints ──────────────────────────────────────────────
-
-@app.route('/api/track-record')
-def api_track_record():
-    return jsonify(load_track_record())
-
-@app.route('/api/signals')
-def api_signals():
-    return jsonify(load_latest_signals())
-
-@app.route('/api/forecasts')
-def api_forecasts():
-    return jsonify(load_latest_forecasts())
-
-@app.route('/api/prices')
-def api_prices():
-    return jsonify({'prices': load_latest_prices()})
-
-@app.route('/api/history/<asset_name>')
-def api_history(asset_name):
-    days = 90
-    history = load_price_history(asset_name, days)
-    return jsonify({
-        'asset': asset_name,
-        'history': [{'date': d, 'price': p} for d, p in history]
-    })
-
-@app.route('/api/chart-data')
-def api_chart_data():
-    forecasts = load_latest_forecasts()
-    assets = ['Brent Oil', 'Natural Gas', 'Gold', 'USD Index', 'Rice', 'Wheat', 'Corn']
-    result = {}
-
-    for asset in assets:
-        history = load_price_history(asset, 90)
-        if not history:
+def build_assets(raw):
+    rows = {r["asset"]: r for r in (raw or [])}
+    out = []
+    for cfg in ASSETS:
+        r = rows.get(cfg["name"])
+        if not r or r.get("last") is None:
             continue
-
-        forecast = next((f for f in forecasts.get('forecasts', []) if f['asset'] == asset), None)
-
-        forecast_data = None
-        if forecast and forecast.get('forecast_30_days'):
-            forecast_data = {
-                'target': forecast['forecast_30_days'].get('prediction'),
-                'lower': forecast['forecast_30_days'].get('lower_bound'),
-                'upper': forecast['forecast_30_days'].get('upper_bound'),
-                'date': forecast.get('forecast_date'),
-                'confidence': forecast['forecast_30_days'].get('confidence'),
+        d = cfg["decimals"]
+        last, prev = r.get("last"), r.get("prev")
+        f = r.get("forecast") or {}
+        stats = r.get("stats") or {}
+        bt = stats.get("backtest") or {}
+        lv = stats.get("live") or {}
+        history = r.get("history") or []
+        item = {
+            "name": cfg["name"],
+            "slug": cfg["name"].lower().replace(" ", "-"),
+            "category": cfg["category"],
+            "unit": cfg["unit"],
+            "ticker": cfg["ticker"],
+            "price": fmt(last, d),
+            "last_day": r.get("last_day"),
+            "change_pct": round((last / prev - 1) * 100, 2) if prev else None,
+            "history": history[-CHART_DAYS:],
+            "decimals": d,
+            "forecast": None,
+            "backtest": {"n": bt.get("n", 0), "trend": pct(bt.get("trend_rate")), "range": pct(bt.get("range_rate")), "up": pct(bt.get("up_rate"))},
+            "live": {"n": lv.get("n", 0), "trend": pct(lv.get("trend_rate")), "range": pct(lv.get("range_rate"))},
+        }
+        if f:
+            item["forecast"] = {
+                "made_on": f.get("made_on"),
+                "target_on": f.get("target_on"),
+                "kind": f.get("kind"),
+                "price": f.get("price"),
+                "trend": f.get("trend"),
+                "strength": strength_label(f.get("trend_strength") or 0),
+                "lo": fmt(f.get("lo"), d),
+                "hi": fmt(f.get("hi"), d),
+                "lo_raw": f.get("lo"),
+                "hi_raw": f.get("hi"),
+                "lo_pct": round((f["lo"] / f["price"] - 1) * 100, 1),
+                "hi_pct": round((f["hi"] / f["price"] - 1) * 100, 1),
+                "vol": round((f.get("vol_annual") or 0) * 100),
+                "coverage": round((f.get("coverage") or COVERAGE) * 100),
             }
+        out.append(item)
+    return out
 
-        result[asset] = {
-            'history': [{'date': d, 'price': p} for d, p in history],
-            'forecast': forecast_data
+
+def build_track(raw):
+    raw = raw or {}
+    totals = {t["kind"]: t for t in raw.get("totals") or []}
+
+    def total(kind):
+        t = totals.get(kind) or {}
+        return {
+            "completed": t.get("completed") or 0,
+            "pending": t.get("pending") or 0,
+            "trend": pct(t.get("trend_rate")),
+            "range": pct(t.get("range_rate")),
+            "up": pct(t.get("up_rate")),
+            "first_on": t.get("first_on"),
+            "last_on": t.get("last_on"),
         }
 
-    return jsonify(result)
+    per_asset = []
+    for s in raw.get("summary") or []:
+        if s.get("asset") not in BY_NAME:
+            continue
+        per_asset.append({
+            "kind": s["kind"],
+            "asset": s["asset"],
+            "completed": s.get("completed") or 0,
+            "pending": s.get("pending") or 0,
+            "trend": pct(s.get("trend_rate")),
+            "range": pct(s.get("range_rate")),
+            "up": pct(s.get("up_rate")),
+            "best_constant": pct(max(s["up_rate"], 1 - s["up_rate"])) if s.get("up_rate") is not None else None,
+        })
+    order = {a["name"]: i for i, a in enumerate(ASSETS)}
+    per_asset.sort(key=lambda x: (x["kind"] != "live", order.get(x["asset"], 99)))
 
-@app.route('/robots.txt')
+    recent = []
+    for r in raw.get("recent") or []:
+        cfg = BY_NAME.get(r["asset"])
+        if not cfg:
+            continue
+        d = cfg["decimals"]
+        recent.append({
+            "asset": r["asset"],
+            "kind": r["kind"],
+            "made_on": r["made_on"],
+            "target_on": r["target_on"],
+            "price": fmt(r["price"], d),
+            "trend": r["trend"],
+            "range": f"{fmt(r['lo'], d)} – {fmt(r['hi'], d)}",
+            "actual": fmt(r["actual"], d) if r.get("actual") is not None else None,
+            "trend_hit": r.get("trend_hit"),
+            "in_range": r.get("in_range"),
+        })
+    return {"live": total("live"), "backtest": total("backtest"), "per_asset": per_asset, "recent": recent}
+
+
+@app.context_processor
+def inject_globals():
+    return {
+        "coverage_pct": round(COVERAGE * 100),
+        "horizon_days": HORIZON_DAYS,
+        "trend_days": TREND_LOOKBACK,
+        "live_start": LIVE_START.isoformat(),
+        "year": date.today().year,
+    }
+
+
+@app.route("/")
+def home():
+    raw = cached("dashboard")
+    assets = build_assets(raw)
+    track = build_track(cached("track_record"))
+    last_day = max((a["last_day"] for a in assets if a["last_day"]), default=None)
+    return render_template("index.html", assets=assets, track=track, last_day=last_day, unavailable=raw is None)
+
+
+@app.route("/track-record")
+def track_record():
+    raw = cached("track_record")
+    return render_template("track_record.html", track=build_track(raw), unavailable=raw is None)
+
+
+@app.route("/methodology")
+def methodology():
+    return render_template("methodology.html", assets=ASSETS)
+
+
+@app.route("/work-with-me")
+def work_with_me():
+    return render_template("work_with_me.html")
+
+
+@app.route("/signals")
+@app.route("/forecasts")
+def old_pages():
+    return redirect("/", code=301)
+
+
+@app.route("/api/dashboard")
+def api_dashboard():
+    return jsonify(build_assets(cached("dashboard")))
+
+
+@app.route("/api/track-record")
+def api_track_record():
+    return jsonify(build_track(cached("track_record")))
+
+
+@app.route("/health")
+def health():
+    return "ok", 200
+
+
+@app.route("/robots.txt")
 def robots():
-    with open('robots.txt', 'r') as f:
-        content = f.read()
-    return content, 200, {'Content-Type': 'text/plain'}
+    return Response(f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n", mimetype="text/plain")
 
-@app.route('/sitemap.xml')
+
+@app.route("/sitemap.xml")
 def sitemap():
-    with open('sitemap.xml', 'r') as f:
-        content = f.read()
-    return content, 200, {'Content-Type': 'application/xml'}
+    today = datetime.now(timezone.utc).date().isoformat()
+    urls = ["/", "/track-record", "/methodology", "/work-with-me"]
+    body = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    body += [f"<url><loc>{SITE_URL}{u}</loc><lastmod>{today}</lastmod></url>" for u in urls]
+    body.append("</urlset>")
+    return Response("\n".join(body), mimetype="application/xml")
 
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+
+@app.errorhandler(404)
+def page_not_found(_):
+    return render_template("404.html"), 404
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=False)

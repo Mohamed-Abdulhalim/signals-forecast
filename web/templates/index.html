@@ -1,261 +1,143 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta name="google-site-verification" content="D1OD8QvSGFjCnXimbrykljDqjGLee6LBWZFQ4KSWd-k" />
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EdgePulse — Commodity Market Intelligence</title>
-  <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}EdgePulse · Commodity price ranges and trends, scored in public{% endblock %}
 
-  <nav>
-    <div class="container">
-      <a href="/" class="logo">EdgePulse</a>
-      <ul>
-        <li><a href="/" class="active">Home</a></li>
-        <li><a href="/signals">Signals</a></li>
-        <li><a href="/forecasts">Forecasts</a></li>
-        <li><a href="/methodology">Methodology</a></li>
-        <li><a href="/work-with-me">Work With Me</a></li>
-      </ul>
-    </div>
-  </nav>
+{% block hero %}
+<header class="hero">
+  <div class="container">
+    <p class="hero-eyebrow">Commodity price monitor</p>
+    <h1>Where prices stand,<br>and how far they could <em>move</em></h1>
+    <p>Daily prices for seven commodity markets, a one-month price range built from each market's own history, and a simple trend signal.</p>
+    <p class="hero-subvalue">Every forecast is logged and scored in public against plain baselines, misses included.</p>
+  </div>
+</header>
+{% endblock %}
 
-  <header class="hero">
-    <div class="container">
-      <p class="hero-eyebrow">Market Intelligence System</p>
-      <h1>Signals that matter when<br>the world gets <em>messy</em></h1>
-      <p>Automated intelligence on instability-sensitive assets, energy, safe haven, and food supply.</p>
-      <p class="hero-subvalue">Operators in energy, import/export, and supply chains use these signals to anticipate volatility before it hits their bottom line.</p>
-    </div>
-  </header>
+{% block content %}
+{% if unavailable %}
+<section class="v2-notice reveal">Market data is temporarily unavailable. Please try again in a few minutes.</section>
+{% endif %}
 
-  <main class="container">
+{% set bt = track.backtest %}
+{% set lv = track.live %}
+{% if bt.completed %}
+<section class="score-strip reveal" aria-label="How the forecasts have performed">
+  <div class="score-box">
+    <span class="score-label">{{ coverage_pct }}% ranges that held</span>
+    <span class="score-value">{{ bt.range }}%</span>
+    <span class="score-note">target {{ coverage_pct }}% · {{ "{:,}".format(bt.completed) }} backtests</span>
+  </div>
+  <div class="score-box">
+    <span class="score-label">Trend signal right</span>
+    <span class="score-value">{{ bt.trend }}%</span>
+    <span class="score-note">coin flip 50% · "always up" {{ bt.up }}%</span>
+  </div>
+  <div class="score-box">
+    <span class="score-label">Live forecasts</span>
+    <span class="score-value">{{ "{:,}".format(lv.completed + lv.pending) }}</span>
+    <span class="score-note">since {{ live_start }} · {{ lv.completed }} scored</span>
+  </div>
+  <a class="score-link" href="/track-record">Full track record →</a>
+</section>
+{% endif %}
 
-    <!-- Current Signals -->
-    <section class="signals-overview reveal">
-      <div class="section-header">
-        <h2>Current Signals</h2>
-        <span class="section-meta">Prices updated · {{ price_updated }} UTC</span>
-      </div>
-      <div class="signal-grid">
-        {% for signal in signals %}
-        <div class="signal-card {{ signal.signal }}">
-          <h3>{{ signal.asset }}</h3>
-          <div class="signal-indicator">
-            {% if signal.signal == 'bullish' %}↑ Bullish
-            {% elif signal.signal == 'bearish' %}↓ Bearish
-            {% else %}→ Neutral{% endif %}
-          </div>
-          <div class="signal-meta">
-            <span class="tooltip-wrap">
-              {{ signal.confidence }} confidence
-              <span class="tooltip-icon">?</span>
-              <span class="tooltip-box">Confidence reflects how strongly aligned the momentum, trend, and volatility indicators are. High = clear direction. Medium = mixed signals. Low = insufficient data.</span>
-            </span>
-            <span class="tooltip-wrap">
-              Momentum {{ signal.momentum }}
-              <span class="tooltip-icon">?</span>
-              <span class="tooltip-box">Momentum measures trend strength over recent periods. Above 0.6 = bullish pressure. Below 0.4 = bearish pressure. Between = consolidation.</span>
-            </span>
-          </div>
+<section class="reveal">
+  <div class="section-header">
+    <h2>Markets</h2>
+    <span class="section-meta">Closing prices{% if last_day %} through {{ last_day }}{% endif %} · Yahoo Finance futures</span>
+  </div>
+  <div class="mkt-grid">
+    {% for a in assets %}
+    {% set f = a.forecast %}
+    <article class="mkt-card {% if f %}trend-{{ f.trend }}{% endif %}" id="{{ a.slug }}">
+      <div class="mkt-head">
+        <div>
+          <span class="mkt-cat">{{ a.category }}</span>
+          <h3>{{ a.name }}</h3>
         </div>
-        {% endfor %}
-      </div>
-      <a href="/methodology#glossary" class="glossary-link"> What do these terms mean?</a>
-      <p class="data-source">Prices via Yahoo Finance · metals.live · Alpha Vantage</p>
-    </section>
-    <section class="forecast-preview reveal">
-      <div class="section-header">
-        <h2>30-Day Forecasts</h2>
-        <span class="section-meta">Linear regression · volatility-adjusted</span>
-      </div>
-      <div class="forecast-grid">
-        {% for forecast in forecasts %}
-        {% if forecast.forecast_30_days %}
-        <div class="forecast-card">
-          <h3>{{ forecast.asset }}</h3>
-          <div class="forecast-data">
-            <div class="current">
-              <span class="label">Current</span>
-              <span class="value">
-                ${{ "{:,.2f}".format(forecast.current_price) }}
-                {% set p = price_map.get(forecast.asset) %}
-                {% if p and p.prev_price and p.prev_price != p.price %}
-                  {% set delta = p.price - p.prev_price %}
-                  {% set delta_pct = (delta / p.prev_price * 100) %}
-                  <span class="price-delta {% if delta > 0 %}delta-up{% else %}delta-down{% endif %}">
-                    {% if delta > 0 %}▲{% else %}▼{% endif %}
-                    {{ "{:+.2f}".format(delta_pct) }}%
-                  </span>
-                {% endif %}
-              </span>
-            </div>
-            <div class="predicted">
-              <span class="label">Forecast</span>
-              <span class="value">${{ "{:,.2f}".format(forecast.forecast_30_days.prediction) }}</span>
-            </div>
-            <div class="range">
-              <span class="tooltip-wrap">
-                <span class="label">Range</span>
-                <span class="tooltip-icon">?</span>
-                <span class="tooltip-box">The 95% confidence interval. There is a 95% probability the actual price will land within this range, based on historical volatility patterns.</span>
-              </span>
-              <span class="value">${{ "{:,.2f}".format(forecast.forecast_30_days.lower_bound) }} – ${{ "{:,.2f}".format(forecast.forecast_30_days.upper_bound) }}</span>
-            </div>
-          </div>
-          <div class="confidence-badge">{{ forecast.forecast_30_days.confidence }} confidence</div>
-        </div>
+        {% if f %}
+        <span class="trend-badge {{ f.trend }}" title="Direction of the last {{ trend_days }} trading days">
+          {% if f.trend == 'up' %}↑ Uptrend{% else %}↓ Downtrend{% endif %}
+          <small>{{ f.strength }}</small>
+        </span>
         {% endif %}
-        {% endfor %}
       </div>
-    </section>
-
-    <!-- What Changed -->
-    <section class="weekly-changes reveal">
-      <h2>Market Context</h2>
-      <ul class="changes-list">
-        {% for signal in signals %}
-        {% if signal.signal != 'neutral' and signal.get('momentum') %}
-        <li>
-          <strong>{{ signal.asset }}</strong> —
-          {% if signal.signal == 'bullish' %}upward momentum detected
-          {% else %}downward pressure building{% endif %}
-          ({{ signal.confidence }} confidence · momentum {{ signal.momentum }})
-        </li>
+      <div class="mkt-price">
+        <span class="mkt-value">{{ a.price }}</span>
+        <span class="mkt-unit">{{ a.unit }}</span>
+        {% if a.change_pct is not none %}
+        <span class="price-delta {% if a.change_pct >= 0 %}delta-up{% else %}delta-down{% endif %}">{% if a.change_pct >= 0 %}▲{% else %}▼{% endif %} {{ "{:+.2f}".format(a.change_pct) }}%</span>
         {% endif %}
-        {% endfor %}
-        {% if signals %}
-        <li>Signals last generated · {{ signals[0].timestamp[:10] }}</li>
+      </div>
+      {% if f %}
+      <div class="mkt-range">
+        <span class="tooltip-wrap">
+          <span class="mkt-range-label">{{ coverage_pct }}% range by {{ f.target_on }}</span>
+          <span class="tooltip-icon">?</span>
+          <span class="tooltip-box">Built from this market's own past {{ horizon_days }}-day moves, scaled to current volatility. In backtests this kind of range held {{ a.backtest.range }}% of the time.</span>
+        </span>
+        <span class="mkt-range-value">{{ f.lo }} – {{ f.hi }}</span>
+        <span class="mkt-range-pct">{{ "{:+.1f}".format(f.lo_pct) }}% / {{ "{:+.1f}".format(f.hi_pct) }}% · volatility {{ f.vol }}% a year</span>
+      </div>
+      {% endif %}
+      <div class="mkt-chart">
+        <canvas data-chart='{{ {"history": a.history, "lo": f.lo_raw if f else None, "hi": f.hi_raw if f else None, "target": f.target_on if f else None, "trend": f.trend if f else None, "decimals": a.decimals} | tojson | forceescape }}' aria-label="{{ a.name }} price, last 12 months"></canvas>
+      </div>
+      <div class="mkt-foot">
+        {% if a.backtest.n %}
+        Backtest ({{ a.backtest.n }}): range held {{ a.backtest.range }}% · trend right {{ a.backtest.trend }}%
+        {% else %}
+        No scored forecasts yet
         {% endif %}
-      </ul>
-      <p class="update-note">System timestamp · {{ signals[0].timestamp[:19].replace('T', ' ') if signals else '—' }} UTC</p>
-    </section>
-      <div class="divider"></div>
- 
-    <section class="how-it-works reveal">
-        <div class="section-header">
-            <h2>How It Works</h2>
-            <span class="section-meta">Automated · No manual intervention</span>
-        </div>
-        <div class="hiw-steps">
-            <div class="hiw-step">
-                <span class="hiw-step-num">01</span>
-                <div class="hiw-step-body">
-                    <h3>Data collected daily</h3>
-                    <p>Public market feeds — energy, safe haven, and food commodity prices — pulled automatically every morning from Yahoo Finance and Alpha Vantage. No manual updates.</p>
-                </div>
-            </div>
-            <div class="hiw-step">
-                <span class="hiw-step-num">02</span>
-                <div class="hiw-step-body">
-                    <h3>Signals generated weekly</h3>
-                    <p>Momentum, trend direction, and volatility indicators are calculated across all 7 assets. When they align, a directional signal is issued with a confidence rating.</p>
-                </div>
-            </div>
-            <div class="hiw-step">
-                <span class="hiw-step-num">03</span>
-                <div class="hiw-step-body">
-                    <h3>30-day forecasts published</h3>
-                    <p>Linear regression over recent price history generates a price target with upper and lower confidence bounds — showing where the asset is likely headed, and how certain the model is.</p>
-                </div>
-            </div>
-        </div>
-        <a href="/methodology" class="hiw-learn-more">Full methodology →</a>
-    </section>
-    <!-- CTA -->
-    <section class="cta-section reveal">
-      <h2>Need custom market intelligence?</h2>
-      <p>I build pricing and forecasting pipelines for companies operating in volatile commodity environments.</p>
-      <a href="/work-with-me" class="cta-button">Get in touch</a>
-    </section>
+      </div>
+    </article>
+    {% else %}
+    <p class="section-note">No market data yet.</p>
+    {% endfor %}
+  </div>
+  <p class="data-source">Front-month futures from Yahoo Finance (USD Index: ICE DX-Y.NYB). Grain futures are converted from cents to dollars.</p>
+</section>
 
-  </main>
+<div class="divider"></div>
 
-<footer>
-    <div class="container footer-inner">
-        <div class="footer-top">
-            <div class="footer-brand-block">
-                <span class="footer-logo">EdgePulse</span>
-                <p class="footer-tagline">Independent commodity market intelligence.<br>Automated signals and forecasts for operators who can't afford surprises.</p>
-                <a href="https://www.linkedin.com/in/halim99/" target="_blank" rel="noopener noreferrer" class="footer-linkedin" aria-label="LinkedIn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
-                    LinkedIn
-                </a>
-            </div>
-            <div class="footer-links-block">
-                <div class="footer-col">
-                    <span class="footer-col-label">Dashboard</span>
-                    <a href="/">Home</a>
-                    <a href="/signals">Signals</a>
-                    <a href="/forecasts">Forecasts</a>
-                </div>
-                <div class="footer-col">
-                    <span class="footer-col-label">About</span>
-                    <a href="/methodology">Methodology</a>
-                    <a href="/work-with-me">Work With Me</a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <span class="footer-copy">© 2026 EdgePulse. Independent market intelligence.</span>
-            <div class="footer-legal">
-                <span class="footer-disclaimer">For informational purposes only. Not financial advice. No guarantee of accuracy.</span>
-                <span class="footer-sep">·</span>
-                <a href="/methodology#data-sources" class="footer-legal-link">Data Sources</a>
-                <span class="footer-sep">·</span>
-                <a href="/methodology" class="footer-legal-link">Methodology</a>
-            </div>
-        </div>
+<section class="how-it-works reveal">
+  <div class="section-header">
+    <h2>How it works</h2>
+    <span class="section-meta">Automated daily · no manual edits</span>
+  </div>
+  <div class="hiw-steps">
+    <div class="hiw-step">
+      <span class="hiw-step-num">01</span>
+      <div class="hiw-step-body">
+        <h3>Prices collected every weekday</h3>
+        <p>One source per market, one unit per market. Obvious one-day data glitches are filtered out before anything is stored.</p>
+      </div>
     </div>
-</footer>
+    <div class="hiw-step">
+      <span class="hiw-step-num">02</span>
+      <div class="hiw-step-body">
+        <h3>A range, not a price target</h3>
+        <p>Point forecasts for commodities rarely beat "tomorrow looks like today". EdgePulse instead estimates how far each market could move in {{ horizon_days }} days, using its own history and current volatility.</p>
+      </div>
+    </div>
+    <div class="hiw-step">
+      <span class="hiw-step-num">03</span>
+      <div class="hiw-step-body">
+        <h3>Scored in public</h3>
+        <p>Every forecast is stored before the outcome is known and checked automatically when it comes due. The track record compares it with a coin flip and with "always up".</p>
+      </div>
+    </div>
+  </div>
+  <a href="/methodology" class="hiw-learn-more">Full methodology →</a>
+</section>
 
-  <script>
-    // Scroll-reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.08 });
+<section class="cta-section reveal">
+  <h2>Need something like this for your business?</h2>
+  <p>I build automated data pipelines and dashboards around the prices and sources that matter to you.</p>
+  <a href="/work-with-me" class="cta-button">Get in touch</a>
+</section>
+{% endblock %}
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Price counter animation — implies live data feed
-    function animateCount(el, target, decimals = 2, prefix = '$') {
-      const duration = 1200;
-      const start = performance.now();
-      const from = 0;
-
-      function step(now) {
-        const progress = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-        const current = from + (target - from) * eased;
-        el.textContent = prefix + current.toLocaleString('en-US', {
-          minimumFractionDigits: decimals,
-          maximumFractionDigits: decimals
-        });
-        if (progress < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-    }
-
-    // Animate forecast values on page load
-    document.querySelectorAll('.forecast-data .value').forEach(el => {
-      const raw = el.textContent.replace(/[$,]/g, '').trim();
-      const num = parseFloat(raw);
-      if (!isNaN(num) && num > 0) {
-        const decimals = num > 100 ? 2 : 2;
-        setTimeout(() => animateCount(el, num, decimals, '$'), 400);
-      }
-    });
-  </script>
-
-  <script src="/static/tooltips.js"></script>
-</body>
-</html>
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="/static/dashboard.js"></script>
+{% endblock %}

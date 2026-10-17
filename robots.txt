@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://signals-forecast.vercel.app/sitemap.xml
