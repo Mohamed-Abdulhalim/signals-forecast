@@ -25,6 +25,23 @@ create table if not exists public.forecasts (
 
 create index if not exists forecasts_kind_made_on on public.forecasts (kind, made_on desc);
 
+create or replace function public.forbid_live_forecast_changes()
+returns trigger
+language plpgsql
+set search_path = public
+as $$
+begin
+  raise exception 'live forecasts are write-once: % of % made on % is not allowed', tg_op, old.asset, old.made_on
+    using errcode = 'restrict_violation';
+end $$;
+
+drop trigger if exists trg_live_forecasts_write_once on public.forecasts;
+create trigger trg_live_forecasts_write_once
+before update or delete on public.forecasts
+for each row
+when (old.kind = 'live')
+execute function public.forbid_live_forecast_changes();
+
 create or replace view public.forecast_scores with (security_invoker = on) as
 select f.*,
        o.day as actual_on,

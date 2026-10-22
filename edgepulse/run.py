@@ -7,6 +7,8 @@ from edgepulse.collect import fetch_history, series_for
 from edgepulse.model import Model
 from edgepulse.store import Store
 
+STALE_AFTER_DAYS = 5
+
 
 def run(mode, store=None, frame=None, today=None):
     today = today or date.today()
@@ -21,10 +23,12 @@ def run(mode, store=None, frame=None, today=None):
             print(f"[skip] {name}: only {len(points)} usable prices")
             failures += 1
             continue
-        if points[-1][0] < today - timedelta(days=7):
-            print(f"[warn] {name}: latest price is from {points[-1][0]}")
+        if points[-1][0] < today - timedelta(days=STALE_AFTER_DAYS):
+            print(f"[stale] {name}: latest price is from {points[-1][0]}, nothing published")
+            failures += 1
+            continue
         recent = points if mode == "backfill" else [p for p in points if p[0] >= today - timedelta(days=45)]
-        store.upsert_prices(name, recent)
+        store.upsert_prices(name, recent, overwrite=mode == "backfill")
         model = Model(points)
         if mode == "backfill":
             backtests = model.backtest(start=points[0][0], end=LIVE_START)
@@ -46,7 +50,8 @@ def main(argv=None):
     ap.add_argument("mode", choices=["daily", "backfill"])
     args = ap.parse_args(argv)
     failures = run(args.mode)
-    if failures == len(ASSETS):
+    if failures:
+        print(f"{failures} of {len(ASSETS)} markets failed")
         sys.exit(1)
 
 

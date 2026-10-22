@@ -1,7 +1,7 @@
 import os
 import sys
 import time
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 
 import requests
 from flask import Flask, Response, jsonify, redirect, render_template
@@ -110,6 +110,12 @@ def build_track(raw):
     raw = raw or {}
     totals = {t["kind"]: t for t in raw.get("totals") or []}
 
+    def due(day):
+        try:
+            return (date.fromisoformat(day) + timedelta(days=HORIZON_DAYS)).isoformat()
+        except (TypeError, ValueError):
+            return None
+
     def total(kind):
         t = totals.get(kind) or {}
         return {
@@ -119,6 +125,7 @@ def build_track(raw):
             "range": pct(t.get("range_rate")),
             "up": pct(t.get("up_rate")),
             "first_on": t.get("first_on"),
+            "first_due": due(t.get("first_on")),
             "last_on": t.get("last_on"),
         }
 

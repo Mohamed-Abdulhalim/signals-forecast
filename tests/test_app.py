@@ -77,3 +77,26 @@ def test_empty_response_is_not_cached(monkeypatch):
     monkeypatch.setattr(web, "_rpc", rpc)
     assert web.cached("dashboard") == []
     assert web.cached("dashboard") == DASH
+
+
+def test_home_shows_when_first_live_results_are_due(client):
+    html = client.get("/").get_data(as_text=True)
+    assert "first results due 2026-11-15" in html
+
+
+def test_trend_badge_has_no_strength_label(client):
+    html = client.get("/").get_data(as_text=True)
+    assert "3-month trend" in html
+    assert "moderate" not in html and "strong" not in html
+
+
+def test_track_record_explains_limits(client):
+    html = client.get("/track-record").get_data(as_text=True)
+    assert "Forecasts overlap" in html
+    assert "not a blind test" in html
+    assert "15.3% average error against 10.7%" in html
+
+
+def test_work_with_me_does_not_pitch_trading_signals(client):
+    html = client.get("/work-with-me").get_data(as_text=True)
+    assert "Trading" not in html
