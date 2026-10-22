@@ -35,14 +35,15 @@ class Store:
         self.base = _url() + "/rest/v1"
         self.http = session or requests.Session()
 
-    def upsert(self, table, rows, conflict):
+    def upsert(self, table, rows, conflict, overwrite=True):
         rows = list(rows)
+        resolution = "merge-duplicates" if overwrite else "ignore-duplicates"
         for start in range(0, len(rows), PAGE):
             chunk = rows[start:start + PAGE]
             r = self.http.post(
                 f"{self.base}/{table}",
                 params={"on_conflict": conflict},
-                headers=_headers(self.key, {"Prefer": "resolution=merge-duplicates,return=minimal"}),
+                headers=_headers(self.key, {"Prefer": f"resolution={resolution},return=minimal"}),
                 data=json.dumps(chunk, default=_default),
                 timeout=60,
             )
@@ -50,8 +51,9 @@ class Store:
                 raise RuntimeError(f"upsert {table} failed: {r.status_code} {r.text[:300]}")
         return len(rows)
 
-    def upsert_prices(self, asset, points):
-        return self.upsert("prices", [{"asset": asset, "day": d, "close": c} for d, c in points], "asset,day")
+    def upsert_prices(self, asset, points, overwrite=True):
+        rows = [{"asset": asset, "day": d, "close": c} for d, c in points]
+        return self.upsert("prices", rows, "asset,day", overwrite=overwrite)
 
     def upsert_forecasts(self, asset, kind, forecasts, model):
         rows = [{
@@ -68,7 +70,7 @@ class Store:
             "coverage": f["coverage"],
             "target_on": f["target_on"],
         } for f in forecasts]
-        return self.upsert("forecasts", rows, "asset,made_on,kind")
+        return self.upsert("forecasts", rows, "asset,made_on,kind", overwrite=kind != "live")
 
     def load_prices(self, asset):
         out = []

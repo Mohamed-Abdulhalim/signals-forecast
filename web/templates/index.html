@@ -6,7 +6,7 @@
   <div class="container">
     <p class="hero-eyebrow">Commodity price monitor</p>
     <h1>Where prices stand,<br>and how far they could <em>move</em></h1>
-    <p>Daily prices for seven commodity markets, a one-month price range built from each market's own history, and a simple trend signal.</p>
+    <p>Daily prices for seven commodity markets, a one-month price range built from each market's own history, and a plain three-month trend reading shown next to its own track record.</p>
     <p class="hero-subvalue">Every forecast is logged and scored in public against plain baselines, misses included.</p>
   </div>
 </header>
@@ -34,7 +34,7 @@
   <div class="score-box">
     <span class="score-label">Live forecasts</span>
     <span class="score-value">{{ "{:,}".format(lv.completed + lv.pending) }}</span>
-    <span class="score-note">since {{ live_start }} · {{ lv.completed }} scored</span>
+    <span class="score-note">since {{ live_start }} · {% if lv.completed %}{{ lv.completed }} scored{% elif lv.first_due %}first results due {{ lv.first_due }}{% else %}none scored yet{% endif %}</span>
   </div>
   <a class="score-link" href="/track-record">Full track record →</a>
 </section>
@@ -52,8 +52,8 @@
       <div class="mkt-head">
         <span class="mkt-cat">{{ a.category }}</span>
         {% if f %}
-        <span class="trend-badge {{ f.trend }}" title="Direction over the last {{ trend_days }} trading days. This describes the past; as a predictor it has been right {{ a.backtest.trend }}% of the time.">
-          {% if f.trend == 'up' %}↑{% else %}↓{% endif %} 3-month trend · {{ f.strength }}
+        <span class="trend-badge {{ f.trend }}" title="Direction over the last {{ trend_days }} trading days. This describes the past. As a predictor it was right {{ a.backtest.trend }}% of the time in backtests; see the track record.">
+          {% if f.trend == 'up' %}↑{% else %}↓{% endif %} 3-month trend
         </span>
         {% endif %}
       </div>

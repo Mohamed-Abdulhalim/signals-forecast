@@ -30,6 +30,17 @@
   </div>
 </section>
 
+<section class="reveal">
+  <div class="section-header">
+    <h2>How much to trust these numbers</h2>
+  </div>
+  <ul class="method-list">
+    <li><strong>Forecasts overlap.</strong> Each forecast looks {{ horizon_days }} days ahead and a new one is made every week in the backtest and every weekday live, so neighbouring forecasts share most of their outcome. The scored counts are much larger than the number of independent tests. As a rough guide, a trend result within about 10 points of 50% cannot be told apart from luck, and a range result within about 6 points of the target is consistent with a well calibrated method.</li>
+    <li><strong>The backtest is not a blind test.</strong> The model was built and adjusted while this history was available, so the backtest cannot be treated as out-of-sample. Only live forecasts, made before the outcome was known, are a real test.{% if track.live.first_due %} The first of them are scored from {{ track.live.first_due }}.{% endif %}</li>
+    <li><strong>Live forecasts are write-once.</strong> Once a live forecast is stored, a database rule rejects any attempt to change or delete it, and the daily job only adds new prices without rewriting old ones.</li>
+  </ul>
+</section>
+
 {% for kind, label, note in [('live', 'Live forecasts', 'Made every weekday since ' ~ live_start ~ ', before the outcome was known.'), ('backtest', 'Backtest', 'The same code run on past data, one forecast a week per market, using only the prices available on that day.')] %}
 {% set t = track[kind] %}
 <section class="reveal">
@@ -118,7 +129,7 @@
     </table>
   </div>
   <button type="button" class="more-btn" id="more">Show more</button>
-  <p class="section-note">The earlier version of EdgePulse (linear-regression price targets, retired October 2026) lost to a "no change" forecast and its data had errors, so its record is not carried over.</p>
+  <p class="section-note">The earlier version of EdgePulse published 30-day price targets from a linear regression and was retired in October 2026. Scored on more than 1,000 predictions, it lost to a "no change" forecast in every market (15.3% average error against 10.7%), its trend calls were right 51.7% of the time, and its "95% ranges" held only 48% of the time. Its data also had errors, so its record is not included in the numbers above.</p>
 </section>
 {% endblock %}
 
