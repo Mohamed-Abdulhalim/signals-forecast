@@ -1,25 +1,25 @@
 :root {
-  --paper: #F3F5F6;
-  --paper-2: #E8ECEE;
-  --surface: #FFFFFF;
+  --paper: #E3E8EA;
+  --paper-2: #D5DCDF;
+  --surface: #EEF2F3;
   --ink: #14202A;
-  --slate: #566472;
-  --rule: #D8DEE3;
+  --slate: #4C5A67;
+  --rule: #C3CCD1;
   --accent: #0B6B63;
   --accent-rgb: 11, 107, 99;
-  --accent-tint: #D6EAE7;
+  --accent-tint: #C6DFDB;
   --rust: #A8431C;
-  --rust-tint: #F4DED4;
+  --rust-tint: #EBD2C6;
 
   --bg-base: var(--paper);
   --bg-surface: var(--paper);
   --bg-card: var(--surface);
-  --bg-card-hover: #F8FAFA;
+  --bg-card-hover: #F3F6F7;
   --bg-inset: var(--paper-2);
-  --bg-elevated: #EAF3F1;
+  --bg-elevated: #D6E6E3;
 
   --border-subtle: var(--rule);
-  --border-mid: #C2CBD2;
+  --border-mid: #AEBAC1;
   --border-gold: var(--accent);
 
   --gold: var(--accent);
@@ -95,7 +95,7 @@ main { padding: 3rem 0 2rem; }
 section { margin-bottom: 4.5rem; }
 
 nav {
-  background: rgba(243, 245, 246, 0.94);
+  background: rgba(227, 232, 234, 0.94);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--rule);
