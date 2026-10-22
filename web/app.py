@@ -1,3 +1,4 @@
+import math
 import os
 import sys
 import time
@@ -50,6 +51,27 @@ def fmt(value, decimals):
     return f"{value:,.{decimals}f}"
 
 
+def money(value, cfg):
+    prefix = "$" if cfg["unit"].startswith("$") else ""
+    return prefix + fmt(value, cfg["decimals"])
+
+
+def per_unit(cfg):
+    unit = cfg["unit"]
+    return "per " + unit.split("/", 1)[1].strip() if unit.startswith("$") else unit
+
+
+def short_date(value):
+    try:
+        d = date.fromisoformat(value)
+    except (TypeError, ValueError):
+        return value or ""
+    return f"{d.day} {d:%b}"
+
+
+app.jinja_env.filters["short_date"] = short_date
+
+
 def pct(value):
     if value is None:
         return None
@@ -77,6 +99,8 @@ def build_assets(raw):
             "unit": cfg["unit"],
             "ticker": cfg["ticker"],
             "price": fmt(last, d),
+            "price_text": money(last, cfg),
+            "per": per_unit(cfg),
             "last_day": r.get("last_day"),
             "change_pct": round((last / prev - 1) * 100, 2) if prev else None,
             "history": history[-CHART_DAYS:],
@@ -95,6 +119,8 @@ def build_assets(raw):
                 "strength": strength_label(f.get("trend_strength") or 0),
                 "lo": fmt(f.get("lo"), d),
                 "hi": fmt(f.get("hi"), d),
+                "lo_text": money(f.get("lo"), cfg),
+                "hi_text": money(f.get("hi"), cfg),
                 "lo_raw": f.get("lo"),
                 "hi_raw": f.get("hi"),
                 "lo_pct": round((f["lo"] / f["price"] - 1) * 100, 1),
@@ -143,6 +169,9 @@ def build_track(raw):
             "up": pct(s.get("up_rate")),
             "best_constant": pct(max(s["up_rate"], 1 - s["up_rate"])) if s.get("up_rate") is not None else None,
         })
+        row = per_asset[-1]
+        row["range_margin"] = margin_points(row["range"], row["completed"], row["kind"])
+        row["trend_margin"] = margin_points(50.0, row["completed"], row["kind"])
     order = {a["name"]: i for i, a in enumerate(ASSETS)}
     per_asset.sort(key=lambda x: (x["kind"] != "live", order.get(x["asset"], 99)))
 
@@ -167,6 +196,22 @@ def build_track(raw):
     return {"live": total("live"), "backtest": total("backtest"), "per_asset": per_asset, "recent": recent}
 
 
+def gauge_axis(assets):
+    reach = max((max(abs(a["forecast"]["lo_pct"]), abs(a["forecast"]["hi_pct"])) for a in assets if a["forecast"]), default=10)
+    return max(10, int(math.ceil(reach / 5.0) * 5))
+
+
+OVERLAP = {"backtest": 21 / 5, "live": 21}
+
+
+def margin_points(p, completed, kind):
+    if not completed or p is None:
+        return None
+    n_eff = max(completed / OVERLAP.get(kind, 1), 1)
+    p = p / 100
+    return round(1.96 * math.sqrt(max(p * (1 - p), 0.0001) / n_eff) * 100, 1)
+
+
 @app.context_processor
 def inject_globals():
     return {
@@ -184,7 +229,16 @@ def home():
     assets = build_assets(raw)
     track = build_track(cached("track_record"))
     last_day = max((a["last_day"] for a in assets if a["last_day"]), default=None)
-    return render_template("index.html", assets=assets, track=track, last_day=last_day, unavailable=raw is None)
+    lead = next((a for a in assets if a["forecast"]), None)
+    return render_template(
+        "index.html",
+        assets=assets,
+        track=track,
+        last_day=last_day,
+        lead=lead,
+        axis=gauge_axis(assets),
+        unavailable=raw is None,
+    )
 
 
 @app.route("/track-record")

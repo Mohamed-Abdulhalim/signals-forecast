@@ -5,7 +5,6 @@
    Accent: Muted Gold #C9A84C — wealth, scarcity, permanence
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap');
 
 /* ── CSS Variables ─────────────────────────────────────────── */
 :root {
@@ -55,10 +54,9 @@
     align-items: center;
     gap: 0.45rem;
     margin-top: 1rem;
-    font-family: 'DM Mono', monospace;
+    font-family: var(--sans);
     font-size: 0.68rem;
     letter-spacing: 0.08em;
-    text-transform: uppercase;
     color: var(--gold-dim, #8a6d20);
     text-decoration: none;
     transition: color 0.2s;
@@ -91,7 +89,7 @@
 }
 .hiw-step:last-child { border-bottom: none; }
 .hiw-step-num {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--sans);
     font-size: 0.7rem;
     letter-spacing: 0.12em;
     color: var(--gold-dim, #8a6d20);
@@ -100,7 +98,7 @@
     padding-top: 0.2rem;
 }
 .hiw-step-body h3 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--serif);
     font-size: 1.1rem;
     font-weight: 500;
     color: var(--text-primary);
@@ -109,17 +107,16 @@
 .hiw-step-body p {
     font-size: 0.88rem;
     color: var(--text-secondary);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.7;
     margin: 0;
 }
 .hiw-learn-more {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--sans);
     font-size: 0.72rem;
     letter-spacing: 0.1em;
     color: var(--gold-dim, #8a6d20);
     text-decoration: none;
-    text-transform: uppercase;
     transition: color 0.2s;
 }
 .hiw-learn-more:hover { color: var(--gold, #c9a84c); }
@@ -135,11 +132,10 @@
 }
 .footer-brand-block { max-width: 340px; }
 .footer-logo {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--serif);
     font-size: 1.1rem;
     font-weight: 500;
     letter-spacing: 0.12em;
-    text-transform: uppercase;
     color: var(--text-primary);
     display: block;
     margin-bottom: 0.75rem;
@@ -147,7 +143,7 @@
 .footer-tagline {
     font-size: 0.82rem;
     color: var(--text-muted);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.6;
     margin: 0;
 }
@@ -161,10 +157,9 @@
     gap: 0.6rem;
 }
 .footer-col-label {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--sans);
     font-size: 0.6rem;
     letter-spacing: 0.14em;
-    text-transform: uppercase;
     color: var(--text-muted);
     margin-bottom: 0.25rem;
 }
@@ -184,7 +179,7 @@
     padding: 1.25rem 0;
 }
 .footer-copy {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--sans);
     font-size: 0.68rem;
     color: var(--text-muted);
     letter-spacing: 0.06em;
@@ -196,7 +191,7 @@
     flex-wrap: wrap;
 }
 .footer-disclaimer {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--sans);
     font-size: 0.62rem;
     color: var(--text-muted);
     letter-spacing: 0.04em;
@@ -208,7 +203,7 @@
     font-size: 0.7rem;
 }
 .footer-legal-link {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--sans);
     font-size: 0.62rem;
     color: var(--text-muted);
     text-decoration: none;
@@ -223,7 +218,7 @@
     .footer-bottom { flex-direction: column; align-items: flex-start; }
 }
 .price-delta {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.72rem;
   letter-spacing: 0.03em;
   margin-left: 6px;
@@ -243,7 +238,7 @@ html {
 }
 
 body {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--sans);
   background: var(--bg-base);
   color: var(--text-primary);
   font-size: 15px;
@@ -311,7 +306,7 @@ nav .container {
 }
 
 .logo {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--serif);
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--text-primary);
@@ -351,7 +346,6 @@ nav a {
   font-size: 0.82rem;
   font-weight: 500;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
   padding: 0 18px;
   height: 64px;
   display: flex;
@@ -407,10 +401,9 @@ nav a.active {
 }
 
 .hero-eyebrow {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.72rem;
   letter-spacing: 0.2em;
-  text-transform: uppercase;
   color: var(--gold-dim);
   margin-bottom: 1.4rem;
   display: flex;
@@ -428,7 +421,7 @@ nav a.active {
 }
 
 .hero h1 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--serif);
   font-size: clamp(2.2rem, 4vw, 3.4rem);
   font-weight: 500;
   line-height: 1.2;
@@ -446,7 +439,7 @@ nav a.active {
 .hero p {
   font-size: 1rem;
   color: var(--text-secondary);
-  font-weight: 300;
+  font-weight: 400;
   max-width: 520px;
   animation: fadeSlideUp 0.6s 0.2s ease both;
 }
@@ -454,7 +447,7 @@ nav a.active {
 .hero-subvalue {
   font-size: 0.85rem;
   color: var(--text-muted);
-  font-weight: 300;
+  font-weight: 400;
   max-width: 520px;
   margin-top: 0.8rem;
   padding-top: 0.8rem;
@@ -489,7 +482,7 @@ section {
 }
 
 h2 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--serif);
   font-size: 1.6rem;
   font-weight: 500;
   color: var(--text-primary);
@@ -500,11 +493,10 @@ h2 {
 }
 
 .section-meta {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.72rem;
   color: var(--text-muted);
   letter-spacing: 0.1em;
-  text-transform: uppercase;
 }
 
 h3 {
@@ -518,7 +510,7 @@ h3 {
   font-size: 0.95rem;
   color: var(--text-secondary);
   margin-bottom: 3rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 /* ── Signal Cards (Homepage) ────────────────────────────────── */
@@ -568,11 +560,10 @@ h3 {
 }
 
 .signal-card h3 {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--sans);
   font-size: 0.82rem;
   font-weight: 500;
   letter-spacing: 0.06em;
-  text-transform: uppercase;
   color: var(--text-muted);
   margin-bottom: 1.2rem;
 }
@@ -596,7 +587,7 @@ h3 {
 }
 
 .signal-indicator {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--serif);
   font-size: 1.35rem;
   font-weight: 500;
   letter-spacing: 0.01em;
@@ -614,7 +605,7 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.72rem;
   color: var(--text-muted);
   letter-spacing: 0.05em;
@@ -651,7 +642,6 @@ h3 {
 .forecast-card h3 {
   font-size: 0.8rem;
   letter-spacing: 0.06em;
-  text-transform: uppercase;
   color: var(--text-muted);
   margin-bottom: 1.4rem;
   font-weight: 500;
@@ -676,15 +666,14 @@ h3 {
 }
 
 .forecast-data .label {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.7rem;
   color: var(--text-muted);
   letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 
 .forecast-data .value {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--text-primary);
@@ -701,11 +690,10 @@ h3 {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   text-align: center;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.68rem;
   color: var(--text-muted);
   letter-spacing: 0.1em;
-  text-transform: uppercase;
 }
 
 /* ── Weekly Changes ─────────────────────────────────────────── */
@@ -721,7 +709,7 @@ h3 {
   padding: 1rem 1.4rem;
   color: var(--text-secondary);
   font-size: 0.9rem;
-  font-weight: 300;
+  font-weight: 400;
   border-bottom: 1px solid var(--border-subtle);
   display: flex;
   align-items: flex-start;
@@ -740,7 +728,7 @@ h3 {
 .changes-list li::before {
   content: '—';
   color: var(--gold-dim);
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.75rem;
   flex-shrink: 0;
   margin-top: 3px;
@@ -748,11 +736,10 @@ h3 {
 
 .update-note {
   margin-top: 1.2rem;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.7rem;
   color: var(--text-muted);
   letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 
 /* ── CTA Section ────────────────────────────────────────────── */
@@ -778,7 +765,7 @@ h3 {
 }
 
 .cta-section h2 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--serif);
   font-size: 1.8rem;
   font-weight: 500;
   color: var(--text-primary);
@@ -790,7 +777,7 @@ h3 {
 
 .cta-section p {
   color: var(--text-secondary);
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 2rem;
 }
 
@@ -805,7 +792,6 @@ h3 {
   font-size: 0.82rem;
   font-weight: 500;
   letter-spacing: 0.12em;
-  text-transform: uppercase;
   transition: all var(--transition);
   position: relative;
   overflow: hidden;
@@ -866,7 +852,7 @@ h3 {
 }
 
 .signal-header h3 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--serif);
   font-size: 1.25rem;
   font-weight: 500;
   color: var(--text-primary);
@@ -874,11 +860,10 @@ h3 {
 }
 
 .signal-badge {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.14em;
-  text-transform: uppercase;
   padding: 0.4rem 0.9rem;
   border-radius: var(--radius-sm);
   display: flex;
@@ -936,15 +921,14 @@ h3 {
 }
 
 .metric-label {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.65rem;
   color: var(--text-muted);
   letter-spacing: 0.12em;
-  text-transform: uppercase;
 }
 
 .metric-value {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 1.15rem;
   font-weight: 400;
   color: var(--text-primary);
@@ -962,7 +946,7 @@ h3 {
 }
 
 .forecast-detail h2 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--serif);
   font-size: 1.5rem;
   font-weight: 500;
   color: var(--text-primary);
@@ -993,15 +977,14 @@ h3 {
 }
 
 .status-item .label {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.65rem;
   color: var(--text-muted);
   letter-spacing: 0.12em;
-  text-transform: uppercase;
 }
 
 .status-item .value {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 1.1rem;
   font-weight: 400;
   color: var(--text-primary);
@@ -1009,7 +992,7 @@ h3 {
 
 .status-item .value.large {
   font-size: 1.8rem;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--gold);
   letter-spacing: -0.03em;
 }
@@ -1031,11 +1014,10 @@ h3 {
 }
 
 .forecast-period h3 {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.72rem;
   color: var(--text-muted);
   letter-spacing: 0.12em;
-  text-transform: uppercase;
   margin-bottom: 1.5rem;
 }
 
@@ -1046,19 +1028,18 @@ h3 {
 }
 
 .forecast-label {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.68rem;
   color: var(--text-muted);
   letter-spacing: 0.1em;
-  text-transform: uppercase;
   display: block;
   margin-bottom: 0.4rem;
 }
 
 .forecast-value {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 2rem;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--gold);
   letter-spacing: -0.03em;
 }
@@ -1068,11 +1049,10 @@ h3 {
 }
 
 .range-label {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.68rem;
   color: var(--text-muted);
   letter-spacing: 0.1em;
-  text-transform: uppercase;
   display: block;
   margin-bottom: 0.6rem;
 }
@@ -1085,7 +1065,7 @@ h3 {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.82rem;
   color: var(--text-secondary);
 }
@@ -1103,10 +1083,9 @@ h3 {
 
 .confidence-level {
   display: inline-block;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.7rem;
   letter-spacing: 0.12em;
-  text-transform: uppercase;
   padding: 0.4rem 1rem;
   border-radius: var(--radius-sm);
 }
@@ -1122,18 +1101,17 @@ h3 {
 }
 
 .model-explanation h4 {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.72rem;
   color: var(--text-muted);
   letter-spacing: 0.12em;
-  text-transform: uppercase;
   margin-bottom: 0.8rem;
 }
 
 .model-explanation p {
   color: var(--text-secondary);
   font-size: 0.88rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.7;
 }
 
@@ -1145,7 +1123,7 @@ h3 {
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   font-size: 0.85rem;
   color: var(--text-secondary);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.7;
 }
 
@@ -1171,16 +1149,15 @@ h3 {
 }
 
 .record-header h3 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--serif);
   font-size: 1.1rem;
   font-weight: 500;
 }
 
 .outcome-badge {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.68rem;
   letter-spacing: 0.14em;
-  text-transform: uppercase;
   padding: 0.35rem 0.8rem;
   border-radius: var(--radius-sm);
 }
@@ -1195,11 +1172,10 @@ h3 {
 }
 
 .detail-label {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.7rem;
   color: var(--text-muted);
   letter-spacing: 0.08em;
-  text-transform: uppercase;
   margin-right: 0.6rem;
 }
 
@@ -1216,7 +1192,7 @@ h3 {
 .lesson-learned p {
   color: var(--text-secondary);
   font-size: 0.88rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .stats-preview {
@@ -1237,25 +1213,24 @@ h3 {
 }
 
 .stat-label {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.68rem;
   color: var(--text-muted);
   letter-spacing: 0.12em;
-  text-transform: uppercase;
   margin-bottom: 0.8rem;
 }
 
 .stat-value {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 2.5rem;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--gold);
   letter-spacing: -0.04em;
 }
 
 /* ── Work With Me ───────────────────────────────────────────── */
 .lead {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--serif);
   font-size: 1.35rem;
   font-weight: 400;
   color: var(--text-secondary);
@@ -1283,7 +1258,7 @@ h3 {
 .benefit-card:hover { background: var(--bg-card-hover); }
 
 .benefit-card h3 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--serif);
   font-size: 1.1rem;
   font-weight: 500;
   color: var(--text-primary);
@@ -1293,7 +1268,7 @@ h3 {
 .benefit-card p {
   color: var(--text-secondary);
   font-size: 0.88rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.7;
 }
 
@@ -1309,7 +1284,7 @@ h3 {
   padding: 0.9rem 1.4rem;
   color: var(--text-secondary);
   font-size: 0.9rem;
-  font-weight: 300;
+  font-weight: 400;
   border-bottom: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
@@ -1325,7 +1300,7 @@ h3 {
   color: var(--bullish-text);
   font-size: 0.8rem;
   flex-shrink: 0;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
 }
 
 /* ── Contact Form ───────────────────────────────────────────── */
@@ -1341,11 +1316,10 @@ h3 {
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.7rem;
   color: var(--text-muted);
   letter-spacing: 0.12em;
-  text-transform: uppercase;
 }
 
 .form-group input,
@@ -1355,7 +1329,7 @@ h3 {
   border: 1px solid var(--border-mid);
   border-radius: var(--radius-sm);
   font-size: 0.92rem;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--sans);
   background: var(--bg-inset);
   color: var(--text-primary);
   transition: border-color var(--transition), box-shadow var(--transition);
@@ -1377,10 +1351,9 @@ h3 {
   font-size: 0.82rem;
   font-weight: 500;
   letter-spacing: 0.12em;
-  text-transform: uppercase;
   cursor: pointer;
   transition: all var(--transition);
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--sans);
 }
 
 .submit-button:hover {
@@ -1412,7 +1385,7 @@ h3 {
 }
 
 .method-section h3 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--serif);
   font-size: 1.2rem;
   font-weight: 500;
   color: var(--text-primary);
@@ -1424,7 +1397,7 @@ h3 {
 .method-section ul {
   color: var(--text-secondary);
   font-size: 0.92rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.8;
   margin-bottom: 0.8rem;
 }
@@ -1439,7 +1412,7 @@ h3 {
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   font-size: 0.88rem;
   color: var(--text-secondary);
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .confidence-explainer {
@@ -1451,11 +1424,10 @@ h3 {
 }
 
 .confidence-explainer h4 {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.72rem;
   color: var(--text-muted);
   letter-spacing: 0.12em;
-  text-transform: uppercase;
   margin-bottom: 1rem;
 }
 
@@ -1477,7 +1449,7 @@ h3 {
   padding: 0.9rem 1.4rem;
   color: var(--text-secondary);
   font-size: 0.9rem;
-  font-weight: 300;
+  font-weight: 400;
   border-bottom: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
@@ -1489,7 +1461,7 @@ h3 {
 .limitations-list li::before {
   content: '×';
   color: var(--bearish-text);
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.9rem;
   flex-shrink: 0;
 }
@@ -1506,7 +1478,7 @@ footer {
 footer p {
   font-size: 0.82rem;
   color: var(--text-muted);
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   letter-spacing: 0.05em;
 }
 
@@ -1535,7 +1507,7 @@ footer p {
   background: var(--border-mid);
   color: var(--text-muted);
   font-size: 0.6rem;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-weight: 500;
   cursor: help;
   flex-shrink: 0;
@@ -1559,7 +1531,7 @@ footer p {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.7rem;
   color: var(--gold-dim);
   text-decoration: none;
@@ -1576,11 +1548,10 @@ footer p {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.65rem;
   color: var(--text-muted);
   letter-spacing: 0.1em;
-  text-transform: uppercase;
   margin-top: 1rem;
 }
 
@@ -1615,7 +1586,7 @@ footer p {
 
 /* ── Page h1 ────────────────────────────────────────────────── */
 h1 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--serif);
   font-size: 2.4rem;
   font-weight: 500;
   color: var(--text-primary);
@@ -1669,15 +1640,14 @@ h1 {
 }
 
 .tr-stat-label {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.65rem;
   letter-spacing: 0.12em;
   color: var(--text-muted);
-  text-transform: uppercase;
 }
 
 .tr-stat-value {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 2rem;
   color: var(--text-primary);
   font-weight: 400;
@@ -1712,7 +1682,7 @@ h1 {
   font-size: 0.82rem;
   color: var(--text-muted);
   margin-bottom: 2rem;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   letter-spacing: 0.05em;
 }
 
@@ -1745,7 +1715,7 @@ h1 {
 }
 
 .prediction-card-title h3 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--serif);
   font-size: 1.2rem;
   font-weight: 500;
   color: var(--text-primary);
@@ -1764,7 +1734,7 @@ h1 {
 .asset-dot.food      { background: #6aaa64; }
 
 .horizon-tag {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.6rem;
   letter-spacing: 0.12em;
   color: var(--text-muted);
@@ -1775,12 +1745,11 @@ h1 {
 }
 
 .status-badge {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.65rem;
   letter-spacing: 0.12em;
   padding: 4px 10px;
   border-radius: 3px;
-  text-transform: uppercase;
 }
 
 .status-badge.open {
@@ -1818,15 +1787,14 @@ h1 {
 .prediction-row:last-child { border-bottom: none; }
 
 .pred-label {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.65rem;
   letter-spacing: 0.1em;
   color: var(--text-muted);
-  text-transform: uppercase;
 }
 
 .pred-value {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.85rem;
   color: var(--text-secondary);
 }
@@ -1851,7 +1819,7 @@ h1 {
 }
 
 .tr-empty-sub {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.75rem !important;
   color: var(--text-muted) !important;
   margin-top: 0.5rem;
@@ -1867,7 +1835,7 @@ h1 {
 }
 
 .wwm-lead {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--serif);
   font-size: 1.35rem;
   font-weight: 400;
   color: var(--text-primary);
@@ -1886,7 +1854,7 @@ h1 {
 }
 
 .wwm-section h2 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--serif);
   font-size: 1.6rem;
   font-weight: 500;
   color: var(--text-primary);
@@ -1923,7 +1891,7 @@ h1 {
 }
 
 .wwm-client-card h3 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--serif);
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--text-primary);
@@ -1964,11 +1932,10 @@ h1 {
 }
 
 .wwm-service-tag {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.6rem;
   letter-spacing: 0.14em;
   color: var(--gold-dim);
-  text-transform: uppercase;
   display: block;
   margin-bottom: 0.5rem;
 }
@@ -1978,7 +1945,7 @@ h1 {
 }
 
 .wwm-service-header h3 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--serif);
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--text-primary);
@@ -1986,7 +1953,7 @@ h1 {
 }
 
 .wwm-price {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.75rem;
   color: var(--text-muted);
   letter-spacing: 0.05em;
@@ -2020,7 +1987,7 @@ h1 {
 }
 
 .wwm-service-list li {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.72rem;
   color: var(--text-muted);
   letter-spacing: 0.04em;
@@ -2038,7 +2005,7 @@ h1 {
 .wwm-cta-link {
   display: inline-flex;
   align-items: center;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   color: var(--gold);
@@ -2086,7 +2053,7 @@ h1 {
 }
 
 .wwm-step-num {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.7rem;
   color: var(--gold-dim);
   letter-spacing: 0.1em;
@@ -2096,7 +2063,7 @@ h1 {
 }
 
 .wwm-step-body h3 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--serif);
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--text-primary);
@@ -2139,11 +2106,10 @@ h1 {
 }
 
 .form-group label {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.65rem;
   letter-spacing: 0.12em;
   color: var(--text-muted);
-  text-transform: uppercase;
 }
 
 .form-group input,
@@ -2154,7 +2120,7 @@ h1 {
   border-radius: var(--radius-sm);
   padding: 0.75rem 1rem;
   color: var(--text-primary);
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--sans);
   font-size: 0.88rem;
   transition: border-color var(--transition);
   outline: none;
@@ -2192,10 +2158,9 @@ h1 {
   border: 1px solid var(--gold-dim);
   border-radius: var(--radius-sm);
   color: var(--gold);
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.75rem;
   letter-spacing: 0.14em;
-  text-transform: uppercase;
   padding: 14px 32px;
   cursor: pointer;
   transition: background var(--transition), border-color var(--transition);
@@ -2228,11 +2193,10 @@ h1 {
 }
 
 .wwm-aside-label {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.6rem;
   letter-spacing: 0.12em;
   color: var(--text-muted);
-  text-transform: uppercase;
 }
 
 .wwm-aside-value {
@@ -2291,7 +2255,7 @@ h1 {
 }
 
 .forecast-asset-header h2 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--serif);
   font-size: 1.6rem;
   font-weight: 500;
   color: var(--text-primary);
@@ -2306,7 +2270,7 @@ h1 {
 }
 
 .forecast-current {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.78rem;
   color: var(--text-muted);
   letter-spacing: 0.05em;
@@ -2317,7 +2281,7 @@ h1 {
 }
 
 .forecast-arrow {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.78rem;
   letter-spacing: 0.05em;
 }
@@ -2346,11 +2310,10 @@ h1 {
 }
 
 .forecast-period-block h3 {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.65rem;
   letter-spacing: 0.12em;
   color: var(--text-muted);
-  text-transform: uppercase;
   margin-bottom: 0.75rem;
 }
 
@@ -2367,15 +2330,14 @@ h1 {
 }
 
 .forecast-stat-label {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.6rem;
   letter-spacing: 0.12em;
   color: var(--text-muted);
-  text-transform: uppercase;
 }
 
 .forecast-stat-value {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.95rem;
   color: var(--text-secondary);
 }

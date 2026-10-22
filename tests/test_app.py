@@ -81,13 +81,24 @@ def test_empty_response_is_not_cached(monkeypatch):
 
 def test_home_shows_when_first_live_results_are_due(client):
     html = client.get("/").get_data(as_text=True)
-    assert "first results due 2026-11-15" in html
+    assert "First results due 2026-11-15" in html
 
 
-def test_trend_badge_has_no_strength_label(client):
+def test_trend_has_no_strength_label(client):
     html = client.get("/").get_data(as_text=True)
-    assert "3-month trend" in html
+    assert "as a predictor, trend calls for Gold were right 56.0% of the time" in html
     assert "moderate" not in html and "strong" not in html
+
+
+def test_hero_states_the_range_in_a_sentence(client):
+    html = client.get("/").get_data(as_text=True)
+    assert "Gold is $4,187.46 per troy oz. By 15 Nov, it could be anywhere from $3,900.00 to $4,500.00." in html
+
+
+def test_track_record_has_charts_with_margins(client):
+    html = client.get("/track-record").get_data(as_text=True)
+    assert html.count('class="dotplot') == 2
+    assert "Did the ranges hold?" in html
 
 
 def test_track_record_explains_limits(client):

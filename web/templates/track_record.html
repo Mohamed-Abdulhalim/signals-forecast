@@ -1,6 +1,45 @@
 {% extends "base.html" %}
-{% block title %}Track record · EdgePulse{% endblock %}
-{% block description %}Every EdgePulse forecast, scored: how often the one-month price ranges held and how often the trend signal was right, compared with simple baselines.{% endblock %}
+{% block title %}Track record | EdgePulse{% endblock %}
+{% block description %}Every EdgePulse forecast, scored: how often the one-month price ranges held and how often the trend calls were right, compared with simple baselines.{% endblock %}
+
+{% macro dotplot(rows, vmin, vmax, ref, ref_label, field, margin_field, other_field, step) %}
+{% set x0 = 112 %}
+{% set x1 = 452 %}
+{% set rowh = 40 %}
+{% set h = rows | length * rowh + 44 %}
+<svg class="dotplot dp-{{ field }}" viewBox="0 0 520 {{ h }}" role="img" aria-label="{{ 'Range held' if field == 'range' else 'Trend right' }} by market">
+  {% for tick in range(vmin, vmax + 1, step) %}
+  {% set tx = x0 + (tick - vmin) / (vmax - vmin) * (x1 - x0) %}
+  <line class="dp-grid" x1="{{ tx }}" x2="{{ tx }}" y1="8" y2="{{ h - 30 }}"/>
+  <text class="dp-tick" x="{{ tx }}" y="{{ h - 10 }}" text-anchor="middle">{{ tick }}%</text>
+  {% endfor %}
+  {% set rx = x0 + (ref - vmin) / (vmax - vmin) * (x1 - x0) %}
+  <line class="dp-ref" x1="{{ rx }}" x2="{{ rx }}" y1="8" y2="{{ h - 30 }}"/>
+  {% for r in rows %}
+  {% set cy = 24 + loop.index0 * rowh %}
+  {% set v = r[field] %}
+  {% set vc = vmin if v < vmin else (vmax if v > vmax else v) %}
+  {% set vx = x0 + (vc - vmin) / (vmax - vmin) * (x1 - x0) %}
+  {% set m = r[margin_field] %}
+  <text class="dp-name" x="0" y="{{ cy + 4 }}">{{ r.asset }}</text>
+  {% if m is not none %}
+  {% set mx0 = x0 + ((v - m if v - m > vmin else vmin) - vmin) / (vmax - vmin) * (x1 - x0) %}
+  {% set mx1 = x0 + ((v + m if v + m < vmax else vmax) - vmin) / (vmax - vmin) * (x1 - x0) %}
+  <line class="dp-margin" x1="{{ mx0 }}" x2="{{ mx1 }}" y1="{{ cy }}" y2="{{ cy }}"/>
+  {% endif %}
+  {% if other_field %}
+  {% set o = r[other_field] %}
+  {% if o is not none %}
+  {% set ox = x0 + (o - vmin) / (vmax - vmin) * (x1 - x0) %}
+  <circle class="dp-other" cx="{{ ox }}" cy="{{ cy }}" r="5"/>
+  {% endif %}
+  {% endif %}
+  <circle class="dp-dot" cx="{{ vx }}" cy="{{ cy }}" r="6"/>
+  <text class="dp-value" x="{{ x1 + 14 }}" y="{{ cy + 4 }}">{{ v }}%</text>
+  {% endfor %}
+</svg>
+<p class="dp-legend">{{ ref_label }}</p>
+{% endmacro %}
 
 {% block content %}
 <header class="page-header">
@@ -14,7 +53,7 @@
 <section class="v2-notice">The track record is temporarily unavailable. Please try again in a few minutes.</section>
 {% endif %}
 
-<section class="reveal">
+<section>
   <div class="section-header">
     <h2>What is being tested</h2>
   </div>
@@ -24,13 +63,13 @@
       <p>Each forecast gives a low and a high price for {{ horizon_days }} days later. If the method is honest, the actual price should land inside about {{ coverage_pct }}% of the time. Much lower means the ranges are too narrow; much higher means they are too wide to be useful.</p>
     </div>
     <div>
-      <h3>The trend signal</h3>
+      <h3>The trend reading</h3>
       <p>"Uptrend" means the price is higher than {{ trend_days }} trading days ago. The test is whether the price is higher again {{ horizon_days }} days later. A coin flip scores 50%. Always saying "up" scores whatever share of months happened to rise, so that is the bar to beat.</p>
     </div>
   </div>
 </section>
 
-<section class="reveal">
+<section>
   <div class="section-header">
     <h2>How much to trust these numbers</h2>
   </div>
@@ -43,40 +82,51 @@
 
 {% for kind, label, note in [('live', 'Live forecasts', 'Made every weekday since ' ~ live_start ~ ', before the outcome was known.'), ('backtest', 'Backtest', 'The same code run on past data, one forecast a week per market, using only the prices available on that day.')] %}
 {% set t = track[kind] %}
-<section class="reveal">
+<section>
   <div class="section-header">
     <h2>{{ label }}</h2>
-    <span class="section-meta">{{ note }}</span>
+    <p class="section-meta">{{ note }}</p>
   </div>
   {% if t.completed %}
-  <div class="score-strip">
-    <div class="score-box">
-      <span class="score-label">Ranges that held</span>
-      <span class="score-value">{{ t.range }}%</span>
-      <span class="score-note">target {{ coverage_pct }}%</span>
+  <div class="scoreboard scoreboard-compact">
+    <div class="sb-item">
+      <span class="sb-label">Ranges that held</span>
+      <span class="sb-value">{{ t.range }}%</span>
+      <span class="sb-note">Target {{ coverage_pct }}%</span>
     </div>
-    <div class="score-box">
-      <span class="score-label">Trend signal right</span>
-      <span class="score-value muted">{{ t.trend }}%</span>
-      <span class="score-note">coin flip 50% · "always up" {{ t.up }}%</span>
+    <div class="sb-item">
+      <span class="sb-label">Trend calls right</span>
+      <span class="sb-value sb-muted">{{ t.trend }}%</span>
+      <span class="sb-note">Coin flip 50%, always saying up {{ t.up }}%</span>
     </div>
-    <div class="score-box">
-      <span class="score-label">Scored</span>
-      <span class="score-value">{{ "{:,}".format(t.completed) }}</span>
-      <span class="score-note">{{ t.pending }} still open</span>
+    <div class="sb-item">
+      <span class="sb-label">Scored</span>
+      <span class="sb-value">{{ "{:,}".format(t.completed) }}</span>
+      <span class="sb-note">{{ t.pending }} still open</span>
     </div>
   </div>
   {% elif t.pending %}
-  <p class="section-note">{{ t.pending }} forecasts are waiting for their outcome date. The first ones are scored {{ horizon_days }} days after {{ t.first_on }}.</p>
+  <p class="section-note">{{ t.pending }} forecasts are waiting for their outcome date. The first ones are scored {{ horizon_days }} days after {{ t.first_on }}{% if t.first_due %}, on {{ t.first_due }}{% endif %}.</p>
   {% else %}
   <p class="section-note">Nothing here yet.</p>
   {% endif %}
 
   {% set rows = track.per_asset | selectattr('kind', 'equalto', kind) | selectattr('completed') | list %}
   {% if rows %}
+  <div class="dp-pair">
+    <figure class="dp-figure">
+      <h3>Did the ranges hold?</h3>
+      {{ dotplot(rows, 70, 100, coverage_pct, 'Each dot is how often a market\'s ' ~ coverage_pct ~ '% range held. The vertical line is the ' ~ coverage_pct ~ '% target. The thin bar is a rough margin of luck, because forecasts overlap.', 'range', 'range_margin', None, 5) }}
+    </figure>
+    <figure class="dp-figure">
+      <h3>Did the trend calls beat the baselines?</h3>
+      {{ dotplot(rows, 30, 70, 50, 'Filled dot: trend calls right. Hollow dot: always saying up. The vertical line is a coin flip at 50%. The thin bar is a rough margin of luck.', 'trend', 'trend_margin', 'up', 10) }}
+    </figure>
+  </div>
+
   <div class="tbl-wrap">
     <table class="tbl">
-      <thead><tr><th>Market</th><th>Scored</th><th>Range held</th><th>Trend right</th><th>"Always up"</th></tr></thead>
+      <thead><tr><th>Market</th><th>Scored</th><th>Range held</th><th>Trend right</th><th>Always up</th></tr></thead>
       <tbody>
         {% for r in rows %}
         <tr>
@@ -97,7 +147,7 @@
 <section>
   <div class="section-header">
     <h2>Recent forecasts</h2>
-    <span class="section-meta">Live first, then the latest backtests</span>
+    <p class="section-meta">Live first, then the latest backtests.</p>
   </div>
   <div class="tr-filters" role="group" aria-label="Filter">
     <label>Type
@@ -117,10 +167,10 @@
           <td>{{ r.asset }}</td>
           <td><span class="pill {{ r.kind }}">{{ r.kind }}</span></td>
           <td>{{ r.price }}</td>
-          <td>{% if r.trend == 'up' %}↑ up{% else %}↓ down{% endif %}</td>
+          <td>{% if r.trend == 'up' %}Up{% else %}Down{% endif %}</td>
           <td>{{ r.range }}</td>
           <td>{{ r.target_on }}</td>
-          <td>{{ r.actual or "—" }}</td>
+          <td>{{ r.actual or "–" }}</td>
           <td>{% if r.in_range is none %}<span class="pill pending">open</span>{% elif r.in_range %}<span class="pill hit">held</span>{% else %}<span class="pill miss">missed</span>{% endif %}</td>
           <td>{% if r.trend_hit is none %}<span class="pill pending">open</span>{% elif r.trend_hit %}<span class="pill hit">right</span>{% else %}<span class="pill miss">wrong</span>{% endif %}</td>
         </tr>

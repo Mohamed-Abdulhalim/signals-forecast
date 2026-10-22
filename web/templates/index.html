@@ -1,136 +1,165 @@
 {% extends "base.html" %}
-{% block title %}EdgePulse · Commodity price ranges and trends, scored in public{% endblock %}
+{% block title %}EdgePulse | How far could commodity prices move?{% endblock %}
 
 {% block hero %}
+{% set f = lead.forecast if lead else None %}
 <header class="hero">
-  <div class="container">
-    <p class="hero-eyebrow">Commodity price monitor</p>
-    <h1>Where prices stand,<br>and how far they could <em>move</em></h1>
-    <p>Daily prices for seven commodity markets, a one-month price range built from each market's own history, and a plain three-month trend reading shown next to its own track record.</p>
-    <p class="hero-subvalue">Every forecast is logged and scored in public against plain baselines, misses included.</p>
+  <div class="container hero-inner">
+    {% if lead and f %}
+    <h1 class="hero-statement">{{ lead.name }} is {{ lead.price_text }} {{ lead.per }}. By {{ f.target_on | short_date }}, it could be anywhere from {{ f.lo_text }} to {{ f.hi_text }}.</h1>
+    <figure class="hero-gauge" aria-label="Likely range for {{ lead.name }} by {{ f.target_on | short_date }}">
+      {% set half = axis if axis > 20 else 20 %}
+      {% set left = 50 + (f.lo_pct / half * 50) %}
+      {% set width = (f.hi_pct - f.lo_pct) / half * 50 %}
+      <div class="hg-track">
+        <span class="hg-band" style="left: {{ '%.2f' | format(left) }}%; width: {{ '%.2f' | format(width) }}%"></span>
+        <span class="hg-today" style="left: 50%"></span>
+        <span class="hg-edge hg-lo" style="left: {{ '%.2f' | format(left) }}%">{{ f.lo_text }}</span>
+        <span class="hg-edge hg-hi" style="left: {{ '%.2f' | format(left + width) }}%">{{ f.hi_text }}</span>
+        <span class="hg-now" style="left: 50%">today<br>{{ lead.price_text }}</span>
+      </div>
+      <figcaption>
+        The shaded band is the range this method gives for {{ f.target_on | short_date }}.
+        {% if lead.backtest.n %}In backtests, ranges like it held {{ lead.backtest.range }}% of the time against a {{ coverage_pct }}% target.{% endif %}
+        Every forecast is stored before the outcome is known, and misses stay on the record.
+      </figcaption>
+    </figure>
+    {% else %}
+    <h1 class="hero-statement">How far could commodity prices move in the next month?</h1>
+    <p class="hero-fallback">EdgePulse publishes one-month price ranges for seven markets and scores every forecast in public.</p>
+    {% endif %}
   </div>
 </header>
 {% endblock %}
 
 {% block content %}
 {% if unavailable %}
-<section class="v2-notice reveal">Market data is temporarily unavailable. Please try again in a few minutes.</section>
+<section class="v2-notice">Market data is temporarily unavailable. Please try again in a few minutes.</section>
 {% endif %}
 
 {% set bt = track.backtest %}
 {% set lv = track.live %}
 {% if bt.completed %}
-<section class="score-strip reveal" aria-label="How the forecasts have performed">
-  <div class="score-box">
-    <span class="score-label">{{ coverage_pct }}% ranges that held</span>
-    <span class="score-value">{{ bt.range }}%</span>
-    <span class="score-note">target {{ coverage_pct }}% · {{ "{:,}".format(bt.completed) }} backtests</span>
+<section class="scoreboard" aria-label="How the forecasts have performed">
+  <div class="sb-item">
+    <span class="sb-label">Ranges that held</span>
+    <span class="sb-value">{{ bt.range }}%</span>
+    <span class="sb-note">Target {{ coverage_pct }}%, from {{ "{:,}".format(bt.completed) }} backtests</span>
   </div>
-  <div class="score-box">
-    <span class="score-label">Trend signal right</span>
-    <span class="score-value muted">{{ bt.trend }}%</span>
-    <span class="score-note">coin flip 50% · "always up" {{ bt.up }}%</span>
+  <div class="sb-item">
+    <span class="sb-label">Trend calls right</span>
+    <span class="sb-value sb-muted">{{ bt.trend }}%</span>
+    <span class="sb-note">Coin flip 50%, always saying up {{ bt.up }}%</span>
   </div>
-  <div class="score-box">
-    <span class="score-label">Live forecasts</span>
-    <span class="score-value">{{ "{:,}".format(lv.completed + lv.pending) }}</span>
-    <span class="score-note">since {{ live_start }} · {% if lv.completed %}{{ lv.completed }} scored{% elif lv.first_due %}first results due {{ lv.first_due }}{% else %}none scored yet{% endif %}</span>
+  <div class="sb-item">
+    <span class="sb-label">Live forecasts</span>
+    <span class="sb-value">{{ "{:,}".format(lv.completed + lv.pending) }}</span>
+    <span class="sb-note">Since {{ live_start }}. {% if lv.completed %}{{ lv.completed }} scored.{% elif lv.first_due %}First results due {{ lv.first_due }}.{% else %}None scored yet.{% endif %}</span>
   </div>
-  <a class="score-link" href="/track-record">Full track record →</a>
+  <a class="sb-link" href="/track-record">See the full record</a>
 </section>
 {% endif %}
 
-<section class="reveal">
+<section class="ledger-section" id="markets">
   <div class="section-header">
-    <h2>Markets</h2>
-    <span class="section-meta">Closing prices{% if last_day %} through {{ last_day }}{% endif %} · Yahoo Finance futures</span>
+    <h2>Seven markets</h2>
+    <p class="section-meta">Closing prices{% if last_day %} through {{ last_day }}{% endif %}. Front-month futures from Yahoo Finance.</p>
   </div>
-  <div class="mkt-grid">
+
+  <div class="ledger" role="list">
+    <div class="ledger-head" aria-hidden="true">
+      <span>Market</span>
+      <span>Price</span>
+      <span class="lh-gauge">
+        <span>Down {{ axis }}%</span>
+        <span>Today</span>
+        <span>Up {{ axis }}%</span>
+      </span>
+      <span>Backtest</span>
+    </div>
+
     {% for a in assets %}
     {% set f = a.forecast %}
-    <article class="mkt-card" id="{{ a.slug }}">
-      <div class="mkt-head">
-        <span class="mkt-cat">{{ a.category }}</span>
+    <details class="mrow" id="{{ a.slug }}" role="listitem">
+      <summary>
+        <span class="m-name">
+          <span class="m-title">{{ a.name }}</span>
+          <span class="m-unit">{{ a.unit }}</span>
+        </span>
+        <span class="m-price">
+          <span class="m-value">{{ a.price }}</span>
+          {% if a.change_pct is not none %}<span class="m-delta">{{ "{:+.2f}".format(a.change_pct) }}% today</span>{% endif %}
+        </span>
         {% if f %}
-        <span class="trend-badge {{ f.trend }}" title="Direction over the last {{ trend_days }} trading days. This describes the past. As a predictor it was right {{ a.backtest.trend }}% of the time in backtests; see the track record.">
-          {% if f.trend == 'up' %}↑{% else %}↓{% endif %} 3-month trend
+        {% set left = 50 + (f.lo_pct / axis * 50) %}
+        {% set width = (f.hi_pct - f.lo_pct) / axis * 50 %}
+        <span class="m-gauge">
+          <span class="g-track" aria-hidden="true">
+            <span class="g-zero"></span>
+            <span class="g-band" style="left: {{ '%.2f' | format(left) }}%; width: {{ '%.2f' | format(width) }}%"></span>
+          </span>
+          <span class="g-text">
+            <span class="g-range">{{ f.lo }} – {{ f.hi }}</span>
+            <span class="g-pct">{{ "{:+.1f}".format(f.lo_pct) }}% to {{ "{:+.1f}".format(f.hi_pct) }}% by {{ f.target_on | short_date }}</span>
+          </span>
         </span>
-        {% endif %}
-      </div>
-      <h3 class="mkt-name">{{ a.name }}</h3>
-      <div class="mkt-price">
-        <span class="mkt-value">{{ a.price }}</span>
-        <span class="mkt-unit">{{ a.unit }}</span>
-        {% if a.change_pct is not none %}
-        <span class="price-delta {% if a.change_pct >= 0 %}delta-up{% else %}delta-down{% endif %}">{% if a.change_pct >= 0 %}▲{% else %}▼{% endif %} {{ "{:+.2f}".format(a.change_pct) }}%</span>
-        {% endif %}
-      </div>
-      {% if f %}
-      <div class="mkt-range">
-        <span class="tooltip-wrap">
-          <span class="mkt-range-label">{{ coverage_pct }}% range by {{ f.target_on }}</span>
-          <span class="tooltip-icon">?</span>
-          <span class="tooltip-box">Built from this market's own past {{ horizon_days }}-day moves, scaled to current volatility. In backtests this kind of range held {{ a.backtest.range }}% of the time.</span>
-        </span>
-        <span class="mkt-range-value">{{ f.lo }} – {{ f.hi }}</span>
-        <span class="mkt-range-pct">{{ "{:+.1f}".format(f.lo_pct) }}% / {{ "{:+.1f}".format(f.hi_pct) }}% · volatility {{ f.vol }}% a year</span>
-      </div>
-      {% endif %}
-      <div class="mkt-chart">
-        <canvas data-chart='{{ {"history": a.history, "lo": f.lo_raw if f else None, "hi": f.hi_raw if f else None, "target": f.target_on if f else None, "trend": f.trend if f else None, "decimals": a.decimals} | tojson | forceescape }}' aria-label="{{ a.name }} price, last 12 months"></canvas>
-      </div>
-      <div class="mkt-foot">
-        {% if a.backtest.n %}
-        Backtest ({{ a.backtest.n }}): range held {{ a.backtest.range }}% · trend right {{ a.backtest.trend }}%
         {% else %}
-        No scored forecasts yet
+        <span class="m-gauge m-none">No forecast yet</span>
+        {% endif %}
+        <span class="m-backtest">
+          {% if a.backtest.n %}
+          <span>Range held {{ a.backtest.range }}%</span>
+          <span>Trend right {{ a.backtest.trend }}%</span>
+          {% else %}
+          <span>No scored forecasts yet</span>
+          {% endif %}
+        </span>
+        <span class="m-toggle" aria-hidden="true"></span>
+      </summary>
+      <div class="m-detail">
+        <div class="m-chart">
+          <canvas data-chart='{{ {"history": a.history, "lo": f.lo_raw if f else None, "hi": f.hi_raw if f else None, "target": f.target_on if f else None, "trend": f.trend if f else None, "decimals": a.decimals} | tojson | forceescape }}' role="img" aria-label="{{ a.name }} price over the last six months with the forecast range"></canvas>
+        </div>
+        {% if f %}
+        <p class="m-note">
+          Price has {{ "risen" if f.trend == "up" else "fallen" }} over the last {{ trend_days }} trading days. That describes the past: as a predictor, trend calls for {{ a.name }} were right {{ a.backtest.trend }}% of the time in backtests.
+          Annual volatility is about {{ f.vol }}%.
+        </p>
         {% endif %}
       </div>
-    </article>
+    </details>
     {% else %}
     <p class="section-note">No market data yet.</p>
     {% endfor %}
   </div>
-  <p class="data-source">Front-month futures from Yahoo Finance (USD Index: ICE DX-Y.NYB). Grain futures are converted from cents to dollars.</p>
+  <p class="data-source">Each row shows how far the price could move in either direction, on one shared scale, so markets can be compared at a glance. Grain futures are converted from cents to dollars. Select a row to see its chart.</p>
 </section>
 
-<div class="divider"></div>
-
-<section class="how-it-works reveal">
+<section class="how-section">
   <div class="section-header">
     <h2>How it works</h2>
-    <span class="section-meta">Automated daily · no manual edits</span>
   </div>
-  <div class="hiw-steps">
-    <div class="hiw-step">
-      <span class="hiw-step-num">01</span>
-      <div class="hiw-step-body">
-        <h3>Prices collected every weekday</h3>
-        <p>One source per market, one unit per market. Obvious one-day data glitches are filtered out before anything is stored.</p>
-      </div>
+  <div class="how-grid">
+    <div>
+      <h3>Prices come in every weekday</h3>
+      <p>One source and one unit per market. Obvious one-day data glitches are filtered out before anything is stored.</p>
     </div>
-    <div class="hiw-step">
-      <span class="hiw-step-num">02</span>
-      <div class="hiw-step-body">
-        <h3>A range, not a price target</h3>
-        <p>Point forecasts for commodities rarely beat "tomorrow looks like today". EdgePulse instead estimates how far each market could move in {{ horizon_days }} days, using its own history and current volatility.</p>
-      </div>
+    <div>
+      <h3>A range, not a price target</h3>
+      <p>Point forecasts for commodities rarely beat "tomorrow looks like today". EdgePulse estimates how far each market could move in {{ horizon_days }} days, using its own history and current volatility.</p>
     </div>
-    <div class="hiw-step">
-      <span class="hiw-step-num">03</span>
-      <div class="hiw-step-body">
-        <h3>Scored in public</h3>
-        <p>Every forecast is stored before the outcome is known and checked automatically when it comes due. The track record compares it with a coin flip and with "always up".</p>
-      </div>
+    <div>
+      <h3>Every forecast is scored</h3>
+      <p>Each forecast is stored before the outcome is known and checked automatically when it comes due, against a coin flip and against always saying up.</p>
     </div>
   </div>
-  <a href="/methodology" class="hiw-learn-more">Full methodology →</a>
+  <a href="/methodology" class="text-link">Read the full methodology</a>
 </section>
 
-<section class="cta-section reveal">
-  <h2>Need something like this for your business?</h2>
-  <p>I build automated data pipelines and dashboards around the prices and sources that matter to you.</p>
-  <a href="/work-with-me" class="cta-button">Get in touch</a>
+<section class="cta-section">
+  <h2>Need price ranges for the inputs your business depends on?</h2>
+  <p>I build automated data pipelines and dashboards that are scored in public the way this one is. Tell me which prices matter to you.</p>
+  <a href="/work-with-me" class="cta-button">Describe your project</a>
 </section>
 {% endblock %}
 

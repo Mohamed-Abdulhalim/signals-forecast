@@ -1,10 +1,12 @@
 (function () {
   if (typeof Chart === 'undefined') return;
   const css = getComputedStyle(document.documentElement);
-  const color = (name, fallback) => (css.getPropertyValue(name) || fallback).trim();
-  const gold = color('--gold', '#C9A84C');
-  const line = color('--text-secondary', '#9a9690');
-  const muted = color('--text-muted', '#5a5855');
+  const token = (name, fallback) => (css.getPropertyValue(name) || fallback).trim();
+  const ink = token('--ink', '#14202A');
+  const slate = token('--slate', '#566472');
+  const accent = token('--accent', '#0B6B63');
+  const accentRgb = token('--accent-rgb', '11, 107, 99');
+  const rule = token('--rule', '#D8DEE3');
   const HISTORY_POINTS = 130;
 
   function businessDays(fromIso, toIso) {
@@ -20,10 +22,12 @@
     return out;
   }
 
-  document.querySelectorAll('canvas[data-chart]').forEach(canvas => {
+  function draw(canvas) {
+    if (canvas.dataset.ready) return;
     let d;
     try { d = JSON.parse(canvas.dataset.chart); } catch (e) { return; }
     if (!d.history || d.history.length < 2) return;
+    canvas.dataset.ready = '1';
 
     const hist = d.history.slice(-HISTORY_POINTS);
     const labels = hist.map(p => p[0]);
@@ -32,8 +36,8 @@
     const last = prices[n - 1];
     const datasets = [{
       data: prices.slice(),
-      borderColor: line,
-      borderWidth: 1.4,
+      borderColor: ink,
+      borderWidth: 1.6,
       pointRadius: 0,
       tension: 0.15,
       order: 1,
@@ -49,9 +53,9 @@
           [last],
           future.map((_, k) => last * Math.pow(edge / last, Math.sqrt((k + 1) / m)))
         );
-        const style = { borderColor: gold, borderWidth: 1, borderDash: [4, 3], pointRadius: 0, tension: 0, order: 2 };
+        const style = { borderColor: accent, borderWidth: 1.4, pointRadius: 0, tension: 0, order: 2 };
         datasets.push(Object.assign({ data: fan(d.hi), fill: false }, style));
-        datasets.push(Object.assign({ data: fan(d.lo), fill: '-1', backgroundColor: 'rgba(201,168,76,0.14)' }, style));
+        datasets.push(Object.assign({ data: fan(d.lo), fill: '-1', backgroundColor: 'rgba(' + accentRgb + ', 0.14)' }, style));
       }
     }
 
@@ -76,9 +80,26 @@
         },
         scales: {
           x: { display: false },
-          y: { position: 'right', ticks: { color: muted, font: { size: 10 }, maxTicksLimit: 4, callback: v => fmt(v) }, grid: { color: 'rgba(255,255,255,0.03)' } },
+          y: {
+            position: 'right',
+            ticks: { color: slate, font: { size: 12 }, maxTicksLimit: 4, callback: v => fmt(v) },
+            grid: { color: rule },
+            border: { display: false },
+          },
         },
       },
     });
+  }
+
+  document.querySelectorAll('details.mrow').forEach(row => {
+    const canvas = row.querySelector('canvas[data-chart]');
+    if (!canvas) return;
+    row.addEventListener('toggle', () => { if (row.open) draw(canvas); });
+    if (row.open) draw(canvas);
   });
+
+  if (location.hash.length > 1) {
+    const target = document.getElementById(location.hash.slice(1));
+    if (target && target.matches('details.mrow')) target.open = true;
+  }
 })();
