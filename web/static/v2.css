@@ -5,7 +5,7 @@
   border-bottom: 1px solid var(--border-subtle);
 }
 .page-header h1 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--serif);
   font-size: clamp(2rem, 4vw, 2.8rem);
   font-weight: 500;
   color: var(--text-primary);
@@ -13,7 +13,7 @@
 }
 .page-subtitle {
   color: var(--text-secondary);
-  font-weight: 300;
+  font-weight: 400;
   max-width: 640px;
   line-height: 1.7;
 }
@@ -50,14 +50,13 @@
   gap: 0.35rem;
 }
 .score-label {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.68rem;
   letter-spacing: 0.1em;
-  text-transform: uppercase;
   color: var(--text-muted);
 }
 .score-value {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--serif);
   font-size: 2.2rem;
   color: var(--gold);
   line-height: 1;
@@ -73,7 +72,7 @@
   align-items: center;
   padding: 1.4rem 1.5rem;
   color: var(--gold);
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-decoration: none;
@@ -106,20 +105,19 @@
 .mkt-name {
   margin: 0;
   line-height: 1.2;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--serif);
   font-size: 1.45rem;
   font-weight: 500;
   color: var(--text-primary);
 }
 .mkt-cat {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.64rem;
   letter-spacing: 0.12em;
-  text-transform: uppercase;
   color: var(--text-muted);
 }
 .trend-badge {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.64rem;
   letter-spacing: 0.06em;
   color: var(--text-muted);
@@ -136,7 +134,7 @@
   gap: 0.6rem;
 }
 .mkt-value {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 1.6rem;
   color: var(--text-primary);
 }
@@ -154,14 +152,13 @@
   border-radius: var(--radius-sm);
 }
 .mkt-range-label {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.66rem;
   letter-spacing: 0.1em;
-  text-transform: uppercase;
   color: var(--text-muted);
 }
 .mkt-range-value {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 1.15rem;
   color: var(--gold);
 }
@@ -186,7 +183,7 @@
   gap: 2.5rem;
 }
 .tr-explain h3 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--serif);
   font-size: 1.25rem;
   font-weight: 500;
   color: var(--text-primary);
@@ -194,7 +191,7 @@
 }
 .tr-explain p {
   color: var(--text-secondary);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.75;
   font-size: 0.92rem;
 }
@@ -207,10 +204,9 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.7rem;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
   color: var(--text-muted);
 }
 .tr-filters select {
@@ -219,7 +215,7 @@
   border: 1px solid var(--border-mid);
   border-radius: var(--radius-sm);
   padding: 0.4rem 0.6rem;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--sans);
 }
 
 .tbl-wrap {
@@ -235,10 +231,9 @@
 }
 .tbl th {
   text-align: left;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.64rem;
   letter-spacing: 0.1em;
-  text-transform: uppercase;
   color: var(--text-muted);
   font-weight: 400;
   padding: 0.75rem 1rem;
@@ -256,15 +251,14 @@
 .tbl td.warn { color: var(--bearish-text); }
 .tbl td.good { color: var(--bullish-text); }
 .tbl code {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   color: var(--gold);
 }
 .pill {
   display: inline-block;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.62rem;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
   padding: 0.15rem 0.45rem;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-mid);
@@ -278,7 +272,7 @@
 .method-list {
   color: var(--text-secondary);
   font-size: 0.92rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.8;
   padding-left: 1.2rem;
   margin-bottom: 1rem;
@@ -303,7 +297,7 @@
   border: 1px solid var(--gold-dim);
   border-radius: var(--radius-sm);
   padding: 0.6rem 1.4rem;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   cursor: pointer;

@@ -49,9 +49,9 @@
   <ul class="method-list">
     <li><strong>Live forecasts</strong> are made every weekday from that day's close and stored immediately, starting {{ live_start }}.</li>
     <li><strong>Backtests</strong> run the identical code on past data, one forecast a week per market, using only prices available on each date.</li>
-    <li>A forecast is scored against the first closing price on or after its due date. The scoring happens in the database. Live forecasts are write-once: a database rule rejects any attempt to change or delete one after it is stored, and the daily job only adds new prices without rewriting old ones.</li>
-    <li>Forecasts overlap, because each one looks {{ horizon_days }} days ahead and a new one is made every week or weekday. The scored counts therefore overstate how many independent tests there are.</li>
-    <li>The backtest is not a blind test. The model was built and adjusted while that history was available, so only live forecasts are a real out-of-sample test.</li>
+    <li>A forecast is scored against the first closing price on or after its due date. The scoring happens in the database. <strong>Live forecasts are write-once</strong>: a database rule rejects any attempt to change or delete one after it is stored, and the daily job only adds new prices without rewriting old ones.</li>
+    <li><strong>Forecasts overlap</strong>, because each one looks {{ horizon_days }} days ahead and a new one is made every week or weekday. The scored counts therefore overstate how many independent tests there are.</li>
+    <li><strong>The backtest is not a blind test.</strong> The model was built and adjusted while that history was available, so only live forecasts are a real out-of-sample test.</li>
   </ul>
 </section>
 
